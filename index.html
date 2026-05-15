@@ -14,13 +14,12 @@
             --accent-green: #00A651;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        body { background: #f8f9fa; color: var(--telecel-black); line-height: 1.6; }
+        body { background: #f8f9fa; color: var(--telecel-black); line-height: 1.6; overflow-x: hidden; }
 
         .orb { position: fixed; border-radius: 50%; filter: blur(100px); z-index: -1; opacity: 0.18; }
         .orb-1 { width: 550px; height: 550px; background: var(--telecel-red); top: -220px; left: -200px; }
         .orb-2 { width: 450px; height: 450px; background: #ff6b5e; bottom: -180px; right: -160px; }
 
-        /* Red Header */
         nav {
             background: var(--telecel-red);
             color: white;
@@ -39,7 +38,7 @@
         }
         .nav-left { display: flex; align-items: center; gap: 12px; }
         .telecel-logo { width: 180px; height: 180px; }
-        .brand-title { font-size: 26px; font-weight: 800; }
+        .brand-title { font-size: 27px; font-weight: 800; }
         .brand-title .loans { color: var(--telecel-blue); }
 
         .nav-links { display: flex; gap: 28px; }
@@ -48,109 +47,132 @@
 
         .hamburger { display: none; font-size: 32px; cursor: pointer; color: white; }
 
-        /* Mobile Menu */
         .mobile-menu {
             display: none;
             position: fixed;
             top: 78px; left: 0; width: 100%;
             background: white;
             box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-            padding: 20px;
+            padding: 25px 20px;
             z-index: 999;
         }
         .mobile-menu a {
-            display: block; padding: 15px 0; font-size: 1.1rem;
+            display: block; padding: 15px 0; font-size: 1.15rem;
             color: var(--telecel-black); text-decoration: none;
             border-bottom: 1px solid #eee;
         }
 
         .hero { padding: 100px 5% 60px; text-align: center; }
-        .hero h1 { font-size: clamp(2.6rem, 8vw, 4.4rem); font-weight: 800; margin-bottom: 18px; }
+        .hero h1 { font-size: clamp(2.7rem, 8vw, 4.5rem); font-weight: 800; margin-bottom: 18px; }
         .hero h1 span { color: var(--telecel-red); }
 
-        /* Calculator */
+        /* Calculator - Improved to match screenshot style */
         .estimator {
-            max-width: 620px;
+            max-width: 640px;
             margin: 30px auto;
             background: white;
-            padding: 45px 40px;
-            border-radius: 28px;
-            box-shadow: 0 25px 70px rgba(228, 35, 32, 0.2);
+            padding: 50px 45px;
+            border-radius: 32px;
+            box-shadow: 0 25px 70px rgba(228, 35, 32, 0.22);
         }
-        .form-group { margin-bottom: 28px; }
-        label { display: block; font-weight: 600; margin-bottom: 8px; }
+        .form-group { margin-bottom: 30px; }
+        label { display: block; font-weight: 600; margin-bottom: 10px; font-size: 1.1rem; }
         input[type="range"] { width: 100%; accent-color: var(--telecel-red); }
-        .slider-value { text-align: center; font-size: 1.75rem; font-weight: 700; color: var(--telecel-red); margin: 10px 0; }
+        .slider-value { text-align: center; font-size: 1.8rem; font-weight: 700; color: var(--telecel-red); margin: 12px 0; }
 
         .result {
             background: #fff0f0;
-            padding: 32px;
-            border-radius: 20px;
+            padding: 40px 30px;
+            border-radius: 24px;
             text-align: center;
-            margin: 30px 0;
+            margin: 35px 0;
         }
-        .receive-text { font-size: 1.2rem; }
-        .receive-amount { font-size: 1.7rem; font-weight: 700; }
-        .amount-repay { font-size: 2.4rem; font-weight: 800; color: var(--accent-green); margin: 10px 0; }
+        .receive-text { font-size: 1.25rem; margin-bottom: 6px; }
+        .receive-amount { font-size: 1.85rem; font-weight: 700; color: #333; }
+        .amount-repay { font-size: 2.65rem; font-weight: 800; color: var(--accent-green); margin: 12px 0; }
+        .interest-rate { font-size: 1.15rem; color: #444; }
 
         .btn-proceed {
             width: 100%;
             background: var(--telecel-red);
             color: white;
             border: none;
-            padding: 20px;
-            font-size: 1.3rem;
+            padding: 22px;
+            font-size: 1.35rem;
             font-weight: 700;
-            border-radius: 14px;
+            border-radius: 16px;
             cursor: pointer;
         }
 
-        .section { padding: 80px 5%; max-width: 1400px; margin: 0 auto; }
-        .section-title { text-align: center; font-size: 2.5rem; margin-bottom: 50px; font-weight: 700; }
+        .section { padding: 85px 5%; max-width: 1400px; margin: 0 auto; }
+        .section-title { text-align: center; font-size: 2.6rem; margin-bottom: 50px; font-weight: 700; }
 
         .packages-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+            gap: 28px;
         }
         .package-card, .testimonial-card, .benefit-card {
             background: white;
-            padding: 32px 20px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            padding: 35px 25px;
+            border-radius: 24px;
+            box-shadow: 0 12px 35px rgba(0,0,0,0.09);
             text-align: center;
         }
-        .package-amount { font-size: 1.65rem; font-weight: 700; color: var(--telecel-red); margin: 12px 0; }
+        .package-amount { font-size: 1.7rem; font-weight: 700; color: var(--telecel-red); margin: 15px 0; }
+        .get-loan-btn {
+            width: 100%;
+            background: white;
+            color: var(--telecel-red);
+            border: 2px solid var(--telecel-red);
+            padding: 16px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 12px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
 
         footer {
             background: var(--telecel-black);
             color: white;
-            padding: 80px 5% 40px;
+            padding: 85px 5% 40px;
         }
         .footer-grid {
             max-width: 1200px;
             margin: 0 auto 50px;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 40px;
             text-align: left;
         }
 
+        /* Beautiful Modal */
         .modal {
             display: none;
             position: fixed;
             top: 0; left: 0;
             width: 100%; height: 100%;
-            background: rgba(0,0,0,0.85);
+            background: rgba(0,0,0,0.8);
             z-index: 2000;
             align-items: center;
             justify-content: center;
         }
+        .modal-content {
+            background: white;
+            padding: 40px 35px;
+            border-radius: 28px;
+            max-width: 460px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        .modal-content h3 { color: var(--telecel-red); margin-bottom: 20px; }
 
         @media (max-width: 768px) {
             .nav-links { display: none; }
             .hamburger { display: block; }
-            .telecel-logo { width: 120px; height: 120px; }
+            .telecel-logo { width: 130px; height: 130px; }
         }
     </style>
 </head>
@@ -192,14 +214,14 @@
 
     <section class="hero" id="home">
         <h1>Instant <span>Flex Loans</span> with Telecel Cash</h1>
-        <p style="font-size:1.35rem; max-width:760px; margin:0 auto 30px;">
+        <p style="font-size:1.35rem; max-width:760px; margin:0 auto 35px;">
             As a regular Telecel user, you qualify for fast cash. No collateral. Money in your wallet in minutes.
         </p>
     </section>
 
     <!-- Calculator -->
     <div class="estimator">
-        <h2 style="text-align:center; margin-bottom:30px; color:var(--telecel-red);">Quick Loan Calculator</h2>
+        <h2 style="text-align:center; margin-bottom:35px; color:var(--telecel-red);">Quick Loan Calculator</h2>
         
         <div class="form-group">
             <label>Loan Amount (GHS) — <span id="sliderValue">5000</span></label>
@@ -219,13 +241,15 @@
         <div class="result">
             <p class="receive-text">You will receive:</p>
             <p class="receive-amount" id="receive">GHS 5,000</p>
+            
             <p class="amount-repay">Total to Repay: <span id="repay">GHS 5,445</span></p>
-            <p id="interestRate" style="margin-top:12px;">Interest Rate: <strong style="color:var(--accent-green);">8.9%</strong></p>
+            
+            <p id="interestRate" style="margin-top:15px; font-size:1.15rem;">Interest Rate: <strong style="color:var(--accent-green);">8.9%</strong></p>
         </div>
         <button class="btn-proceed" onclick="showConfirmModal()">Proceed to Apply →</button>
     </div>
 
-    <!-- Popular Loans -->
+    <!-- Popular Packages -->
     <section class="section" id="packages">
         <h2 class="section-title">Popular Loan Packages</h2>
         <div class="packages-grid">
@@ -273,18 +297,18 @@
         <div class="packages-grid">
             <div class="testimonial-card"><p>"Got GHS 8,000 in 12 minutes!"</p><strong>— Ama Mensah, Accra</strong></div>
             <div class="testimonial-card"><p>"School fees sorted instantly. Thank you!"</p><strong>— Kofi Boateng, Kumasi</strong></div>
-            <div class="testimonial-card"><p>"Emergency GHS 4,500 same day."</p><strong>— Fatima Ali, Tamale</strong></div>
-            <div class="testimonial-card"><p>"Business boosted with GHS 15,000."</p><strong>— Samuel Osei, Takoradi</strong></div>
+            <div class="testimonial-card"><p>"Emergency GHS 4,500 same day. Reliable!"</p><strong>— Fatima Ali, Tamale</strong></div>
+            <div class="testimonial-card"><p>"Business boosted with GHS 15,000 loan."</p><strong>— Samuel Osei, Takoradi</strong></div>
             <div class="testimonial-card"><p>"Best loan service in Ghana!"</p><strong>— Abena Frimpong, Cape Coast</strong></div>
             <div class="testimonial-card"><p>"Received GHS 6,000 within 18 minutes."</p><strong>— Kwame Mensah, Sunyani</strong></div>
             <div class="testimonial-card"><p>"No stress, money came fast."</p><strong>— Yaa Asantewaa, Ho</strong></div>
-            <div class="testimonial-card"><p>"Helped during emergency."</p><strong>— Emmanuel Addo, Koforidua</strong></div>
+            <div class="testimonial-card"><p>"Helped me during emergency."</p><strong>— Emmanuel Addo, Koforidua</strong></div>
             <div class="testimonial-card"><p>"GHS 10,000 for my shop. Excellent!"</p><strong>— Grace Ofori, Tema</strong></div>
             <div class="testimonial-card"><p>"Very fast and trustworthy."</p><strong>— Michael Nti, Tarkwa</strong></div>
             <div class="testimonial-card"><p>"School fees loan saved us!"</p><strong>— Patricia Agyei, Bolgatanga</strong></div>
-            <div class="testimonial-card"><p>"GHS 3,000 in 10 minutes."</p><strong>— Joseph Tetteh, Wa</strong></div>
+            <div class="testimonial-card"><p>"GHS 3,000 in 10 minutes. Amazing!"</p><strong>— Joseph Tetteh, Wa</strong></div>
             <div class="testimonial-card"><p>"Best decision this year."</p><strong>— Evelyn Arhin, Kasoa</strong></div>
-            <div class="testimonial-card"><p>"Professional service."</p><strong>— Daniel Asamoah, Elmina</strong></div>
+            <div class="testimonial-card"><p>"Professional and fast service."</p><strong>— Daniel Asamoah, Elmina</strong></div>
             <div class="testimonial-card"><p>"GHS 12,000 approved instantly."</p><strong>— Rebecca Osei, Obuasi</strong></div>
         </div>
     </section>
@@ -293,13 +317,13 @@
     <section class="section" id="faq">
         <h2 class="section-title">Frequently Asked Questions</h2>
         <div class="packages-grid" style="grid-template-columns:1fr; max-width:900px; margin:auto;">
-            <div style="background:white; padding:22px; border-radius:16px; margin-bottom:12px; cursor:pointer;" onclick="toggleFAQ(this)"><strong>How fast is disbursement?</strong><div class="faq-answer" style="display:none; margin-top:10px; color:#333;">Within 10-25 minutes after approval.</div></div>
-            <div style="background:white; padding:22px; border-radius:16px; margin-bottom:12px; cursor:pointer;" onclick="toggleFAQ(this)"><strong>Who can apply?</strong><div class="faq-answer" style="display:none; margin-top:10px; color:#333;">Any active Telecel customer.</div></div>
-            <div style="background:white; padding:22px; border-radius:16px; margin-bottom:12px; cursor:pointer;" onclick="toggleFAQ(this)"><strong>Collateral required?</strong><div class="faq-answer" style="display:none; margin-top:10px; color:#333;">No collateral needed.</div></div>
-            <div style="background:white; padding:22px; border-radius:16px; margin-bottom:12px; cursor:pointer;" onclick="toggleFAQ(this)"><strong>Interest rates?</strong><div class="faq-answer" style="display:none; margin-top:10px; color:#333;">From 6.5% depending on period.</div></div>
+            <div style="background:white; padding:22px; border-radius:16px; margin-bottom:12px; cursor:pointer;" onclick="toggleFAQ(this)"><strong>How fast do I get the money?</strong><div class="faq-answer" style="display:none; margin-top:10px; color:#333;">Usually within 10-25 minutes after approval.</div></div>
+            <div style="background:white; padding:22px; border-radius:16px; margin-bottom:12px; cursor:pointer;" onclick="toggleFAQ(this)"><strong>Who can apply?</strong><div class="faq-answer" style="display:none; margin-top:10px; color:#333;">Any active Telecel customer with Telecel Cash wallet.</div></div>
+            <div style="background:white; padding:22px; border-radius:16px; margin-bottom:12px; cursor:pointer;" onclick="toggleFAQ(this)"><strong>Is collateral required?</strong><div class="faq-answer" style="display:none; margin-top:10px; color:#333;">No collateral needed.</div></div>
+            <div style="background:white; padding:22px; border-radius:16px; margin-bottom:12px; cursor:pointer;" onclick="toggleFAQ(this)"><strong>What are the interest rates?</strong><div class="faq-answer" style="display:none; margin-top:10px; color:#333;">From 6.5% depending on duration.</div></div>
             <div style="background:white; padding:22px; border-radius:16px; margin-bottom:12px; cursor:pointer;" onclick="toggleFAQ(this)"><strong>Can I repay early?</strong><div class="faq-answer" style="display:none; margin-top:10px; color:#333;">Yes, no penalty.</div></div>
-            <div style="background:white; padding:22px; border-radius:16px; margin-bottom:12px; cursor:pointer;" onclick="toggleFAQ(this)"><strong>How do I get the money?</strong><div class="faq-answer" style="display:none; margin-top:10px; color:#333;">Directly to Telecel Cash wallet.</div></div>
-            <div style="background:white; padding:22px; border-radius:16px; margin-bottom:12px; cursor:pointer;" onclick="toggleFAQ(this)"><strong>Documents needed?</strong><div class="faq-answer" style="display:none; margin-top:10px; color:#333;">Ghana Card + active line.</div></div>
+            <div style="background:white; padding:22px; border-radius:16px; margin-bottom:12px; cursor:pointer;" onclick="toggleFAQ(this)"><strong>How do I receive the money?</strong><div class="faq-answer" style="display:none; margin-top:10px; color:#333;">Directly to your Telecel Cash wallet.</div></div>
+            <div style="background:white; padding:22px; border-radius:16px; margin-bottom:12px; cursor:pointer;" onclick="toggleFAQ(this)"><strong>What documents do I need?</strong><div class="faq-answer" style="display:none; margin-top:10px; color:#333;">Ghana Card and active line.</div></div>
             <div style="background:white; padding:22px; border-radius:16px; margin-bottom:12px; cursor:pointer;" onclick="toggleFAQ(this)"><strong>24/7 service?</strong><div class="faq-answer" style="display:none; margin-top:10px; color:#333;">Yes.</div></div>
             <div style="background:white; padding:22px; border-radius:16px; margin-bottom:12px; cursor:pointer;" onclick="toggleFAQ(this)"><strong>Maximum amount?</strong><div class="faq-answer" style="display:none; margin-top:10px; color:#333;">Up to GHS 25,000.</div></div>
             <div style="background:white; padding:22px; border-radius:16px; margin-bottom:12px; cursor:pointer;" onclick="toggleFAQ(this)"><strong>Multiple applications?</strong><div class="faq-answer" style="display:none; margin-top:10px; color:#333;">Yes, after repayment.</div></div>
@@ -310,7 +334,7 @@
         <div class="footer-grid">
             <div>
                 <h3 style="color:var(--telecel-red);">TelecelLoans</h3>
-                <p>Instant cash by Telecel Ghana.</p>
+                <p>Instant financial solutions by Telecel Ghana.</p>
             </div>
             <div>
                 <h4>Quick Links</h4>
@@ -324,14 +348,14 @@
         <p style="margin-top:40px; opacity:0.8;">© 2026 Telecel Ghana • All Rights Reserved</p>
     </footer>
 
-    <!-- Modal -->
+    <!-- Beautiful Modal -->
     <div class="modal" id="confirmModal">
         <div class="modal-content">
             <h3>Confirm Your Loan</h3>
-            <p><strong>Amount:</strong> <span id="modalAmount"></span></p>
-            <p><strong>Total to Repay:</strong> <span id="modalRepay"></span></p>
-            <p><strong>Duration:</strong> <span id="modalDuration"></span> Days</p>
-            <button onclick="confirmProceed()" style="margin:25px 10px; padding:18px 50px; background:var(--telecel-red); color:white; border:none; border-radius:14px; font-weight:700;">Yes, Proceed</button>
+            <p><strong>Amount to Receive:</strong> <span id="modalAmount">GHS 5,000</span></p>
+            <p><strong>Total to Repay:</strong> <span id="modalRepay">GHS 5,445</span></p>
+            <p><strong>Duration:</strong> <span id="modalDuration">30</span> Days</p>
+            <button onclick="confirmProceed()" style="margin:25px 10px; padding:18px 50px; background:var(--telecel-red); color:white; border:none; border-radius:14px; font-weight:700;">Yes, Proceed to Application</button>
             <button onclick="closeModal()" style="padding:18px 50px; background:#ddd; border:none; border-radius:14px;">Cancel</button>
         </div>
     </div>
