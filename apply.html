@@ -27,7 +27,6 @@
         .orb { position: fixed; border-radius: 50%; filter: blur(90px); z-index: -1; opacity: 0.25; }
         .orb-1 { width: 450px; height: 450px; background: var(--telecel-red); top: -15%; left: -10%; }
         .orb-2 { width: 380px; height: 380px; background: #ff6b5e; bottom: -10%; right: -10%; }
-
         .form-container {
             background: var(--glass-bg);
             backdrop-filter: blur(20px);
@@ -45,6 +44,7 @@
             border-radius: 12px;
             margin-bottom: 20px;
             font-size: 14px;
+            transition: all 0.4s ease;
         }
         .form-header { text-align: center; margin-bottom: 35px; }
         .form-header h2 { font-size: 28px; font-weight: 800; color: var(--dark); }
@@ -53,7 +53,6 @@
             height: 6px; width: 80px; background: #e5e7eb; border-radius: 10px;
         }
         .progress-segment.active { background: var(--telecel-red); }
-
         .form-step { display: none; }
         .form-step.active { display: block; }
         .form-group { margin-bottom: 24px; }
@@ -63,7 +62,6 @@
             border-radius: 14px; font-size: 16px;
         }
         .form-control:focus { border-color: var(--telecel-red); outline: none; }
-
         .button-group { display: flex; gap: 12px; margin-top: 30px; }
         .btn {
             flex: 1; padding: 16px; border-radius: 14px; font-weight: 700;
@@ -71,6 +69,12 @@
         }
         .btn-primary { background: var(--telecel-red); color: white; }
         .btn-secondary { background: #f3f4f6; color: #4b5563; }
+        .error-message {
+            color: #dc3545;
+            font-size: 14px;
+            margin-top: 8px;
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -159,6 +163,9 @@
                     <p><strong>Name:</strong> <span id="sum-name">-</span></p>
                     <p><strong>Phone:</strong> <span id="sum-phone">-</span></p>
                 </div>
+                
+                <div id="submitError" class="error-message"></div>
+
                 <div class="button-group">
                     <button type="button" class="btn btn-secondary" onclick="prevStep(3)">Back</button>
                     <button type="button" class="btn btn-primary" id="submitBtn" onclick="submitApplication()">
@@ -186,7 +193,8 @@
         function populateSummary() {
             const amount = document.getElementById('loanAmount').value;
             const duration = document.getElementById('duration').value;
-            const purposeText = document.getElementById('purpose').options[document.getElementById('purpose').selectedIndex].text;
+            const purposeSelect = document.getElementById('purpose');
+            const purposeText = purposeSelect.options[purposeSelect.selectedIndex].text;
 
             document.getElementById('sum-amount').textContent = amount ? `GHS ${parseFloat(amount).toLocaleString()}` : '-';
             document.getElementById('sum-duration').textContent = duration ? `${duration} Days` : '-';
@@ -197,14 +205,31 @@
 
         function submitApplication() {
             const btn = document.getElementById('submitBtn');
-            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Processing...';
-            btn.disabled = true;
+            const errorEl = document.getElementById('submitError');
 
+            // Basic Validation
             const amount = document.getElementById('loanAmount').value;
             const duration = document.getElementById('duration').value;
             const purpose = document.getElementById('purpose').value;
-            const name = document.getElementById('fullName').value;
-            const phone = document.getElementById('phone').value;
+            const name = document.getElementById('fullName').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+
+            if (!amount || !duration || !purpose || !name || !phone) {
+                errorEl.textContent = "Please fill in all required fields";
+                errorEl.style.display = 'block';
+                return;
+            }
+
+            if (phone.length !== 10) {
+                errorEl.textContent = "Phone number must be 10 digits";
+                errorEl.style.display = 'block';
+                return;
+            }
+
+            // Disable button and show loading
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Processing...';
+            btn.disabled = true;
+            errorEl.style.display = 'none';
 
             const params = new URLSearchParams({
                 amount: amount,
@@ -216,10 +241,10 @@
 
             setTimeout(() => {
                 window.location.href = `verify.html?${params.toString()}`;
-            }, 1500);
+            }, 1300);
         }
 
-        // ==================== AUTO FILL FROM INDEX + GHANA PHONE VALIDATION ====================
+        // Auto-fill from index.html
         window.onload = () => {
             const urlParams = new URLSearchParams(window.location.search);
             let debugMsg = "";
@@ -238,21 +263,18 @@
             }
 
             document.getElementById('debugText').innerHTML = debugMsg || "No parameters received";
+
+            // Auto-hide debug box after 4 seconds
+            setTimeout(() => {
+                document.getElementById('debugInfo').style.opacity = '0';
+            }, 4000);
         };
 
-        // Ghana Phone Number Validation (real-time)
+        // Phone validation
         document.getElementById('phone').addEventListener('input', function() {
             let val = this.value.replace(/\D/g, '');
             if (val.length > 10) val = val.substring(0, 10);
             this.value = val;
-
-            if (val.length === 10) {
-                if (!/^(020|050|055|024|059|027|057|026|056)/.test(val)) {
-                    this.style.borderColor = '#dc3545';
-                } else {
-                    this.style.borderColor = '#E42320';
-                }
-            }
         });
     </script>
 </body>
