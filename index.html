@@ -18,17 +18,18 @@
             background: #f8f9fa;
             color: var(--dark);
             line-height: 1.6;
-            overflow-x: hidden;
         }
+
+        /* Background Orbs */
         .orb {
-            position: absolute;
+            position: fixed;
             border-radius: 50%;
             filter: blur(90px);
             z-index: -1;
-            opacity: 0.35;
+            opacity: 0.25;
         }
-        .orb-1 { width: 450px; height: 450px; background: var(--telecel-red); top: -150px; left: -150px; }
-        .orb-2 { width: 350px; height: 350px; background: #ff6b5e; bottom: 10%; right: -50px; }
+        .orb-1 { width: 500px; height: 500px; background: var(--telecel-red); top: -180px; left: -150px; }
+        .orb-2 { width: 400px; height: 400px; background: #ff6b5e; bottom: -100px; right: -100px; }
 
         nav {
             background: rgba(255,255,255,0.95);
@@ -37,7 +38,7 @@
             top: 0;
             z-index: 1000;
             border-bottom: 1px solid #eee;
-            padding: 15px 5%;
+            padding: 16px 5%;
         }
         .nav-container {
             max-width: 1400px;
@@ -54,11 +55,12 @@
         .nav-links a {
             text-decoration: none;
             color: var(--dark);
-            margin-left: 30px;
+            margin-left: 28px;
             font-weight: 600;
         }
         .nav-links a:hover { color: var(--telecel-red); }
 
+        /* Hero */
         .hero {
             padding: 100px 5% 80px;
             max-width: 1200px;
@@ -66,40 +68,45 @@
             text-align: center;
         }
         .hero h1 {
-            font-size: clamp(2.4rem, 6vw, 3.8rem);
+            font-size: clamp(2.6rem, 7vw, 4rem);
             font-weight: 800;
             margin-bottom: 20px;
         }
         .hero h1 span { color: var(--telecel-red); }
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-gray);
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
 
-        /* Simple Loan Estimator */
+        /* Estimator */
         .estimator {
             max-width: 520px;
             margin: 40px auto;
             background: white;
-            padding: 40px;
-            border-radius: 24px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+            padding: 40px 30px;
+            border-radius: 28px;
+            box-shadow: 0 20px 50px rgba(228, 35, 32, 0.12);
         }
         .form-group { margin-bottom: 25px; text-align: left; }
         label { display: block; font-weight: 600; margin-bottom: 8px; color: var(--text-gray); }
         input, select {
             width: 100%;
-            padding: 14px 16px;
+            padding: 15px;
             border: 2px solid #e5e7eb;
-            border-radius: 12px;
+            border-radius: 14px;
             font-size: 16px;
         }
         .result {
-            background: #f8fafc;
+            background: #fff0f0;
             padding: 20px;
             border-radius: 16px;
             margin: 25px 0;
             text-align: center;
-            border: 2px solid #fee2e2;
         }
         .amount-repay {
-            font-size: 1.8rem;
+            font-size: 1.85rem;
             font-weight: 800;
             color: var(--telecel-red);
         }
@@ -113,54 +120,49 @@
             font-weight: 700;
             border-radius: 14px;
             cursor: pointer;
-            margin-top: 10px;
         }
 
-        /* Loan Packages */
-        .loan-packages {
-            padding: 80px 5%;
-            background: #fff;
+        /* Sections */
+        .section {
+            padding: 90px 5%;
+            max-width: 1400px;
+            margin: 0 auto;
         }
         .section-title {
             text-align: center;
-            font-size: 2.6rem;
+            font-size: 2.5rem;
             margin-bottom: 50px;
             font-weight: 700;
         }
-        .packages-grid {
+        .packages-grid, .steps-grid, .testimonial-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 25px;
-            max-width: 1200px;
-            margin: 0 auto;
         }
-        .package-card {
+        .package-card, .step-card, .testimonial-card {
             background: white;
-            border-radius: 20px;
             padding: 30px;
+            border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.08);
             text-align: center;
         }
-        .package-card h3 { color: var(--telecel-red); margin: 15px 0; }
         .get-loan-btn {
             width: 100%;
             background: var(--telecel-red);
             color: white;
             border: none;
-            padding: 14px;
+            padding: 15px;
             border-radius: 12px;
             font-weight: 700;
             cursor: pointer;
             margin-top: 15px;
         }
 
-        /* How It Works, Testimonials, FAQ, Footer styles... (kept clean) */
-        .how-it-works, .testimonials, .faq { padding: 90px 5%; }
-        .steps-grid, .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-        .step-card, .testimonial-card { text-align: center; padding: 30px; background: white; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
-        .step-card i { font-size: 3.5rem; color: var(--telecel-red); margin-bottom: 20px; }
-
-        .faq-item { margin-bottom: 20px; border-bottom: 1px solid #eee; }
+        /* FAQ */
+        .faq-item {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
         .faq-question {
             cursor: pointer;
             padding: 18px 0;
@@ -168,31 +170,31 @@
             display: flex;
             justify-content: space-between;
         }
-        .faq-answer { display: none; padding-bottom: 20px; color: var(--text-gray); }
 
         footer {
             background: var(--dark);
             color: white;
             padding: 80px 5% 40px;
+            text-align: center;
         }
 
-        /* Confirmation Modal */
+        /* Modal */
         .modal {
             display: none;
             position: fixed;
             top: 0; left: 0;
             width: 100%; height: 100%;
-            background: rgba(0,0,0,0.75);
+            background: rgba(0,0,0,0.8);
             z-index: 2000;
             align-items: center;
             justify-content: center;
         }
         .modal-content {
             background: white;
+            padding: 35px;
+            border-radius: 24px;
             max-width: 420px;
             width: 90%;
-            border-radius: 20px;
-            padding: 30px;
             text-align: center;
         }
     </style>
@@ -206,7 +208,7 @@
             <div class="logo"><strong>TELECEL</strong></div>
             <div class="nav-links">
                 <a href="#home">Home</a>
-                <a href="#packages">Loan Types</a>
+                <a href="#packages">Loans</a>
                 <a href="#how">How it Works</a>
                 <a href="#faq">FAQ</a>
             </div>
@@ -215,137 +217,137 @@
 
     <section class="hero" id="home">
         <h1>Instant <span>Flex Loans</span> with Telecel Cash</h1>
-        <p>Get quick cash directly into your Telecel Wallet. No collateral. Instant approval.</p>
-
-        <!-- Simple Loan Estimator -->
-        <div class="estimator">
-            <h2 style="margin-bottom:25px;">Quick Loan Estimator</h2>
-            
-            <div class="form-group">
-                <label>Loan Amount (GHS)</label>
-                <input type="number" id="amount" placeholder="5000" min="500" max="25000" value="5000" oninput="calculateRepayment()">
-            </div>
-
-            <div class="form-group">
-                <label>Repayment Period</label>
-                <select id="duration" onchange="calculateRepayment()">
-                    <option value="7">7 Days</option>
-                    <option value="14">14 Days</option>
-                    <option value="30" selected>30 Days</option>
-                    <option value="60">60 Days</option>
-                    <option value="90">90 Days</option>
-                </select>
-            </div>
-
-            <div class="result">
-                <p>You will receive: <strong id="receive">GHS 5,000</strong></p>
-                <p class="amount-repay">Total to Repay: <span id="repay">GHS 5,445</span></p>
-            </div>
-
-            <button class="btn-proceed" onclick="showConfirmModal()">Proceed to Apply →</button>
-        </div>
+        <p>Get quick cash for emergencies, business, school fees, or personal needs. No collateral. Money in your wallet in minutes.</p>
     </section>
 
+    <!-- Quick Estimator -->
+    <div class="estimator">
+        <h2 style="margin-bottom:25px;">Quick Loan Estimator (8.9% Interest)</h2>
+        <div class="form-group">
+            <label>Loan Amount (GHS)</label>
+            <input type="number" id="amount" value="5000" oninput="calculateRepayment()">
+        </div>
+        <div class="form-group">
+            <label>Repayment Period</label>
+            <select id="duration" onchange="calculateRepayment()">
+                <option value="7">7 Days</option>
+                <option value="14">14 Days</option>
+                <option value="30" selected>30 Days</option>
+                <option value="60">60 Days</option>
+                <option value="90">90 Days</option>
+            </select>
+        </div>
+        <div class="result">
+            <p>You will receive: <strong id="receive">GHS 5,000</strong></p>
+            <p class="amount-repay">Total to Repay: <span id="repay">GHS 5,445</span></p>
+        </div>
+        <button class="btn-proceed" onclick="showConfirmModal()">Proceed to Apply →</button>
+    </div>
+
     <!-- Loan Packages -->
-    <section class="loan-packages" id="packages">
+    <section class="section" id="packages">
         <h2 class="section-title">Popular Loan Packages</h2>
         <div class="packages-grid">
             <div class="package-card">
                 <h3>Emergency Loan</h3>
                 <div class="package-amount">GHS 1,000 - 5,000</div>
-                <button class="get-loan-btn" onclick="quickApply(3000, 14, 'Emergency')">Get Emergency Loan</button>
+                <button class="get-loan-btn" onclick="quickApply(3000, 14, 'Emergency')">Get This Loan</button>
             </div>
             <div class="package-card">
                 <h3>Business Loan</h3>
                 <div class="package-amount">GHS 5,000 - 20,000</div>
-                <button class="get-loan-btn" onclick="quickApply(10000, 45, 'Business')">Get Business Loan</button>
+                <button class="get-loan-btn" onclick="quickApply(10000, 45, 'Business')">Get This Loan</button>
             </div>
             <div class="package-card">
                 <h3>School Fees Loan</h3>
                 <div class="package-amount">GHS 2,000 - 8,000</div>
-                <button class="get-loan-btn" onclick="quickApply(5000, 30, 'Education')">Get School Fees Loan</button>
+                <button class="get-loan-btn" onclick="quickApply(5000, 30, 'Education')">Get This Loan</button>
             </div>
         </div>
     </section>
 
     <!-- How It Works -->
-    <section class="how-it-works" id="how">
+    <section class="section" id="how">
         <h2 class="section-title">How It Works</h2>
-        <div class="steps-grid">
+        <div class="packages-grid">
             <div class="step-card">
                 <i class="fa-solid fa-mobile-screen-button"></i>
                 <h3>1. Choose Amount</h3>
-                <p>Use the estimator or pick a package.</p>
+                <p>Use estimator or select a package</p>
             </div>
             <div class="step-card">
                 <i class="fa-solid fa-check-circle"></i>
-                <h3>2. Fill Details</h3>
-                <p>Provide basic information and verify.</p>
+                <h3>2. Apply & Verify</h3>
+                <p>Fill details and verify your number</p>
             </div>
             <div class="step-card">
                 <i class="fa-solid fa-money-bill-wave"></i>
-                <h3>3. Get Money</h3>
-                <p>Funds credited instantly to your Telecel Wallet.</p>
+                <h3>3. Get Paid</h3>
+                <p>Money sent instantly to your Telecel Wallet</p>
             </div>
         </div>
     </section>
 
     <!-- Testimonials -->
-    <section class="testimonials">
+    <section class="section testimonials" style="background:#f1f5f9;">
         <h2 class="section-title">What Our Customers Say</h2>
-        <div class="testimonial-grid">
-            <div class="testimonial-card"><p>"Got GHS 4,000 instantly for medical emergency. Life saver!"</p><strong>— Akosua Mensah</strong></div>
-            <div class="testimonial-card"><p>"Business loan in minutes. Very reliable service."</p><strong>— Kwame Osei</strong></div>
-            <div class="testimonial-card"><p>"School fees sorted within 15 minutes. Thank you!"</p><strong>— Abena Frimpong</strong></div>
+        <div class="packages-grid">
+            <div class="testimonial-card">
+                <p>"Received GHS 5,000 in less than 15 minutes. Amazing service!"</p>
+                <strong>— Comfort Mensah, Accra</strong>
+            </div>
+            <div class="testimonial-card">
+                <p>"Business boosted with quick loan. Highly recommended!"</p>
+                <strong>— Kwame Osei, Kumasi</strong>
+            </div>
+            <div class="testimonial-card">
+                <p>"School fees sorted instantly. Thank you Telecel!"</p>
+                <strong>— Abena Frimpong, Takoradi</strong>
+            </div>
         </div>
     </section>
 
     <!-- FAQ -->
-    <section class="faq" id="faq">
+    <section class="section" id="faq">
         <h2 class="section-title">Frequently Asked Questions</h2>
-        <div class="faq-item">
-            <div class="faq-question" onclick="toggleFAQ(this)">How fast is the approval? <i class="fa-solid fa-chevron-down"></i></div>
-            <div class="faq-answer">Most applications are approved and disbursed within 10-20 minutes.</div>
-        </div>
-        <div class="faq-item">
-            <div class="faq-question" onclick="toggleFAQ(this)">Is there collateral required? <i class="fa-solid fa-chevron-down"></i></div>
-            <div class="faq-answer">No collateral is needed for Flex Loans.</div>
+        <div class="packages-grid" style="grid-template-columns: 1fr;">
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">How fast can I get the money? <i class="fa-solid fa-chevron-down"></i></div>
+                <div class="faq-answer">Most loans are disbursed within 10-20 minutes after verification.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">Do I need collateral? <i class="fa-solid fa-chevron-down"></i></div>
+                <div class="faq-answer">No collateral is required.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">What is the interest rate? <i class="fa-solid fa-chevron-down"></i></div>
+                <div class="faq-answer">Flat rate of 8.9% on the loan amount.</div>
+            </div>
         </div>
     </section>
 
     <footer>
-        <div style="max-width:1400px; margin:auto; display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:40px;">
-            <div>
-                <div class="logo" style="color:white; font-size:32px;">TELECEL</div>
-                <p>Instant financial solutions.</p>
-            </div>
-            <div><h4 style="color:var(--telecel-red);">Support</h4><p>Call 100</p></div>
-        </div>
-        <div style="text-align:center; margin-top:50px; color:#888;">
-            © 2026 Telecel Ghana. All Rights Reserved.
-        </div>
+        <p style="max-width:1400px; margin:auto;">© 2026 Telecel Ghana • All Rights Reserved</p>
     </footer>
 
     <!-- Confirmation Modal -->
     <div class="modal" id="confirmModal">
         <div class="modal-content">
-            <h3>Loan Summary</h3>
-            <p><strong>Amount to Receive:</strong> <span id="modal-receive"></span></p>
-            <p><strong>Total Repayment:</strong> <span id="modal-repay"></span></p>
-            <p><strong>Duration:</strong> <span id="modal-duration"></span> Days</p>
-            <button onclick="confirmAndProceed()" style="margin-top:20px; padding:14px 40px; background:var(--telecel-red); color:white; border:none; border-radius:12px; font-weight:700; cursor:pointer;">Confirm & Proceed to Application</button>
-            <button onclick="closeModal()" style="margin-top:10px; padding:14px 40px; background:#ddd; border:none; border-radius:12px;">Cancel</button>
+            <h3>Confirm Your Loan</h3>
+            <p><strong>Amount to Receive:</strong> <span id="modalAmount"></span></p>
+            <p><strong>Total Repayment:</strong> <span id="modalRepay"></span></p>
+            <p><strong>Duration:</strong> <span id="modalDuration"></span> Days</p>
+            <button onclick="confirmProceed()" style="margin:20px 10px; padding:15px 40px; background:var(--telecel-red); color:white; border:none; border-radius:12px; font-weight:700;">Yes, Proceed to Application</button>
+            <button onclick="closeModal()" style="padding:15px 40px; background:#ddd; border:none; border-radius:12px;">Cancel</button>
         </div>
     </div>
 
     <script>
         function calculateRepayment() {
             let amount = parseFloat(document.getElementById('amount').value) || 0;
-            const interestRate = 0.089;
-            const totalRepay = Math.round(amount * (1 + interestRate));
-
+            const total = Math.round(amount * 1.089);
             document.getElementById('receive').textContent = `GHS ${amount.toLocaleString()}`;
-            document.getElementById('repay').textContent = `GHS ${totalRepay.toLocaleString()}`;
+            document.getElementById('repay').textContent = `GHS ${total.toLocaleString()}`;
         }
 
         function showConfirmModal() {
@@ -353,9 +355,9 @@
             const duration = document.getElementById('duration').value;
             const repay = Math.round(amount * 1.089);
 
-            document.getElementById('modal-receive').textContent = `GHS ${amount.toLocaleString()}`;
-            document.getElementById('modal-repay').textContent = `GHS ${repay.toLocaleString()}`;
-            document.getElementById('modal-duration').textContent = duration;
+            document.getElementById('modalAmount').textContent = `GHS ${amount.toLocaleString()}`;
+            document.getElementById('modalRepay').textContent = `GHS ${repay.toLocaleString()}`;
+            document.getElementById('modalDuration').textContent = duration;
 
             document.getElementById('confirmModal').style.display = 'flex';
         }
@@ -364,7 +366,7 @@
             document.getElementById('confirmModal').style.display = 'none';
         }
 
-        function confirmAndProceed() {
+        function confirmProceed() {
             const amount = document.getElementById('amount').value;
             const duration = document.getElementById('duration').value;
             closeModal();
@@ -377,7 +379,7 @@
 
         function toggleFAQ(el) {
             const answer = el.nextElementSibling;
-            answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+            answer.style.display = (answer.style.display === 'block') ? 'none' : 'block';
         }
 
         window.onload = calculateRepayment;
