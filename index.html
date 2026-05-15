@@ -18,18 +18,7 @@
             background: #f8f9fa;
             color: var(--dark);
             line-height: 1.6;
-            overflow-x: hidden;
         }
-        .orb {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(90px);
-            z-index: -1;
-            opacity: 0.35;
-        }
-        .orb-1 { width: 450px; height: 450px; background: var(--telecel-red); top: -150px; left: -150px; }
-        .orb-2 { width: 350px; height: 350px; background: #ff6b5e; bottom: 10%; right: -50px; }
-
         nav {
             background: rgba(255,255,255,0.95);
             backdrop-filter: blur(12px);
@@ -61,30 +50,77 @@
 
         .hero {
             padding: 100px 5% 80px;
-            display: flex;
-            align-items: center;
-            gap: 60px;
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
-            flex-wrap: wrap;
+            text-align: center;
         }
-        .hero-content h1 {
+        .hero h1 {
             font-size: clamp(2.4rem, 6vw, 3.8rem);
-            line-height: 1.1;
             font-weight: 800;
             margin-bottom: 20px;
         }
-        .hero-content h1 span { color: var(--telecel-red); }
-        .hero-content p {
-            font-size: 1.25rem;
+        .hero h1 span { color: var(--telecel-red); }
+
+        /* Simple Loan Estimator */
+        .estimator {
+            max-width: 520px;
+            margin: 40px auto;
+            background: white;
+            padding: 40px;
+            border-radius: 24px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+        }
+        .form-group {
+            margin-bottom: 25px;
+            text-align: left;
+        }
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
             color: var(--text-gray);
-            margin-bottom: 30px;
+        }
+        input, select {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            font-size: 16px;
+        }
+        .result {
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: 16px;
+            margin: 25px 0;
+            text-align: center;
+            border: 2px solid #fee2e2;
+        }
+        .result p {
+            margin: 8px 0;
+            font-size: 1.1rem;
+        }
+        .amount-repay {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--telecel-red);
+        }
+        .btn-proceed {
+            width: 100%;
+            background: var(--telecel-red);
+            color: white;
+            border: none;
+            padding: 18px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            border-radius: 14px;
+            cursor: pointer;
+            margin-top: 10px;
         }
 
         /* Loan Packages */
         .loan-packages {
             padding: 80px 5%;
-            background: white;
+            background: #fff;
         }
         .section-title {
             text-align: center;
@@ -105,26 +141,8 @@
             padding: 30px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.08);
             text-align: center;
-            transition: 0.3s;
         }
-        .package-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(228, 35, 32, 0.15);
-        }
-        .package-card h3 {
-            color: var(--telecel-red);
-            margin: 15px 0;
-            font-size: 1.5rem;
-        }
-        .package-amount {
-            font-size: 2.2rem;
-            font-weight: 800;
-            color: var(--telecel-red);
-        }
-        .package-duration {
-            color: #64748b;
-            margin: 10px 0;
-        }
+        .package-card h3 { color: var(--telecel-red); margin: 15px 0; }
         .get-loan-btn {
             width: 100%;
             background: var(--telecel-red);
@@ -136,73 +154,98 @@
             cursor: pointer;
             margin-top: 15px;
         }
-
-        /* Other sections (How it Works, Testimonials, Footer) can stay similar to your original */
     </style>
 </head>
 <body>
-    <div class="orb orb-1"></div>
-    <div class="orb orb-2"></div>
-
     <nav>
         <div class="nav-container">
             <div class="logo"><strong>TELECEL</strong></div>
             <div class="nav-links">
                 <a href="#home">Home</a>
                 <a href="#packages">Loan Types</a>
-                <a href="#how">How it Works</a>
-                <a href="#about">Why Us</a>
+                <a href="#faq">FAQ</a>
             </div>
         </div>
     </nav>
 
     <section class="hero" id="home">
-        <div class="hero-content">
-            <h1>Instant <span>Flex Loans</span> with Telecel Cash</h1>
-            <p>Get quick cash for emergencies, business, school fees, or personal needs. No collateral. Money credited instantly to your wallet.</p>
+        <h1>Instant <span>Flex Loans</span> with Telecel Cash</h1>
+        <p>Get quick cash directly into your Telecel Wallet. No collateral. Instant approval.</p>
+
+        <!-- Simple Loan Estimator -->
+        <div class="estimator">
+            <h2 style="margin-bottom:25px;">Quick Loan Estimator</h2>
+            
+            <div class="form-group">
+                <label>Loan Amount (GHS)</label>
+                <input type="number" id="amount" placeholder="5000" min="500" max="25000" value="5000" oninput="calculateRepayment()">
+            </div>
+
+            <div class="form-group">
+                <label>Repayment Period</label>
+                <select id="duration" onchange="calculateRepayment()">
+                    <option value="7">7 Days</option>
+                    <option value="14">14 Days</option>
+                    <option value="30" selected>30 Days</option>
+                    <option value="60">60 Days</option>
+                    <option value="90">90 Days</option>
+                </select>
+            </div>
+
+            <div class="result">
+                <p>You will receive: <strong id="receive">GHS 5,000</strong></p>
+                <p class="amount-repay">Total to Repay: <span id="repay">GHS 5,445</span></p>
+            </div>
+
+            <button class="btn-proceed" onclick="proceedToApply()">Proceed to Apply →</button>
         </div>
     </section>
 
-    <!-- Loan Packages Section -->
+    <!-- Loan Packages -->
     <section class="loan-packages" id="packages">
-        <h2 class="section-title">Choose Your Loan Type</h2>
+        <h2 class="section-title">Popular Loan Packages</h2>
         <div class="packages-grid">
-            
-            <!-- Emergency Loan -->
             <div class="package-card">
                 <h3>Emergency Loan</h3>
                 <div class="package-amount">GHS 1,000 - 5,000</div>
-                <div class="package-duration">7 - 30 Days</div>
-                <p>Perfect for urgent needs</p>
-                <button class="get-loan-btn" onclick="applyForLoan(3000, 14, 'Emergency')">Get This Loan</button>
+                <button class="get-loan-btn" onclick="quickApply(3000, 14, 'Emergency')">Get Emergency Loan</button>
             </div>
-
-            <!-- Business Loan -->
             <div class="package-card">
                 <h3>Business Loan</h3>
                 <div class="package-amount">GHS 5,000 - 20,000</div>
-                <div class="package-duration">30 - 90 Days</div>
-                <p>Grow your business</p>
-                <button class="get-loan-btn" onclick="applyForLoan(10000, 45, 'Business')">Get This Loan</button>
+                <button class="get-loan-btn" onclick="quickApply(10000, 45, 'Business')">Get Business Loan</button>
             </div>
-
-            <!-- School Fees -->
             <div class="package-card">
                 <h3>School Fees Loan</h3>
                 <div class="package-amount">GHS 2,000 - 8,000</div>
-                <div class="package-duration">30 Days</div>
-                <p>Pay school fees easily</p>
-                <button class="get-loan-btn" onclick="applyForLoan(5000, 30, 'Education')">Get This Loan</button>
+                <button class="get-loan-btn" onclick="quickApply(5000, 30, 'Education')">Get School Fees Loan</button>
             </div>
-
         </div>
     </section>
 
     <script>
-        // Redirect to apply.html with pre-filled values
-        function applyForLoan(amount, duration, purpose) {
+        // 8.9% flat interest rate
+        function calculateRepayment() {
+            let amount = parseFloat(document.getElementById('amount').value) || 0;
+            const interestRate = 0.089; // 8.9%
+            const totalRepay = Math.round(amount + (amount * interestRate));
+
+            document.getElementById('receive').textContent = `GHS ${amount.toLocaleString()}`;
+            document.getElementById('repay').textContent = `GHS ${totalRepay.toLocaleString()}`;
+        }
+
+        function proceedToApply() {
+            const amount = document.getElementById('amount').value;
+            const duration = document.getElementById('duration').value;
+            window.location.href = `apply.html?amount=${amount}&duration=${duration}&purpose=Personal`;
+        }
+
+        function quickApply(amount, duration, purpose) {
             window.location.href = `apply.html?amount=${amount}&duration=${duration}&purpose=${purpose}`;
         }
+
+        // Initial calculation
+        window.onload = calculateRepayment;
     </script>
 </body>
 </html>
