@@ -39,9 +39,6 @@
         .ticker-inner span {
             margin-right: 80px;
             font-size: 1.05rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
         }
         @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
@@ -94,13 +91,13 @@
 
         .result {
             background: #1f1f1f;
-            padding: 40px 30px;
+            padding: 42px 30px;
             border-radius: 20px;
             text-align: center;
             margin: 30px 0;
             border: 1px solid var(--red);
         }
-        .receive-text { font-size: 1.25rem; margin-bottom: 6px; color: var(--red); }
+        .receive-text { font-size: 1.25rem; margin-bottom: 6px; color: var(--red); font-weight: 600; }
         .receive-amount { font-size: 1.85rem; font-weight: 700; color: #ddd; }
         .amount-repay { font-size: 2.6rem; font-weight: 800; color: var(--accent-green); margin: 12px 0; }
         .interest-rate { font-size: 1.15rem; color: #aaa; }
@@ -158,7 +155,7 @@
             padding: 80px 5% 40px;
         }
         .footer-grid {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto 50px;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -198,7 +195,7 @@
         <div class="ticker-inner">
             <span>🔥 Instant Approval • Money in Minutes</span>
             <span>✅ No Collateral • Regular Telecel Users Qualify</span>
-            <span>📱 Dial *770# or Apply Online</span>
+            <span>📱 Apply Now & Get Cash Instantly</span>
         </div>
     </div>
 
@@ -258,9 +255,86 @@
         <button class="btn-proceed" onclick="showConfirmModal()">Proceed to Apply →</button>
     </div>
 
-    <!-- Popular Packages, Benefits, How it Works, Testimonials, FAQ and Footer are fully included below (same high quality as before) -->
+    <!-- Popular Packages -->
+    <section id="packages" class="section">
+        <h2 class="section-title">Popular Loan Packages</h2>
+        <div class="packages-grid">
+            <div class="package-card">
+                <h3>🚨 Emergency Loan</h3>
+                <p class="package-amount">GHS 1,000 - 5,000</p>
+                <button class="get-loan-btn" onclick="quickApply(3000, 14, 'Emergency')">Get This Loan</button>
+            </div>
+            <div class="package-card">
+                <h3>💼 Business Loan</h3>
+                <p class="package-amount">GHS 5,000 - 20,000</p>
+                <button class="get-loan-btn" onclick="quickApply(10000, 30, 'Business')">Get This Loan</button>
+            </div>
+            <div class="package-card">
+                <h3>🎓 School Fees Loan</h3>
+                <p class="package-amount">GHS 2,000 - 8,000</p>
+                <button class="get-loan-btn" onclick="quickApply(5000, 30, 'Education')">Get This Loan</button>
+            </div>
+        </div>
+    </section>
 
-    <!-- (The rest of the sections are the same as the previous complete version for brevity - all 15 testimonials, 10 FAQ, etc. are retained) -->
+    <!-- Benefits -->
+    <section id="benefits" class="section">
+        <h2 class="section-title">Why Choose Telecel Loans?</h2>
+        <div class="packages-grid">
+            <div class="benefit-card"><h3>⚡ Instant Disbursement</h3><p>Money in your Telecel Wallet in minutes</p></div>
+            <div class="benefit-card"><h3>🔒 No Collateral</h3><p>Only your active Telecel line needed</p></div>
+            <div class="benefit-card"><h3>📱 Fully Mobile</h3><p>Apply from anywhere, anytime</p></div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="how" class="section">
+        <h2 class="section-title">How It Works</h2>
+        <div class="packages-grid">
+            <div class="package-card"><h3>1. Choose Amount</h3><p>Use calculator or packages</p></div>
+            <div class="package-card"><h3>2. Apply & Verify</h3><p>Fill details and verify</p></div>
+            <div class="package-card"><h3>3. Get Paid Instantly</h3><p>Funds sent to your Telecel Cash</p></div>
+        </div>
+    </section>
+
+    <!-- Testimonials (15) -->
+    <section class="section">
+        <h2 class="section-title">What People Say</h2>
+        <div class="packages-grid">
+            <div class="testimonial-card"><p>"Got GHS 8,000 in 12 minutes!"</p><strong>— Ama Mensah, Accra</strong></div>
+            <div class="testimonial-card"><p>"School fees sorted instantly. Thank you!"</p><strong>— Kofi Boateng, Kumasi</strong></div>
+            <div class="testimonial-card"><p>"Emergency GHS 4,500 same day. Reliable!"</p><strong>— Fatima Ali, Tamale</strong></div>
+            <div class="testimonial-card"><p>"Business boosted with GHS 15,000 loan."</p><strong>— Samuel Osei, Takoradi</strong></div>
+            <div class="testimonial-card"><p>"Best loan service in Ghana!"</p><strong>— Abena Frimpong, Cape Coast</strong></div>
+            <div class="testimonial-card"><p>"Received GHS 6,000 within 18 minutes."</p><strong>— Kwame Mensah, Sunyani</strong></div>
+            <div class="testimonial-card"><p>"No stress, money came fast."</p><strong>— Yaa Asantewaa, Ho</strong></div>
+            <div class="testimonial-card"><p>"Helped me during emergency."</p><strong>— Emmanuel Addo, Koforidua</strong></div>
+            <div class="testimonial-card"><p>"GHS 10,000 for my shop. Excellent!"</p><strong>— Grace Ofori, Tema</strong></div>
+            <div class="testimonial-card"><p>"Very fast and trustworthy."</p><strong>— Michael Nti, Tarkwa</strong></div>
+            <div class="testimonial-card"><p>"School fees loan saved us!"</p><strong>— Patricia Agyei, Bolgatanga</strong></div>
+            <div class="testimonial-card"><p>"GHS 3,000 in 10 minutes. Amazing!"</p><strong>— Joseph Tetteh, Wa</strong></div>
+            <div class="testimonial-card"><p>"Best decision this year."</p><strong>— Evelyn Arhin, Kasoa</strong></div>
+            <div class="testimonial-card"><p>"Professional and fast service."</p><strong>— Daniel Asamoah, Elmina</strong></div>
+            <div class="testimonial-card"><p>"GHS 12,000 approved instantly."</p><strong>— Rebecca Osei, Obuasi</strong></div>
+        </div>
+    </section>
+
+    <!-- FAQ (10) -->
+    <section id="faq" class="section">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <div class="packages-grid" style="grid-template-columns:1fr; max-width:900px; margin:auto;">
+            <div style="background:var(--light-gray); padding:22px; border-radius:16px; margin-bottom:12px; cursor:pointer;" onclick="toggleFAQ(this)"><strong>How fast do I get the money?</strong><div class="faq-answer" style="display:none; margin-top:10px; color:#ddd;">Usually within 10-25 minutes after approval.</div></div>
+            <div style="background:var(--light-gray); padding:22px; border-radius:16px; margin-bottom:12px; cursor:pointer;" onclick="toggleFAQ(this)"><strong>Who can apply?</strong><div class="faq-answer" style="display:none; margin-top:10px; color:#ddd;">Any active Telecel customer with Telecel Cash wallet.</div></div>
+            <div style="background:var(--light-gray); padding:22px; border-radius:16px; margin-bottom:12px; cursor:pointer;" onclick="toggleFAQ(this)"><strong>Is collateral required?</strong><div class="faq-answer" style="display:none; margin-top:10px; color:#ddd;">No collateral needed.</div></div>
+            <div style="background:var(--light-gray); padding:22px; border-radius:16px; margin-bottom:12px; cursor:pointer;" onclick="toggleFAQ(this)"><strong>What are the interest rates?</strong><div class="faq-answer" style="display:none; margin-top:10px; color:#ddd;">From 6.5% depending on duration.</div></div>
+            <div style="background:var(--light-gray); padding:22px; border-radius:16px; margin-bottom:12px; cursor:pointer;" onclick="toggleFAQ(this)"><strong>Can I repay early?</strong><div class="faq-answer" style="display:none; margin-top:10px; color:#ddd;">Yes, no penalty.</div></div>
+            <div style="background:var(--light-gray); padding:22px; border-radius:16px; margin-bottom:12px; cursor:pointer;" onclick="toggleFAQ(this)"><strong>How do I receive the money?</strong><div class="faq-answer" style="display:none; margin-top:10px; color:#ddd;">Directly to your Telecel Cash wallet.</div></div>
+            <div style="background:var(--light-gray); padding:22px; border-radius:16px; margin-bottom:12px; cursor:pointer;" onclick="toggleFAQ(this)"><strong>What documents do I need?</strong><div class="faq-answer" style="display:none; margin-top:10px; color:#ddd;">Ghana Card and active line.</div></div>
+            <div style="background:var(--light-gray); padding:22px; border-radius:16px; margin-bottom:12px; cursor:pointer;" onclick="toggleFAQ(this)"><strong>24/7 service?</strong><div class="faq-answer" style="display:none; margin-top:10px; color:#ddd;">Yes.</div></div>
+            <div style="background:var(--light-gray); padding:22px; border-radius:16px; margin-bottom:12px; cursor:pointer;" onclick="toggleFAQ(this)"><strong>Maximum amount?</strong><div class="faq-answer" style="display:none; margin-top:10px; color:#ddd;">Up to GHS 25,000.</div></div>
+            <div style="background:var(--light-gray); padding:22px; border-radius:16px; margin-bottom:12px; cursor:pointer;" onclick="toggleFAQ(this)"><strong>Multiple applications?</strong><div class="faq-answer" style="display:none; margin-top:10px; color:#ddd;">Yes, after repayment.</div></div>
+        </div>
+    </section>
 
     <footer style="background:#111; padding:80px 5% 40px; color:#bbb;">
         <div style="max-width:1400px; margin:auto; display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:40px;">
