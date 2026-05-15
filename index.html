@@ -118,8 +118,8 @@
         <div class="ticker-inner">
             <span>⚡ Instant Approval • Money in Minutes</span>
             <span>✅ No Collateral • Only Active Telecel Line Needed</span>
-            <span>💰 Funds Sent to Telecel Cash Wallet</span>
-            <span>🇬🇭 Trusted by Thousands Across Ghana</span>
+            <span>💰 Funds Sent Directly to Telecel Cash Wallet</span>
+            <span>🇬🇭 Trusted by Thousands of Ghanaians</span>
         </div>
     </div>
 
@@ -152,10 +152,10 @@
             Get cash directly into your Telecel Cash wallet in minutes.<br>
             No collateral. Fast approval. Flexible repayment.
         </p>
-        <a href="#calculator" style="background:white; color:var(--red); padding:18px 60px; border-radius:50px; font-weight:700; text-decoration:none;">Try Calculator →</a>
+        <a href="#calculator" style="background:white; color:var(--red); padding:18px 60px; border-radius:50px; font-weight:700; text-decoration:none; font-size:1.1rem;">Try Calculator →</a>
     </section>
 
-    <!-- Calculator -->
+    <!-- Loan Calculator -->
     <section id="calculator" class="section">
         <span class="section-label">QUICK CALCULATOR</span>
         <h2 class="section-title">How Much Do You Need?</h2>
@@ -176,7 +176,7 @@
         </div>
     </section>
 
-    <!-- Loans -->
+    <!-- Popular Loans -->
     <section id="loans" class="section" style="background:#111;">
         <span class="section-label">LOAN PACKAGES</span>
         <h2 class="section-title">Popular Flex Loans</h2>
@@ -216,12 +216,12 @@
         <span class="section-label">WHY TELECEL</span>
         <h2 class="section-title">Why Choose Telecel Loans?</h2>
         <div class="grid">
-            <div class="card"><h2 style="font-size:3.5rem; color:#00ff9d;">⚡</h2><h3 style="color:#00ff9d;">Instant Disbursement</h3><p>Money in your Telecel Cash within minutes</p></div>
-            <div class="card"><h2 style="font-size:3.5rem; color:#00A3FF;">🔒</h2><h3 style="color:#00A3FF;">No Collateral</h3><p>Only your active Telecel line needed</p></div>
-            <div class="card"><h2 style="font-size:3.5rem; color:#FFCC00;">📱</h2><h3 style="color:#FFCC00;">100% Mobile</h3><p>Apply and repay from anywhere</p></div>
-            <div class="card"><h2 style="font-size:3.5rem; color:#00ff9d;">🔄</h2><h3 style="color:#00ff9d;">Flexible Terms</h3><p>7 to 90 days repayment</p></div>
+            <div class="card"><h2 style="font-size:3.5rem; color:#00ff9d;">⚡</h2><h3 style="color:#00ff9d;">Instant Disbursement</h3><p>Money lands in your Telecel Cash within minutes</p></div>
+            <div class="card"><h2 style="font-size:3.5rem; color:#00A3FF;">🔒</h2><h3 style="color:#00A3FF;">No Collateral</h3><p>Just your active Telecel line is required</p></div>
+            <div class="card"><h2 style="font-size:3.5rem; color:#FFCC00;">📱</h2><h3 style="color:#FFCC00;">100% Mobile</h3><p>Apply, get approved and repay from your phone</p></div>
+            <div class="card"><h2 style="font-size:3.5rem; color:#00ff9d;">🔄</h2><h3 style="color:#00ff9d;">Flexible Repayment</h3><p>Choose from 7 to 90 days</p></div>
             <div class="card"><h2 style="font-size:3.5rem; color:#00A3FF;">🛡️</h2><h3 style="color:#00A3FF;">Secure & Trusted</h3><p>Powered by Telecel Ghana</p></div>
-            <div class="card"><h2 style="font-size:3.5rem; color:#FFCC00;">⭐</h2><h3 style="color:#FFCC00;">Loyalty Rewards</h3><p>Higher limits for loyal users</p></div>
+            <div class="card"><h2 style="font-size:3.5rem; color:#FFCC00;">⭐</h2><h3 style="color:#FFCC00;">Loyal Users Rewarded</h3><p>Higher limits for consistent users</p></div>
         </div>
     </section>
 
@@ -233,7 +233,7 @@
             <div class="card" style="text-align:center;">
                 <div style="font-size:4rem; margin-bottom:20px; color:var(--red);">1</div>
                 <h3>Choose Amount</h3>
-                <p>Use our calculator or select a package</p>
+                <p>Use calculator or select a package</p>
             </div>
             <div class="card" style="text-align:center;">
                 <div style="font-size:4rem; margin-bottom:20px; color:var(--red);">2</div>
@@ -277,8 +277,8 @@
         <h2 class="section-title">Frequently Asked Questions</h2>
         <div class="grid" style="grid-template-columns:1fr;">
             <div class="card">
-                <button class="faq-question">Who can apply? <span>+</span></button>
-                <div class="faq-answer">Active Telecel users with consistent airtime and data usage for at least 3 months.</div>
+                <button class="faq-question">Who can apply for Telecel Loans? <span>+</span></button>
+                <div class="faq-answer">Active Telecel customers with good usage history for at least 3 months.</div>
             </div>
             <div class="card">
                 <button class="faq-question">How fast do I get the money? <span>+</span></button>
@@ -293,8 +293,8 @@
                 <div class="faq-answer">Yes, early repayment is allowed with reduced interest.</div>
             </div>
             <div class="card">
-                <button class="faq-question">What is the maximum amount? <span>+</span></button>
-                <div class="faq-answer">Up to GHS 50,000 depending on your usage history.</div>
+                <button class="faq-question">What is the maximum loan amount? <span>+</span></button>
+                <div class="faq-answer">Up to GHS 50,000 depending on your limit and usage.</div>
             </div>
         </div>
     </section>
@@ -359,7 +359,7 @@
 
         function applyFromCalculator() {
             const amount = parseInt(document.getElementById('amount').value) || 10000;
-            showApplyModal("Custom Loan", amount, amount + 1200, 30);
+            showApplyModal("Custom Loan", amount, amount + Math.round(amount * 0.12), 30);
         }
 
         // FAQ Toggle
