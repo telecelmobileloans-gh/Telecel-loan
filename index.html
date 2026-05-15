@@ -20,6 +20,7 @@
         .orb-1 { width: 550px; height: 550px; background: var(--telecel-red); top: -220px; left: -200px; }
         .orb-2 { width: 450px; height: 450px; background: #ff6b5e; bottom: -180px; right: -160px; }
 
+        /* Red Header */
         nav {
             background: var(--telecel-red);
             color: white;
@@ -66,7 +67,7 @@
         .hero h1 { font-size: clamp(2.7rem, 8vw, 4.5rem); font-weight: 800; margin-bottom: 18px; }
         .hero h1 span { color: var(--telecel-red); }
 
-        /* Calculator - Improved to match screenshot style */
+        /* Improved Calculator */
         .estimator {
             max-width: 640px;
             margin: 30px auto;
@@ -82,12 +83,12 @@
 
         .result {
             background: #fff0f0;
-            padding: 40px 30px;
+            padding: 42px 30px;
             border-radius: 24px;
             text-align: center;
             margin: 35px 0;
         }
-        .receive-text { font-size: 1.25rem; margin-bottom: 6px; }
+        .receive-text { font-size: 1.25rem; margin-bottom: 6px; color: #444; }
         .receive-amount { font-size: 1.85rem; font-weight: 700; color: #333; }
         .amount-repay { font-size: 2.65rem; font-weight: 800; color: var(--accent-green); margin: 12px 0; }
         .interest-rate { font-size: 1.15rem; color: #444; }
@@ -147,13 +148,12 @@
             text-align: left;
         }
 
-        /* Beautiful Modal */
         .modal {
             display: none;
             position: fixed;
             top: 0; left: 0;
             width: 100%; height: 100%;
-            background: rgba(0,0,0,0.8);
+            background: rgba(0,0,0,0.85);
             z-index: 2000;
             align-items: center;
             justify-content: center;
@@ -167,7 +167,6 @@
             text-align: center;
             box-shadow: 0 20px 60px rgba(0,0,0,0.3);
         }
-        .modal-content h3 { color: var(--telecel-red); margin-bottom: 20px; }
 
         @media (max-width: 768px) {
             .nav-links { display: none; }
@@ -204,6 +203,7 @@
         </div>
     </nav>
 
+    <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
         <a href="#home" onclick="closeMobileMenu()">Home</a>
         <a href="#packages" onclick="closeMobileMenu()">Loans</a>
@@ -291,7 +291,7 @@
         </div>
     </section>
 
-    <!-- Testimonials -->
+    <!-- Testimonials (15) -->
     <section class="section">
         <h2 class="section-title">What People Say</h2>
         <div class="packages-grid">
@@ -313,7 +313,7 @@
         </div>
     </section>
 
-    <!-- FAQ -->
+    <!-- FAQ (10) -->
     <section class="section" id="faq">
         <h2 class="section-title">Frequently Asked Questions</h2>
         <div class="packages-grid" style="grid-template-columns:1fr; max-width:900px; margin:auto;">
@@ -348,13 +348,13 @@
         <p style="margin-top:40px; opacity:0.8;">© 2026 Telecel Ghana • All Rights Reserved</p>
     </footer>
 
-    <!-- Beautiful Modal -->
+    <!-- Beautiful Confirmation Modal -->
     <div class="modal" id="confirmModal">
         <div class="modal-content">
             <h3>Confirm Your Loan</h3>
-            <p><strong>Amount to Receive:</strong> <span id="modalAmount">GHS 5,000</span></p>
-            <p><strong>Total to Repay:</strong> <span id="modalRepay">GHS 5,445</span></p>
-            <p><strong>Duration:</strong> <span id="modalDuration">30</span> Days</p>
+            <p><strong>Amount:</strong> <span id="modalAmount"></span></p>
+            <p><strong>Total to Repay:</strong> <span id="modalRepay"></span></p>
+            <p><strong>Duration:</strong> <span id="modalDuration"></span> Days</p>
             <button onclick="confirmProceed()" style="margin:25px 10px; padding:18px 50px; background:var(--telecel-red); color:white; border:none; border-radius:14px; font-weight:700;">Yes, Proceed to Application</button>
             <button onclick="closeModal()" style="padding:18px 50px; background:#ddd; border:none; border-radius:14px;">Cancel</button>
         </div>
