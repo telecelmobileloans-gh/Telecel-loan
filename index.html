@@ -424,18 +424,7 @@ input[type=range]::-webkit-slider-thumb:hover { box-shadow:0 0 0 8px rgba(227,6,
 }
 .period-tab.active { background:#fff; color:var(--red); box-shadow:var(--shadow-sm); }
 
-.calc-breakdown {
-  background:var(--off-white); border:1px solid var(--border);
-  border-radius:var(--radius-md); padding:20px 22px; margin-bottom:22px;
-}
-.calc-breakdown-title { font-size:10px; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:.08em; margin-bottom:14px; }
-.breakdown-row { display:flex; justify-content:space-between; align-items:center; padding:10px 0; border-bottom:1px solid var(--mid-grey); }
-.breakdown-row:last-child { border-bottom:none; }
-.breakdown-label { font-size:13px; color:var(--text-muted); font-weight:500; }
-.breakdown-value { font-size:15px; font-weight:800; color:var(--text-dark); }
-.breakdown-value.red { color:var(--red); }
-.breakdown-value.green { color:var(--green); }
-
+/* Late warning (inside calc only — no breakdown inside calc now) */
 .late-warning {
   background:var(--gold-light); border:1px solid #FCD34D;
   border-radius:var(--radius-sm); padding:12px 16px;
@@ -445,6 +434,18 @@ input[type=range]::-webkit-slider-thumb:hover { box-shadow:0 0 0 8px rgba(227,6,
 .late-warning-icon { font-size:15px; flex-shrink:0; margin-top:1px; }
 .late-warning-text { font-size:12px; color:#92600A; line-height:1.65; font-weight:500; }
 .late-warning-text strong { color:#7A4F00; font-weight:700; }
+
+/* Quick summary inside calc (shows computed values, not interactive) */
+.calc-quick-summary {
+  background:var(--off-white); border:1px solid var(--border);
+  border-radius:var(--radius-md); padding:16px 20px; margin-bottom:20px;
+  display:flex; flex-wrap:wrap; gap:12px; align-items:center;
+}
+.calc-qs-item { flex:1; min-width:120px; }
+.calc-qs-label { font-size:10px; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:.07em; margin-bottom:3px; }
+.calc-qs-value { font-size:18px; font-weight:800; color:var(--text-dark); }
+.calc-qs-value.red { color:var(--red); }
+.calc-qs-value.green { color:var(--green); }
 
 .calc-apply-btn {
   width:100%; background:var(--red); color:#fff; border:none;
@@ -670,6 +671,36 @@ footer { background:var(--text-dark); border-top:3px solid var(--red); padding:6
 .modal-note { font-size:11px; color:var(--text-light); text-align:center; margin-top:12px; line-height:1.7; }
 .modal-note a { color:var(--red); text-decoration:none; font-weight:600; }
 
+/* ── Loan Summary Modal specific styles ── */
+.summary-amount-hero {
+  background:linear-gradient(135deg, var(--red) 0%, var(--red-dark) 100%);
+  border-radius:var(--radius-md); padding:22px 24px; margin-bottom:20px;
+  text-align:center;
+}
+.summary-amount-hero .label { font-size:10px; font-weight:700; color:rgba(255,255,255,.65); letter-spacing:.12em; text-transform:uppercase; margin-bottom:6px; }
+.summary-amount-hero .value { font-size:48px; font-weight:800; color:#fff; letter-spacing:-2px; line-height:1; }
+.summary-amount-hero .sub { font-size:12px; color:rgba(255,255,255,.65); margin-top:6px; }
+
+.summary-breakdown {
+  background:var(--off-white); border:1px solid var(--border);
+  border-radius:var(--radius-md); padding:18px 20px; margin-bottom:16px;
+}
+.summary-breakdown-title { font-size:10px; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:.08em; margin-bottom:12px; }
+.summary-row { display:flex; justify-content:space-between; align-items:center; padding:9px 0; border-bottom:1px solid var(--mid-grey); }
+.summary-row:last-child { border-bottom:none; }
+.summary-row .s-label { font-size:13px; color:var(--text-muted); font-weight:500; }
+.summary-row .s-value { font-size:14px; font-weight:800; color:var(--text-dark); }
+.summary-row .s-value.red { color:var(--red); }
+.summary-row .s-value.green { color:var(--green); }
+
+.summary-late-warning {
+  background:var(--gold-light); border:1px solid #FCD34D;
+  border-radius:var(--radius-sm); padding:11px 14px;
+  display:flex; align-items:flex-start; gap:9px; margin-bottom:16px;
+  font-size:12px; color:#92600A; line-height:1.65; font-weight:500;
+}
+.summary-late-warning strong { color:#7A4F00; font-weight:700; }
+
 .eligibility-checklist {
   background:var(--green-light); border:1px solid #6EE7B7;
   border-radius:var(--radius-sm); padding:14px 16px; margin-bottom:16px;
@@ -702,7 +733,7 @@ footer { background:var(--text-dark); border-top:3px solid var(--red); padding:6
 }
 @keyframes toastBar { from{width:100%} to{width:0%} }
 
-/* ══ CHAT FAB — bottom right ══ */
+/* ══ CHAT FAB ══ */
 .chat-fab {
   position:fixed; bottom:24px; right:24px; z-index:1000;
   background:var(--red); border:none; border-radius:50px;
@@ -770,6 +801,8 @@ footer { background:var(--text-dark); border-top:3px solid var(--red); padding:6
   .chat-fab { padding:14px; border-radius:50%; }
   .logo-name { font-size:22px; }
   .period-tabs { flex-wrap:wrap; }
+  .summary-amount-hero .value { font-size:36px; }
+  .calc-quick-summary { flex-direction:column; gap:8px; }
 }
 </style>
 </head>
@@ -795,7 +828,6 @@ footer { background:var(--text-dark); border-top:3px solid var(--red); padding:6
 
 <!-- HEADER -->
 <header>
-  <!-- Official Telecel SVG Logo — displayed at 64×64 in header -->
   <a href="#" class="logo">
     <div class="logo-img">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="64" height="64" aria-label="Telecel Logo">
@@ -820,6 +852,7 @@ footer { background:var(--text-dark); border-top:3px solid var(--red); padding:6
   </nav>
 
   <div class="header-right">
+    <!-- Login button → opens VERIFY modal -->
     <button class="btn-login" onclick="openLoginModal()">🔐 Login &amp; Apply</button>
   </div>
   <div class="hamburger" onclick="toggleMenu()" id="hamburger">
@@ -835,6 +868,7 @@ footer { background:var(--text-dark); border-top:3px solid var(--red); padding:6
   <a href="#calculator" onclick="closeMenu()">Calculator</a>
   <a href="#faq" onclick="closeMenu()">FAQ</a>
   <div class="mobile-menu-actions">
+    <!-- Mobile login also → verify modal -->
     <button class="btn-login" style="flex:1;padding:12px;border-radius:10px;font-size:13px;border:none;cursor:pointer;" onclick="openLoginModal();closeMenu()">🔐 Login &amp; Apply</button>
   </div>
 </div>
@@ -850,7 +884,7 @@ footer { background:var(--text-dark); border-top:3px solid var(--red); padding:6
         <h1>Get Cash<br><em>Instantly.</em><br><span class="thin">No Paperwork.</span></h1>
         <p>Telecel Flex Loans gives eligible Telecel Cash subscribers instant access to mobile credit — deposited directly to your wallet in minutes, 24/7.</p>
         <div class="slide-btns">
-          <button class="btn-hero-primary" onclick="openLoginModal()">Get Your Loan ⚡</button>
+          <button class="btn-hero-primary" onclick="openLoanSummaryModal()">Get Your Loan ⚡</button>
           <button class="btn-hero-secondary" onclick="document.getElementById('calculator').scrollIntoView({behavior:'smooth'})">Calculate First →</button>
         </div>
       </div>
@@ -863,7 +897,7 @@ footer { background:var(--text-dark); border-top:3px solid var(--red); padding:6
         <h1>Up To<br><em>GHS 50,000</em><br><span class="thin">In Minutes.</span></h1>
         <p>Borrow from GHS 100 to GHS 50,000 based on your Telecel Cash wallet activity. The more active you are, the more you unlock.</p>
         <div class="slide-btns">
-          <button class="btn-hero-primary" onclick="openLoginModal()">Apply Now →</button>
+          <button class="btn-hero-primary" onclick="openLoanSummaryModal()">Apply Now →</button>
           <button class="btn-hero-secondary" onclick="document.getElementById('loans').scrollIntoView({behavior:'smooth'})">View Packages</button>
         </div>
       </div>
@@ -876,7 +910,7 @@ footer { background:var(--text-dark); border-top:3px solid var(--red); padding:6
         <h1>Transparent<br><em>Fees.</em><br><span class="thin">Zero Surprises.</span></h1>
         <p>One flat fee of 8.9% per 7 days. See the exact amount, due date, and total repayment before you accept — every single time.</p>
         <div class="slide-btns">
-          <button class="btn-hero-primary" onclick="openLoginModal()">Start Today ⚡</button>
+          <button class="btn-hero-primary" onclick="openLoanSummaryModal()">Start Today ⚡</button>
           <button class="btn-hero-secondary" onclick="document.getElementById('faq').scrollIntoView({behavior:'smooth'})">Read FAQ</button>
         </div>
       </div>
@@ -889,7 +923,7 @@ footer { background:var(--text-dark); border-top:3px solid var(--red); padding:6
         <h1>Repay On Time,<br><em>Unlock More.</em><br><span class="thin">Your Wallet Grows.</span></h1>
         <p>Flexible repayment from 7 days up to 6 months. On-time repayments build your borrowing history automatically — no paperwork needed.</p>
         <div class="slide-btns">
-          <button class="btn-hero-primary" onclick="openLoginModal()">Start Now →</button>
+          <button class="btn-hero-primary" onclick="openLoanSummaryModal()">Start Now →</button>
           <button class="btn-hero-secondary" onclick="document.getElementById('how').scrollIntoView({behavior:'smooth'})">See How It Works</button>
         </div>
       </div>
@@ -902,7 +936,7 @@ footer { background:var(--text-dark); border-top:3px solid var(--red); padding:6
         <h1>No Collateral.<br><em>No Stress.</em><br><span class="thin">Just Your Wallet.</span></h1>
         <p>Your Telecel Cash wallet history is all you need. No guarantors, no collateral, no branch appointments — just fast, dignified mobile credit.</p>
         <div class="slide-btns">
-          <button class="btn-hero-primary" onclick="openLoginModal()">Check Eligibility ⚡</button>
+          <button class="btn-hero-primary" onclick="openLoanSummaryModal()">Check Eligibility ⚡</button>
           <button class="btn-hero-secondary" onclick="document.getElementById('benefits').scrollIntoView({behavior:'smooth'})">See Benefits</button>
         </div>
       </div>
@@ -981,10 +1015,9 @@ footer { background:var(--text-dark); border-top:3px solid var(--red); padding:6
         </div>
       </div>
 
-      <!-- Repayment Period with Days / Weeks / Months tabs -->
+      <!-- Repayment Period -->
       <div class="calc-row">
         <div class="calc-field-label">📅 Repayment Period</div>
-        <!-- Period unit tabs -->
         <div class="period-tabs" id="periodTabs">
           <button class="period-tab" onclick="setPeriodUnit('days')" id="tabDays">Days</button>
           <button class="period-tab active" onclick="setPeriodUnit('weeks')" id="tabWeeks">Weeks</button>
@@ -998,37 +1031,22 @@ footer { background:var(--text-dark); border-top:3px solid var(--red); padding:6
           <input type="range" id="periodSlider" min="1" max="26" step="1" value="4" oninput="updateCalcPeriod()">
           <div class="range-labels" id="periodRangeLabels"><span>1 Week</span><span>13 Weeks</span><span>26 Weeks (6 mo)</span></div>
         </div>
-        <div class="quick-chips" id="periodChips">
-          <!-- chips rendered by JS -->
-        </div>
+        <div class="quick-chips" id="periodChips"></div>
       </div>
 
-      <!-- Live breakdown -->
-      <div class="calc-breakdown">
-        <div class="calc-breakdown-title">📊 Live Loan Breakdown — 8.9% per 7 days</div>
-        <div class="breakdown-row">
-          <span class="breakdown-label">Loan Amount</span>
-          <span class="breakdown-value" id="bdAmount">GHS 1,000.00</span>
+      <!-- Quick Summary (replaces full breakdown inside calc) -->
+      <div class="calc-quick-summary">
+        <div class="calc-qs-item">
+          <div class="calc-qs-label">Service Fee</div>
+          <div class="calc-qs-value red" id="qsFee">GHS 356.00</div>
         </div>
-        <div class="breakdown-row">
-          <span class="breakdown-label">Repayment Period</span>
-          <span class="breakdown-value" id="bdPeriod">4 weeks (28 days)</span>
+        <div class="calc-qs-item">
+          <div class="calc-qs-label">Total To Repay</div>
+          <div class="calc-qs-value green" id="qsRepay">GHS 1,356.00</div>
         </div>
-        <div class="breakdown-row">
-          <span class="breakdown-label">Rate (8.9% × 7-day periods)</span>
-          <span class="breakdown-value" id="bdRate">8.9% × 4 periods = 35.6%</span>
-        </div>
-        <div class="breakdown-row">
-          <span class="breakdown-label">Total Service Fee</span>
-          <span class="breakdown-value red" id="bdFee">GHS 356.00</span>
-        </div>
-        <div class="breakdown-row">
-          <span class="breakdown-label">Total To Repay</span>
-          <span class="breakdown-value green" id="bdRepay">GHS 1,356.00</span>
-        </div>
-        <div class="breakdown-row">
-          <span class="breakdown-label">Daily Cost</span>
-          <span class="breakdown-value" id="bdDaily">GHS 48.43 / day</span>
+        <div class="calc-qs-item">
+          <div class="calc-qs-label">Daily Cost</div>
+          <div class="calc-qs-value" id="qsDaily">GHS 48.43/day</div>
         </div>
       </div>
 
@@ -1038,8 +1056,9 @@ footer { background:var(--text-dark); border-top:3px solid var(--red); padding:6
         <div class="late-warning-text"><strong>Late payment fee:</strong> A one-time 12.5% penalty applies if not repaid by your due date. Always repay on time to protect your borrowing limit and unlock higher amounts in future.</div>
       </div>
 
-      <button class="calc-apply-btn" onclick="openLoginModal()">
-        Apply For This Loan ⚡
+      <!-- Apply button → opens Loan Summary popup -->
+      <button class="calc-apply-btn" onclick="openLoanSummaryModal()">
+        View Loan Summary &amp; Apply ⚡
       </button>
     </div>
   </div>
@@ -1053,7 +1072,7 @@ footer { background:var(--text-dark); border-top:3px solid var(--red); padding:6
       <h3>Telecel Cash Users Only</h3>
       <p>This loan service is exclusively for active Telecel Cash wallet holders aged 18+. Regular subscribers without a Telecel Cash wallet are not eligible. Funded by First Atlantic Bank (FAB).</p>
     </div>
-    <button class="eligibility-cta" onclick="openLoginModal()">Check My Eligibility →</button>
+    <button class="eligibility-cta" onclick="openLoanSummaryModal()">Check My Eligibility →</button>
   </div>
 </div>
 
@@ -1067,7 +1086,7 @@ footer { background:var(--text-dark); border-top:3px solid var(--red); padding:6
       <p class="section-sub">All loans credited directly to your Telecel Cash wallet — fast, transparent, and flexible. Rate: 8.9% per 7 days.</p>
     </div>
     <div class="loans-grid">
-      <div class="loan-card" onclick="selectLoan(500,4)">
+      <div class="loan-card" onclick="selectLoanAndSummary(500,4,'Starter Flex')">
         <div class="loan-icon-wrap">🌱</div>
         <div class="loan-amount-label">Starter Flex</div>
         <div class="loan-amount">GHS 500</div>
@@ -1076,9 +1095,9 @@ footer { background:var(--text-dark); border-top:3px solid var(--red); padding:6
           <div class="loan-fee-row"><span class="label">Service Fee (35.6%)</span><span class="value red">GHS 178.00</span></div>
           <div class="loan-fee-row"><span class="label">Total Repay</span><span class="value green">GHS 678.00</span></div>
         </div>
-        <button class="loan-select-btn">Select This Loan →</button>
+        <button class="loan-select-btn">View Summary &amp; Apply →</button>
       </div>
-      <div class="loan-card" onclick="selectLoan(1000,4)">
+      <div class="loan-card" onclick="selectLoanAndSummary(1000,4,'Basic Flex')">
         <div class="loan-icon-wrap">⚡</div>
         <div class="loan-amount-label">Basic Flex</div>
         <div class="loan-amount">GHS 1,000</div>
@@ -1087,9 +1106,9 @@ footer { background:var(--text-dark); border-top:3px solid var(--red); padding:6
           <div class="loan-fee-row"><span class="label">Service Fee (35.6%)</span><span class="value red">GHS 356.00</span></div>
           <div class="loan-fee-row"><span class="label">Total Repay</span><span class="value green">GHS 1,356.00</span></div>
         </div>
-        <button class="loan-select-btn">Select This Loan →</button>
+        <button class="loan-select-btn">View Summary &amp; Apply →</button>
       </div>
-      <div class="loan-card popular" onclick="selectLoan(5000,4)">
+      <div class="loan-card popular" onclick="selectLoanAndSummary(5000,4,'Power Flex')">
         <div class="loan-badge">Most Popular</div>
         <div class="loan-icon-wrap">🔥</div>
         <div class="loan-amount-label">Power Flex</div>
@@ -1099,9 +1118,9 @@ footer { background:var(--text-dark); border-top:3px solid var(--red); padding:6
           <div class="loan-fee-row"><span class="label">Service Fee (35.6%)</span><span class="value red">GHS 1,780.00</span></div>
           <div class="loan-fee-row"><span class="label">Total Repay</span><span class="value green">GHS 6,780.00</span></div>
         </div>
-        <button class="loan-select-btn">Select This Loan →</button>
+        <button class="loan-select-btn">View Summary &amp; Apply →</button>
       </div>
-      <div class="loan-card" onclick="selectLoan(10000,4)">
+      <div class="loan-card" onclick="selectLoanAndSummary(10000,4,'Business Flex')">
         <div class="loan-icon-wrap">💼</div>
         <div class="loan-amount-label">Business Flex</div>
         <div class="loan-amount">GHS 10,000</div>
@@ -1110,9 +1129,9 @@ footer { background:var(--text-dark); border-top:3px solid var(--red); padding:6
           <div class="loan-fee-row"><span class="label">Service Fee (35.6%)</span><span class="value red">GHS 3,560.00</span></div>
           <div class="loan-fee-row"><span class="label">Total Repay</span><span class="value green">GHS 13,560.00</span></div>
         </div>
-        <button class="loan-select-btn">Select This Loan →</button>
+        <button class="loan-select-btn">View Summary &amp; Apply →</button>
       </div>
-      <div class="loan-card" onclick="selectLoan(25000,4)">
+      <div class="loan-card" onclick="selectLoanAndSummary(25000,4,'Elite Flex')">
         <div class="loan-icon-wrap">🏆</div>
         <div class="loan-amount-label">Elite Flex</div>
         <div class="loan-amount">GHS 25,000</div>
@@ -1121,9 +1140,9 @@ footer { background:var(--text-dark); border-top:3px solid var(--red); padding:6
           <div class="loan-fee-row"><span class="label">Service Fee (35.6%)</span><span class="value red">GHS 8,900.00</span></div>
           <div class="loan-fee-row"><span class="label">Total Repay</span><span class="value green">GHS 33,900.00</span></div>
         </div>
-        <button class="loan-select-btn">Select This Loan →</button>
+        <button class="loan-select-btn">View Summary &amp; Apply →</button>
       </div>
-      <div class="loan-card" onclick="selectLoan(50000,4)">
+      <div class="loan-card" onclick="selectLoanAndSummary(50000,4,'Premium Flex')">
         <div class="loan-icon-wrap">👑</div>
         <div class="loan-amount-label">Premium Flex</div>
         <div class="loan-amount">GHS 50,000</div>
@@ -1132,7 +1151,7 @@ footer { background:var(--text-dark); border-top:3px solid var(--red); padding:6
           <div class="loan-fee-row"><span class="label">Service Fee (35.6%)</span><span class="value red">GHS 17,800.00</span></div>
           <div class="loan-fee-row"><span class="label">Total Repay</span><span class="value green">GHS 67,800.00</span></div>
         </div>
-        <button class="loan-select-btn">Select This Loan →</button>
+        <button class="loan-select-btn">View Summary &amp; Apply →</button>
       </div>
     </div>
   </div>
@@ -1277,7 +1296,7 @@ footer { background:var(--text-dark); border-top:3px solid var(--red); padding:6
       </div>
       <div class="faq-card">
         <div class="faq-q" onclick="toggleFaq(this)"><span>How do I apply for a Flex Loan?</span><div class="faq-icon">+</div></div>
-        <div class="faq-a">Apply through this portal by clicking "Login &amp; Apply" at the top right, entering your Telecel Cash number, then following the verification steps. Or use the USSD loan menu on your phone. The entire process takes under 5 minutes.</div>
+        <div class="faq-a">Apply through this portal by clicking any "Apply" button, reviewing your loan summary, then proceeding to verify your Telecel Cash number. Or use the USSD loan menu on your phone. The entire process takes under 5 minutes.</div>
       </div>
       <div class="faq-card">
         <div class="faq-q" onclick="toggleFaq(this)"><span>What fees are charged?</span><div class="faq-icon">+</div></div>
@@ -1317,7 +1336,6 @@ footer { background:var(--text-dark); border-top:3px solid var(--red); padding:6
   <div class="container">
     <div class="footer-grid">
       <div>
-        <!-- Footer: Official Telecel SVG Logo 200×200 -->
         <div class="footer-logo-wrap">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="80" height="80" aria-label="Telecel Logo">
             <circle cx="100" cy="100" r="100" fill="#E30613"/>
@@ -1362,7 +1380,75 @@ footer { background:var(--text-dark); border-top:3px solid var(--red); padding:6
   </div>
 </footer>
 
-<!-- LOGIN / VERIFY MODAL -->
+<!-- ══════════════════════════════════════
+     MODAL 1: LOAN SUMMARY
+     Triggered by: Apply buttons, Select Loan cards, hero buttons
+     Next step: "Apply Now" → redirects to verify.html
+     ══════════════════════════════════════ -->
+<div class="modal-overlay" id="loanSummaryModal">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-header-left">
+        <div class="modal-header-icon">📋</div>
+        <h2>Loan Summary</h2>
+      </div>
+      <button class="modal-close" onclick="closeModal('loanSummaryModal')">✕</button>
+    </div>
+    <div class="modal-body">
+      <!-- Hero amount block -->
+      <div class="summary-amount-hero">
+        <div class="label">Loan Amount</div>
+        <div class="value" id="sumAmount">GHS 1,000</div>
+        <div class="sub" id="sumPackage">Basic Flex · 4 Weeks</div>
+      </div>
+
+      <!-- Full breakdown -->
+      <div class="summary-breakdown">
+        <div class="summary-breakdown-title">📊 Full Loan Breakdown — 8.9% per 7 days</div>
+        <div class="summary-row">
+          <span class="s-label">Loan Amount</span>
+          <span class="s-value" id="sumBdAmount">GHS 1,000.00</span>
+        </div>
+        <div class="summary-row">
+          <span class="s-label">Repayment Period</span>
+          <span class="s-value" id="sumBdPeriod">4 weeks (28 days)</span>
+        </div>
+        <div class="summary-row">
+          <span class="s-label">Rate (8.9% × periods)</span>
+          <span class="s-value" id="sumBdRate">8.9% × 4 = 35.6%</span>
+        </div>
+        <div class="summary-row">
+          <span class="s-label">Total Service Fee</span>
+          <span class="s-value red" id="sumBdFee">GHS 356.00</span>
+        </div>
+        <div class="summary-row">
+          <span class="s-label">Total To Repay</span>
+          <span class="s-value green" id="sumBdRepay">GHS 1,356.00</span>
+        </div>
+        <div class="summary-row">
+          <span class="s-label">Daily Cost</span>
+          <span class="s-value" id="sumBdDaily">GHS 48.43 / day</span>
+        </div>
+      </div>
+
+      <!-- Late penalty notice -->
+      <div class="summary-late-warning">
+        <span>⚠️</span>
+        <span><strong>Late payment fee:</strong> A one-time 12.5% penalty applies if not repaid by your due date. Repay on time to protect your borrowing limit.</span>
+      </div>
+
+      <!-- Apply Now → goes to verify.html -->
+      <button class="modal-btn" onclick="proceedToVerify()">Apply Now — Verify My Number ⚡</button>
+      <p class="modal-note">Next step: enter your Telecel Cash number to verify eligibility. Funded by First Atlantic Bank (FAB). By continuing you agree to our <a href="#">Terms &amp; Conditions</a>.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     MODAL 2: VERIFY NUMBER (Login)
+     Triggered ONLY by: "Login & Apply" header/mobile button
+     Goes directly to verify.html on submit
+     ══════════════════════════════════════ -->
 <div class="modal-overlay" id="loginModal">
   <div class="modal">
     <div class="modal-header">
@@ -1413,7 +1499,7 @@ footer { background:var(--text-dark); border-top:3px solid var(--red); padding:6
   <span class="chat-fab-text">Chat With Us</span>
 </button>
 
-<!-- Tawk.to — single instance -->
+<!-- Tawk.to — single instance only -->
 <script type="text/javascript">
 var Tawk_API = Tawk_API || {};
 var Tawk_LoadStart = new Date();
@@ -1430,12 +1516,11 @@ var Tawk_LoadStart = new Date();
 
 <script>
 // ══ STATE ══
-let currentAmount  = 1000;
-// Always stored internally in DAYS — slider adapts per unit
-let currentDays    = 28;   // 4 weeks default
-let currentUnit    = 'weeks'; // 'days' | 'weeks' | 'months'
+let currentAmount = 1000;
+let currentDays   = 28;
+let currentUnit   = 'weeks';
 
-// ══ TICKER duplicate for seamless loop ══
+// ══ TICKER duplicate ══
 (function(){
   const track = document.getElementById('ticker');
   track.innerHTML += track.innerHTML;
@@ -1447,11 +1532,9 @@ function fmt(n) {
 }
 
 // ══ PERIOD UNIT SYSTEM ══
-// Max days = 182 (26 weeks / ~6 months)
 const MAX_DAYS = 182;
 const MIN_DAYS = 1;
 
-// Chips config per unit
 const CHIPS = {
   days:   [7, 14, 21, 30, 60, 90, 120, 182],
   weeks:  [1, 2, 4, 8, 13, 26],
@@ -1477,7 +1560,6 @@ function unitToDays(val, unit) {
 }
 
 function sliderConfig(unit) {
-  // [min, max, step] in unit values
   if (unit === 'days')   return { min:1,  max:182, step:1,  labels:['1 Day','91 Days','182 Days (6 mo)'] };
   if (unit === 'weeks')  return { min:1,  max:26,  step:1,  labels:['1 Week','13 Weeks','26 Weeks (6 mo)'] };
   if (unit === 'months') return { min:1,  max:6,   step:1,  labels:['1 Month','3 Months','6 Months'] };
@@ -1485,13 +1567,10 @@ function sliderConfig(unit) {
 
 function setPeriodUnit(unit) {
   currentUnit = unit;
-  // Update tab styles
   ['days','weeks','months'].forEach(u => {
     document.getElementById('tab' + u.charAt(0).toUpperCase() + u.slice(1)).classList.toggle('active', u === unit);
   });
-  // Re-render chips
   renderPeriodChips();
-  // Update slider config
   const cfg = sliderConfig(unit);
   const slider = document.getElementById('periodSlider');
   slider.min   = cfg.min;
@@ -1499,7 +1578,6 @@ function setPeriodUnit(unit) {
   slider.step  = cfg.step;
   const unitVal = Math.max(cfg.min, Math.min(cfg.max, daysToUnit(currentDays, unit)));
   slider.value = unitVal;
-  // Update range labels
   const rl = document.getElementById('periodRangeLabels');
   rl.innerHTML = `<span>${cfg.labels[0]}</span><span>${cfg.labels[1]}</span><span>${cfg.labels[2]}</span>`;
   fillSlider(slider);
@@ -1526,7 +1604,6 @@ function setPeriodChip(val) {
 }
 
 // ══ CALCULATOR — 8.9% per 7 days ══
-// periods = total days / 7 (fractional allowed for non-week periods)
 function calcFee(amount, days) {
   const periods = days / 7;
   return amount * 0.089 * periods;
@@ -1549,7 +1626,6 @@ function syncUI() {
   const repay  = currentAmount + fee;
   const daily  = repay / currentDays;
   const periods = currentDays / 7;
-  const rateTotal = (periods * 8.9).toFixed(2);
 
   // Amount display
   document.getElementById('amountDisplay').textContent = currentAmount.toLocaleString('en-GH');
@@ -1565,32 +1641,19 @@ function syncUI() {
   fillSlider(document.getElementById('amountSlider'));
 
   // Period display
-  const unitVal = daysToUnit(currentDays, currentUnit);
-  const unitCap = currentUnit.charAt(0).toUpperCase() + currentUnit.slice(1);
-  const unitSingular = currentUnit.slice(0,-1);
-  const unitLabel = currentDays === unitToDays(1, currentUnit) ? unitCap.replace(/s$/,'') : unitCap;
-
-  document.getElementById('periodValue').textContent    = unitVal;
-  document.getElementById('periodUnitLabel').textContent = unitLabel;
+  const unitVal  = daysToUnit(currentDays, currentUnit);
+  const unitCap  = currentUnit.charAt(0).toUpperCase() + currentUnit.slice(1);
+  document.getElementById('periodValue').textContent     = unitVal;
+  document.getElementById('periodUnitLabel').textContent = unitCap;
   document.getElementById('daysEquiv').textContent       = currentDays;
   document.getElementById('periodInput').value           = unitVal;
 
-  // Re-render chips to update active state
   renderPeriodChips();
 
-  // Period breakdown description
-  let periodDesc = '';
-  if (currentUnit === 'days')   periodDesc = `${currentDays} day${currentDays>1?'s':''}`;
-  if (currentUnit === 'weeks')  periodDesc = `${unitVal} week${unitVal>1?'s':''} (${currentDays} days)`;
-  if (currentUnit === 'months') periodDesc = `${unitVal} month${unitVal>1?'s':''} (${currentDays} days)`;
-
-  // Breakdown
-  document.getElementById('bdAmount').textContent  = fmt(currentAmount);
-  document.getElementById('bdPeriod').textContent  = periodDesc;
-  document.getElementById('bdRate').textContent    = `8.9% × ${periods.toFixed(2)} periods = ${rateTotal}%`;
-  document.getElementById('bdFee').textContent     = fmt(fee);
-  document.getElementById('bdRepay').textContent   = fmt(repay);
-  document.getElementById('bdDaily').textContent   = fmt(daily) + ' / day';
+  // Quick summary (inside calculator)
+  document.getElementById('qsFee').textContent   = fmt(fee);
+  document.getElementById('qsRepay').textContent = fmt(repay);
+  document.getElementById('qsDaily').textContent = fmt(daily) + '/day';
 }
 
 function onManualAmount() {
@@ -1619,6 +1682,19 @@ function setAmount(a) {
   syncUI();
 }
 
+// ── Select from loan card: set amount/period then open summary ──
+function selectLoanAndSummary(amount, weeks, packageName) {
+  currentAmount = amount;
+  currentDays   = weeks * 7;
+  currentUnit   = 'weeks';
+  setPeriodUnit('weeks');
+  document.getElementById('periodSlider').value = weeks;
+  fillSlider(document.getElementById('periodSlider'));
+  syncUI();
+  openLoanSummaryModal(packageName);
+}
+
+// ── Old selectLoan kept for calculator use (just updates calc, no modal) ──
 function selectLoan(amount, weeks) {
   currentAmount = amount;
   currentDays   = weeks * 7;
@@ -1632,67 +1708,60 @@ function selectLoan(amount, weeks) {
   showToast('✅', 'Loan Selected', `GHS ${amount.toLocaleString()} × ${weeks} weeks loaded in calculator.`);
 }
 
-// ── Init ──
+// Init
 setPeriodUnit('weeks');
 syncUI();
 
-// ══ SLIDESHOW ══
-let currentSlide = 0;
-let slideTimer;
-const totalSlides = 5;
+// ══ LOAN SUMMARY MODAL ══
+// Opens with current calculator values, or overridden by selectLoanAndSummary
+function openLoanSummaryModal(packageName) {
+  const fee    = calcFee(currentAmount, currentDays);
+  const repay  = currentAmount + fee;
+  const daily  = repay / currentDays;
+  const periods = currentDays / 7;
+  const rateTotal = (periods * 8.9).toFixed(2);
+  const weeks  = Math.round(currentDays / 7);
+  const pkg    = packageName || 'Flex Loan';
 
-function goToSlide(n) {
-  const slides = document.querySelectorAll('.slide');
-  const dots   = document.querySelectorAll('.slide-dot');
-  slides[currentSlide].classList.remove('active');
-  dots[currentSlide].classList.remove('active');
-  currentSlide = ((n % totalSlides) + totalSlides) % totalSlides;
-  slides[currentSlide].classList.add('active');
-  dots[currentSlide].classList.add('active');
+  // Period description
+  let periodDesc = '';
+  if (currentUnit === 'days')        periodDesc = `${currentDays} day${currentDays>1?'s':''}`;
+  else if (currentUnit === 'months') periodDesc = `${daysToUnit(currentDays,'months')} month(s) (${currentDays} days)`;
+  else                               periodDesc = `${daysToUnit(currentDays,'weeks')} week(s) (${currentDays} days)`;
+
+  // Populate summary modal
+  document.getElementById('sumAmount').textContent   = `GHS ${currentAmount.toLocaleString('en-GH')}`;
+  document.getElementById('sumPackage').textContent  = `${pkg} · ${periodDesc}`;
+  document.getElementById('sumBdAmount').textContent = fmt(currentAmount);
+  document.getElementById('sumBdPeriod').textContent = periodDesc;
+  document.getElementById('sumBdRate').textContent   = `8.9% × ${periods.toFixed(2)} periods = ${rateTotal}%`;
+  document.getElementById('sumBdFee').textContent    = fmt(fee);
+  document.getElementById('sumBdRepay').textContent  = fmt(repay);
+  document.getElementById('sumBdDaily').textContent  = fmt(daily) + ' / day';
+
+  document.getElementById('loanSummaryModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
 }
 
-function moveSlide(dir) {
-  clearInterval(slideTimer);
-  goToSlide(currentSlide + dir);
-  startSlideTimer();
+// "Apply Now" inside summary modal → go to verify.html
+function proceedToVerify() {
+  const fee   = calcFee(currentAmount, currentDays);
+  const repay = currentAmount + fee;
+  closeModal('loanSummaryModal');
+  showToast('✅', 'Redirecting...', 'Taking you to the verification page.');
+  setTimeout(() => {
+    window.location.href = `verify.html?amount=${currentAmount}&days=${currentDays}&fee=${fee.toFixed(2)}&repay=${repay.toFixed(2)}`;
+  }, 1200);
 }
 
-function startSlideTimer() {
-  slideTimer = setInterval(() => goToSlide(currentSlide + 1), 5500);
-}
-startSlideTimer();
-
-// ══ MODALS ══
+// ══ LOGIN MODAL (only from Login & Apply button) ══
 function openLoginModal() {
   document.getElementById('loginModal').classList.add('open');
   document.body.style.overflow = 'hidden';
   setTimeout(() => document.getElementById('loginPhone').focus(), 300);
 }
 
-function closeModal(id) {
-  document.getElementById(id).classList.remove('open');
-  document.body.style.overflow = '';
-}
-
-document.querySelectorAll('.modal-overlay').forEach(o => {
-  o.addEventListener('click', e => {
-    if (e.target === o) {
-      o.classList.remove('open');
-      document.body.style.overflow = '';
-    }
-  });
-});
-
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') {
-    document.querySelectorAll('.modal-overlay.open').forEach(o => {
-      o.classList.remove('open');
-    });
-    document.body.style.overflow = '';
-  }
-});
-
-// ══ LOGIN HANDLER — direct redirect to verify page ══
+// Login → direct to verify.html with phone
 function handleLogin() {
   const phone = document.getElementById('loginPhone').value.trim();
   if (!phone || phone.length < 10) {
@@ -1719,6 +1788,56 @@ function handleLogin() {
 document.getElementById('loginPhone').addEventListener('keydown', function(e) {
   if (e.key === 'Enter') handleLogin();
 });
+
+// ══ CLOSE MODALS ══
+function closeModal(id) {
+  document.getElementById(id).classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.querySelectorAll('.modal-overlay').forEach(o => {
+  o.addEventListener('click', e => {
+    if (e.target === o) {
+      o.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  });
+});
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    document.querySelectorAll('.modal-overlay.open').forEach(o => {
+      o.classList.remove('open');
+    });
+    document.body.style.overflow = '';
+  }
+});
+
+// ══ SLIDESHOW ══
+let currentSlide = 0;
+let slideTimer;
+const totalSlides = 5;
+
+function goToSlide(n) {
+  const slides = document.querySelectorAll('.slide');
+  const dots   = document.querySelectorAll('.slide-dot');
+  slides[currentSlide].classList.remove('active');
+  dots[currentSlide].classList.remove('active');
+  currentSlide = ((n % totalSlides) + totalSlides) % totalSlides;
+  slides[currentSlide].classList.add('active');
+  dots[currentSlide].classList.add('active');
+}
+
+function moveSlide(dir) {
+  clearInterval(slideTimer);
+  goToSlide(currentSlide + dir);
+  startSlideTimer();
+}
+
+function startSlideTimer() {
+  slideTimer = setInterval(() => goToSlide(currentSlide + 1), 5500);
+}
+startSlideTimer();
 
 // ══ TOAST ══
 let toastTimer;
