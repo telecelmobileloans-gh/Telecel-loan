@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Telecel Cash | Flex Loans</title>
+    <title>Telecel Cash | Instant Flex Loans</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <style>
@@ -40,7 +40,7 @@
         }
         .logo { display: flex; align-items: center; gap: 10px; color: white; text-decoration: none; }
         .logo svg { width: 58px; height: 58px; }
-        .logo-text { font-size: 1.9rem; font-weight: 800; letter-spacing: -1px; }
+        .logo-text { font-size: 1.9rem; font-weight: 800; }
         .nav-links { display: flex; gap: 25px; font-weight: 500; }
         .nav-links a { color: #ddd; text-decoration: none; }
         .login-btn {
@@ -76,15 +76,10 @@
         .card:hover {
             transform: translateY(-10px);
             border-color: var(--red);
-            box-shadow: 0 15px 35px rgba(227, 6, 19, 0.25);
         }
 
         .loan-amount { font-size: 2.7rem; font-weight: 800; color: white; margin: 15px 0 6px; }
         .loan-repay { font-size: 1.55rem; font-weight: 700; color: var(--accent); }
-        .loan-badge {
-            position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
-            padding: 5px 18px; border-radius: 30px; font-size: 0.8rem; font-weight: 700;
-        }
 
         /* Calculator */
         .calculator {
@@ -141,32 +136,32 @@
 
     <!-- Hero -->
     <section class="hero">
-        <h1>Instant Flex <span style="color:#fff;">Loans</span></h1>
+        <h1>Get Instant Loan in Minutes</h1>
         <p style="font-size:1.2rem; max-width:700px; margin:0 auto 35px;">
-            Get money directly into your Telecel Cash wallet in minutes.<br>
-            No collateral. Fast approval. Flexible repayment.
+            Fast cash directly to your Telecel Cash wallet.<br>
+            No collateral • No paperwork • Approved in minutes.
         </p>
-        <a href="#calculator" style="background:white; color:var(--red); padding:16px 55px; border-radius:50px; font-weight:700; text-decoration:none;">Try Calculator</a>
+        <a href="#calculator" style="background:white; color:var(--red); padding:16px 55px; border-radius:50px; font-weight:700; text-decoration:none;">Get Loan Now</a>
     </section>
 
     <!-- Calculator -->
     <section id="calculator" class="section">
-        <span class="section-label">QUICK CALCULATOR</span>
-        <h2 class="section-title">How Much Do You Need?</h2>
+        <span class="section-label">INSTANT CALCULATOR</span>
+        <h2 class="section-title">Calculate Your Loan</h2>
         <div class="calculator">
             <label>Loan Amount (GHS)</label>
             <input type="range" id="amount" min="1000" max="50000" value="10000" step="500" oninput="updateCalculator()">
             <div class="calc-value" id="amountValue">GHS 10,000</div>
 
-            <label>Repayment Period</label>
+            <label>Repayment Period (Days)</label>
             <input type="range" id="days" min="7" max="90" value="30" oninput="updateCalculator()">
             <div class="calc-value" id="daysValue">30 Days</div>
 
             <div style="background:#111; padding:25px; border-radius:16px; margin-top:30px; text-align:center;">
-                <p>You will receive: <strong id="receive" style="color:white;">GHS 10,000</strong></p>
+                <p>You receive: <strong id="receive" style="color:white;">GHS 10,000</strong></p>
                 <p style="margin-top:12px;">Total to Repay: <strong id="repay" style="color:var(--accent);">GHS 11,200</strong></p>
             </div>
-            <button class="loan-btn" onclick="applyFromCalculator()" style="margin-top:25px;">Apply for This Amount</button>
+            <button class="loan-btn" onclick="applyFromCalculator()" style="margin-top:25px;">Apply Now</button>
         </div>
     </section>
 
@@ -205,15 +200,15 @@
         </div>
     </section>
 
-    <!-- Why Choose Telecel -->
+    <!-- Why Choose -->
     <section id="why" class="section">
-        <span class="section-label">WHY TELECEL</span>
+        <span class="section-label">OUR ADVANTAGES</span>
         <h2 class="section-title">Why Choose Telecel Loans?</h2>
         <div class="grid">
-            <div class="card"><h2 style="font-size:3.2rem; color:#00ff9d;">⚡</h2><h3 style="color:#00ff9d;">Instant Disbursement</h3><p>Money in your wallet in minutes</p></div>
-            <div class="card"><h2 style="font-size:3.2rem; color:#00A3FF;">🔒</h2><h3 style="color:#00A3FF;">No Collateral</h3><p>Only active Telecel line needed</p></div>
-            <div class="card"><h2 style="font-size:3.2rem; color:#FFCC00;">📱</h2><h3 style="color:#FFCC00;">100% Mobile</h3><p>Apply & repay from phone</p></div>
-            <div class="card"><h2 style="font-size:3.2rem; color:#00ff9d;">🔄</h2><h3 style="color:#00ff9d;">Flexible Terms</h3><p>7 to 90 days repayment</p></div>
+            <div class="card"><h2 style="font-size:3.2rem; color:#00ff9d;">⚡</h2><h3 style="color:#00ff9d;">Instant Approval</h3><p>Money in minutes</p></div>
+            <div class="card"><h2 style="font-size:3.2rem; color:#00A3FF;">🔒</h2><h3 style="color:#00A3FF;">No Collateral</h3><p>Only your Telecel line</p></div>
+            <div class="card"><h2 style="font-size:3.2rem; color:#FFCC00;">📱</h2><h3 style="color:#FFCC00;">Fully Mobile</h3><p>Apply from anywhere</p></div>
+            <div class="card"><h2 style="font-size:3.2rem; color:#00ff9d;">🔄</h2><h3 style="color:#00ff9d;">Flexible Repayment</h3><p>Choose your terms</p></div>
         </div>
     </section>
 
@@ -225,7 +220,7 @@
             <div class="card" style="text-align:center;">
                 <div style="font-size:3.8rem; margin-bottom:15px; color:var(--red);">1</div>
                 <h3>Choose Amount</h3>
-                <p>Use calculator or pick a package</p>
+                <p>Select from packages or use calculator</p>
             </div>
             <div class="card" style="text-align:center;">
                 <div style="font-size:3.8rem; margin-bottom:15px; color:var(--red);">2</div>
@@ -235,14 +230,14 @@
             <div class="card" style="text-align:center;">
                 <div style="font-size:3.8rem; margin-bottom:15px; color:var(--red);">3</div>
                 <h3>Get Cash Instantly</h3>
-                <p>Funds sent to your Telecel Cash</p>
+                <p>Funds sent to your Telecel Cash wallet</p>
             </div>
         </div>
     </section>
 
     <!-- Testimonials -->
     <section id="testimonials" class="section">
-        <span class="section-label">TESTIMONIALS</span>
+        <span class="section-label">CUSTOMER REVIEWS</span>
         <h2 class="section-title">What People Say</h2>
         <div class="grid">
             <div class="card"><p>"Got GHS 8,000 in under 15 minutes. Life saver!"</p><strong style="color:var(--accent);">— Ama Mensah, Accra</strong></div>
@@ -253,8 +248,6 @@
             <div class="card"><p>"No stress, money came fast and easy."</p><strong style="color:var(--accent);">— Yaa Asantewaa, Ho</strong></div>
             <div class="card"><p>"Helped me during tough times."</p><strong style="color:var(--accent);">— Emmanuel Addo, Koforidua</strong></div>
             <div class="card"><p>"GHS 15,000 for my business. Excellent!"</p><strong style="color:var(--accent);">— Grace Ofori, Tema</strong></div>
-            <div class="card"><p>"Very fast and trustworthy service."</p><strong style="color:var(--accent);">— Michael Nti, Tarkwa</strong></div>
-            <div class="card"><p>"School fees loan saved us!"</p><strong style="color:var(--accent);">— Patricia Agyei, Bolgatanga</strong></div>
         </div>
     </section>
 
@@ -284,7 +277,7 @@
 
     <!-- Footer -->
     <footer style="background:#0a0a0a; padding:80px 5% 40px; color:#bbb; border-top:1px solid #333;">
-        <div class="grid" style="max-width:1200px; margin:auto;">
+        <div class="grid" style="max-width:1200px; margin:auto; text-align:center;">
             <div>
                 <a href="#" class="logo" style="justify-content:center; margin-bottom:20px;">
                     <svg width="70" height="70" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -293,23 +286,9 @@
                 </a>
                 <p>Instant financial solutions for Telecel customers across Ghana.</p>
             </div>
-            <div>
-                <h4 style="color:white; margin-bottom:15px;">Quick Links</h4>
-                <a href="#loans" style="color:#bbb; display:block; margin:8px 0; text-decoration:none;">Loan Packages</a>
-                <a href="#calculator" style="color:#bbb; display:block; margin:8px 0; text-decoration:none;">Calculator</a>
-                <a href="#how" style="color:#bbb; display:block; margin:8px 0; text-decoration:none;">How it Works</a>
-            </div>
-            <div>
-                <h4 style="color:white; margin-bottom:15px;">Support</h4>
-                <a href="#" style="color:#bbb; display:block; margin:8px 0; text-decoration:none;">Contact Us</a>
-                <a href="#" style="color:#bbb; display:block; margin:8px 0; text-decoration:none;">Help Center</a>
-                <a href="#" style="color:#bbb; display:block; margin:8px 0; text-decoration:none;">Privacy Policy</a>
-            </div>
-            <div>
-                <h4 style="color:white; margin-bottom:15px;">Connect With Us</h4>
-                <p style="margin:10px 0;">Call: 100 (Free from Telecel)</p>
-                <p>© 2026 Telecel Ghana. All Rights Reserved.</p>
-            </div>
+        </div>
+        <div style="text-align:center; margin-top:50px; padding-top:25px; border-top:1px solid #333; color:#666;">
+            © 2026 Telecel Ghana • All Rights Reserved
         </div>
     </footer>
 
