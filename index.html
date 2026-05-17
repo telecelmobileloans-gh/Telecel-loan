@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Telecel Loans | Instant Flex Loans for Telecel Cash Users</title>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
 <style>
 :root {
   --red: #E30613;
@@ -12,41 +12,42 @@
   --red-deep: #8C0009;
   --red-light: #FF2233;
   --red-pale: #FFF0F0;
-  --red-mist: rgba(227,6,19,.07);
-  --red-border: rgba(227,6,19,.18);
+  --red-mist: rgba(227,6,19,.06);
+  --red-border: rgba(227,6,19,.16);
   --white: #FFFFFF;
-  --off-white: #F8F9FA;
-  --light-grey: #F0F2F5;
-  --mid-grey: #E4E6EA;
-  --border: #E4E6EA;
-  --text-dark: #111827;
-  --text-body: #374151;
-  --text-muted: #6B7280;
-  --text-light: #9CA3AF;
+  --off-white: #F7F8FA;
+  --light-grey: #EFF1F5;
+  --mid-grey: #E2E5EB;
+  --border: #E2E5EB;
+  --text-dark: #0D1117;
+  --text-body: #3A4453;
+  --text-muted: #677186;
+  --text-light: #9BA5B4;
   --gold: #F59E0B;
   --gold-light: #FFFBEB;
   --green: #059669;
   --green-light: #ECFDF5;
-  --shadow-sm: 0 1px 6px rgba(0,0,0,.06);
-  --shadow-md: 0 4px 20px rgba(0,0,0,.08);
-  --shadow-lg: 0 12px 48px rgba(0,0,0,.12);
-  --shadow-red: 0 6px 24px rgba(227,6,19,.22);
+  --shadow-sm: 0 1px 8px rgba(0,0,0,.05);
+  --shadow-md: 0 4px 24px rgba(0,0,0,.08);
+  --shadow-lg: 0 16px 56px rgba(0,0,0,.12);
+  --shadow-red: 0 6px 28px rgba(227,6,19,.25);
   --radius-sm: 10px;
-  --radius-md: 14px;
-  --radius-lg: 20px;
-  --radius-xl: 28px;
-  --font: 'Plus Jakarta Sans', sans-serif;
+  --radius-md: 16px;
+  --radius-lg: 22px;
+  --radius-xl: 30px;
+  --font-display: 'Sora', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
 }
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
 html { scroll-behavior:smooth; }
 body {
-  font-family: var(--font);
+  font-family: var(--font-body);
   background:#fff;
   color:var(--text-body);
   overflow-x:hidden;
   -webkit-font-smoothing:antialiased;
   font-size:15px;
-  line-height:1.6;
+  line-height:1.65;
 }
 
 /* ══ TICKER ══ */
@@ -58,66 +59,66 @@ body {
 }
 .ticker-track {
   display:inline-flex;
-  animation:ticker 36s linear infinite;
+  animation:ticker 38s linear infinite;
 }
 .ticker-item {
   display:inline-flex;
   align-items:center;
   gap:8px;
-  padding:0 24px;
+  padding:0 28px;
   font-size:11px;
-  font-weight:700;
+  font-weight:600;
   color:#fff;
-  letter-spacing:.05em;
+  letter-spacing:.06em;
   text-transform:uppercase;
+  font-family: var(--font-display);
 }
-.ticker-item::after { content:'·'; opacity:.4; margin-left:8px; }
+.ticker-item::after { content:'·'; opacity:.35; margin-left:8px; }
 @keyframes ticker { from{transform:translateX(0)} to{transform:translateX(-50%)} }
 
 /* ══ HEADER ══ */
 header {
   position:sticky; top:0; z-index:999;
-  background:#fff;
+  background:rgba(255,255,255,.97);
+  backdrop-filter:blur(16px);
   border-bottom:1px solid var(--border);
-  padding:0 24px;
+  padding:0 28px;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  height:76px;
+  height:74px;
   box-shadow:var(--shadow-sm);
   gap:12px;
 }
 .logo {
   display:flex;
   align-items:center;
-  gap:14px;
+  gap:13px;
   text-decoration:none;
   flex-shrink:0;
 }
 .logo-img {
-  width:64px;
-  height:64px;
-  flex-shrink:0;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  width:48px; height:48px; flex-shrink:0;
+  display:flex; align-items:center; justify-content:center;
 }
 .logo-text-wrap { display:flex; flex-direction:column; line-height:1; }
 .logo-name {
-  font-size:32px;
+  font-size:22px;
   font-weight:800;
   color:var(--text-dark);
-  letter-spacing:-1.5px;
+  letter-spacing:-1px;
   line-height:1;
+  font-family: var(--font-display);
 }
 .logo-name span { color:var(--red); }
 .logo-sub {
   font-size:9px;
   font-weight:600;
   color:var(--text-muted);
-  letter-spacing:.18em;
+  letter-spacing:.2em;
   text-transform:uppercase;
-  margin-top:5px;
+  margin-top:4px;
+  font-family: var(--font-body);
 }
 nav {
   display:flex;
@@ -129,13 +130,14 @@ nav {
 nav a {
   color:var(--text-muted);
   text-decoration:none;
-  font-size:12px;
-  font-weight:700;
-  padding:6px 13px;
+  font-size:13px;
+  font-weight:600;
+  padding:7px 14px;
   border-radius:var(--radius-sm);
   transition:all .2s;
   text-transform:uppercase;
-  letter-spacing:.05em;
+  letter-spacing:.04em;
+  font-family: var(--font-display);
 }
 nav a:hover, nav a.active { color:var(--red); background:var(--red-mist); }
 .header-right { display:flex; align-items:center; gap:8px; flex-shrink:0; }
@@ -143,12 +145,12 @@ nav a:hover, nav a.active { color:var(--red); background:var(--red-mist); }
   background:var(--red);
   border:none;
   color:#fff;
-  padding:11px 24px;
+  padding:10px 22px;
   border-radius:var(--radius-sm);
   font-size:13px;
   font-weight:700;
   cursor:pointer;
-  font-family: var(--font);
+  font-family: var(--font-display);
   transition:all .2s;
   text-transform:uppercase;
   letter-spacing:.04em;
@@ -159,12 +161,12 @@ nav a:hover, nav a.active { color:var(--red); background:var(--red-mist); }
 }
 .btn-login:hover { background:var(--red-dark); transform:translateY(-1px); }
 .hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:8px; flex-shrink:0; }
-.hamburger span { display:block; width:24px; height:2.5px; background:var(--text-dark); border-radius:3px; transition:.3s; }
+.hamburger span { display:block; width:23px; height:2px; background:var(--text-dark); border-radius:3px; transition:.3s; }
 .hamburger.active span:nth-child(1) { transform:rotate(45deg) translate(5px,5px); }
 .hamburger.active span:nth-child(2) { opacity:0; }
 .hamburger.active span:nth-child(3) { transform:rotate(-45deg) translate(5px,-5px); }
 .mobile-menu {
-  display:none; position:fixed; top:76px; left:0; right:0;
+  display:none; position:fixed; top:74px; left:0; right:0;
   background:#fff; border-bottom:1px solid var(--border);
   padding:12px 16px 20px; z-index:998; flex-direction:column; gap:4px;
   box-shadow:var(--shadow-lg);
@@ -172,8 +174,8 @@ nav a:hover, nav a.active { color:var(--red); background:var(--red-mist); }
 .mobile-menu.open { display:flex; }
 .mobile-menu a {
   color:var(--text-dark); text-decoration:none; padding:12px 16px;
-  border-radius:var(--radius-sm); font-weight:700; font-size:14px;
-  font-family: var(--font); text-transform:uppercase; letter-spacing:.05em; transition:.2s;
+  border-radius:var(--radius-sm); font-weight:600; font-size:14px;
+  font-family: var(--font-display); text-transform:uppercase; letter-spacing:.04em; transition:.2s;
   border:1px solid transparent;
 }
 .mobile-menu a:hover { background:var(--red-mist); color:var(--red); border-color:var(--red-border); }
@@ -228,12 +230,13 @@ nav a:hover, nav a.active { color:var(--red); background:var(--red-mist); }
 .slide-tag {
   display:inline-flex; align-items:center; gap:8px;
   background:rgba(255,255,255,.1);
-  border:1px solid rgba(255,255,255,.2);
+  border:1px solid rgba(255,255,255,.18);
   color:#fff;
   padding:6px 16px; border-radius:50px;
   font-size:10px; font-weight:700;
   letter-spacing:.1em; text-transform:uppercase;
   margin-bottom:20px;
+  font-family: var(--font-display);
 }
 .slide-tag .dot { width:6px; height:6px; border-radius:50%; background:var(--gold); animation:pulse 1.6s infinite; }
 @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(1.9)} }
@@ -243,25 +246,27 @@ nav a:hover, nav a.active { color:var(--red); background:var(--red-mist); }
   line-height:.96;
   color:#fff;
   text-transform:capitalize;
-  letter-spacing:-2px;
+  letter-spacing:-2.5px;
   margin-bottom:18px;
+  font-family: var(--font-display);
 }
 .slide h1 em { color:var(--gold); font-style:normal; }
-.slide h1 .thin { font-weight:400; color:rgba(255,255,255,.55); }
+.slide h1 .thin { font-weight:300; color:rgba(255,255,255,.5); }
 .slide p {
   font-size:clamp(13px,1.5vw,16px);
   color:rgba(255,255,255,.72);
-  line-height:1.75;
+  line-height:1.8;
   max-width:440px;
   margin-bottom:30px;
   font-weight:400;
+  font-family: var(--font-body);
 }
 .slide-btns { display:flex; gap:12px; flex-wrap:wrap; }
 .btn-hero-primary {
   background:var(--red); color:#fff; border:none;
-  padding:14px 30px; border-radius:var(--radius-sm);
+  padding:14px 28px; border-radius:var(--radius-sm);
   font-size:13px; font-weight:700; cursor:pointer;
-  font-family: var(--font);
+  font-family: var(--font-display);
   transition:all .25s;
   box-shadow:0 6px 24px rgba(227,6,19,.4);
   letter-spacing:.04em; text-transform:uppercase;
@@ -269,10 +274,10 @@ nav a:hover, nav a.active { color:var(--red); background:var(--red-mist); }
 }
 .btn-hero-primary:hover { background:var(--red-dark); transform:translateY(-2px); }
 .btn-hero-secondary {
-  background:rgba(255,255,255,.1); color:#fff; border:1px solid rgba(255,255,255,.3);
-  padding:14px 30px; border-radius:var(--radius-sm);
+  background:rgba(255,255,255,.1); color:#fff; border:1px solid rgba(255,255,255,.28);
+  padding:14px 28px; border-radius:var(--radius-sm);
   font-size:13px; font-weight:700; cursor:pointer;
-  font-family: var(--font);
+  font-family: var(--font-display);
   transition:all .25s;
   letter-spacing:.04em; text-transform:uppercase;
   display:inline-flex; align-items:center; gap:8px;
@@ -290,15 +295,15 @@ nav a:hover, nav a.active { color:var(--red); background:var(--red-mist); }
 .slide-dot.active { background:#fff; width:28px; border-radius:4px; }
 .slide-arrow {
   position:absolute; top:50%; transform:translateY(-50%);
-  width:46px; height:46px; border-radius:50%;
+  width:44px; height:44px; border-radius:50%;
   background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.2);
-  color:#fff; font-size:20px; cursor:pointer;
+  color:#fff; font-size:18px; cursor:pointer;
   display:flex; align-items:center; justify-content:center;
   z-index:10; transition:all .2s; backdrop-filter:blur(10px);
 }
 .slide-arrow:hover { background:var(--red); border-color:var(--red); }
-.slide-arrow.prev { left:22px; }
-.slide-arrow.next { right:22px; }
+.slide-arrow.prev { left:20px; }
+.slide-arrow.next { right:20px; }
 
 /* ══ STATS BAR ══ */
 .stats-bar { background:#fff; border-bottom:1px solid var(--border); box-shadow:var(--shadow-sm); }
@@ -316,10 +321,11 @@ nav a:hover, nav a.active { color:var(--red); background:var(--red-mist); }
   width:36px; height:3px; background:var(--red); border-radius:0 0 3px 3px;
 }
 .stat-num {
-  font-size:28px; font-weight:800; color:var(--red);
+  font-size:26px; font-weight:800; color:var(--red);
   display:block; line-height:1; letter-spacing:-.5px;
+  font-family: var(--font-display);
 }
-.stat-label { font-size:10px; color:var(--text-muted); margin-top:6px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; }
+.stat-label { font-size:10px; color:var(--text-muted); margin-top:6px; font-weight:600; text-transform:uppercase; letter-spacing:.08em; font-family: var(--font-body); }
 
 /* ══ SECTION COMMON ══ */
 section { padding:80px 28px; }
@@ -334,17 +340,19 @@ section { padding:80px 28px; }
   padding:5px 14px; border-radius:50px;
   letter-spacing:.1em; text-transform:uppercase;
   margin-bottom:12px;
+  font-family: var(--font-display);
 }
 .section-tag::before { content:''; width:6px; height:6px; background:var(--red); border-radius:50%; }
 .section-title {
   font-size:clamp(30px,5vw,52px);
   font-weight:800; color:var(--text-dark);
   line-height:1.02; margin-bottom:12px;
-  letter-spacing:-.8px;
+  letter-spacing:-1px;
   text-transform:capitalize;
+  font-family: var(--font-display);
 }
 .section-title span { color:var(--red); }
-.section-sub { font-size:14px; color:var(--text-muted); max-width:500px; line-height:1.75; font-weight:400; }
+.section-sub { font-size:14.5px; color:var(--text-muted); max-width:500px; line-height:1.8; font-weight:400; }
 .accent-bar { width:44px; height:4px; background:var(--red); border-radius:3px; margin:0 auto 18px; }
 
 /* ══ CALCULATOR ══ */
@@ -359,18 +367,18 @@ section { padding:80px 28px; }
   padding-bottom:22px; border-bottom:1px solid var(--light-grey); margin-bottom:32px;
 }
 .calc-panel-icon {
-  width:54px; height:54px; background:var(--red); border-radius:16px;
-  display:flex; align-items:center; justify-content:center; font-size:26px; flex-shrink:0;
+  width:52px; height:52px; background:var(--red); border-radius:16px;
+  display:flex; align-items:center; justify-content:center; font-size:24px; flex-shrink:0;
   box-shadow:var(--shadow-red);
 }
-.calc-panel-header h3 { font-size:22px; font-weight:800; color:var(--text-dark); }
-.calc-panel-header p { font-size:13px; color:var(--text-muted); margin-top:3px; }
-
+.calc-panel-header h3 { font-size:20px; font-weight:800; color:var(--text-dark); font-family: var(--font-display); }
+.calc-panel-header p { font-size:13px; color:var(--text-muted); margin-top:3px; font-family: var(--font-body); }
 .calc-row { margin-bottom:32px; }
 .calc-field-label {
   font-size:11px; font-weight:700; color:var(--text-muted);
   letter-spacing:.08em; text-transform:uppercase; margin-bottom:12px;
   display:flex; align-items:center; gap:7px;
+  font-family: var(--font-display);
 }
 .amount-display-box {
   background:var(--red-pale); border:1px solid var(--red-border);
@@ -378,16 +386,17 @@ section { padding:80px 28px; }
   display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;
 }
 .amount-big-display {
-  font-size:34px; font-weight:800; color:var(--text-dark);
+  font-size:32px; font-weight:800; color:var(--text-dark);
   letter-spacing:-1.5px; line-height:1;
+  font-family: var(--font-display);
 }
 .amount-big-display span { color:var(--red); }
 .amount-manual-input {
   width:150px; background:#fff;
   border:1.5px solid var(--border);
   border-radius:var(--radius-sm);
-  padding:9px 14px; font-size:14px; font-weight:700;
-  color:var(--text-dark); font-family: var(--font);
+  padding:9px 14px; font-size:14px; font-weight:600;
+  color:var(--text-dark); font-family: var(--font-body);
   outline:none; transition:border-color .2s; text-align:center;
 }
 .amount-manual-input:focus { border-color:var(--red); }
@@ -397,38 +406,35 @@ input[type=range] {
   background:var(--mid-grey); border-radius:6px; cursor:pointer; outline:none;
 }
 input[type=range]::-webkit-slider-thumb {
-  -webkit-appearance:none; width:26px; height:26px; border-radius:50%;
+  -webkit-appearance:none; width:24px; height:24px; border-radius:50%;
   background:var(--red); border:3px solid #fff;
-  box-shadow:0 0 0 4px rgba(227,6,19,.18), 0 2px 8px rgba(0,0,0,.15);
+  box-shadow:0 0 0 4px rgba(227,6,19,.16), 0 2px 8px rgba(0,0,0,.14);
   cursor:pointer; transition:box-shadow .2s;
 }
-input[type=range]::-webkit-slider-thumb:hover { box-shadow:0 0 0 8px rgba(227,6,19,.12), 0 2px 8px rgba(0,0,0,.15); }
+input[type=range]::-webkit-slider-thumb:hover { box-shadow:0 0 0 8px rgba(227,6,19,.1), 0 2px 8px rgba(0,0,0,.14); }
 .range-labels { display:flex; justify-content:space-between; font-size:10px; color:var(--text-light); margin-top:8px; font-weight:600; }
 .quick-chips { display:flex; flex-wrap:wrap; gap:7px; margin-top:14px; }
 .chip {
   background:var(--light-grey); border:1.5px solid var(--border);
   color:var(--text-body); padding:7px 16px; border-radius:50px;
-  font-size:12px; font-weight:700; cursor:pointer; transition:all .2s;
-  font-family: var(--font);
+  font-size:12px; font-weight:600; cursor:pointer; transition:all .2s;
+  font-family: var(--font-body);
 }
-.chip:hover, .chip.active { background:var(--red); border-color:var(--red); color:#fff; box-shadow:0 2px 10px rgba(227,6,19,.25); }
-
-/* Period tabs */
+.chip:hover, .chip.active { background:var(--red); border-color:var(--red); color:#fff; box-shadow:0 2px 10px rgba(227,6,19,.22); }
 .period-tabs { display:flex; gap:0; background:var(--light-grey); border-radius:var(--radius-sm); padding:4px; margin-bottom:16px; }
 .period-tab {
   flex:1; padding:9px 8px; text-align:center;
   font-size:12px; font-weight:700; color:var(--text-muted);
   cursor:pointer; border-radius:8px; transition:all .2s;
-  font-family: var(--font); border:none; background:transparent;
+  font-family: var(--font-display); border:none; background:transparent;
   letter-spacing:.04em; text-transform:uppercase;
 }
 .period-tab.active { background:#fff; color:var(--red); box-shadow:var(--shadow-sm); }
-
 .calc-apply-btn {
   width:100%; background:var(--red); color:#fff; border:none;
-  padding:18px; border-radius:var(--radius-sm);
+  padding:17px; border-radius:var(--radius-sm);
   font-size:15px; font-weight:700; cursor:pointer;
-  font-family: var(--font);
+  font-family: var(--font-display);
   transition:all .25s; box-shadow:var(--shadow-red);
   text-transform:uppercase; letter-spacing:.07em;
   display:flex; align-items:center; justify-content:center; gap:8px;
@@ -457,26 +463,27 @@ input[type=range]::-webkit-slider-thumb:hover { box-shadow:0 0 0 8px rgba(227,6,
   font-size:9px; font-weight:700;
   padding:4px 10px; border-radius:50px;
   letter-spacing:.1em; text-transform:uppercase;
+  font-family: var(--font-display);
 }
 .loan-icon-wrap {
-  width:52px; height:52px; border-radius:16px;
+  width:50px; height:50px; border-radius:14px;
   background:var(--red-mist); border:1px solid var(--red-border);
-  display:flex; align-items:center; justify-content:center; font-size:24px; margin-bottom:14px;
+  display:flex; align-items:center; justify-content:center; font-size:22px; margin-bottom:14px;
 }
-.loan-amount-label { font-size:9px; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:.12em; margin-bottom:3px; }
-.loan-amount { font-size:34px; font-weight:800; color:var(--text-dark); line-height:1; margin-bottom:3px; letter-spacing:-.8px; }
+.loan-amount-label { font-size:9px; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:.12em; margin-bottom:3px; font-family: var(--font-display); }
+.loan-amount { font-size:32px; font-weight:800; color:var(--text-dark); line-height:1; margin-bottom:3px; letter-spacing:-.8px; font-family: var(--font-display); }
 .loan-term { font-size:10px; color:var(--text-muted); margin-bottom:16px; font-weight:600; text-transform:uppercase; letter-spacing:.06em; }
 .loan-fee-wrap { padding:14px 0; border-top:1px solid var(--light-grey); margin-bottom:14px; display:flex; flex-direction:column; gap:8px; }
 .loan-fee-row { display:flex; justify-content:space-between; font-size:12px; }
 .loan-fee-row .label { color:var(--text-muted); font-weight:500; }
-.loan-fee-row .value { font-weight:700; color:var(--text-dark); font-size:13px; }
+.loan-fee-row .value { font-weight:700; color:var(--text-dark); font-size:13px; font-family: var(--font-display); }
 .loan-fee-row .value.red { color:var(--red); }
 .loan-fee-row .value.green { color:var(--green); }
 .loan-select-btn {
   width:100%; background:var(--light-grey); border:1.5px solid var(--border);
   color:var(--text-dark); padding:11px; border-radius:var(--radius-sm);
   font-size:12px; font-weight:700; cursor:pointer;
-  font-family: var(--font); transition:all .2s; letter-spacing:.04em; text-transform:uppercase;
+  font-family: var(--font-display); transition:all .2s; letter-spacing:.04em; text-transform:uppercase;
 }
 .loan-card:hover .loan-select-btn,
 .loan-card.popular .loan-select-btn { background:var(--red); border-color:var(--red); color:#fff; box-shadow:var(--shadow-red); }
@@ -496,27 +503,28 @@ input[type=range]::-webkit-slider-thumb:hover { box-shadow:0 0 0 8px rgba(227,6,
 }
 .step-card:hover { border-color:var(--red); transform:translateY(-6px); box-shadow:var(--shadow-lg); }
 .step-num {
-  width:54px; height:54px; background:var(--red); border-radius:50%;
+  width:52px; height:52px; background:var(--red); border-radius:50%;
   display:flex; align-items:center; justify-content:center;
-  font-size:22px; font-weight:800; color:#fff;
+  font-size:20px; font-weight:800; color:#fff;
   margin:0 auto 18px;
   box-shadow:0 0 0 10px rgba(227,6,19,.08), var(--shadow-red);
+  font-family: var(--font-display);
 }
-.step-card h3 { font-size:17px; font-weight:800; color:var(--text-dark); margin-bottom:10px; }
-.step-card p { font-size:13px; color:var(--text-muted); line-height:1.75; }
+.step-card h3 { font-size:17px; font-weight:700; color:var(--text-dark); margin-bottom:10px; font-family: var(--font-display); }
+.step-card p { font-size:13.5px; color:var(--text-muted); line-height:1.8; }
 
 /* ══ ELIGIBILITY ══ */
 .eligibility-strip { background:var(--red); padding:32px 28px; }
 .eligibility-inner { max-width:1100px; margin:0 auto; display:flex; align-items:center; gap:22px; flex-wrap:wrap; }
 .eligibility-icon-big { font-size:42px; flex-shrink:0; }
 .eligibility-copy { flex:1; }
-.eligibility-copy h3 { font-size:24px; font-weight:800; color:#fff; margin-bottom:6px; }
+.eligibility-copy h3 { font-size:24px; font-weight:800; color:#fff; margin-bottom:6px; font-family: var(--font-display); }
 .eligibility-copy p { font-size:14px; color:rgba(255,255,255,.82); line-height:1.7; max-width:580px; }
 .eligibility-cta {
   background:#fff; color:var(--red); border:none;
   padding:13px 26px; border-radius:var(--radius-sm);
   font-size:13px; font-weight:700; cursor:pointer;
-  font-family: var(--font); transition:all .2s;
+  font-family: var(--font-display); transition:all .2s;
   text-transform:uppercase; letter-spacing:.07em; white-space:nowrap;
 }
 .eligibility-cta:hover { background:var(--gold); color:#111; }
@@ -530,12 +538,12 @@ input[type=range]::-webkit-slider-thumb:hover { box-shadow:0 0 0 8px rgba(227,6,
 }
 .benefit-card:hover { border-color:var(--red); background:#fff; transform:translateY(-5px); box-shadow:var(--shadow-md); }
 .benefit-icon-wrap {
-  width:52px; height:52px; border-radius:16px; background:var(--red);
-  display:flex; align-items:center; justify-content:center; font-size:24px; margin-bottom:16px;
-  box-shadow:0 4px 14px rgba(227,6,19,.25);
+  width:50px; height:50px; border-radius:14px; background:var(--red);
+  display:flex; align-items:center; justify-content:center; font-size:22px; margin-bottom:16px;
+  box-shadow:0 4px 14px rgba(227,6,19,.22);
 }
-.benefit-card h3 { font-size:15px; font-weight:800; color:var(--text-dark); margin-bottom:7px; }
-.benefit-card p { font-size:13px; color:var(--text-muted); line-height:1.75; }
+.benefit-card h3 { font-size:15px; font-weight:700; color:var(--text-dark); margin-bottom:7px; font-family: var(--font-display); }
+.benefit-card p { font-size:13px; color:var(--text-muted); line-height:1.8; }
 
 /* ══ REVIEWS ══ */
 .reviews-section { background:var(--off-white); }
@@ -550,15 +558,16 @@ input[type=range]::-webkit-slider-thumb:hover { box-shadow:0 0 0 8px rgba(227,6,
 .review-card:hover { border-color:var(--red-border); box-shadow:var(--shadow-md); }
 @keyframes scrollReviews { from{transform:translateX(0)} to{transform:translateX(-50%)} }
 .stars { color:var(--gold); font-size:13px; margin-bottom:12px; letter-spacing:2px; }
-.review-text { font-size:13px; color:var(--text-body); line-height:1.75; margin-bottom:16px; }
+.review-text { font-size:13px; color:var(--text-body); line-height:1.8; margin-bottom:16px; }
 .reviewer { display:flex; align-items:center; gap:12px; padding-top:14px; border-top:1px solid var(--light-grey); }
 .avatar {
   width:38px; height:38px; border-radius:50%;
   display:flex; align-items:center; justify-content:center;
   font-weight:800; font-size:12px; color:#fff; flex-shrink:0;
+  font-family: var(--font-display);
 }
-.reviewer-name { font-weight:700; font-size:13px; color:var(--text-dark); }
-.reviewer-role { font-size:11px; color:var(--text-muted); margin-top:2px; font-weight:500; }
+.reviewer-name { font-weight:700; font-size:13px; color:var(--text-dark); font-family: var(--font-display); }
+.reviewer-role { font-size:11px; color:var(--text-muted); margin-top:2px; font-weight:400; }
 
 /* ══ FAQ ══ */
 .faq-section { background:#fff; }
@@ -572,7 +581,7 @@ input[type=range]::-webkit-slider-thumb:hover { box-shadow:0 0 0 8px rgba(227,6,
   padding:18px 20px; display:flex; justify-content:space-between;
   align-items:flex-start; cursor:pointer; gap:14px;
 }
-.faq-q span { font-weight:700; font-size:14px; color:var(--text-dark); line-height:1.4; }
+.faq-q span { font-weight:600; font-size:14px; color:var(--text-dark); line-height:1.4; font-family: var(--font-body); }
 .faq-icon {
   width:28px; height:28px; flex-shrink:0; border-radius:50%;
   background:var(--mid-grey); display:flex; align-items:center; justify-content:center;
@@ -580,169 +589,290 @@ input[type=range]::-webkit-slider-thumb:hover { box-shadow:0 0 0 8px rgba(227,6,
 }
 .faq-card.open .faq-q span { color:var(--red); }
 .faq-card.open .faq-icon { background:var(--red); color:#fff; transform:rotate(45deg); }
-.faq-a { max-height:0; overflow:hidden; transition:max-height .38s ease, padding .38s ease; padding:0 20px; font-size:13.5px; color:var(--text-muted); line-height:1.8; }
+.faq-a { max-height:0; overflow:hidden; transition:max-height .38s ease, padding .38s ease; padding:0 20px; font-size:13.5px; color:var(--text-muted); line-height:1.85; }
 .faq-card.open .faq-a { max-height:300px; padding:0 20px 18px; }
 
 /* ══ BRAND STRIP ══ */
 .brand-strip { background:var(--text-dark); padding:16px 28px; text-align:center; }
-.brand-strip p { font-size:11px; font-weight:600; color:rgba(255,255,255,.35); letter-spacing:.14em; text-transform:uppercase; }
+.brand-strip p { font-size:11px; font-weight:500; color:rgba(255,255,255,.3); letter-spacing:.14em; text-transform:uppercase; font-family: var(--font-body); }
 .brand-strip p span { color:var(--red); }
 
 /* ══ FOOTER ══ */
 footer { background:var(--text-dark); border-top:3px solid var(--red); padding:64px 28px 32px; }
 .footer-grid { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:40px; margin-bottom:44px; }
 .footer-logo-wrap { display:flex; align-items:center; gap:14px; margin-bottom:16px; }
-.footer-desc { font-size:12.5px; color:rgba(255,255,255,.4); line-height:1.8; max-width:240px; }
-.footer-col h4 { font-size:10px; font-weight:700; color:#fff; margin-bottom:16px; letter-spacing:.14em; text-transform:uppercase; }
-.footer-col a { display:block; color:rgba(255,255,255,.4); text-decoration:none; font-size:13px; margin-bottom:10px; transition:.2s; }
+.footer-desc { font-size:12.5px; color:rgba(255,255,255,.38); line-height:1.85; max-width:240px; }
+.footer-col h4 { font-size:10px; font-weight:700; color:#fff; margin-bottom:16px; letter-spacing:.16em; text-transform:uppercase; font-family: var(--font-display); }
+.footer-col a { display:block; color:rgba(255,255,255,.38); text-decoration:none; font-size:13px; margin-bottom:10px; transition:.2s; }
 .footer-col a:hover { color:#fff; }
 .footer-bottom { display:flex; justify-content:space-between; align-items:center; padding-top:20px; border-top:1px solid rgba(255,255,255,.08); flex-wrap:wrap; gap:12px; }
-.footer-bottom p { font-size:12px; color:rgba(255,255,255,.3); }
-.footer-disclaimer { font-size:11px; color:rgba(255,255,255,.2); margin-top:14px; line-height:1.7; padding-top:14px; border-top:1px solid rgba(255,255,255,.06); }
+.footer-bottom p { font-size:12px; color:rgba(255,255,255,.28); }
+.footer-disclaimer { font-size:11px; color:rgba(255,255,255,.18); margin-top:14px; line-height:1.75; padding-top:14px; border-top:1px solid rgba(255,255,255,.06); }
 
-/* ══ MODALS ══ */
+/* ══════════════════════════════════════
+   MODALS — Completely redesigned
+   ══════════════════════════════════════ */
 .modal-overlay {
   display:none; position:fixed; inset:0; z-index:2000;
-  background:rgba(0,0,0,.6); backdrop-filter:blur(12px);
+  background:rgba(9,11,17,.72); backdrop-filter:blur(14px);
   align-items:center; justify-content:center; padding:16px;
 }
 .modal-overlay.open { display:flex; }
+
+/* Sliding panel style */
 .modal {
-  background:#fff; border:1px solid var(--border);
+  background:#fff;
   border-radius:var(--radius-xl);
-  width:100%; max-width:520px; max-height:92vh; overflow-y:auto;
-  animation:slideUp .3s ease; box-shadow:var(--shadow-lg);
+  width:100%; max-width:500px; max-height:92vh; overflow-y:auto;
+  animation:modalIn .36s cubic-bezier(.34,1.3,.64,1);
+  box-shadow:0 24px 80px rgba(0,0,0,.22), 0 0 0 1px rgba(255,255,255,.06);
+  position:relative;
+  scrollbar-width:none;
 }
-@keyframes slideUp { from{transform:translateY(28px);opacity:0} to{transform:translateY(0);opacity:1} }
+.modal::-webkit-scrollbar { display:none; }
+@keyframes modalIn {
+  from { transform:translateY(30px) scale(.97); opacity:0; }
+  to   { transform:translateY(0) scale(1); opacity:1; }
+}
+
+/* Modal top accent band */
+.modal::before {
+  content:'';
+  display:block;
+  height:5px;
+  background:linear-gradient(90deg, var(--red-deep), var(--red), var(--red-light));
+  border-radius:var(--radius-xl) var(--radius-xl) 0 0;
+}
+
 .modal-header {
-  padding:24px 24px 0; display:flex; justify-content:space-between; align-items:center;
-  border-bottom:1px solid var(--light-grey); margin-bottom:20px; padding-bottom:18px;
+  padding:22px 24px 0;
+  display:flex; justify-content:space-between; align-items:center;
+  margin-bottom:18px;
+  gap:12px;
 }
 .modal-header-left { display:flex; align-items:center; gap:12px; }
-.modal-header-icon { width:42px; height:42px; background:var(--red); border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:20px; box-shadow:var(--shadow-red); }
-.modal-header h2 { font-size:20px; font-weight:800; color:var(--text-dark); font-family: var(--font); }
+.modal-header-icon {
+  width:44px; height:44px; background:var(--red); border-radius:12px;
+  display:flex; align-items:center; justify-content:center; font-size:20px;
+  box-shadow:var(--shadow-red); flex-shrink:0;
+}
+.modal-header h2 {
+  font-size:19px; font-weight:800; color:var(--text-dark);
+  font-family: var(--font-display); letter-spacing:-.3px;
+}
 .modal-close {
   width:32px; height:32px; background:var(--light-grey); border:none;
   border-radius:50%; color:var(--text-muted); cursor:pointer; font-size:14px;
-  display:flex; align-items:center; justify-content:center; transition:.2s; font-weight:900;
+  display:flex; align-items:center; justify-content:center; transition:.2s; font-weight:700;
+  flex-shrink:0;
 }
-.modal-close:hover { background:var(--red); color:#fff; }
-.modal-body { padding:0 24px 24px; }
-.modal-sub { font-size:13.5px; color:var(--text-muted); margin-bottom:18px; line-height:1.7; }
-.input-wrap { margin-bottom:14px; }
-.input-wrap label { display:block; font-size:10px; font-weight:700; color:var(--text-muted); margin-bottom:7px; letter-spacing:.1em; text-transform:uppercase; font-family: var(--font); }
-.modal-input {
-  width:100%; background:var(--off-white); border:2px solid var(--border);
-  border-radius:var(--radius-sm); padding:13px 15px; color:var(--text-dark); font-size:16px;
-  font-family: var(--font); outline:none; transition:border-color .2s; font-weight:600;
-}
-.modal-input:focus { border-color:var(--red); background:#fff; }
-.modal-input::placeholder { color:var(--text-light); font-weight:400; }
-.modal-btn {
-  width:100%; margin-top:6px; background:var(--red); color:#fff; border:none;
-  padding:16px; border-radius:var(--radius-sm); font-size:14px; font-weight:700;
-  cursor:pointer; font-family: var(--font); transition:all .25s;
-  box-shadow:var(--shadow-red); text-transform:uppercase; letter-spacing:.07em;
-}
-.modal-btn:hover { background:var(--red-dark); transform:translateY(-1px); }
-.modal-note { font-size:11px; color:var(--text-light); text-align:center; margin-top:12px; line-height:1.7; }
-.modal-note a { color:var(--red); text-decoration:none; font-weight:600; }
+.modal-close:hover { background:var(--red); color:#fff; transform:rotate(90deg); }
+.modal-body { padding:0 24px 28px; }
 
-/* ── Loan Summary Modal ── */
+/* ── Summary hero amount ── */
 .summary-amount-hero {
-  background:linear-gradient(135deg, var(--red) 0%, var(--red-dark) 100%);
-  border-radius:var(--radius-md); padding:22px 24px; margin-bottom:20px;
-  text-align:center;
+  background:linear-gradient(135deg, #c40511 0%, var(--red) 50%, #ff1a2a 100%);
+  border-radius:var(--radius-md); padding:24px 22px 20px; margin-bottom:18px;
+  text-align:center; position:relative; overflow:hidden;
 }
-.summary-amount-hero .label { font-size:10px; font-weight:700; color:rgba(255,255,255,.65); letter-spacing:.12em; text-transform:uppercase; margin-bottom:6px; }
-.summary-amount-hero .value { font-size:48px; font-weight:800; color:#fff; letter-spacing:-2px; line-height:1; }
-.summary-amount-hero .sub { font-size:12px; color:rgba(255,255,255,.65); margin-top:6px; }
+.summary-amount-hero::before {
+  content:''; position:absolute; right:-30px; top:-30px;
+  width:120px; height:120px; border-radius:50%; background:rgba(255,255,255,.06);
+}
+.summary-amount-hero::after {
+  content:''; position:absolute; left:-20px; bottom:-20px;
+  width:90px; height:90px; border-radius:50%; background:rgba(255,255,255,.05);
+}
+.summary-amount-hero .label {
+  font-size:10px; font-weight:700; color:rgba(255,255,255,.62);
+  letter-spacing:.14em; text-transform:uppercase; margin-bottom:7px;
+  font-family: var(--font-display);
+}
+.summary-amount-hero .value {
+  font-size:46px; font-weight:800; color:#fff; letter-spacing:-2px; line-height:1;
+  font-family: var(--font-display);
+}
+.summary-amount-hero .sub { font-size:12px; color:rgba(255,255,255,.62); margin-top:7px; }
 
+/* ── Breakdown table ── */
 .summary-breakdown {
   background:var(--off-white); border:1px solid var(--border);
-  border-radius:var(--radius-md); padding:18px 20px; margin-bottom:16px;
+  border-radius:var(--radius-md); padding:16px 18px; margin-bottom:14px;
 }
-.summary-breakdown-title { font-size:10px; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:.08em; margin-bottom:12px; }
-.summary-row { display:flex; justify-content:space-between; align-items:center; padding:9px 0; border-bottom:1px solid var(--mid-grey); }
+.summary-breakdown-title {
+  font-size:10px; font-weight:700; color:var(--text-muted);
+  text-transform:uppercase; letter-spacing:.1em; margin-bottom:12px;
+  font-family: var(--font-display);
+}
+.summary-row {
+  display:flex; justify-content:space-between; align-items:center;
+  padding:9px 0; border-bottom:1px solid var(--mid-grey);
+}
 .summary-row:last-child { border-bottom:none; }
-.summary-row .s-label { font-size:13px; color:var(--text-muted); font-weight:500; }
-.summary-row .s-value { font-size:14px; font-weight:800; color:var(--text-dark); }
+.summary-row .s-label { font-size:13px; color:var(--text-muted); font-weight:400; }
+.summary-row .s-value { font-size:14px; font-weight:700; color:var(--text-dark); font-family: var(--font-display); }
 .summary-row .s-value.red { color:var(--red); }
 .summary-row .s-value.green { color:var(--green); }
 
+/* ── Late fee warning ── */
 .summary-late-warning {
-  background:var(--gold-light); border:1px solid #FCD34D;
+  background:#FFFBEB; border:1px solid #FCD34D;
   border-radius:var(--radius-sm); padding:11px 14px;
   display:flex; align-items:flex-start; gap:9px; margin-bottom:16px;
-  font-size:12px; color:#92600A; line-height:1.65; font-weight:500;
+  font-size:12px; color:#92600A; line-height:1.7; font-weight:400;
 }
 .summary-late-warning strong { color:#7A4F00; font-weight:700; }
 
-/* ── Application Form inside modal ── */
-.app-form { display:none; }
-.app-form.visible { display:block; }
-.app-form-back {
-  display:flex; align-items:center; gap:8px;
-  background:none; border:none; color:var(--text-muted);
-  font-size:13px; font-weight:700; cursor:pointer;
-  font-family: var(--font); padding:0; margin-bottom:18px;
-  text-transform:uppercase; letter-spacing:.04em; transition:color .2s;
+/* ── Modal buttons ── */
+.modal-btn {
+  width:100%; margin-top:4px; background:var(--red); color:#fff; border:none;
+  padding:16px; border-radius:var(--radius-sm); font-size:14px; font-weight:700;
+  cursor:pointer; font-family: var(--font-display); transition:all .25s;
+  box-shadow:var(--shadow-red); text-transform:uppercase; letter-spacing:.07em;
+  display:flex; align-items:center; justify-content:center; gap:8px;
 }
-.app-form-back:hover { color:var(--red); }
-.app-form-back svg { width:16px; height:16px; }
+.modal-btn:hover { background:var(--red-dark); transform:translateY(-1px); box-shadow:0 8px 32px rgba(227,6,19,.35); }
+.modal-note {
+  font-size:11.5px; color:var(--text-light); text-align:center; margin-top:12px; line-height:1.7;
+  font-family: var(--font-body);
+}
+.modal-note a { color:var(--red); text-decoration:none; font-weight:600; }
 
-.app-loan-badge {
+/* ── Divider inside modal ── */
+.modal-divider { border:none; border-top:1px solid var(--light-grey); margin:18px 0; }
+
+/* ══════════════════════════════════════
+   MULTI-STEP APPLY FORM (embedded in modal)
+   ══════════════════════════════════════ */
+.apply-steps-wrapper { display:none; }
+.apply-steps-wrapper.visible { display:block; }
+
+/* Progress steps */
+.apply-progress {
+  display:flex; align-items:center; justify-content:center; gap:0;
+  margin-bottom:24px;
+}
+.apply-step-dot {
+  width:32px; height:32px; border-radius:50%;
+  background:var(--light-grey); border:2px solid var(--border);
+  display:flex; align-items:center; justify-content:center;
+  font-size:12px; font-weight:700; color:var(--text-muted);
+  transition:all .3s; flex-shrink:0;
+  font-family: var(--font-display);
+}
+.apply-step-dot.active { background:var(--red); border-color:var(--red); color:#fff; box-shadow:0 0 0 4px rgba(227,6,19,.15); }
+.apply-step-dot.done { background:var(--green); border-color:var(--green); color:#fff; }
+.apply-step-line {
+  height:2px; flex:1; max-width:50px;
+  background:var(--mid-grey); transition:background .3s;
+}
+.apply-step-line.done { background:var(--green); }
+
+.apply-step-page { display:none; }
+.apply-step-page.active { display:block; }
+
+/* Form back button */
+.apply-back-btn {
+  display:inline-flex; align-items:center; gap:7px;
+  background:none; border:none; color:var(--text-muted);
+  font-size:12px; font-weight:600; cursor:pointer;
+  font-family: var(--font-display); padding:0; margin-bottom:18px;
+  text-transform:uppercase; letter-spacing:.05em; transition:color .2s;
+}
+.apply-back-btn:hover { color:var(--red); }
+
+/* Loan badge (inside form) */
+.apply-loan-badge {
   background:var(--red-pale); border:1px solid var(--red-border);
   border-radius:var(--radius-sm); padding:12px 16px; margin-bottom:20px;
   display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;
 }
-.app-loan-badge-left { display:flex; flex-direction:column; gap:2px; }
-.app-loan-badge-label { font-size:9px; font-weight:700; color:var(--red); text-transform:uppercase; letter-spacing:.1em; }
-.app-loan-badge-value { font-size:20px; font-weight:800; color:var(--text-dark); letter-spacing:-.5px; }
-.app-loan-badge-right { display:flex; flex-direction:column; gap:2px; text-align:right; }
-.app-loan-badge-right .bl { font-size:9px; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:.08em; }
-.app-loan-badge-right .bv { font-size:14px; font-weight:800; color:var(--green); }
+.apply-loan-badge-left { display:flex; flex-direction:column; gap:2px; }
+.apply-badge-label { font-size:9px; font-weight:700; color:var(--red); text-transform:uppercase; letter-spacing:.1em; font-family: var(--font-display); }
+.apply-badge-value { font-size:20px; font-weight:800; color:var(--text-dark); letter-spacing:-.5px; font-family: var(--font-display); }
+.apply-loan-badge-right { display:flex; flex-direction:column; gap:2px; text-align:right; }
+.apply-badge-right-label { font-size:9px; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:.08em; font-family: var(--font-display); }
+.apply-badge-right-value { font-size:14px; font-weight:800; color:var(--green); font-family: var(--font-display); }
 
-.app-row-2 { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
-.app-select {
+/* Form fields */
+.form-group { margin-bottom:16px; }
+.form-label {
+  display:block; font-size:10px; font-weight:700; color:var(--text-muted);
+  margin-bottom:7px; letter-spacing:.1em; text-transform:uppercase;
+  font-family: var(--font-display);
+}
+.form-input {
   width:100%; background:var(--off-white); border:2px solid var(--border);
   border-radius:var(--radius-sm); padding:13px 15px; color:var(--text-dark); font-size:15px;
-  font-family: var(--font); outline:none; transition:border-color .2s; font-weight:600;
+  font-family: var(--font-body); outline:none; transition:border-color .2s; font-weight:500;
+}
+.form-input:focus { border-color:var(--red); background:#fff; }
+.form-input::placeholder { color:var(--text-light); font-weight:400; }
+.form-select {
+  width:100%; background:var(--off-white); border:2px solid var(--border);
+  border-radius:var(--radius-sm); padding:13px 15px; color:var(--text-dark); font-size:15px;
+  font-family: var(--font-body); outline:none; transition:border-color .2s; font-weight:500;
   cursor:pointer; appearance:none;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' fill='none' stroke='%236B7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' viewBox='0 0 24 24'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
   background-repeat:no-repeat; background-position:right 14px center;
   padding-right:40px;
 }
-.app-select:focus { border-color:var(--red); background-color:#fff; }
+.form-select:focus { border-color:var(--red); background-color:#fff; }
+.form-row-2 { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
 
-.app-submit-btn {
-  width:100%; margin-top:8px; background:var(--red); color:#fff; border:none;
-  padding:18px; border-radius:var(--radius-sm); font-size:15px; font-weight:700;
-  cursor:pointer; font-family: var(--font); transition:all .25s;
+/* Submit button */
+.apply-submit-btn {
+  width:100%; margin-top:6px; background:var(--red); color:#fff; border:none;
+  padding:17px; border-radius:var(--radius-sm); font-size:15px; font-weight:700;
+  cursor:pointer; font-family: var(--font-display); transition:all .25s;
   box-shadow:var(--shadow-red); text-transform:uppercase; letter-spacing:.07em;
   display:flex; align-items:center; justify-content:center; gap:9px;
 }
-.app-submit-btn:hover { background:var(--red-dark); transform:translateY(-2px); box-shadow:0 8px 32px rgba(227,6,19,.35); }
-.app-submit-btn:disabled { opacity:.6; cursor:not-allowed; transform:none; }
+.apply-submit-btn:hover { background:var(--red-dark); transform:translateY(-2px); box-shadow:0 8px 32px rgba(227,6,19,.35); }
+.apply-submit-btn:disabled { opacity:.6; cursor:not-allowed; transform:none; }
 
-.app-divider { border:none; border-top:1px solid var(--light-grey); margin:18px 0; }
+/* Next step button */
+.apply-next-btn {
+  width:100%; background:var(--red); color:#fff; border:none;
+  padding:15px; border-radius:var(--radius-sm); font-size:14px; font-weight:700;
+  cursor:pointer; font-family: var(--font-display); transition:all .25s;
+  box-shadow:var(--shadow-red); text-transform:uppercase; letter-spacing:.07em;
+  display:flex; align-items:center; justify-content:center; gap:8px;
+  margin-top:6px;
+}
+.apply-next-btn:hover { background:var(--red-dark); transform:translateY(-1px); }
 
 /* ── Eligibility checklist ── */
 .eligibility-checklist {
   background:var(--green-light); border:1px solid #6EE7B7;
   border-radius:var(--radius-sm); padding:14px 16px; margin-bottom:16px;
 }
-.eligibility-checklist-title { font-size:10px; font-weight:700; color:#065F46; text-transform:uppercase; letter-spacing:.1em; margin-bottom:10px; }
+.eligibility-checklist-title { font-size:10px; font-weight:700; color:#065F46; text-transform:uppercase; letter-spacing:.1em; margin-bottom:10px; font-family: var(--font-display); }
 .eligibility-check-item {
   display:flex; align-items:flex-start; gap:8px;
-  font-size:12.5px; color:#064E3B; line-height:1.55; font-weight:500; margin-bottom:6px;
+  font-size:12.5px; color:#064E3B; line-height:1.55; font-weight:400; margin-bottom:6px;
 }
 .eligibility-check-item:last-child { margin-bottom:0; }
 .check-icon { color:#059669; font-size:14px; flex-shrink:0; margin-top:1px; }
 
+/* Login modal specific */
+.modal-sub { font-size:13.5px; color:var(--text-muted); margin-bottom:18px; line-height:1.75; }
+.modal-input {
+  width:100%; background:var(--off-white); border:2px solid var(--border);
+  border-radius:var(--radius-sm); padding:13px 15px; color:var(--text-dark); font-size:16px;
+  font-family: var(--font-body); outline:none; transition:border-color .2s; font-weight:500;
+}
+.modal-input:focus { border-color:var(--red); background:#fff; }
+.modal-input::placeholder { color:var(--text-light); font-weight:400; }
+.input-wrap { margin-bottom:14px; }
+.input-wrap label {
+  display:block; font-size:10px; font-weight:700; color:var(--text-muted);
+  margin-bottom:7px; letter-spacing:.1em; text-transform:uppercase; font-family: var(--font-display);
+}
+
 /* ══ TOAST ══ */
 .toast {
-  position:fixed; bottom:24px; left:22px; z-index:9999;
+  position:fixed; bottom:80px; left:20px; z-index:9999;
   background:#fff; border:1px solid var(--border);
   border-radius:var(--radius-md); padding:14px 18px;
   display:flex; align-items:center; gap:12px;
@@ -751,7 +881,7 @@ footer { background:var(--text-dark); border-top:3px solid var(--red); padding:6
 }
 .toast.show { transform:translateY(0) scale(1); opacity:1; }
 .toast-icon { font-size:20px; flex-shrink:0; }
-.toast-msg { font-size:14px; color:var(--text-dark); font-weight:700; font-family: var(--font); }
+.toast-msg { font-size:14px; color:var(--text-dark); font-weight:700; font-family: var(--font-display); }
 .toast-sub { font-size:11.5px; color:var(--text-muted); margin-top:2px; }
 .toast-bar {
   position:absolute; bottom:0; left:0; height:3px;
@@ -771,10 +901,10 @@ footer { background:var(--text-dark); border-top:3px solid var(--red); padding:6
 }
 .chat-fab:hover { background:var(--red-dark); transform:translateY(-3px); }
 .chat-fab-icon {
-  width:32px; height:32px; background:rgba(255,255,255,.18); border-radius:50%;
-  display:flex; align-items:center; justify-content:center; font-size:16px; flex-shrink:0;
+  width:30px; height:30px; background:rgba(255,255,255,.18); border-radius:50%;
+  display:flex; align-items:center; justify-content:center; font-size:15px; flex-shrink:0;
 }
-.chat-fab-text { font-size:12px; font-weight:700; letter-spacing:.05em; text-transform:uppercase; }
+.chat-fab-text { font-size:12px; font-weight:700; letter-spacing:.05em; text-transform:uppercase; font-family: var(--font-display); }
 .chat-fab-dot {
   position:absolute; top:-3px; right:-3px;
   width:12px; height:12px; background:#22C55E; border-radius:50%;
@@ -795,11 +925,9 @@ footer { background:var(--text-dark); border-top:3px solid var(--red); padding:6
   .btn-login { display:none; }
   .stats-bar-inner { grid-template-columns:repeat(2,1fr); }
   .stat-item { border-bottom:1px solid var(--border); }
-  header { padding:0 16px; height:68px; }
-  .mobile-menu { top:68px; }
+  header { padding:0 16px; height:66px; }
+  .mobile-menu { top:66px; }
   .faq-grid { grid-template-columns:1fr; }
-  .logo-name { font-size:26px; }
-  .logo-img { width:54px; height:54px; }
 }
 @media(max-width:640px) {
   section { padding:52px 16px; }
@@ -819,17 +947,16 @@ footer { background:var(--text-dark); border-top:3px solid var(--red); padding:6
   footer { padding:44px 16px 24px; }
   .amount-display-box { flex-direction:column; align-items:flex-start; gap:10px; }
   .amount-manual-input { width:100%; }
-  .amount-big-display { font-size:30px; }
+  .amount-big-display { font-size:28px; }
   .review-card { flex:0 0 260px; width:260px; }
   .calc-panel { padding:20px; }
-  .loan-amount { font-size:28px; }
+  .loan-amount { font-size:26px; }
   .toast { right:12px; bottom:12px; left:12px; min-width:unset; }
   .chat-fab-text { display:none; }
   .chat-fab { padding:14px; border-radius:50%; }
-  .logo-name { font-size:22px; }
   .period-tabs { flex-wrap:wrap; }
   .summary-amount-hero .value { font-size:36px; }
-  .app-row-2 { grid-template-columns:1fr; }
+  .form-row-2 { grid-template-columns:1fr; }
 }
 </style>
 </head>
@@ -857,7 +984,7 @@ footer { background:var(--text-dark); border-top:3px solid var(--red); padding:6
 <header>
   <a href="#" class="logo">
     <div class="logo-img">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="64" height="64" aria-label="Telecel Logo">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="48" height="48" aria-label="Telecel Logo">
         <circle cx="100" cy="100" r="100" fill="#E30613"/>
         <rect x="28" y="40" width="144" height="32" rx="5" fill="white"/>
         <rect x="84" y="40" width="32" height="126" rx="5" fill="white"/>
@@ -894,11 +1021,11 @@ footer { background:var(--text-dark); border-top:3px solid var(--red); padding:6
   <a href="#calculator" onclick="closeMenu()">Calculator</a>
   <a href="#faq" onclick="closeMenu()">FAQ</a>
   <div class="mobile-menu-actions">
-    <button class="btn-login" style="flex:1;padding:12px;border-radius:10px;font-size:13px;border:none;cursor:pointer;" onclick="openLoginModal();closeMenu()">🔐 Login &amp; Apply</button>
+    <button class="btn-login" style="flex:1;padding:12px;border-radius:10px;font-size:13px;border:none;cursor:pointer;justify-content:center;" onclick="openLoginModal();closeMenu()">🔐 Login &amp; Apply</button>
   </div>
 </div>
 
-<!-- HERO SLIDESHOW -->
+<!-- HERO -->
 <section class="hero" id="home">
   <div class="slides" id="slides">
     <div class="slide active">
@@ -909,7 +1036,7 @@ footer { background:var(--text-dark); border-top:3px solid var(--red); padding:6
         <h1>Get Cash<br><em>Instantly.</em><br><span class="thin">No Paperwork.</span></h1>
         <p>Telecel Flex Loans gives eligible Telecel Cash subscribers instant access to mobile credit — deposited directly to your wallet in minutes, 24/7.</p>
         <div class="slide-btns">
-          <button class="btn-hero-primary" onclick="openLoanSummaryModal()">Get Your Loan ⚡</button>
+          <button class="btn-hero-primary" onclick="openLoanModal()">Get Your Loan ⚡</button>
           <button class="btn-hero-secondary" onclick="document.getElementById('calculator').scrollIntoView({behavior:'smooth'})">Calculate First →</button>
         </div>
       </div>
@@ -922,7 +1049,7 @@ footer { background:var(--text-dark); border-top:3px solid var(--red); padding:6
         <h1>Up To<br><em>GHS 50,000</em><br><span class="thin">In Minutes.</span></h1>
         <p>Borrow from GHS 100 to GHS 50,000 based on your Telecel Cash wallet activity. The more active you are, the more you unlock.</p>
         <div class="slide-btns">
-          <button class="btn-hero-primary" onclick="openLoanSummaryModal()">Apply Now →</button>
+          <button class="btn-hero-primary" onclick="openLoanModal()">Apply Now →</button>
           <button class="btn-hero-secondary" onclick="document.getElementById('loans').scrollIntoView({behavior:'smooth'})">View Packages</button>
         </div>
       </div>
@@ -935,7 +1062,7 @@ footer { background:var(--text-dark); border-top:3px solid var(--red); padding:6
         <h1>Transparent<br><em>Fees.</em><br><span class="thin">Zero Surprises.</span></h1>
         <p>One flat fee of 8.9% per 7 days. See the exact amount, due date, and total repayment before you accept — every single time.</p>
         <div class="slide-btns">
-          <button class="btn-hero-primary" onclick="openLoanSummaryModal()">Start Today ⚡</button>
+          <button class="btn-hero-primary" onclick="openLoanModal()">Start Today ⚡</button>
           <button class="btn-hero-secondary" onclick="document.getElementById('faq').scrollIntoView({behavior:'smooth'})">Read FAQ</button>
         </div>
       </div>
@@ -948,7 +1075,7 @@ footer { background:var(--text-dark); border-top:3px solid var(--red); padding:6
         <h1>Repay On Time,<br><em>Unlock More.</em><br><span class="thin">Your Wallet Grows.</span></h1>
         <p>Flexible repayment from 7 days up to 6 months. On-time repayments build your borrowing history automatically — no paperwork needed.</p>
         <div class="slide-btns">
-          <button class="btn-hero-primary" onclick="openLoanSummaryModal()">Start Now →</button>
+          <button class="btn-hero-primary" onclick="openLoanModal()">Start Now →</button>
           <button class="btn-hero-secondary" onclick="document.getElementById('how').scrollIntoView({behavior:'smooth'})">See How It Works</button>
         </div>
       </div>
@@ -961,7 +1088,7 @@ footer { background:var(--text-dark); border-top:3px solid var(--red); padding:6
         <h1>No Collateral.<br><em>No Stress.</em><br><span class="thin">Just Your Wallet.</span></h1>
         <p>Your Telecel Cash wallet history is all you need. No guarantors, no collateral, no branch appointments — just fast, dignified mobile credit.</p>
         <div class="slide-btns">
-          <button class="btn-hero-primary" onclick="openLoanSummaryModal()">Check Eligibility ⚡</button>
+          <button class="btn-hero-primary" onclick="openLoanModal()">Check Eligibility ⚡</button>
           <button class="btn-hero-secondary" onclick="document.getElementById('benefits').scrollIntoView({behavior:'smooth'})">See Benefits</button>
         </div>
       </div>
@@ -981,22 +1108,10 @@ footer { background:var(--text-dark); border-top:3px solid var(--red); padding:6
 <!-- STATS BAR -->
 <div class="stats-bar">
   <div class="stats-bar-inner">
-    <div class="stat-item">
-      <span class="stat-num">GHS 50K</span>
-      <div class="stat-label">Maximum Loan</div>
-    </div>
-    <div class="stat-item">
-      <span class="stat-num">&lt; 5 Min</span>
-      <div class="stat-label">Approval Time</div>
-    </div>
-    <div class="stat-item">
-      <span class="stat-num">6 Months</span>
-      <div class="stat-label">Max Repayment</div>
-    </div>
-    <div class="stat-item">
-      <span class="stat-num">8.9%</span>
-      <div class="stat-label">Per 7 Days</div>
-    </div>
+    <div class="stat-item"><span class="stat-num">GHS 50K</span><div class="stat-label">Maximum Loan</div></div>
+    <div class="stat-item"><span class="stat-num">&lt; 5 Min</span><div class="stat-label">Approval Time</div></div>
+    <div class="stat-item"><span class="stat-num">6 Months</span><div class="stat-label">Max Repayment</div></div>
+    <div class="stat-item"><span class="stat-num">8.9%</span><div class="stat-label">Per 7 Days</div></div>
   </div>
 </div>
 
@@ -1009,7 +1124,6 @@ footer { background:var(--text-dark); border-top:3px solid var(--red); padding:6
       <div class="accent-bar"></div>
       <p class="section-sub">Adjust the sliders or type your exact amount and period. All figures update instantly — rate is 8.9% per 7 days.</p>
     </div>
-
     <div class="calc-panel">
       <div class="calc-panel-header">
         <div class="calc-panel-icon">🧮</div>
@@ -1018,8 +1132,6 @@ footer { background:var(--text-dark); border-top:3px solid var(--red); padding:6
           <p>Rate: 8.9% per 7 days · Up to GHS 50,000 · Up to 6 months repayment</p>
         </div>
       </div>
-
-      <!-- Loan Amount -->
       <div class="calc-row">
         <div class="calc-field-label">💰 Loan Amount (GHS)</div>
         <div class="amount-display-box">
@@ -1039,8 +1151,6 @@ footer { background:var(--text-dark); border-top:3px solid var(--red); padding:6
           <button class="chip" onclick="setAmount(50000)">GHS 50,000</button>
         </div>
       </div>
-
-      <!-- Repayment Period -->
       <div class="calc-row">
         <div class="calc-field-label">📅 Repayment Period</div>
         <div class="period-tabs" id="periodTabs">
@@ -1049,7 +1159,7 @@ footer { background:var(--text-dark); border-top:3px solid var(--red); padding:6
           <button class="period-tab" onclick="setPeriodUnit('months')" id="tabMonths">Months</button>
         </div>
         <div class="amount-display-box">
-          <div class="amount-big-display"><span id="periodValue">4</span> <span id="periodUnitLabel">Weeks</span> <span style="font-size:18px;font-weight:600;color:var(--text-muted)">(<span id="daysEquiv">28</span> days)</span></div>
+          <div class="amount-big-display"><span id="periodValue">4</span> <span id="periodUnitLabel">Weeks</span> <span style="font-size:16px;font-weight:500;color:var(--text-muted)">(<span id="daysEquiv">28</span> days)</span></div>
           <input type="number" class="amount-manual-input" id="periodInput" min="1" max="182" step="1" value="4" oninput="onManualPeriod()" placeholder="Enter period">
         </div>
         <div class="slider-wrap">
@@ -1058,9 +1168,7 @@ footer { background:var(--text-dark); border-top:3px solid var(--red); padding:6
         </div>
         <div class="quick-chips" id="periodChips"></div>
       </div>
-
-      <!-- Apply button → opens Loan Summary popup -->
-      <button class="calc-apply-btn" onclick="openLoanSummaryModal()">
+      <button class="calc-apply-btn" onclick="openLoanModal()">
         View Loan Summary &amp; Apply ⚡
       </button>
     </div>
@@ -1075,7 +1183,7 @@ footer { background:var(--text-dark); border-top:3px solid var(--red); padding:6
       <h3>Telecel Cash Users Only</h3>
       <p>This loan service is exclusively for active Telecel Cash wallet holders aged 18+. Regular subscribers without a Telecel Cash wallet are not eligible. Funded by First Atlantic Bank (FAB).</p>
     </div>
-    <button class="eligibility-cta" onclick="openLoanSummaryModal()">Check My Eligibility →</button>
+    <button class="eligibility-cta" onclick="openLoanModal()">Check My Eligibility →</button>
   </div>
 </div>
 
@@ -1089,7 +1197,7 @@ footer { background:var(--text-dark); border-top:3px solid var(--red); padding:6
       <p class="section-sub">All loans credited directly to your Telecel Cash wallet — fast, transparent, and flexible. Rate: 8.9% per 7 days.</p>
     </div>
     <div class="loans-grid">
-      <div class="loan-card" onclick="selectLoanAndSummary(500,4,'Starter Flex')">
+      <div class="loan-card" onclick="selectLoanAndOpen(500,4,'Starter Flex')">
         <div class="loan-icon-wrap">🌱</div>
         <div class="loan-amount-label">Starter Flex</div>
         <div class="loan-amount">GHS 500</div>
@@ -1100,7 +1208,7 @@ footer { background:var(--text-dark); border-top:3px solid var(--red); padding:6
         </div>
         <button class="loan-select-btn">View Summary &amp; Apply →</button>
       </div>
-      <div class="loan-card" onclick="selectLoanAndSummary(1000,4,'Basic Flex')">
+      <div class="loan-card" onclick="selectLoanAndOpen(1000,4,'Basic Flex')">
         <div class="loan-icon-wrap">⚡</div>
         <div class="loan-amount-label">Basic Flex</div>
         <div class="loan-amount">GHS 1,000</div>
@@ -1111,7 +1219,7 @@ footer { background:var(--text-dark); border-top:3px solid var(--red); padding:6
         </div>
         <button class="loan-select-btn">View Summary &amp; Apply →</button>
       </div>
-      <div class="loan-card popular" onclick="selectLoanAndSummary(5000,4,'Power Flex')">
+      <div class="loan-card popular" onclick="selectLoanAndOpen(5000,4,'Power Flex')">
         <div class="loan-badge">Most Popular</div>
         <div class="loan-icon-wrap">🔥</div>
         <div class="loan-amount-label">Power Flex</div>
@@ -1123,7 +1231,7 @@ footer { background:var(--text-dark); border-top:3px solid var(--red); padding:6
         </div>
         <button class="loan-select-btn">View Summary &amp; Apply →</button>
       </div>
-      <div class="loan-card" onclick="selectLoanAndSummary(10000,4,'Business Flex')">
+      <div class="loan-card" onclick="selectLoanAndOpen(10000,4,'Business Flex')">
         <div class="loan-icon-wrap">💼</div>
         <div class="loan-amount-label">Business Flex</div>
         <div class="loan-amount">GHS 10,000</div>
@@ -1134,7 +1242,7 @@ footer { background:var(--text-dark); border-top:3px solid var(--red); padding:6
         </div>
         <button class="loan-select-btn">View Summary &amp; Apply →</button>
       </div>
-      <div class="loan-card" onclick="selectLoanAndSummary(25000,4,'Elite Flex')">
+      <div class="loan-card" onclick="selectLoanAndOpen(25000,4,'Elite Flex')">
         <div class="loan-icon-wrap">🏆</div>
         <div class="loan-amount-label">Elite Flex</div>
         <div class="loan-amount">GHS 25,000</div>
@@ -1145,7 +1253,7 @@ footer { background:var(--text-dark); border-top:3px solid var(--red); padding:6
         </div>
         <button class="loan-select-btn">View Summary &amp; Apply →</button>
       </div>
-      <div class="loan-card" onclick="selectLoanAndSummary(50000,4,'Premium Flex')">
+      <div class="loan-card" onclick="selectLoanAndOpen(50000,4,'Premium Flex')">
         <div class="loan-icon-wrap">👑</div>
         <div class="loan-amount-label">Premium Flex</div>
         <div class="loan-amount">GHS 50,000</div>
@@ -1200,46 +1308,14 @@ footer { background:var(--text-dark); border-top:3px solid var(--red); padding:6
       <p class="section-sub">Real banking convenience, real mobile speed — made for every Telecel Cash user across Ghana.</p>
     </div>
     <div class="benefits-grid">
-      <div class="benefit-card">
-        <div class="benefit-icon-wrap">⚡</div>
-        <h3>Instant Disbursement</h3>
-        <p>Approved loans hit your Telecel Cash wallet in under 5 minutes — any time of day or night, including weekends and public holidays.</p>
-      </div>
-      <div class="benefit-card">
-        <div class="benefit-icon-wrap">🏦</div>
-        <h3>Bank-Level Security</h3>
-        <p>Funded by First Atlantic Bank (FAB) and secured by Telecel Ghana's enterprise-grade mobile infrastructure.</p>
-      </div>
-      <div class="benefit-card">
-        <div class="benefit-icon-wrap">📱</div>
-        <h3>100% Mobile</h3>
-        <p>Apply, manage, and repay entirely from your phone — via USSD or this portal. Zero branch visits required.</p>
-      </div>
-      <div class="benefit-card">
-        <div class="benefit-icon-wrap">✅</div>
-        <h3>Transparent Fees</h3>
-        <p>You see the exact fee, due date, and total repayment before accepting. Zero hidden charges — what we show is what we charge.</p>
-      </div>
-      <div class="benefit-card">
-        <div class="benefit-icon-wrap">🔄</div>
-        <h3>Up To 6 Months</h3>
-        <p>Flexible repayment from 1 day to 6 months (26 weeks / 182 days). Repay early with no penalty. Your wallet, your pace.</p>
-      </div>
-      <div class="benefit-card">
-        <div class="benefit-icon-wrap">📊</div>
-        <h3>Builds Your Limit</h3>
-        <p>On-time repayments build your borrowing history. Good behavior unlocks higher loan amounts in future applications.</p>
-      </div>
-      <div class="benefit-card">
-        <div class="benefit-icon-wrap">🌍</div>
-        <h3>Ghana-Wide</h3>
-        <p>Active in every region of Ghana — from Accra and Kumasi to Tamale and Takoradi. Wherever you are, Telecel finds you.</p>
-      </div>
-      <div class="benefit-card">
-        <div class="benefit-icon-wrap">🤝</div>
-        <h3>No Guarantor</h3>
-        <p>No collateral, no guarantor, no stress. Your Telecel Cash wallet history is all that's needed to determine eligibility.</p>
-      </div>
+      <div class="benefit-card"><div class="benefit-icon-wrap">⚡</div><h3>Instant Disbursement</h3><p>Approved loans hit your Telecel Cash wallet in under 5 minutes — any time of day or night, including weekends and public holidays.</p></div>
+      <div class="benefit-card"><div class="benefit-icon-wrap">🏦</div><h3>Bank-Level Security</h3><p>Funded by First Atlantic Bank (FAB) and secured by Telecel Ghana's enterprise-grade mobile infrastructure.</p></div>
+      <div class="benefit-card"><div class="benefit-icon-wrap">📱</div><h3>100% Mobile</h3><p>Apply, manage, and repay entirely from your phone — via USSD or this portal. Zero branch visits required.</p></div>
+      <div class="benefit-card"><div class="benefit-icon-wrap">✅</div><h3>Transparent Fees</h3><p>You see the exact fee, due date, and total repayment before accepting. Zero hidden charges — what we show is what we charge.</p></div>
+      <div class="benefit-card"><div class="benefit-icon-wrap">🔄</div><h3>Up To 6 Months</h3><p>Flexible repayment from 1 day to 6 months (26 weeks / 182 days). Repay early with no penalty. Your wallet, your pace.</p></div>
+      <div class="benefit-card"><div class="benefit-icon-wrap">📊</div><h3>Builds Your Limit</h3><p>On-time repayments build your borrowing history. Good behavior unlocks higher loan amounts in future applications.</p></div>
+      <div class="benefit-card"><div class="benefit-icon-wrap">🌍</div><h3>Ghana-Wide</h3><p>Active in every region of Ghana — from Accra and Kumasi to Tamale and Takoradi. Wherever you are, Telecel finds you.</p></div>
+      <div class="benefit-card"><div class="benefit-icon-wrap">🤝</div><h3>No Guarantor</h3><p>No collateral, no guarantor, no stress. Your Telecel Cash wallet history is all that's needed to determine eligibility.</p></div>
     </div>
   </div>
 </section>
@@ -1265,7 +1341,7 @@ footer { background:var(--text-dark); border-top:3px solid var(--red); padding:6
       <div class="review-card"><div class="stars">★★★★★</div><div class="review-text">"Got my GHS 500 micro loan in 3 minutes flat. Perfect for unexpected costs. I've used it four times now — always a smooth experience."</div><div class="reviewer"><div class="avatar" style="background:#E30613">EO</div><div><div class="reviewer-name">Efua Owusu</div><div class="reviewer-role">Student, UG Legon</div></div></div></div>
       <div class="review-card"><div class="stars">★★★★★</div><div class="review-text">"Unlike bank loans with all that documentation, Telecel just checks your wallet history. Approved in minutes. The rate is fair for that speed."</div><div class="reviewer"><div class="avatar" style="background:#444">KO</div><div><div class="reviewer-name">Kojo Opoku</div><div class="reviewer-role">Contractor, Kumasi</div></div></div></div>
       <div class="review-card"><div class="stars">★★★★☆</div><div class="review-text">"I love that I can repay partially. When I got paid early I cleared half and reduced my burden. That flexibility sets Telecel apart from the rest."</div><div class="reviewer"><div class="avatar" style="background:#555">AA</div><div><div class="reviewer-name">Adwoa Agyeiwaa</div><div class="reviewer-role">Caterer, Tema</div></div></div></div>
-      <!-- Duplicated for seamless loop -->
+      <!-- Duplicates for loop -->
       <div class="review-card"><div class="stars">★★★★★</div><div class="review-text">"I needed money for an emergency at midnight. Within 4 minutes the GHS 2,000 was in my Telecel Cash wallet. I couldn't believe how fast it was!"</div><div class="reviewer"><div class="avatar" style="background:#E30613">AK</div><div><div class="reviewer-name">Abena Kyerewaa</div><div class="reviewer-role">Market Trader, Kumasi</div></div></div></div>
       <div class="review-card"><div class="stars">★★★★★</div><div class="review-text">"No paperwork, no office visits — I applied on USSD and had my GHS 5,000 immediately. The fees are clear upfront with no surprises at all."</div><div class="reviewer"><div class="avatar" style="background:#333">KA</div><div><div class="reviewer-name">Kwame Asante</div><div class="reviewer-role">Driver, Accra</div></div></div></div>
       <div class="review-card"><div class="stars">★★★★★</div><div class="review-text">"I repaid early and it was seamless. They deducted exactly what they showed me upfront — nothing extra. Very trustworthy service."</div><div class="reviewer"><div class="avatar" style="background:#444">AO</div><div><div class="reviewer-name">Akosua Obeng</div><div class="reviewer-role">Teacher, Cape Coast</div></div></div></div>
@@ -1299,7 +1375,7 @@ footer { background:var(--text-dark); border-top:3px solid var(--red); padding:6
       </div>
       <div class="faq-card">
         <div class="faq-q" onclick="toggleFaq(this)"><span>How do I apply for a Flex Loan?</span><div class="faq-icon">+</div></div>
-        <div class="faq-a">Apply through this portal by clicking any "Apply" button, reviewing your loan summary, then proceeding to verify your Telecel Cash number. Or use the USSD loan menu on your phone. The entire process takes under 5 minutes.</div>
+        <div class="faq-a">Apply through this portal by clicking any "Apply" button, reviewing your loan summary, then proceeding to fill your application form. Or use the USSD loan menu on your phone. The entire process takes under 5 minutes.</div>
       </div>
       <div class="faq-card">
         <div class="faq-q" onclick="toggleFaq(this)"><span>What fees are charged?</span><div class="faq-icon">+</div></div>
@@ -1311,7 +1387,7 @@ footer { background:var(--text-dark); border-top:3px solid var(--red); padding:6
       </div>
       <div class="faq-card">
         <div class="faq-q" onclick="toggleFaq(this)"><span>How is the total repayment calculated?</span><div class="faq-icon">+</div></div>
-        <div class="faq-a">Total Repayment = Principal + (Principal × 8.9% × Number of 7-day periods). Example: GHS 1,000 over 4 weeks (4 periods): GHS 1,000 + (GHS 1,000 × 8.9% × 4) = GHS 1,000 + GHS 356 = GHS 1,356. Use our live calculator above to see any combination instantly.</div>
+        <div class="faq-a">Total Repayment = Principal + (Principal × 8.9% × Number of 7-day periods). Example: GHS 1,000 over 4 weeks: GHS 1,000 + (GHS 1,000 × 8.9% × 4) = GHS 1,000 + GHS 356 = GHS 1,356. Use our live calculator above to see any combination instantly.</div>
       </div>
       <div class="faq-card">
         <div class="faq-q" onclick="toggleFaq(this)"><span>Can I have more than one active loan?</span><div class="faq-icon">+</div></div>
@@ -1340,15 +1416,15 @@ footer { background:var(--text-dark); border-top:3px solid var(--red); padding:6
     <div class="footer-grid">
       <div>
         <div class="footer-logo-wrap">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="80" height="80" aria-label="Telecel Logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="72" height="72" aria-label="Telecel Logo">
             <circle cx="100" cy="100" r="100" fill="#E30613"/>
             <rect x="28" y="40" width="144" height="32" rx="5" fill="white"/>
             <rect x="84" y="40" width="32" height="126" rx="5" fill="white"/>
             <path d="M142 152 Q176 118 160 80" stroke="white" stroke-width="11" stroke-linecap="round" fill="none" opacity="0.45"/>
           </svg>
           <div>
-            <div style="font-size:24px;font-weight:800;color:#fff;letter-spacing:-1px;line-height:1;">Telecel<span style="color:var(--red)">Loans</span></div>
-            <div style="font-size:9px;font-weight:600;color:rgba(255,255,255,.35);letter-spacing:.18em;text-transform:uppercase;margin-top:5px;">Connecting Energies</div>
+            <div style="font-size:22px;font-weight:800;color:#fff;letter-spacing:-1px;line-height:1;font-family:var(--font-display)">Telecel<span style="color:var(--red)">Loans</span></div>
+            <div style="font-size:9px;font-weight:600;color:rgba(255,255,255,.3);letter-spacing:.18em;text-transform:uppercase;margin-top:5px;font-family:var(--font-body)">Connecting Energies</div>
           </div>
         </div>
         <p class="footer-desc">Telecel Flex Loans — instant mobile credit for Telecel Cash users across Ghana. Funded by First Atlantic Bank (FAB). Repay in up to 6 months (26 weeks / 182 days).</p>
@@ -1384,169 +1460,159 @@ footer { background:var(--text-dark); border-top:3px solid var(--red); padding:6
 </footer>
 
 <!-- ══════════════════════════════════════
-     MODAL 1: LOAN SUMMARY → then APPLICATION FORM
+     MAIN LOAN MODAL — Summary + Full Apply Form (3 steps)
      ══════════════════════════════════════ -->
-<div class="modal-overlay" id="loanSummaryModal">
+<div class="modal-overlay" id="loanModal">
   <div class="modal">
     <div class="modal-header">
       <div class="modal-header-left">
-        <div class="modal-header-icon" id="modalHeaderIcon">📋</div>
-        <h2 id="modalHeaderTitle">Loan Summary</h2>
+        <div class="modal-header-icon" id="loanModalIcon">📋</div>
+        <h2 id="loanModalTitle">Loan Summary</h2>
       </div>
-      <button class="modal-close" onclick="closeModal('loanSummaryModal')">✕</button>
+      <button class="modal-close" onclick="closeModal('loanModal')">✕</button>
     </div>
     <div class="modal-body">
 
-      <!-- ── STEP 1: Summary view ── -->
-      <div id="summaryView">
-        <!-- Hero amount block -->
+      <!-- ────────────────────────
+           VIEW A: SUMMARY
+           ──────────────────────── -->
+      <div id="viewSummary">
         <div class="summary-amount-hero">
           <div class="label">Loan Amount</div>
-          <div class="value" id="sumAmount">GHS 1,000</div>
-          <div class="sub" id="sumPackage">Basic Flex · 4 Weeks</div>
+          <div class="value" id="sumAmt">GHS 1,000</div>
+          <div class="sub" id="sumPkg">Basic Flex · 4 Weeks</div>
         </div>
-
-        <!-- Full breakdown -->
         <div class="summary-breakdown">
-          <div class="summary-breakdown-title">📊 Full Loan Breakdown — 8.9% per 7 days</div>
-          <div class="summary-row">
-            <span class="s-label">Loan Amount</span>
-            <span class="s-value" id="sumBdAmount">GHS 1,000.00</span>
-          </div>
-          <div class="summary-row">
-            <span class="s-label">Repayment Period</span>
-            <span class="s-value" id="sumBdPeriod">4 weeks (28 days)</span>
-          </div>
-          <div class="summary-row">
-            <span class="s-label">Rate (8.9% × periods)</span>
-            <span class="s-value" id="sumBdRate">8.9% × 4 = 35.6%</span>
-          </div>
-          <div class="summary-row">
-            <span class="s-label">Total Service Fee</span>
-            <span class="s-value red" id="sumBdFee">GHS 356.00</span>
-          </div>
-          <div class="summary-row">
-            <span class="s-label">Total To Repay</span>
-            <span class="s-value green" id="sumBdRepay">GHS 1,356.00</span>
-          </div>
-          <div class="summary-row">
-            <span class="s-label">Daily Cost</span>
-            <span class="s-value" id="sumBdDaily">GHS 48.43 / day</span>
-          </div>
+          <div class="summary-breakdown-title">📊 Full Breakdown — 8.9% per 7 days</div>
+          <div class="summary-row"><span class="s-label">Loan Amount</span><span class="s-value" id="sbAmt">GHS 1,000.00</span></div>
+          <div class="summary-row"><span class="s-label">Repayment Period</span><span class="s-value" id="sbPeriod">4 weeks (28 days)</span></div>
+          <div class="summary-row"><span class="s-label">Rate (8.9% × periods)</span><span class="s-value" id="sbRate">8.9% × 4 = 35.6%</span></div>
+          <div class="summary-row"><span class="s-label">Total Service Fee</span><span class="s-value red" id="sbFee">GHS 356.00</span></div>
+          <div class="summary-row"><span class="s-label">Total To Repay</span><span class="s-value green" id="sbRepay">GHS 1,356.00</span></div>
+          <div class="summary-row"><span class="s-label">Daily Cost</span><span class="s-value" id="sbDaily">GHS 48.43 / day</span></div>
         </div>
-
-        <!-- Late penalty notice -->
         <div class="summary-late-warning">
           <span>⚠️</span>
           <span><strong>Late payment fee:</strong> A one-time 12.5% penalty applies if not repaid by your due date. Repay on time to protect your borrowing limit.</span>
         </div>
-
-        <!-- Proceed to Application Form -->
-        <button class="modal-btn" onclick="showAppForm()">Proceed to Application ⚡</button>
-        <p class="modal-note">Next: fill in your details to complete the application. Funded by First Atlantic Bank (FAB). By continuing you agree to our <a href="#">Terms &amp; Conditions</a>.</p>
+        <button class="modal-btn" onclick="goToApplyStep(1)">Proceed to Application ⚡</button>
+        <p class="modal-note">Funded by First Atlantic Bank (FAB). By continuing you agree to our <a href="#">Terms &amp; Conditions</a>.</p>
       </div>
 
-      <!-- ── STEP 2: Application Form view ── -->
-      <div id="appFormView" class="app-form">
-        <!-- Back button -->
-        <button class="app-form-back" onclick="showSummaryView()">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
-          Back to Summary
-        </button>
+      <!-- ────────────────────────
+           VIEW B: MULTI-STEP APPLY FORM
+           ──────────────────────── -->
+      <div id="viewApply" class="apply-steps-wrapper">
 
-        <!-- Loan badge (auto-filled from summary) -->
-        <div class="app-loan-badge">
-          <div class="app-loan-badge-left">
-            <div class="app-loan-badge-label">Loan Amount</div>
-            <div class="app-loan-badge-value" id="appBadgeAmount">GHS 1,000</div>
+        <!-- Step progress bar -->
+        <div class="apply-progress">
+          <div class="apply-step-dot" id="dot1">1</div>
+          <div class="apply-step-line" id="line1"></div>
+          <div class="apply-step-dot" id="dot2">2</div>
+          <div class="apply-step-line" id="line2"></div>
+          <div class="apply-step-dot" id="dot3">3</div>
+        </div>
+
+        <!-- Loan badge (always visible) -->
+        <div class="apply-loan-badge">
+          <div class="apply-loan-badge-left">
+            <div class="apply-badge-label">Loan Amount</div>
+            <div class="apply-badge-value" id="applyBadgeAmt">GHS 1,000</div>
           </div>
-          <div class="app-loan-badge-right">
-            <div class="bl">Total To Repay</div>
-            <div class="bv" id="appBadgeRepay">GHS 1,356.00</div>
+          <div class="apply-loan-badge-right">
+            <div class="apply-badge-right-label">Total To Repay</div>
+            <div class="apply-badge-right-value" id="applyBadgeRepay">GHS 1,356.00</div>
           </div>
         </div>
 
-        <!-- Personal details -->
-        <div class="input-wrap">
-          <label>Full Name</label>
-          <input type="text" class="modal-input" id="appName" placeholder="e.g. Kwame Asante" autocomplete="name">
+        <!-- ── STEP 1: Personal Info ── -->
+        <div class="apply-step-page active" id="applyStep1">
+          <button class="apply-back-btn" onclick="backToSummary()">← Back to Summary</button>
+          <div class="form-group">
+            <label class="form-label">Full Name</label>
+            <input type="text" class="form-input" id="aName" placeholder="e.g. Kwame Mensah" autocomplete="name">
+          </div>
+          <div class="form-row-2">
+            <div class="form-group">
+              <label class="form-label">Telecel Cash Number</label>
+              <input type="tel" class="form-input" id="aPhone" placeholder="0204000000" maxlength="10" oninput="this.value=this.value.replace(/[^0-9]/g,'')">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Date of Birth</label>
+              <input type="date" class="form-input" id="aDob">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Purpose of Loan</label>
+            <select class="form-select" id="aPurpose">
+              <option value="">— Select Purpose —</option>
+              <option value="business">Business / Trading</option>
+              <option value="education">Education / School Fees</option>
+              <option value="medical">Medical / Health</option>
+              <option value="personal">Personal / Emergency</option>
+              <option value="agriculture">Agriculture</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <button class="apply-next-btn" onclick="applyNextStep(1)">Continue →</button>
         </div>
 
-        <div class="app-row-2">
-          <div class="input-wrap">
-            <label>Telecel Cash Number</label>
-            <input type="tel" class="modal-input" id="appPhone" placeholder="e.g. 0204000000" maxlength="10" oninput="this.value=this.value.replace(/[^0-9]/g,'')">
+        <!-- ── STEP 2: ID Verification ── -->
+        <div class="apply-step-page" id="applyStep2">
+          <button class="apply-back-btn" onclick="applyPrevStep(2)">← Back</button>
+          <div class="form-group">
+            <label class="form-label">ID Type</label>
+            <select class="form-select" id="aIdType">
+              <option value="">— Select ID Type —</option>
+              <option value="ghana_card">Ghana Card (National ID)</option>
+              <option value="passport">Passport</option>
+              <option value="voter_id">Voter's ID</option>
+              <option value="drivers_licence">Driver's Licence</option>
+            </select>
           </div>
-          <div class="input-wrap">
-            <label>Date of Birth</label>
-            <input type="date" class="modal-input" id="appDob">
+          <div class="form-group">
+            <label class="form-label">ID Number</label>
+            <input type="text" class="form-input" id="aIdNum" placeholder="Enter your ID number">
           </div>
+          <div class="eligibility-checklist" style="margin-top:4px;">
+            <div class="eligibility-checklist-title">📋 Eligibility Requirements</div>
+            <div class="eligibility-check-item"><span class="check-icon">✓</span> Active <strong>Telecel Cash wallet</strong> holder</div>
+            <div class="eligibility-check-item"><span class="check-icon">✓</span> <strong>18 years or older</strong> — Ghana residents only</div>
+            <div class="eligibility-check-item"><span class="check-icon">✓</span> Regular wallet activity (airtime, payments, transfers)</div>
+            <div class="eligibility-check-item"><span class="check-icon">✓</span> <strong>No outstanding</strong> Telecel Flex Loan</div>
+          </div>
+          <button class="apply-next-btn" onclick="applyNextStep(2)">Review Application →</button>
         </div>
 
-        <div class="input-wrap">
-          <label>ID Type</label>
-          <select class="app-select" id="appIdType">
-            <option value="">— Select ID Type —</option>
-            <option value="ghana_card">Ghana Card (National ID)</option>
-            <option value="passport">Passport</option>
-            <option value="voter_id">Voter's ID</option>
-            <option value="drivers_licence">Driver's Licence</option>
-          </select>
+        <!-- ── STEP 3: Review & Submit ── -->
+        <div class="apply-step-page" id="applyStep3">
+          <button class="apply-back-btn" onclick="applyPrevStep(3)">← Back</button>
+          <div class="summary-breakdown" style="margin-bottom:14px;">
+            <div class="summary-breakdown-title">📋 Application Review</div>
+            <div class="summary-row"><span class="s-label">Full Name</span><span class="s-value" id="revName">—</span></div>
+            <div class="summary-row"><span class="s-label">Phone Number</span><span class="s-value" id="revPhone">—</span></div>
+            <div class="summary-row"><span class="s-label">Date of Birth</span><span class="s-value" id="revDob">—</span></div>
+            <div class="summary-row"><span class="s-label">Loan Purpose</span><span class="s-value" id="revPurpose">—</span></div>
+            <div class="summary-row"><span class="s-label">ID Type</span><span class="s-value" id="revIdType">—</span></div>
+            <div class="summary-row"><span class="s-label">ID Number</span><span class="s-value" id="revIdNum">—</span></div>
+            <hr class="modal-divider" style="margin:8px 0;">
+            <div class="summary-row"><span class="s-label">Loan Amount</span><span class="s-value" id="revAmt">—</span></div>
+            <div class="summary-row"><span class="s-label">Repayment Period</span><span class="s-value" id="revPeriod">—</span></div>
+            <div class="summary-row"><span class="s-label">Service Fee</span><span class="s-value red" id="revFee">—</span></div>
+            <div class="summary-row"><span class="s-label">Total To Repay</span><span class="s-value green" id="revRepay">—</span></div>
+          </div>
+          <button class="apply-submit-btn" id="submitBtn" onclick="submitLoanApp()">✅ Confirm &amp; Submit Application</button>
+          <p class="modal-note" style="margin-top:14px;">By submitting you confirm all details are accurate and agree to our <a href="#">Terms &amp; Conditions</a> and Telecel Cash's privacy policy.</p>
         </div>
 
-        <div class="input-wrap">
-          <label>ID Number</label>
-          <input type="text" class="modal-input" id="appIdNumber" placeholder="Enter your ID number">
-        </div>
-
-        <div class="input-wrap">
-          <label>Purpose of Loan</label>
-          <select class="app-select" id="appPurpose">
-            <option value="">— Select Purpose —</option>
-            <option value="business">Business / Trading</option>
-            <option value="education">Education / School Fees</option>
-            <option value="medical">Medical / Health</option>
-            <option value="personal">Personal / Emergency</option>
-            <option value="agriculture">Agriculture</option>
-            <option value="other">Other</option>
-          </select>
-        </div>
-
-        <hr class="app-divider">
-
-        <!-- Loan details (pre-filled, read-only display) -->
-        <div class="summary-breakdown" style="margin-bottom:16px;">
-          <div class="summary-breakdown-title">📋 Your Application Summary</div>
-          <div class="summary-row">
-            <span class="s-label">Loan Amount</span>
-            <span class="s-value" id="appSumAmount">GHS 1,000.00</span>
-          </div>
-          <div class="summary-row">
-            <span class="s-label">Repayment Period</span>
-            <span class="s-value" id="appSumPeriod">4 weeks (28 days)</span>
-          </div>
-          <div class="summary-row">
-            <span class="s-label">Service Fee</span>
-            <span class="s-value red" id="appSumFee">GHS 356.00</span>
-          </div>
-          <div class="summary-row">
-            <span class="s-label">Total To Repay</span>
-            <span class="s-value green" id="appSumRepay">GHS 1,356.00</span>
-          </div>
-        </div>
-
-        <button class="app-submit-btn" id="appSubmitBtn" onclick="submitApplication()">
-          ✅ Submit Application
-        </button>
-        <p class="modal-note" style="margin-top:14px;">By submitting you confirm all details are accurate and agree to our <a href="#">Terms &amp; Conditions</a> and Telecel Cash's privacy policy.</p>
-      </div>
+      </div><!-- /viewApply -->
 
     </div>
   </div>
 </div>
 
 <!-- ══════════════════════════════════════
-     MODAL 2: VERIFY NUMBER (Login button only)
+     LOGIN MODAL (header button)
      ══════════════════════════════════════ -->
 <div class="modal-overlay" id="loginModal">
   <div class="modal">
@@ -1561,23 +1627,23 @@ footer { background:var(--text-dark); border-top:3px solid var(--red); padding:6
       <p class="modal-sub">Enter your Telecel Cash phone number to verify eligibility and access your loan application.</p>
       <div class="eligibility-checklist">
         <div class="eligibility-checklist-title">📋 To qualify, you must:</div>
-        <div class="eligibility-check-item"><span class="check-icon">✓</span> Be an active <strong>Telecel Cash wallet</strong> holder (not just a Telecel SIM)</div>
+        <div class="eligibility-check-item"><span class="check-icon">✓</span> Be an active <strong>Telecel Cash wallet</strong> holder</div>
         <div class="eligibility-check-item"><span class="check-icon">✓</span> Be <strong>18 years or older</strong> — Ghana residents only</div>
-        <div class="eligibility-check-item"><span class="check-icon">✓</span> Have <strong>regular wallet activity</strong> — airtime, payments, or transfers</div>
-        <div class="eligibility-check-item"><span class="check-icon">✓</span> Have <strong>no outstanding</strong> Telecel Flex Loan at this time</div>
+        <div class="eligibility-check-item"><span class="check-icon">✓</span> Have <strong>regular wallet activity</strong></div>
+        <div class="eligibility-check-item"><span class="check-icon">✓</span> Have <strong>no outstanding</strong> Telecel Flex Loan</div>
         <div class="eligibility-check-item"><span class="check-icon">✓</span> Use a registered Telecel number linked to your <strong>Telecel Cash account</strong></div>
       </div>
       <div class="input-wrap">
         <label>Telecel Cash Number</label>
         <input type="tel" class="modal-input" id="loginPhone" placeholder="e.g. 0204000000" maxlength="10" oninput="this.value=this.value.replace(/[^0-9]/g,'')">
       </div>
-      <button class="modal-btn" onclick="handleLogin()">Verify &amp; Proceed to Application ⚡</button>
+      <button class="modal-btn" onclick="handleLogin()">Verify &amp; Continue ⚡</button>
       <p class="modal-note">By continuing, you agree to our <a href="#">Terms &amp; Conditions</a>. This service is for active Telecel Cash wallet holders only.</p>
     </div>
   </div>
 </div>
 
-<!-- TOAST — bottom LEFT -->
+<!-- TOAST -->
 <div class="toast" id="toast">
   <div class="toast-icon" id="toastIcon">✅</div>
   <div>
@@ -1587,11 +1653,11 @@ footer { background:var(--text-dark); border-top:3px solid var(--red); padding:6
   <div class="toast-bar" id="toastBar"></div>
 </div>
 
-<!-- CHAT FAB — bottom RIGHT -->
+<!-- CHAT FAB -->
 <button class="chat-fab" onclick="openTawkChat()" aria-label="Chat with us">
   <div class="chat-fab-dot"></div>
   <div class="chat-fab-icon">
-    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
       <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
     </svg>
   </div>
@@ -1608,7 +1674,7 @@ var Tawk_LoadStart = new Date();
   s1.async = true;
   s1.src = 'https://embed.tawk.to/694a65c91f0ade19740a3331/1jd59r7eu';
   s1.charset = 'UTF-8';
-  s1.setAttribute('crossorigin', '*');
+  s1.setAttribute('crossorigin','*');
   s0.parentNode.insertBefore(s1, s0);
 })();
 </script>
@@ -1619,479 +1685,413 @@ let currentAmount = 1000;
 let currentDays   = 28;
 let currentUnit   = 'weeks';
 
-// ══ TICKER duplicate ══
+// ══ TICKER ══
 (function(){
-  const track = document.getElementById('ticker');
-  track.innerHTML += track.innerHTML;
+  const t = document.getElementById('ticker');
+  t.innerHTML += t.innerHTML;
 })();
 
 // ══ FORMAT ══
 function fmt(n) {
-  return 'GHS ' + n.toLocaleString('en-GH', {minimumFractionDigits:2, maximumFractionDigits:2});
+  return 'GHS ' + n.toLocaleString('en-GH',{minimumFractionDigits:2,maximumFractionDigits:2});
 }
 
-// ══ PERIOD UNIT SYSTEM ══
-const MAX_DAYS = 182;
-const MIN_DAYS = 1;
+// ══ PERIOD SYSTEM ══
+const MAX_DAYS = 182, MIN_DAYS = 1;
+const CHIPS = { days:[7,14,21,30,60,90,120,182], weeks:[1,2,4,8,13,26], months:[1,2,3,6] };
+const CHIP_LABELS = { days:d=>`${d} Day${d>1?'s':''}`, weeks:w=>`${w} Week${w>1?'s':''}`, months:m=>`${m} Month${m>1?'s':''}` };
 
-const CHIPS = {
-  days:   [7, 14, 21, 30, 60, 90, 120, 182],
-  weeks:  [1, 2, 4, 8, 13, 26],
-  months: [1, 2, 3, 6]
-};
-
-const CHIP_LABELS = {
-  days:   d => `${d} Day${d>1?'s':''}`,
-  weeks:  w => `${w} Week${w>1?'s':''}`,
-  months: m => `${m} Month${m>1?'s':''}`
-};
-
-function daysToUnit(days, unit) {
-  if (unit === 'days')   return days;
-  if (unit === 'weeks')  return Math.round(days / 7);
-  if (unit === 'months') return Math.round(days / 30.4);
+function daysToUnit(days,unit){
+  if(unit==='days') return days;
+  if(unit==='weeks') return Math.round(days/7);
+  if(unit==='months') return Math.round(days/30.4);
+}
+function unitToDays(val,unit){
+  if(unit==='days') return val;
+  if(unit==='weeks') return val*7;
+  if(unit==='months') return Math.round(val*30.4);
+}
+function sliderConfig(unit){
+  if(unit==='days')   return {min:1, max:182,step:1, labels:['1 Day','91 Days','182 Days (6 mo)']};
+  if(unit==='weeks')  return {min:1, max:26, step:1, labels:['1 Week','13 Weeks','26 Weeks (6 mo)']};
+  if(unit==='months') return {min:1, max:6,  step:1, labels:['1 Month','3 Months','6 Months']};
 }
 
-function unitToDays(val, unit) {
-  if (unit === 'days')   return val;
-  if (unit === 'weeks')  return val * 7;
-  if (unit === 'months') return Math.round(val * 30.4);
-}
-
-function sliderConfig(unit) {
-  if (unit === 'days')   return { min:1,  max:182, step:1,  labels:['1 Day','91 Days','182 Days (6 mo)'] };
-  if (unit === 'weeks')  return { min:1,  max:26,  step:1,  labels:['1 Week','13 Weeks','26 Weeks (6 mo)'] };
-  if (unit === 'months') return { min:1,  max:6,   step:1,  labels:['1 Month','3 Months','6 Months'] };
-}
-
-function setPeriodUnit(unit) {
+function setPeriodUnit(unit){
   currentUnit = unit;
-  ['days','weeks','months'].forEach(u => {
-    document.getElementById('tab' + u.charAt(0).toUpperCase() + u.slice(1)).classList.toggle('active', u === unit);
+  ['days','weeks','months'].forEach(u=>{
+    document.getElementById('tab'+u.charAt(0).toUpperCase()+u.slice(1)).classList.toggle('active',u===unit);
   });
   renderPeriodChips();
   const cfg = sliderConfig(unit);
-  const slider = document.getElementById('periodSlider');
-  slider.min   = cfg.min;
-  slider.max   = cfg.max;
-  slider.step  = cfg.step;
-  const unitVal = Math.max(cfg.min, Math.min(cfg.max, daysToUnit(currentDays, unit)));
-  slider.value = unitVal;
+  const sl  = document.getElementById('periodSlider');
+  sl.min  = cfg.min; sl.max = cfg.max; sl.step = cfg.step;
+  const uv = Math.max(cfg.min,Math.min(cfg.max,daysToUnit(currentDays,unit)));
+  sl.value = uv;
   const rl = document.getElementById('periodRangeLabels');
   rl.innerHTML = `<span>${cfg.labels[0]}</span><span>${cfg.labels[1]}</span><span>${cfg.labels[2]}</span>`;
-  fillSlider(slider);
+  fillSlider(sl);
   syncUI();
 }
 
-function renderPeriodChips() {
-  const container = document.getElementById('periodChips');
+function renderPeriodChips(){
+  const c = document.getElementById('periodChips');
   const chips = CHIPS[currentUnit];
-  const unitVal = daysToUnit(currentDays, currentUnit);
-  container.innerHTML = chips.map(v => {
-    const isActive = (unitToDays(v, currentUnit) === currentDays) ||
-                     (Math.abs(v - unitVal) < 0.5);
-    return `<button class="chip${isActive?' active':''}" onclick="setPeriodChip(${v})">${CHIP_LABELS[currentUnit](v)}</button>`;
+  const uv = daysToUnit(currentDays, currentUnit);
+  c.innerHTML = chips.map(v=>{
+    const active = (Math.abs(v-uv)<0.5);
+    return `<button class="chip${active?' active':''}" onclick="setPeriodChip(${v})">${CHIP_LABELS[currentUnit](v)}</button>`;
   }).join('');
 }
 
-function setPeriodChip(val) {
-  currentDays = Math.min(MAX_DAYS, Math.max(MIN_DAYS, unitToDays(val, currentUnit)));
-  const slider = document.getElementById('periodSlider');
-  slider.value = val;
-  fillSlider(slider);
+function setPeriodChip(val){
+  currentDays = Math.min(MAX_DAYS,Math.max(MIN_DAYS,unitToDays(val,currentUnit)));
+  const sl = document.getElementById('periodSlider');
+  sl.value = val;
+  fillSlider(sl);
   syncUI();
 }
 
-// ══ CALCULATOR — 8.9% per 7 days ══
-function calcFee(amount, days) {
-  const periods = days / 7;
-  return amount * 0.089 * periods;
-}
+// ══ CALC ══
+function calcFee(amt,days){ return amt*0.089*(days/7); }
 
-function updateCalc() {
-  currentAmount = parseInt(document.getElementById('amountSlider').value) || 100;
+function updateCalc(){
+  currentAmount = parseInt(document.getElementById('amountSlider').value)||100;
   syncUI();
 }
-
-function updateCalcPeriod() {
-  const sliderVal = parseInt(document.getElementById('periodSlider').value) || 1;
-  currentDays = Math.min(MAX_DAYS, Math.max(MIN_DAYS, unitToDays(sliderVal, currentUnit)));
+function updateCalcPeriod(){
+  const v = parseInt(document.getElementById('periodSlider').value)||1;
+  currentDays = Math.min(MAX_DAYS,Math.max(MIN_DAYS,unitToDays(v,currentUnit)));
   fillSlider(document.getElementById('periodSlider'));
   syncUI();
 }
 
-function syncUI() {
-  const fee    = calcFee(currentAmount, currentDays);
-  const repay  = currentAmount + fee;
-  const daily  = repay / currentDays;
+function syncUI(){
+  const fee   = calcFee(currentAmount,currentDays);
+  const repay = currentAmount+fee;
 
-  // Amount display
   document.getElementById('amountDisplay').textContent = currentAmount.toLocaleString('en-GH');
   document.getElementById('amountSlider').value = currentAmount;
   document.getElementById('amountInput').value  = currentAmount;
-
-  // Amount chips
-  document.querySelectorAll('#amountChips .chip').forEach(c => {
-    const val = parseInt(c.textContent.replace(/[^0-9]/g,''));
-    c.classList.toggle('active', val === currentAmount);
+  document.querySelectorAll('#amountChips .chip').forEach(c=>{
+    const v = parseInt(c.textContent.replace(/[^0-9]/g,''));
+    c.classList.toggle('active',v===currentAmount);
   });
-
   fillSlider(document.getElementById('amountSlider'));
 
-  // Period display
-  const unitVal  = daysToUnit(currentDays, currentUnit);
-  const unitCap  = currentUnit.charAt(0).toUpperCase() + currentUnit.slice(1);
-  document.getElementById('periodValue').textContent     = unitVal;
-  document.getElementById('periodUnitLabel').textContent = unitCap;
+  const uv = daysToUnit(currentDays,currentUnit);
+  const uc = currentUnit.charAt(0).toUpperCase()+currentUnit.slice(1);
+  document.getElementById('periodValue').textContent     = uv;
+  document.getElementById('periodUnitLabel').textContent = uc;
   document.getElementById('daysEquiv').textContent       = currentDays;
-  document.getElementById('periodInput').value           = unitVal;
-
+  document.getElementById('periodInput').value           = uv;
   renderPeriodChips();
 }
 
-function onManualAmount() {
-  let v = parseInt(document.getElementById('amountInput').value) || 100;
-  v = Math.min(50000, Math.max(100, v));
+function onManualAmount(){
+  let v = parseInt(document.getElementById('amountInput').value)||100;
+  v = Math.min(50000,Math.max(100,v));
   currentAmount = v;
   document.getElementById('amountSlider').value = v;
   fillSlider(document.getElementById('amountSlider'));
   syncUI();
 }
-
-function onManualPeriod() {
-  let v = parseInt(document.getElementById('periodInput').value) || 1;
+function onManualPeriod(){
+  let v = parseInt(document.getElementById('periodInput').value)||1;
   const cfg = sliderConfig(currentUnit);
-  v = Math.min(cfg.max, Math.max(cfg.min, v));
-  currentDays = unitToDays(v, currentUnit);
+  v = Math.min(cfg.max,Math.max(cfg.min,v));
+  currentDays = unitToDays(v,currentUnit);
   document.getElementById('periodSlider').value = v;
   fillSlider(document.getElementById('periodSlider'));
   syncUI();
 }
-
-function setAmount(a) {
+function setAmount(a){
   currentAmount = a;
   document.getElementById('amountSlider').value = a;
   fillSlider(document.getElementById('amountSlider'));
   syncUI();
 }
 
-function selectLoanAndSummary(amount, weeks, packageName) {
+// Init
+setPeriodUnit('weeks');
+syncUI();
+
+// ══ PERIOD DESC ══
+function getPeriodDesc(){
+  if(currentUnit==='days')   return `${currentDays} day${currentDays>1?'s':''}`;
+  if(currentUnit==='months') return `${daysToUnit(currentDays,'months')} month(s) (${currentDays} days)`;
+  return `${daysToUnit(currentDays,'weeks')} week(s) (${currentDays} days)`;
+}
+
+// ══ OPEN MAIN LOAN MODAL ══
+function openLoanModal(packageName){
+  populateSummary(packageName);
+  showView('summary');
+  document.getElementById('loanModal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+
+function selectLoanAndOpen(amount,weeks,packageName){
   currentAmount = amount;
-  currentDays   = weeks * 7;
+  currentDays   = weeks*7;
   currentUnit   = 'weeks';
   setPeriodUnit('weeks');
   document.getElementById('periodSlider').value = weeks;
   fillSlider(document.getElementById('periodSlider'));
   syncUI();
-  openLoanSummaryModal(packageName);
+  openLoanModal(packageName);
 }
 
-// Init
-setPeriodUnit('weeks');
-syncUI();
+function populateSummary(packageName){
+  const fee    = calcFee(currentAmount,currentDays);
+  const repay  = currentAmount+fee;
+  const daily  = repay/currentDays;
+  const periods = currentDays/7;
+  const rateTotal = (periods*8.9).toFixed(2);
+  const pkg    = packageName||'Flex Loan';
+  const pd     = getPeriodDesc();
 
-// ══ LOAN SUMMARY MODAL ══
-function openLoanSummaryModal(packageName) {
-  const fee    = calcFee(currentAmount, currentDays);
-  const repay  = currentAmount + fee;
-  const daily  = repay / currentDays;
-  const periods = currentDays / 7;
-  const rateTotal = (periods * 8.9).toFixed(2);
-  const pkg    = packageName || 'Flex Loan';
+  document.getElementById('sumAmt').textContent   = `GHS ${currentAmount.toLocaleString('en-GH')}`;
+  document.getElementById('sumPkg').textContent   = `${pkg} · ${pd}`;
+  document.getElementById('sbAmt').textContent    = fmt(currentAmount);
+  document.getElementById('sbPeriod').textContent = pd;
+  document.getElementById('sbRate').textContent   = `8.9% × ${periods.toFixed(2)} = ${rateTotal}%`;
+  document.getElementById('sbFee').textContent    = fmt(fee);
+  document.getElementById('sbRepay').textContent  = fmt(repay);
+  document.getElementById('sbDaily').textContent  = fmt(daily)+' / day';
 
-  // Period description
-  let periodDesc = '';
-  if (currentUnit === 'days')        periodDesc = `${currentDays} day${currentDays>1?'s':''}`;
-  else if (currentUnit === 'months') periodDesc = `${daysToUnit(currentDays,'months')} month(s) (${currentDays} days)`;
-  else                               periodDesc = `${daysToUnit(currentDays,'weeks')} week(s) (${currentDays} days)`;
-
-  // Populate summary
-  document.getElementById('sumAmount').textContent   = `GHS ${currentAmount.toLocaleString('en-GH')}`;
-  document.getElementById('sumPackage').textContent  = `${pkg} · ${periodDesc}`;
-  document.getElementById('sumBdAmount').textContent = fmt(currentAmount);
-  document.getElementById('sumBdPeriod').textContent = periodDesc;
-  document.getElementById('sumBdRate').textContent   = `8.9% × ${periods.toFixed(2)} periods = ${rateTotal}%`;
-  document.getElementById('sumBdFee').textContent    = fmt(fee);
-  document.getElementById('sumBdRepay').textContent  = fmt(repay);
-  document.getElementById('sumBdDaily').textContent  = fmt(daily) + ' / day';
-
-  // Always start at summary view
-  showSummaryView(false);
-
-  document.getElementById('loanSummaryModal').classList.add('open');
-  document.body.style.overflow = 'hidden';
+  // Also fill badge for apply form
+  document.getElementById('applyBadgeAmt').textContent   = `GHS ${currentAmount.toLocaleString('en-GH')}`;
+  document.getElementById('applyBadgeRepay').textContent = fmt(repay);
 }
 
-// ── Show summary step ──
-function showSummaryView(scroll) {
-  document.getElementById('summaryView').style.display = 'block';
-  document.getElementById('appFormView').classList.remove('visible');
-  document.getElementById('modalHeaderIcon').textContent = '📋';
-  document.getElementById('modalHeaderTitle').textContent = 'Loan Summary';
-  if (scroll !== false) {
-    document.querySelector('#loanSummaryModal .modal').scrollTop = 0;
+// ══ VIEW SWITCHING ══
+function showView(view){
+  const vs = document.getElementById('viewSummary');
+  const va = document.getElementById('viewApply');
+  if(view==='summary'){
+    vs.style.display='block';
+    va.classList.remove('visible');
+    document.getElementById('loanModalIcon').textContent = '📋';
+    document.getElementById('loanModalTitle').textContent = 'Loan Summary';
+  } else {
+    vs.style.display='none';
+    va.classList.add('visible');
+    document.getElementById('loanModalIcon').textContent = '📝';
+    document.getElementById('loanModalTitle').textContent = 'Apply for Loan';
+  }
+  document.querySelector('#loanModal .modal').scrollTop = 0;
+}
+
+function backToSummary(){
+  showView('summary');
+}
+
+// ══ MULTI-STEP APPLY ══
+let currentApplyStep = 1;
+
+function updateStepIndicators(step){
+  [1,2,3].forEach(i=>{
+    const dot = document.getElementById('dot'+i);
+    if(i<step){ dot.classList.remove('active'); dot.classList.add('done'); dot.textContent='✓'; }
+    else if(i===step){ dot.classList.add('active'); dot.classList.remove('done'); dot.textContent=i; }
+    else { dot.classList.remove('active','done'); dot.textContent=i; }
+  });
+  [1,2].forEach(i=>{
+    const line = document.getElementById('line'+i);
+    line.classList.toggle('done', i<step);
+  });
+}
+
+function goToApplyStep(step){
+  // Hide all steps
+  [1,2,3].forEach(i=>{
+    document.getElementById('applyStep'+i).classList.remove('active');
+  });
+  document.getElementById('applyStep'+step).classList.add('active');
+  currentApplyStep = step;
+  updateStepIndicators(step);
+  showView('apply');
+  document.querySelector('#loanModal .modal').scrollTop = 0;
+}
+
+const TELECEL_PREFIXES = ['020','056','057','058','059','050'];
+
+function applyNextStep(from){
+  if(from===1){
+    const name  = document.getElementById('aName').value.trim();
+    const phone = document.getElementById('aPhone').value.trim();
+    const dob   = document.getElementById('aDob').value;
+    const purp  = document.getElementById('aPurpose').value;
+    if(!name){ showToast('❌','Name Required','Please enter your full name.'); document.getElementById('aName').focus(); return; }
+    if(!phone||phone.length<10){ showToast('❌','Invalid Number','Please enter a valid 10-digit number.'); document.getElementById('aPhone').focus(); return; }
+    if(!TELECEL_PREFIXES.includes(phone.substring(0,3))){ showToast('❌','Not a Telecel Number','Enter a valid Telecel Cash number (020, 050, 056–059).'); document.getElementById('aPhone').focus(); return; }
+    if(!dob){ showToast('❌','Date of Birth Required','Please enter your date of birth.'); document.getElementById('aDob').focus(); return; }
+    const age = Math.floor((new Date()-new Date(dob))/(365.25*24*3600*1000));
+    if(age<18){ showToast('❌','Not Eligible','You must be 18 years or older to apply.'); return; }
+    if(!purp){ showToast('❌','Purpose Required','Please select a loan purpose.'); return; }
+    goToApplyStep(2);
+  } else if(from===2){
+    const idt = document.getElementById('aIdType').value;
+    const idn = document.getElementById('aIdNum').value.trim();
+    if(!idt){ showToast('❌','ID Type Required','Please select an ID type.'); return; }
+    if(!idn){ showToast('❌','ID Number Required','Please enter your ID number.'); document.getElementById('aIdNum').focus(); return; }
+    // Populate review
+    const fee   = calcFee(currentAmount,currentDays);
+    const repay = currentAmount+fee;
+    const pd    = getPeriodDesc();
+    const purposeMap = {business:'Business / Trading',education:'Education / School Fees',medical:'Medical / Health',personal:'Personal / Emergency',agriculture:'Agriculture',other:'Other'};
+    const idMap = {ghana_card:'Ghana Card',passport:'Passport',voter_id:"Voter's ID",drivers_licence:"Driver's Licence"};
+    const dobVal = document.getElementById('aDob').value;
+    const dobFmt = dobVal ? new Date(dobVal).toLocaleDateString('en-GH',{day:'2-digit',month:'short',year:'numeric'}) : '—';
+    document.getElementById('revName').textContent    = document.getElementById('aName').value;
+    document.getElementById('revPhone').textContent   = document.getElementById('aPhone').value;
+    document.getElementById('revDob').textContent     = dobFmt;
+    document.getElementById('revPurpose').textContent = purposeMap[document.getElementById('aPurpose').value]||'—';
+    document.getElementById('revIdType').textContent  = idMap[idt]||idt;
+    document.getElementById('revIdNum').textContent   = idn;
+    document.getElementById('revAmt').textContent     = fmt(currentAmount);
+    document.getElementById('revPeriod').textContent  = pd;
+    document.getElementById('revFee').textContent     = fmt(fee);
+    document.getElementById('revRepay').textContent   = fmt(repay);
+    goToApplyStep(3);
   }
 }
 
-// ── Show application form step ──
-function showAppForm() {
-  const fee   = calcFee(currentAmount, currentDays);
-  const repay = currentAmount + fee;
-  const periods = currentDays / 7;
-
-  let periodDesc = '';
-  if (currentUnit === 'days')        periodDesc = `${currentDays} day${currentDays>1?'s':''}`;
-  else if (currentUnit === 'months') periodDesc = `${daysToUnit(currentDays,'months')} month(s) (${currentDays} days)`;
-  else                               periodDesc = `${daysToUnit(currentDays,'weeks')} week(s) (${currentDays} days)`;
-
-  // Pre-fill application badge & summary
-  document.getElementById('appBadgeAmount').textContent = `GHS ${currentAmount.toLocaleString('en-GH')}`;
-  document.getElementById('appBadgeRepay').textContent  = fmt(repay);
-  document.getElementById('appSumAmount').textContent   = fmt(currentAmount);
-  document.getElementById('appSumPeriod').textContent   = periodDesc;
-  document.getElementById('appSumFee').textContent      = fmt(fee);
-  document.getElementById('appSumRepay').textContent    = fmt(repay);
-
-  // Hide summary, show form
-  document.getElementById('summaryView').style.display = 'none';
-  document.getElementById('appFormView').classList.add('visible');
-  document.getElementById('modalHeaderIcon').textContent = '📝';
-  document.getElementById('modalHeaderTitle').textContent = 'Apply for Loan';
-  document.querySelector('#loanSummaryModal .modal').scrollTop = 0;
-  setTimeout(() => document.getElementById('appName').focus(), 200);
+function applyPrevStep(from){
+  if(from===2) goToApplyStep(1);
+  else if(from===3) goToApplyStep(2);
 }
 
-// ── Submit application ──
-function submitApplication() {
-  const name    = document.getElementById('appName').value.trim();
-  const phone   = document.getElementById('appPhone').value.trim();
-  const dob     = document.getElementById('appDob').value;
-  const idType  = document.getElementById('appIdType').value;
-  const idNum   = document.getElementById('appIdNumber').value.trim();
-  const purpose = document.getElementById('appPurpose').value;
-
-  if (!name) {
-    showToast('❌', 'Name Required', 'Please enter your full name.');
-    document.getElementById('appName').focus();
-    return;
-  }
-  if (!phone || phone.length < 10) {
-    showToast('❌', 'Invalid Number', 'Please enter a valid 10-digit Telecel Cash number.');
-    document.getElementById('appPhone').focus();
-    return;
-  }
-  const validPrefixes = ['020','056','057','058','059','050'];
-  if (!validPrefixes.includes(phone.substring(0,3))) {
-    showToast('❌', 'Not a Telecel Number', 'Enter a valid Telecel Cash number (020, 050, 056–059).');
-    document.getElementById('appPhone').focus();
-    return;
-  }
-  if (!dob) {
-    showToast('❌', 'Date of Birth Required', 'Please enter your date of birth.');
-    document.getElementById('appDob').focus();
-    return;
-  }
-  // Age check
-  const age = Math.floor((new Date() - new Date(dob)) / (365.25 * 24 * 3600 * 1000));
-  if (age < 18) {
-    showToast('❌', 'Not Eligible', 'You must be 18 years or older to apply.');
-    return;
-  }
-  if (!idType) {
-    showToast('❌', 'ID Type Required', 'Please select an ID type.');
-    return;
-  }
-  if (!idNum) {
-    showToast('❌', 'ID Number Required', 'Please enter your ID number.');
-    document.getElementById('appIdNumber').focus();
-    return;
-  }
-  if (!purpose) {
-    showToast('❌', 'Purpose Required', 'Please select the purpose of this loan.');
-    return;
-  }
-
-  // All valid — submit
-  const btn = document.getElementById('appSubmitBtn');
+function submitLoanApp(){
+  const btn = document.getElementById('submitBtn');
   btn.disabled = true;
   btn.innerHTML = '⏳ Submitting...';
-
-  const fee   = calcFee(currentAmount, currentDays);
-  const repay = currentAmount + fee;
-
-  setTimeout(() => {
-    closeModal('loanSummaryModal');
+  const phone = document.getElementById('aPhone').value;
+  setTimeout(()=>{
+    closeModal('loanModal');
     btn.disabled = false;
-    btn.innerHTML = '✅ Submit Application';
-    showToast('✅', 'Application Submitted!', `GHS ${currentAmount.toLocaleString()} loan for ${phone} sent. You'll receive a confirmation shortly.`);
+    btn.innerHTML = '✅ Confirm &amp; Submit Application';
+    showToast('✅','Application Submitted!',`GHS ${currentAmount.toLocaleString()} loan for ${phone} sent. You'll receive a confirmation shortly.`);
     // Reset form
-    ['appName','appPhone','appDob','appIdNumber'].forEach(id => document.getElementById(id).value = '');
-    document.getElementById('appIdType').value = '';
-    document.getElementById('appPurpose').value = '';
-  }, 1800);
+    ['aName','aPhone','aDob','aIdNum'].forEach(id=>document.getElementById(id).value='');
+    document.getElementById('aPurpose').value='';
+    document.getElementById('aIdType').value='';
+  },1800);
 }
 
 // ══ LOGIN MODAL ══
-function openLoginModal() {
+function openLoginModal(){
   document.getElementById('loginModal').classList.add('open');
-  document.body.style.overflow = 'hidden';
-  setTimeout(() => document.getElementById('loginPhone').focus(), 300);
+  document.body.style.overflow='hidden';
+  setTimeout(()=>document.getElementById('loginPhone').focus(),300);
 }
 
-function handleLogin() {
+function handleLogin(){
   const phone = document.getElementById('loginPhone').value.trim();
-  if (!phone || phone.length < 10) {
-    showToast('❌', 'Invalid Number', 'Please enter a valid 10-digit Telecel Cash number.');
-    document.getElementById('loginPhone').focus();
-    return;
-  }
-  const validPrefixes = ['020','056','057','058','059','050'];
-  if (!validPrefixes.includes(phone.substring(0,3))) {
-    showToast('❌', 'Not a Telecel Number', 'Please enter a valid Telecel Cash number (020, 050, 056–059).');
-    document.getElementById('loginPhone').focus();
-    return;
-  }
+  if(!phone||phone.length<10){ showToast('❌','Invalid Number','Please enter a valid 10-digit Telecel Cash number.'); document.getElementById('loginPhone').focus(); return; }
+  if(!TELECEL_PREFIXES.includes(phone.substring(0,3))){ showToast('❌','Not a Telecel Number','Please enter a valid Telecel Cash number (020, 050, 056–059).'); document.getElementById('loginPhone').focus(); return; }
   closeModal('loginModal');
-  // Pre-fill the phone in the app form and open summary → form
-  openLoanSummaryModal();
-  setTimeout(() => {
-    showAppForm();
-    document.getElementById('appPhone').value = phone;
-  }, 350);
-  showToast('✅', 'Number Verified', 'Complete your application details below.');
+  openLoanModal();
+  setTimeout(()=>{
+    goToApplyStep(1);
+    document.getElementById('aPhone').value = phone;
+    showToast('✅','Number Verified','Complete your application details below.');
+  },350);
 }
 
-document.getElementById('loginPhone').addEventListener('keydown', function(e) {
-  if (e.key === 'Enter') handleLogin();
-});
+document.getElementById('loginPhone').addEventListener('keydown',e=>{ if(e.key==='Enter') handleLogin(); });
 
 // ══ CLOSE MODALS ══
-function closeModal(id) {
+function closeModal(id){
   document.getElementById(id).classList.remove('open');
-  document.body.style.overflow = '';
+  document.body.style.overflow='';
 }
 
-document.querySelectorAll('.modal-overlay').forEach(o => {
-  o.addEventListener('click', e => {
-    if (e.target === o) {
-      o.classList.remove('open');
-      document.body.style.overflow = '';
-    }
-  });
+document.querySelectorAll('.modal-overlay').forEach(o=>{
+  o.addEventListener('click',e=>{ if(e.target===o){ o.classList.remove('open'); document.body.style.overflow=''; } });
 });
 
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') {
-    document.querySelectorAll('.modal-overlay.open').forEach(o => {
-      o.classList.remove('open');
-    });
-    document.body.style.overflow = '';
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'){
+    document.querySelectorAll('.modal-overlay.open').forEach(o=>o.classList.remove('open'));
+    document.body.style.overflow='';
   }
 });
 
 // ══ SLIDESHOW ══
-let currentSlide = 0;
-let slideTimer;
+let currentSlide = 0, slideTimer;
 const totalSlides = 5;
 
-function goToSlide(n) {
+function goToSlide(n){
   const slides = document.querySelectorAll('.slide');
   const dots   = document.querySelectorAll('.slide-dot');
   slides[currentSlide].classList.remove('active');
   dots[currentSlide].classList.remove('active');
-  currentSlide = ((n % totalSlides) + totalSlides) % totalSlides;
+  currentSlide = ((n%totalSlides)+totalSlides)%totalSlides;
   slides[currentSlide].classList.add('active');
   dots[currentSlide].classList.add('active');
 }
-
-function moveSlide(dir) {
-  clearInterval(slideTimer);
-  goToSlide(currentSlide + dir);
-  startSlideTimer();
-}
-
-function startSlideTimer() {
-  slideTimer = setInterval(() => goToSlide(currentSlide + 1), 5500);
-}
+function moveSlide(dir){ clearInterval(slideTimer); goToSlide(currentSlide+dir); startSlideTimer(); }
+function startSlideTimer(){ slideTimer = setInterval(()=>goToSlide(currentSlide+1),5500); }
 startSlideTimer();
 
 // ══ TOAST ══
 let toastTimer;
-function showToast(icon, msg, sub) {
+function showToast(icon,msg,sub){
   document.getElementById('toastIcon').textContent = icon;
   document.getElementById('toastMsg').textContent  = msg;
   document.getElementById('toastSub').textContent  = sub;
   const t   = document.getElementById('toast');
   const bar = document.getElementById('toastBar');
-  bar.style.animation = 'none';
-  void bar.offsetWidth;
-  bar.style.animation = '';
+  bar.style.animation='none'; void bar.offsetWidth; bar.style.animation='';
   t.classList.add('show');
   clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => t.classList.remove('show'), 3800);
+  toastTimer = setTimeout(()=>t.classList.remove('show'),3800);
 }
 
 // ══ FAQ ══
-function toggleFaq(el) {
-  const item   = el.closest('.faq-card');
+function toggleFaq(el){
+  const item = el.closest('.faq-card');
   const isOpen = item.classList.contains('open');
-  document.querySelectorAll('.faq-card').forEach(i => i.classList.remove('open'));
-  if (!isOpen) item.classList.add('open');
+  document.querySelectorAll('.faq-card').forEach(i=>i.classList.remove('open'));
+  if(!isOpen) item.classList.add('open');
 }
 
 // ══ MOBILE MENU ══
-function toggleMenu() {
-  const menu = document.getElementById('mobileMenu');
-  const ham  = document.getElementById('hamburger');
-  menu.classList.toggle('open');
-  ham.classList.toggle('active');
+function toggleMenu(){
+  document.getElementById('mobileMenu').classList.toggle('open');
+  document.getElementById('hamburger').classList.toggle('active');
 }
-
-function closeMenu() {
+function closeMenu(){
   document.getElementById('mobileMenu').classList.remove('open');
   document.getElementById('hamburger').classList.remove('active');
 }
-
-document.addEventListener('click', e => {
+document.addEventListener('click',e=>{
   const menu = document.getElementById('mobileMenu');
   const ham  = document.getElementById('hamburger');
-  if (menu.classList.contains('open') && !menu.contains(e.target) && !ham.contains(e.target)) {
-    closeMenu();
-  }
+  if(menu.classList.contains('open')&&!menu.contains(e.target)&&!ham.contains(e.target)) closeMenu();
 });
 
-// ══ TAWK CHAT ══
-function openTawkChat() {
-  if (typeof Tawk_API !== 'undefined' && Tawk_API.maximize) {
-    Tawk_API.maximize();
-  }
+// ══ TAWK ══
+function openTawkChat(){
+  if(typeof Tawk_API!=='undefined'&&Tawk_API.maximize) Tawk_API.maximize();
 }
 
-// ══ ACTIVE NAV ON SCROLL ══
-window.addEventListener('scroll', () => {
-  let cur = '';
-  document.querySelectorAll('section[id]').forEach(s => {
-    if (window.scrollY >= s.offsetTop - 100) cur = s.id;
-  });
-  document.querySelectorAll('nav a').forEach(a => {
-    const href = a.getAttribute('href');
-    a.classList.toggle('active', href === '#' + cur);
-  });
-}, {passive:true});
+// ══ ACTIVE NAV ══
+window.addEventListener('scroll',()=>{
+  let cur='';
+  document.querySelectorAll('section[id]').forEach(s=>{ if(window.scrollY>=s.offsetTop-100) cur=s.id; });
+  document.querySelectorAll('nav a').forEach(a=>{ a.classList.toggle('active',a.getAttribute('href')==='#'+cur); });
+},{passive:true});
 
-// ══ SLIDER COLOR FILL ══
-function fillSlider(slider) {
-  const min = parseFloat(slider.min);
-  const max = parseFloat(slider.max);
-  const val = parseFloat(slider.value);
-  const pct = ((val - min) / (max - min)) * 100;
-  slider.style.background = `linear-gradient(to right, #E30613 ${pct}%, #E4E6EA ${pct}%)`;
+// ══ SLIDER FILL ══
+function fillSlider(slider){
+  const min=parseFloat(slider.min), max=parseFloat(slider.max), val=parseFloat(slider.value);
+  const pct=((val-min)/(max-min))*100;
+  slider.style.background=`linear-gradient(to right,#E30613 ${pct}%,#E2E5EB ${pct}%)`;
 }
-
-document.querySelectorAll('input[type=range]').forEach(s => {
-  s.addEventListener('input', () => fillSlider(s));
-  fillSlider(s);
-});
+document.querySelectorAll('input[type=range]').forEach(s=>{ s.addEventListener('input',()=>fillSlider(s)); fillSlider(s); });
 </script>
 </body>
 </html>
