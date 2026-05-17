@@ -4,78 +4,64 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Telecel Cash | Instant Flex Loans</title>
-    <!-- Updated Fonts: Outfit for headings, Inter for body -->
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <style>
         :root {
-            --red: #E30613; /* Telecel's primary red */
-            --dark: #0a0a0a;
-            --gray: #1a1a1a;
-            --light-gray: #2c2c2c;
-            --accent: #00ff9d; /* Vibrant green for highlights */
-            --text-light: #e5e5e5;
-            --text-muted: #bbb;
+            --telecel-red: #E30613;
+            --dark-bg: #0a0a0a;
+            --medium-dark: #1a1a1a;
+            --light-text: #e5e5e5;
+            --accent-teal: #00E6B8; /* A vibrant teal to complement Telecel red */
+            --subtle-gray: #333;
         }
+
+        /* Base Styles */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Inter', sans-serif;
-            background: var(--dark);
-            color: var(--text-light);
+            background: var(--dark-bg);
+            color: var(--light-text);
             line-height: 1.6;
-            scroll-behavior: smooth;
+            overflow-x: hidden; /* Prevent horizontal scroll on some animations */
         }
+        h1, h2, h3 { font-family: 'Outfit', sans-serif; color: white; }
+        a { text-decoration: none; color: inherit; }
+        button { cursor: pointer; border: none; }
 
-        /* General styles for buttons and inputs */
-        .loan-btn {
-            background: var(--red);
+        /* Utility Classes */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+        .btn-primary {
+            background: var(--telecel-red);
             color: white;
-            padding: 14px 30px;
-            border: none;
+            padding: 16px 55px;
             border-radius: 50px;
             font-weight: 700;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: background 0.3s ease, transform 0.3s ease;
-            display: block;
-            width: fit-content;
-            margin: 25px auto 0;
-            text-decoration: none; /* For anchor tags styled as buttons */
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(227, 6, 19, 0.4);
         }
-        .loan-btn:hover {
-            background: #c70510;
-            transform: translateY(-2px);
+        .btn-primary:hover {
+            background: #FF2E3B;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(227, 6, 19, 0.6);
         }
-        label {
-            display: block;
-            margin-bottom: 10px;
+        .btn-secondary {
+            background: transparent;
+            color: var(--light-text);
+            border: 2px solid var(--subtle-gray);
+            padding: 18px;
+            border-radius: 50px;
             font-weight: 600;
-            color: var(--text-muted);
-            font-size: 0.95rem;
+            transition: all 0.3s ease;
         }
-        input[type="range"] {
-            width: 100%;
-            -webkit-appearance: none;
-            height: 8px;
-            background: var(--light-gray);
-            border-radius: 5px;
-            outline: none;
-            margin-top: 10px;
-            margin-bottom: 20px;
-        }
-        input[type="range"]::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background: var(--red);
-            cursor: pointer;
-            border: 3px solid var(--dark);
-            transition: background 0.3s ease;
-        }
-        input[type="range"]::-webkit-slider-thumb:hover {
-            background: #c70510;
+        .btn-secondary:hover {
+            border-color: var(--telecel-red);
+            color: var(--telecel-red);
         }
 
         /* Ticker */
@@ -85,11 +71,10 @@
             padding: 12px 0;
             overflow: hidden;
             white-space: nowrap;
-            border-bottom: 5px solid var(--red);
+            border-bottom: 5px solid var(--telecel-red);
             position: sticky;
             top: 0;
             z-index: 1100;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
         .ticker-inner {
             display: inline-flex;
@@ -102,6 +87,9 @@
             align-items: center;
             gap: 8px;
         }
+        .ticker-inner span i {
+            color: var(--accent-teal);
+        }
         @keyframes ticker {
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
@@ -109,19 +97,17 @@
 
         /* Header */
         header {
-            background: var(--dark);
+            background: var(--dark-bg);
             position: sticky;
             top: 52px;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
         .nav-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 14px 5%;
             display: flex;
             align-items: center;
             justify-content: space-between;
+            padding: 14px 0; /* Adjusted for container padding */
         }
         .logo {
             display: flex;
@@ -131,41 +117,55 @@
             text-decoration: none;
         }
         .logo svg {
-            width: 200px; /* Updated width */
-            height: 200px; /* Updated height */
-            max-width: 58px; /* Ensure it doesn't get too big in header */
-            max-height: 58px; /* Ensure it doesn't get too big in header */
+            width: 200px; /* Increased logo size */
+            height: 200px;
+            transition: transform 0.3s ease;
+        }
+        .logo svg:hover {
+            transform: scale(1.05);
         }
         .logo-text {
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.9rem;
+            font-size: clamp(1.5rem, 3vw, 2.2rem);
             font-weight: 800;
+            font-family: 'Outfit', sans-serif;
         }
         .nav-links {
             display: flex;
-            gap: 25px;
+            gap: 30px;
             font-weight: 500;
         }
         .nav-links a {
-            color: var(--text-muted);
-            text-decoration: none;
-            padding: 5px 0;
+            color: #ddd;
             transition: color 0.3s ease;
+            position: relative;
+            padding-bottom: 5px;
         }
         .nav-links a:hover {
-            color: white;
+            color: var(--accent-teal);
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-teal);
+            transition: width 0.3s ease;
+        }
+        .nav-links a:hover::after {
+            width: 100%;
         }
         .login-btn {
-            background: var(--red);
+            background: var(--telecel-red);
             color: white;
             padding: 11px 26px;
             border-radius: 50px;
             font-weight: 700;
-            text-decoration: none;
-            transition: background 0.3s ease, transform 0.3s ease;
+            transition: all 0.3s ease;
         }
         .login-btn:hover {
-            background: #c70510;
+            background: #FF2E3B;
             transform: translateY(-2px);
         }
         .hamburger {
@@ -175,42 +175,9 @@
             cursor: pointer;
         }
 
-        /* Mobile Navigation */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: var(--dark);
-                padding: 20px 5%;
-                box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-                border-top: 1px solid #333;
-            }
-            .nav-links.active {
-                display: flex;
-            }
-            .nav-links a {
-                padding: 12px 0;
-                border-bottom: 1px solid #222;
-            }
-            .nav-links a:last-child {
-                border-bottom: none;
-            }
-            .login-btn {
-                display: none; /* Hide login button in mobile nav, could move it inside .nav-links.active */
-            }
-            .hamburger {
-                display: block;
-            }
-        }
-
-
         /* Hero */
         .hero {
-            background: linear-gradient(135deg, var(--red), #9F1239);
+            background: linear-gradient(135deg, var(--telecel-red), #9F1239);
             color: white;
             padding: 130px 5% 100px;
             text-align: center;
@@ -224,62 +191,41 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAwIiBoZWlnaHQ9IjYwMCIgdmlld0JveD0iMCAwIDYwMCA2MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik0zMDAgMEM0NjUuNjk1IDAgNjAwIDEzNC4zMDUgNjAwIDMwMEM2MDAgNDY1LjY5NSA0NjUuNjk1IDYwMCAzMDAgNjAwQzEzNC4zMDUgNjAwIDAgNDY1LjY5NSAwIDMwMEMwIDEzNC4zMDUgMTM0LjMwNSAwIDMwMCAwWiIgZmlsbD0idXJsKCNwYWludDBfbGluZWFyXzIzNF81NzQpIiBmaWxsLW9wYWNpdHk9IjAuMSIvPgo8ZGVmcz4KPGxpbmVhckdyYWRpZW50IGlkPSJwYWludDBfbGluZWFyXzIzNF81NzQiIHgxPSIwIiB5MT0iMzAwIiB4Mj0iNjAwIiB5Mj0iMzAwIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CjxzdG9wIHN0b3AtY29sb3I9IiNFMzA2MTMiLz4KPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjOUYxMjM5Ii8+CjwvbGluZWFyR3JhZGllbnQ+CjwvZGVmcz4KPC9zdmc+') no-repeat center center;
-            background-size: cover;
-            opacity: 0.1;
-            z-index: 1;
-        }
-        .hero > * {
-            position: relative;
-            z-index: 2;
+            background: url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="2" fill="%23ffffff" opacity="0.1"/></svg>');
+            background-size: 20px 20px;
+            opacity: 0.2;
+            pointer-events: none;
         }
         .hero h1 {
-            font-family: 'Outfit', sans-serif;
             font-size: clamp(2.8rem, 7vw, 4.5rem);
-            font-weight: 800;
+            font-weight: 900;
             margin-bottom: 20px;
-            text-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            line-height: 1.1;
         }
         .hero p {
             font-size: clamp(1.1rem, 2.5vw, 1.35rem);
             max-width: 800px;
             margin: 0 auto 40px;
-            line-height: 1.7;
-            opacity: 0.9;
-        }
-        .hero .loan-btn {
-            background: white;
-            color: var(--red);
-            padding: 18px 60px;
-            font-size: 1.2rem;
-            margin: 0 auto;
-        }
-        .hero .loan-btn:hover {
-            background: #f0f0f0;
+            line-height: 1.5;
         }
 
         /* Sections */
-        .section {
-            padding: 100px 5%;
-            position: relative;
-        }
+        .section { padding: 80px 5%; }
+        .section-alt { background: var(--medium-dark); }
         .section-label {
-            color: var(--red);
+            color: var(--accent-teal);
             font-weight: 700;
             text-align: center;
-            letter-spacing: 3px;
-            font-size: 0.9rem;
+            letter-spacing: 2px;
+            font-size: 0.95rem;
             text-transform: uppercase;
-            display: block;
-            margin-bottom: 8px;
         }
         .section-title {
-            font-family: 'Outfit', sans-serif;
             text-align: center;
-            font-size: clamp(2.2rem, 5.5vw, 3.2rem);
+            font-size: clamp(2.2rem, 5vw, 3.2rem);
             font-weight: 800;
-            margin: 12px 0 60px;
-            color: white;
+            margin: 15px 0 55px;
+            line-height: 1.2;
         }
 
         .grid {
@@ -290,69 +236,311 @@
             margin: 0 auto;
         }
         .card {
-            background: var(--gray);
+            background: var(--medium-dark);
             padding: 30px 25px;
             border-radius: 20px;
-            border: 1px solid #333;
-            transition: all 0.4s ease;
+            border: 1px solid var(--subtle-gray);
+            transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
             height: 100%;
             display: flex;
             flex-direction: column;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
         .card:hover {
-            transform: translateY(-8px);
-            border-color: var(--red);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            transform: translateY(-8px) scale(1.02);
+            border-color: var(--telecel-red);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.4);
         }
+        .card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center, rgba(255,255,255,0.05) 0%, transparent 70%);
+            transition: transform 0.5s ease-out;
+            opacity: 0;
+            pointer-events: none;
+        }
+        .card:hover::before {
+            transform: scale(1.2);
+            opacity: 1;
+        }
+
 
         .loan-badge {
             position: absolute;
             top: 20px;
             right: 20px;
-            padding: 6px 15px;
-            border-radius: 20px;
-            font-weight: 700;
+            padding: 8px 18px;
+            border-radius: 50px;
             font-size: 0.85rem;
+            font-weight: 700;
             text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
         .loan-amount {
-            font-family: 'Outfit', sans-serif;
-            font-size: 2.7rem;
+            font-size: clamp(2rem, 4vw, 3rem);
             font-weight: 800;
             color: white;
-            margin: 15px 0 6px;
+            margin: 15px 0 8px;
+            font-family: 'Outfit', sans-serif;
         }
         .loan-repay {
-            font-size: 1.55rem;
+            font-size: clamp(1.3rem, 2.5vw, 1.7rem);
             font-weight: 700;
-            color: var(--accent);
+            color: var(--accent-teal);
             margin-bottom: 20px;
+        }
+        .loan-btn {
+            display: block;
+            width: 100%;
+            padding: 16px;
+            background: var(--telecel-red);
+            color: white;
+            border-radius: 50px;
+            font-weight: 700;
+            margin-top: auto; /* Pushes button to bottom */
+            transition: all 0.3s ease;
+        }
+        .loan-btn:hover {
+            background: #FF2E3B;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(227, 6, 19, 0.4);
         }
 
         /* Calculator */
         .calculator {
-            background: var(--gray);
+            background: var(--medium-dark);
             padding: 40px;
             border-radius: 24px;
-            max-width: 700px;
+            max-width: 750px;
             margin: 0 auto 70px;
-            border: 1px solid #333;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+            border: 1px solid var(--subtle-gray);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        .calculator label {
+            display: block;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--light-text);
+            padding-left: 5px;
+        }
+        .calculator input[type="range"] {
+            width: 100%;
+            height: 8px;
+            background: var(--subtle-gray);
+            border-radius: 5px;
+            -webkit-appearance: none;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+        .calculator input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--telecel-red);
+            cursor: grab;
+            box-shadow: 0 0 0 4px rgba(227, 6, 19, 0.4);
+            transition: background 0.3s ease;
+        }
+        .calculator input[type="range"]::-webkit-slider-thumb:active {
+            cursor: grabbing;
+        }
+        .calculator input[type="range"]::-moz-range-thumb {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--telecel-red);
+            cursor: grab;
+            box-shadow: 0 0 0 4px rgba(227, 6, 19, 0.4);
+            transition: background 0.3s ease;
         }
         .calc-value {
-            font-family: 'Outfit', sans-serif;
             font-size: 2.3rem;
             font-weight: 800;
-            color: white;
+            color: var(--accent-teal);
             text-align: center;
-            margin: 10px 0 30px;
+            margin: 15px 0 30px;
+            font-family: 'Outfit', sans-serif;
         }
-        .calculator .loan-btn {
+        .calc-summary {
+            background: #111;
+            padding: 30px;
+            border-radius: 16px;
+            margin-top: 35px;
+            text-align: center;
+            border: 1px solid #222;
+        }
+        .calc-summary p {
+            font-size: 1.15rem;
+            margin-bottom: 10px;
+        }
+        .calc-summary strong {
+            font-size: 1.3rem;
+            font-family: 'Outfit', sans-serif;
+        }
+        .calc-summary strong#repay {
+            color: var(--accent-teal);
+            font-size: 1.5rem;
+        }
+
+        /* Why Choose / How it works cards */
+        .feature-card {
+            text-align: center;
+            padding: 35px 25px;
+        }
+        .feature-card i {
+            font-size: 3.8rem;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, var(--accent-teal), #00A3FF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+        .feature-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        .feature-card p {
+            color: #ccc;
+            line-height: 1.5;
+        }
+
+        /* Testimonials */
+        .testimonial-card {
+            background: var(--medium-dark);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid #222;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-teal);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+        .testimonial-card p {
+            font-style: italic;
+            margin-bottom: 15px;
+            color: #c0c0c0;
+            font-size: 1.05rem;
+        }
+        .testimonial-card strong {
+            color: var(--accent-teal);
+            font-weight: 600;
+            display: block;
+            font-size: 0.95rem;
+        }
+
+        /* FAQ */
+        .faq-question {
             width: 100%;
-            padding: 18px;
+            text-align: left;
+            background: none;
+            color: white;
+            font-size: 1.3rem;
+            font-weight: 700;
+            padding: 20px 0;
+            border-bottom: 1px solid #222;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: color 0.3s ease;
+        }
+        .faq-question:hover {
+            color: var(--telecel-red);
+        }
+        .faq-question span {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+        .faq-question.active span {
+            transform: rotate(45deg);
+        }
+        .faq-answer {
+            display: none;
+            padding: 15px 0 25px;
+            color: #bbb;
+            line-height: 1.7;
+            border-bottom: 1px solid #222;
+        }
+
+        /* Footer */
+        footer {
+            background: #000;
+            padding: 80px 5% 40px;
+            color: #bbb;
+            border-top: 1px solid #222;
+            font-size: 0.95rem;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: auto;
+            text-align: left;
+        }
+        .footer-logo-col .logo {
+            justify-content: flex-start;
+            margin-bottom: 20px;
+        }
+        .footer-logo-col .logo-text {
+            font-size: 1.8rem;
+        }
+        .footer-logo-col p {
+            line-height: 1.7;
+            max-width: 300px;
+        }
+        .footer-col h4 {
             font-size: 1.2rem;
-            margin-top: 30px;
+            color: white;
+            margin-bottom: 25px;
+            font-weight: 700;
+            font-family: 'Outfit', sans-serif;
+        }
+        .footer-col ul {
+            list-style: none;
+        }
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+        .footer-col ul li a {
+            color: #bbb;
+            transition: color 0.3s ease;
+        }
+        .footer-col ul li a:hover {
+            color: var(--accent-teal);
+        }
+        .social-links {
+            display: flex;
+            gap: 20px;
+            margin-top: 25px;
+        }
+        .social-links a {
+            font-size: 1.5rem;
+            color: #bbb;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        .social-links a:hover {
+            color: var(--telecel-red);
+            transform: translateY(-3px);
+        }
+        .footer-bottom {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid #222;
+            color: #777;
+            font-size: 0.85rem;
         }
 
         /* Modal */
@@ -368,199 +556,98 @@
             align-items: center;
             justify-content: center;
             backdrop-filter: blur(5px);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .modal.active {
+            display: flex;
+            opacity: 1;
         }
         .modal-content {
-            background: var(--gray);
+            background: var(--medium-dark);
             max-width: 480px;
             width: 92%;
-            border-radius: 28px;
-            padding: 45px 35px;
+            border-radius: 24px;
+            padding: 40px 30px;
             text-align: center;
-            border: 3px solid var(--red);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.5);
-            transform: scale(0.95);
+            border: 3px solid var(--telecel-red);
+            transform: translateY(20px);
             opacity: 0;
-            transition: all 0.3s ease-out;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.6);
         }
         .modal.active .modal-content {
-            transform: scale(1);
+            transform: translateY(0);
             opacity: 1;
         }
         .modal-icon {
             font-size: 4.5rem;
             margin-bottom: 20px;
-            color: var(--accent);
+            color: var(--accent-teal);
         }
-        .modal-content h3 {
-            font-family: 'Outfit', sans-serif;
+        .modal h3 {
             font-size: 2.2rem;
             margin-bottom: 15px;
-            color: white;
+            font-family: 'Outfit', sans-serif;
         }
-        .modal-content p {
+        .modal p {
             font-size: 1.15rem;
             line-height: 1.7;
             margin: 20px 0 30px;
-            color: var(--text-light);
+            color: #ccc;
         }
-        .modal-content button {
+        .modal .btn-primary, .modal .btn-secondary {
             width: 100%;
-            padding: 18px;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 1.1rem;
             margin-bottom: 15px;
-            cursor: pointer;
-            transition: all 0.3s ease;
         }
-        .modal-content button:first-of-type {
-            background: var(--red);
-            color: white;
-            border: none;
+        .modal .btn-secondary {
+            border-color: #555;
+            color: #ccc;
         }
-        .modal-content button:first-of-type:hover {
-            background: #c70510;
-        }
-        .modal-content button:last-of-type {
-            background: transparent;
-            color: var(--text-muted);
-            border: 2px solid #555;
-        }
-        .modal-content button:last-of-type:hover {
-            background: #222;
-            color: white;
-            border-color: #777;
+        .modal .btn-secondary:hover {
+            color: var(--telecel-red);
+            border-color: var(--telecel-red);
         }
 
-        /* FAQ */
-        .faq-question {
-            background: var(--light-gray);
-            color: white;
-            padding: 20px 25px;
-            border: none;
-            width: 100%;
-            text-align: left;
-            font-size: 1.2rem;
-            font-weight: 600;
-            cursor: pointer;
-            border-radius: 12px;
-            margin-bottom: 10px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: background 0.3s ease, color 0.3s ease;
+        /* Responsive */
+        @media (max-width: 992px) {
+            .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; background: var(--dark-bg); padding: 20px 0; border-top: 1px solid #333; }
+            .nav-links.active { display: flex; }
+            .nav-links a { padding: 10px 5%; text-align: center; }
+            .login-btn { display: none; } /* Hide login button in mobile nav */
+            .hamburger { display: block; }
+            header .nav-content { padding: 14px 5%; } /* Re-add padding for smaller screens */
         }
-        .faq-question:hover {
-            background: #333;
-            color: var(--accent);
-        }
-        .faq-question span {
-            font-size: 1.5rem;
-            transition: transform 0.3s ease;
-        }
-        .faq-question.active span {
-            transform: rotate(45deg);
-        }
-        .faq-answer {
-            background: #222;
-            color: var(--text-muted);
-            padding: 20px 25px;
-            border-radius: 12px;
-            margin-top: -5px; /* Overlap slightly with question button */
-            margin-bottom: 10px;
-            display: none;
-            font-size: 1.05rem;
-            line-height: 1.7;
-        }
-
-        /* Footer */
-        footer {
-            background: #000;
-            padding: 80px 5% 40px;
-            color: var(--text-muted);
-            border-top: 1px solid #333;
-            text-align: center;
-        }
-        footer .grid {
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-            text-align: left;
-            margin-bottom: 50px;
-        }
-        footer .logo {
-            justify-content: flex-start;
-            margin-bottom: 25px;
-        }
-        footer .logo svg {
-            max-width: 70px; /* Adjust footer logo size */
-            max-height: 70px; /* Adjust footer logo size */
-        }
-        footer .logo-text {
-            font-size: 2.2rem;
-        }
-        footer p {
-            font-size: 0.95rem;
-            line-height: 1.8;
-            margin-bottom: 20px;
-        }
-        footer h4 {
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.2rem;
-            color: white;
-            margin-bottom: 25px;
-            font-weight: 700;
-        }
-        footer ul {
-            list-style: none;
-            padding: 0;
-        }
-        footer ul li {
-            margin-bottom: 12px;
-        }
-        footer ul li a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 0.95rem;
-            transition: color 0.3s ease;
-        }
-        footer ul li a:hover {
-            color: var(--red);
-        }
-        .social-links {
-            display: flex;
-            gap: 20px;
-            margin-top: 25px;
-        }
-        .social-links a {
-            color: var(--text-muted);
-            font-size: 1.5rem;
-            transition: color 0.3s ease;
-        }
-        .social-links a:hover {
-            color: white;
-        }
-        .footer-bottom {
-            margin-top: 50px;
-            padding-top: 25px;
-            border-top: 1px solid #333;
-            color: #666;
-            font-size: 0.9rem;
-            text-align: center;
-        }
-        
         @media (max-width: 768px) {
             .hero { padding: 80px 5% 60px; }
-            .hero h1 { font-size: clamp(2.2rem, 8vw, 3.5rem); }
+            .hero h1 { font-size: 2.8rem; }
             .hero p { font-size: 1rem; }
-            .section { padding: 60px 5%; }
-            .section-title { margin-bottom: 40px; font-size: clamp(1.8rem, 6vw, 2.5rem); }
+            .section-title { font-size: 2rem; margin-bottom: 40px; }
             .calculator { padding: 30px; }
             .calc-value { font-size: 1.8rem; }
-            .loan-amount { font-size: 2.2rem; }
-            .loan-repay { font-size: 1.3rem; }
-            footer .grid { grid-template-columns: 1fr; text-align: center; }
-            footer .logo { justify-content: center; }
+            .footer-grid { grid-template-columns: 1fr; text-align: center; }
+            .footer-logo-col .logo { justify-content: center; }
             .social-links { justify-content: center; }
+        }
+        @media (max-width: 480px) {
+            .ticker-inner span { margin-right: 40px; font-size: 0.9rem; }
+            .logo svg { width: 150px; height: 150px; }
+            .logo-text { font-size: 1.5rem; }
+            .hero h1 { font-size: 2.2rem; }
+            .hero p { font-size: 0.9rem; }
+            .btn-primary { padding: 14px 40px; font-size: 0.9rem; }
+            .section { padding: 60px 5%; }
+            .section-title { font-size: 1.8rem; margin-bottom: 30px; }
+            .card { padding: 25px 20px; }
+            .loan-amount { font-size: 2.2rem; }
+            .loan-repay { font-size: 1.2rem; }
+            .feature-card i { font-size: 3rem; }
+            .feature-card h3 { font-size: 1.5rem; }
+            .faq-question { font-size: 1.1rem; padding: 15px 0; }
+            .faq-answer { font-size: 0.9rem; }
+            .modal-content { padding: 30px 20px; }
+            .modal h3 { font-size: 1.8rem; }
+            .modal p { font-size: 1rem; }
         }
     </style>
 </head>
@@ -569,22 +656,20 @@
     <!-- Ticker -->
     <div class="ticker-wrap">
         <div class="ticker-inner">
-            <span><i class="fa-solid fa-bolt"></i> Instant Approval • Money in Minutes</span>
-            <span><i class="fa-solid fa-check-circle"></i> No Collateral • Active Telecel Line Only</span>
-            <span><i class="fa-solid fa-wallet"></i> Direct to Telecel Cash Wallet</span>
-            <span><i class="fa-solid fa-flag-gh"></i> Trusted by Ghanaians Nationwide</span>
-            <span><i class="fa-solid fa-hourglass-half"></i> Flexible Repayment Periods</span>
-            <span><i class="fa-solid fa-user-check"></i> Exclusive for Telecel Regular Users</span>
+            <span><i class="fas fa-bolt"></i> Instant Approval • Money in Minutes</span>
+            <span><i class="fas fa-check-circle"></i> No Collateral • Active Telecel Line Only</span>
+            <span><i class="fas fa-wallet"></i> Direct to Telecel Cash Wallet</span>
+            <span><i class="fas fa-globe-africa"></i> Trusted by Ghanaians Nationwide</span>
+            <span><i class="fas fa-mobile-alt"></i> Apply via Telecel Cash App or USSD</span>
         </div>
     </div>
 
     <!-- Header -->
     <header>
-        <div class="nav-content">
+        <div class="container nav-content">
             <a href="#" class="logo">
-                <!-- Telecel Logo SVG (Scaled to 200x200, but max-width/height limits in header) -->
                 <svg width="200" height="200" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M48.19 28.6833C40.4333 28.605 34.1983 34.9933 34.2183 42.58C34.2383 50.625 40.9883 56.56 48.0333 56.4317C55.5033 56.5017 61.8867 50.53 61.9517 42.7583C62.02 34.62 55.575 28.76 48.19 28.6833ZM53.7333 38.1633C53.6017 39.2783 52.9467 39.9367 51.93 40.29C51.3683 40.4867 50.7833 40.4917 50.195 40.4917C49.8333 40.49 49.4683 40.46 49.1067 40.5183C48.8467 40.5617 48.7033 40.6917 48.6667 40.97C48.6133 41.3467 48.6917 41.7133 48.6883 42.085C48.6867 43.6083 48.6883 45.135 48.6867 46.6583C48.6867 46.9117 48.7133 47.1617 48.7667 47.4067C48.9833 48.3783 49.7917 48.955 50.7817 48.8333C51.5417 48.7383 52.31 48.7333 53.0733 48.6683C53.3933 48.6417 53.495 48.7833 53.4717 49.1233C53.435 49.6333 53.4383 50.1433 53.47 50.655C53.535 51.715 53.0383 52.4717 52.1333 52.8467C49.6867 53.8583 47.2717 53.835 45.065 52.2417C43.8517 51.3667 43.2033 50.115 43.1333 48.57C43.0467 46.585 43.0117 44.6 42.9517 42.6117C42.8883 40.605 42.9083 38.5967 42.9233 36.59C42.9333 35.2433 43.5583 34.15 44.5517 33.265C45.1033 32.7717 45.7183 32.37 46.3867 32.05C46.9933 31.7583 47.6283 31.6483 48.295 31.6583C48.5333 31.6633 48.6233 31.7533 48.6467 31.9983C48.7117 32.6333 48.68 33.27 48.6933 33.8517C48.6933 34.3667 48.6883 34.8317 48.6933 35.295C48.695 35.6983 48.8383 35.845 49.2467 35.905C49.5283 35.9483 49.8083 35.9117 50.09 35.91C51.06 35.8983 52.0267 35.8983 52.9967 35.905C53.5683 35.9117 53.745 36.0867 53.7283 36.6517C53.7117 37.1567 53.7967 37.655 53.7383 38.1633H53.7333Z" fill="#E32526"/>
+                    <path d="M48.19 28.6833C40.4333 28.605 34.1983 34.9933 34.2183 42.58C34.2383 50.625 40.9883 56.56 48.0333 56.4317C55.5033 56.5017 61.8867 50.53 61.9517 42.7583C62.02 34.62 55.575 28.76 48.19 28.6833ZM53.7333 38.1633C53.6017 39.2783 52.9467 39.9367 51.93 40.29C51.3683 40.4867 50.7833 40.4917 50.195 40.4917C49.8333 40.49 49.4683 40.46 49.1067 40.5183C48.8467 40.5617 48.7033 40.6917 48.6667 40.97C48.6133 41.3467 48.6917 41.7133 48.6883 42.085C48.6867 43.6083 48.6883 45.135 48.6867 46.6583C48.6867 46.9117 48.7133 47.1617 48.7667 47.4067C48.9833 48.3783 49.7917 48.955 50.7817 48.8333C51.5417 48.7383 52.31 48.7333 53.0733 48.6683C53.3933 48.6417 53.495 48.7833 53.4717 49.1233C53.435 49.6333 53.4383 50.1433 53.47 50.655C53.535 51.715 53.0383 52.4717 52.1333 52.8467C49.6867 53.8583 47.2717 53.835 45.065 52.2417C43.8517 51.3667 43.2033 50.115 43.1333 48.57C43.0467 46.585 43.0117 44.6 42.9517 42.6117C42.8883 40.605 42.9083 38.5967 42.9233 36.59C42.9333 35.2433 43.5583 34.15 44.5517 33.265C45.1033 32.7717 45.7183 32.37 46.3867 32.05C46.9933 31.7583 47.6283 31.6483 48.295 31.6583C48.5333 31.6633 48.6233 31.7533 48.6467 31.9983C48.7117 32.6333 48.68 33.27 48.6933 33.8517C48.6933 34.3667 48.6883 34.8317 48.6933 35.295C48.695 35.6983 48.8383 35.845 49.2467 35.905C49.5283 35.9483 49.8083 35.9117 50.09 35.91C51.06 35.8983 52.0267 35.8983 52.9967 35.905C53.5683 35.9117 53.745 36.0867 53.7283 36.6517C53.7117 37.1567 53.7967 37.655 53.7383 38.1633H53.7333Z" fill="#E30613"/>
                 </svg>
                 <div class="logo-text">Telecel</div>
             </a>
@@ -597,188 +682,190 @@
                 <a href="#faq">FAQ</a>
             </div>
             <a href="#" class="login-btn">Login</a>
-            <div class="hamburger" id="hamburger">☰</div>
+            <div class="hamburger" id="hamburger"><i class="fas fa-bars"></i></div>
         </div>
     </header>
 
     <!-- Hero -->
     <section class="hero">
-        <h1>Instant Flex Loans for Telecel Regular Users</h1>
+        <h1>Get Instant Flex Loans in Minutes</h1>
         <p>
-            Get fast cash directly to your Telecel Cash wallet. <br>
-            No collateral • No paperwork • Check eligibility and get approved in minutes.
+            Fast cash directly to your Telecel Cash wallet. Exclusively for Telecel regular users.<br>
+            No collateral • No paperwork • Check eligibility and get approved instantly.
         </p>
-        <a href="#calculator" class="loan-btn">Check Your Eligibility Now</a>
+        <a href="#calculator" class="btn-primary">Get Loan Now</a>
     </section>
 
     <!-- Calculator -->
     <section id="calculator" class="section">
-        <span class="section-label">INSTANT CALCULATOR</span>
-        <h2 class="section-title">Calculate Your Loan & Repayment</h2>
-        <div class="calculator">
-            <label for="amount">Loan Amount (GHS)</label>
-            <input type="range" id="amount" min="1000" max="50000" value="10000" step="500" oninput="updateCalculator()">
-            <div class="calc-value" id="amountValue">GHS 10,000</div>
+        <div class="container">
+            <span class="section-label">INSTANT CALCULATOR</span>
+            <h2 class="section-title">Calculate Your Telecel Flex Loan</h2>
+            <div class="calculator">
+                <label for="amount">Loan Amount (GHS)</label>
+                <input type="range" id="amount" min="1000" max="50000" value="10000" step="500" oninput="updateCalculator()">
+                <div class="calc-value" id="amountValue">GHS 10,000</div>
 
-            <label for="days">Repayment Period (Days)</label>
-            <input type="range" id="days" min="7" max="90" value="30" oninput="updateCalculator()">
-            <div class="calc-value" id="daysValue">30 Days</div>
+                <label for="days">Repayment Period (Days)</label>
+                <input type="range" id="days" min="7" max="90" value="30" oninput="updateCalculator()">
+                <div class="calc-value" id="daysValue">30 Days</div>
 
-            <div style="background:#111; padding:25px; border-radius:16px; margin-top:30px; text-align:center; border:1px solid #333;">
-                <p style="font-size:1.1rem; color:var(--text-muted);">You receive: <strong id="receive" style="color:white; font-size:1.25rem;">GHS 10,000</strong></p>
-                <p style="margin-top:15px; font-size:1.1rem; color:var(--text-muted);">Total to Repay: <strong id="repay" style="color:var(--accent); font-size:1.4rem;">GHS 11,200</strong></p>
-                <p style="margin-top:10px; font-size:0.9rem; color:#888;">*Service fees apply</p>
+                <div class="calc-summary">
+                    <p>You Receive: <strong id="receive" style="color:white;">GHS 10,000</strong></p>
+                    <p style="margin-top:12px;">Total to Repay: <strong id="repay">GHS 11,200</strong></p>
+                </div>
+                <button class="loan-btn" onclick="applyFromCalculator()" style="margin-top:35px;">Apply Now</button>
             </div>
-            <button class="loan-btn" onclick="applyFromCalculator()">Apply Now</button>
         </div>
     </section>
 
     <!-- Popular Loans -->
-    <section id="loans" class="section" style="background:#111;">
-        <span class="section-label">LOAN PACKAGES</span>
-        <h2 class="section-title">Choose Your Instant Flex Loan</h2>
-        <div class="grid">
-            <div class="card" style="position:relative;">
-                <div class="loan-badge" style="background:#F59E0B;color:#000;">Starter</div>
-                <div class="loan-amount">GHS 5,000</div>
-                <div class="loan-repay">Repay GHS 5,450</div>
-                <button class="loan-btn" onclick="showApplyModal('Starter Loan', 5000, 5450, 14)">Apply Now</button>
-            </div>
-            <div class="card" style="position:relative;">
-                <div class="loan-amount">GHS 10,000</div>
-                <div class="loan-repay">Repay GHS 11,200</div>
-                <button class="loan-btn" onclick="showApplyModal('Business Loan', 10000, 11200, 30)">Apply Now</button>
-            </div>
-            <div class="card" style="position:relative;">
-                <div class="loan-badge" style="background:var(--red);color:white;">Most Popular</div>
-                <div class="loan-amount">GHS 20,000</div>
-                <div class="loan-repay">Repay GHS 23,000</div>
-                <button class="loan-btn" onclick="showApplyModal('Growth Loan', 20000, 23000, 45)">Apply Now</button>
-            </div>
-            <div class="card" style="position:relative;">
-                <div class="loan-amount">GHS 30,000</div>
-                <div class="loan-repay">Repay GHS 34,500</div>
-                <button class="loan-btn" onclick="showApplyModal('Premium Loan', 30000, 34500, 60)">Apply Now</button>
-            </div>
-            <div class="card" style="position:relative;">
-                <div class="loan-amount">GHS 50,000</div>
-                <div class="loan-repay">Repay GHS 58,500</div>
-                <button class="loan-btn" onclick="showApplyModal('Max Loan', 50000, 58500, 90)">Apply Now</button>
+    <section id="loans" class="section section-alt">
+        <div class="container">
+            <span class="section-label">LOAN PACKAGES</span>
+            <h2 class="section-title">Choose Your Telecel Flex Loan Package</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="loan-badge" style="background:#F59E0B;color:#000;">Starter</div>
+                    <div class="loan-amount">GHS 5,000</div>
+                    <div class="loan-repay">Repay GHS 5,450</div>
+                    <button class="loan-btn" onclick="showApplyModal('Starter Loan', 5000, 5450, 14)">Apply Now</button>
+                </div>
+                <div class="card">
+                    <div class="loan-amount">GHS 10,000</div>
+                    <div class="loan-repay">Repay GHS 11,200</div>
+                    <button class="loan-btn" onclick="showApplyModal('Business Loan', 10000, 11200, 30)">Apply Now</button>
+                </div>
+                <div class="card">
+                    <div class="loan-badge" style="background:var(--telecel-red);color:white;">Most Popular</div>
+                    <div class="loan-amount">GHS 20,000</div>
+                    <div class="loan-repay">Repay GHS 23,000</div>
+                    <button class="loan-btn" onclick="showApplyModal('Growth Loan', 20000, 23000, 45)">Apply Now</button>
+                </div>
+                <div class="card">
+                    <div class="loan-amount">GHS 30,000</div>
+                    <div class="loan-repay">Repay GHS 34,500</div>
+                    <button class="loan-btn" onclick="showApplyModal('Premium Loan', 30000, 34500, 60)">Apply Now</button>
+                </div>
+                <div class="card">
+                    <div class="loan-amount">GHS 50,000</div>
+                    <div class="loan-repay">Repay GHS 58,500</div>
+                    <button class="loan-btn" onclick="showApplyModal('Max Loan', 50000, 58500, 90)">Apply Now</button>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Why Choose -->
     <section id="why" class="section">
-        <span class="section-label">OUR ADVANTAGES</span>
-        <h2 class="section-title">Why Telecel Flex Loans?</h2>
-        <div class="grid">
-            <div class="card" style="text-align:center;">
-                <div style="font-size:3.8rem; margin-bottom:15px; color:var(--accent);"><i class="fa-solid fa-bolt"></i></div>
-                <h3 style="color:white; font-family:'Outfit',sans-serif; margin-bottom:10px;">Instant Approval</h3>
-                <p style="color:var(--text-muted);">Money disbursed to your Telecel Cash wallet in minutes.</p>
-            </div>
-            <div class="card" style="text-align:center;">
-                <div style="font-size:3.8rem; margin-bottom:15px; color:var(--red);"><i class="fa-solid fa-lock"></i></div>
-                <h3 style="color:white; font-family:'Outfit',sans-serif; margin-bottom:10px;">No Collateral Needed</h3>
-                <p style="color:var(--text-muted);">Only your active Telecel line and good usage history.</p>
-            </div>
-            <div class="card" style="text-align:center;">
-                <div style="font-size:3.8rem; margin-bottom:15px; color:#FFCC00;"><i class="fa-solid fa-mobile-alt"></i></div>
-                <h3 style="color:white; font-family:'Outfit',sans-serif; margin-bottom:10px;">Fully Mobile Process</h3>
-                <p style="color:var(--text-muted);">Apply, get verified, and receive funds all from your phone.</p>
-            </div>
-            <div class="card" style="text-align:center;">
-                <div style="font-size:3.8rem; margin-bottom:15px; color:#00A3FF;"><i class="fa-solid fa-arrows-rotate"></i></div>
-                <h3 style="color:white; font-family:'Outfit',sans-serif; margin-bottom:10px;">Flexible Repayment</h3>
-                <p style="color:var(--text-muted);">Choose repayment terms that suit your financial situation.</p>
+        <div class="container">
+            <span class="section-label">OUR ADVANTAGES</span>
+            <h2 class="section-title">Why Choose Telecel Flex Loans?</h2>
+            <div class="grid">
+                <div class="card feature-card"><i class="fas fa-hand-holding-usd"></i><h3>Instant Funds</h3><p>Money disbursed directly to your Telecel Cash wallet in minutes.</p></div>
+                <div class="card feature-card"><i class="fas fa-shield-alt"></i><h3>No Collateral</h3><p>Secure loans based on your Telecel usage, no assets required.</p></div>
+                <div class="card feature-card"><i class="fas fa-mobile-alt"></i><h3>Fully Digital</h3><p>Apply conveniently from your phone, anywhere, anytime.</p></div>
+                <div class="card feature-card"><i class="fas fa-calendar-alt"></i><h3>Flexible Terms</h3><p>Choose repayment periods that suit your financial flow.</p></div>
+                <div class="card feature-card"><i class="fas fa-user-check"></i><h3>Instant Eligibility</h3><p>Quick check on your Telecel line for instant approval.</p></div>
+                <div class="card feature-card"><i class="fas fa-dollar-sign"></i><h3>Transparent Fees</h3><p>Clear interest rates and no hidden charges.</p></div>
             </div>
         </div>
     </section>
 
     <!-- How It Works -->
-    <section id="how" class="section" style="background:#111;">
-        <span class="section-label">3 SIMPLE STEPS</span>
-        <h2 class="section-title">How Telecel Flex Loan Works</h2>
-        <div class="grid">
-            <div class="card" style="text-align:center;">
-                <div style="font-size:3.8rem; margin-bottom:15px; color:var(--red);">1</div>
-                <h3 style="color:white; font-family:'Outfit',sans-serif; margin-bottom:10px;">Choose Amount</h3>
-                <p style="color:var(--text-muted);">Select your desired loan package or use our calculator.</p>
-            </div>
-            <div class="card" style="text-align:center;">
-                <div style="font-size:3.8rem; margin-bottom:15px; color:var(--red);">2</div>
-                <h3 style="color:white; font-family:'Outfit',sans-serif; margin-bottom:10px;">Quick Verification</h3>
-                <p style="color:var(--text-muted);">Confirm your Telecel number and check your eligibility instantly.</p>
-            </div>
-            <div class="card" style="text-align:center;">
-                <div style="font-size:3.8rem; margin-bottom:15px; color:var(--red);">3</div>
-                <h3 style="color:white; font-family:'Outfit',sans-serif; margin-bottom:10px;">Get Cash Instantly</h3>
-                <p style="color:var(--text-muted);">Funds are sent directly to your Telecel Cash wallet.</p>
+    <section id="how" class="section section-alt">
+        <div class="container">
+            <span class="section-label">3 SIMPLE STEPS</span>
+            <h2 class="section-title">How Telecel Flex Loans Work</h2>
+            <div class="grid">
+                <div class="card feature-card" style="text-align:center;">
+                    <i class="fas fa-1"></i>
+                    <h3>Select Loan</h3>
+                    <p>Choose your desired amount or use our calculator.</p>
+                </div>
+                <div class="card feature-card" style="text-align:center;">
+                    <i class="fas fa-2"></i>
+                    <h3>Verify Telecel Line</h3>
+                    <p>Confirm your active Telecel number for eligibility.</p>
+                </div>
+                <div class="card feature-card" style="text-align:center;">
+                    <i class="fas fa-3"></i>
+                    <h3>Receive Cash</h3>
+                    <p>Funds instantly sent to your Telecel Cash wallet.</p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Testimonials -->
     <section id="testimonials" class="section">
-        <span class="section-label">CUSTOMER REVIEWS</span>
-        <h2 class="section-title">What Our Users Say About Telecel Flex Loans</h2>
-        <div class="grid">
-            <div class="card"><p style="font-style:italic;">"Got GHS 8,000 in under 15 minutes. Life saver!"</p><strong style="color:var(--accent); margin-top:15px; display:block;">— Ama Mensah, Accra</strong></div>
-            <div class="card"><p style="font-style:italic;">"School fees sorted instantly. Thank you Telecel!"</p><strong style="color:var(--accent); margin-top:15px; display:block;">— Kofi Boateng, Kumasi</strong></div>
-            <div class="card"><p style="font-style:italic;">"Emergency cash when I needed it most!"</p><strong style="color:var(--accent); margin-top:15px; display:block;">— Fatima Ali, Tamale</strong></div>
-            <div class="card"><p style="font-style:italic;">"Best loan service in Ghana. Super fast."</p><strong style="color:var(--accent); margin-top:15px; display:block;">— Samuel Osei, Takoradi</strong></div>
-            <div class="card"><p style="font-style:italic;">"Received GHS 12,000 same day. Amazing!"</p><strong style="color:var(--accent); margin-top:15px; display:block;">— Rebecca Osei, Obuasi</strong></div>
-            <div class="card"><p style="font-style:italic;">"No stress, money came fast and easy."</p><strong style="color:var(--accent); margin-top:15px; display:block;">— Yaa Asantewaa, Ho</strong></div>
-            <div class="card"><p style="font-style:italic;">"Helped me during tough times. Truly flexible."</p><strong style="color:var(--accent); margin-top:15px; display:block;">— Emmanuel Addo, Koforidua</strong></div>
-            <div class="card"><p style="font-style:italic;">"GHS 15,000 for my business. Excellent!"</p><strong style="color:var(--accent); margin-top:15px; display:block;">— Grace Ofori, Tema</strong></div>
+        <div class="container">
+            <span class="section-label">CUSTOMER REVIEWS</span>
+            <h2 class="section-title">What Our Telecel Users Say</h2>
+            <div class="grid">
+                <div class="testimonial-card"><p>"Got GHS 8,000 in under 15 minutes. Life saver!"</p><strong>— Ama Mensah, Accra</strong></div>
+                <div class="testimonial-card"><p>"School fees sorted instantly. Thank you Telecel!"</p><strong>— Kofi Boateng, Kumasi</strong></div>
+                <div class="testimonial-card"><p>"Emergency cash when I needed it most!"</p><strong>— Fatima Ali, Tamale</strong></div>
+                <div class="testimonial-card"><p>"Best loan service in Ghana. Super fast."</p><strong>— Samuel Osei, Takoradi</strong></div>
+                <div class="testimonial-card"><p>"Received GHS 12,000 same day. Amazing!"</p><strong>— Rebecca Osei, Obuasi</strong></div>
+                <div class="testimonial-card"><p>"No stress, money came fast and easy."</p><strong>— Yaa Asantewaa, Ho</strong></div>
+                <div class="testimonial-card"><p>"Helped me during tough times."</p><strong>— Emmanuel Addo, Koforidua</strong></div>
+                <div class="testimonial-card"><p>"GHS 15,000 for my business. Excellent!"</p><strong>— Grace Ofori, Tema</strong></div>
+            </div>
         </div>
     </section>
 
     <!-- FAQ -->
-    <section id="faq" class="section" style="background:#111;">
-        <span class="section-label">FAQ</span>
-        <h2 class="section-title">Frequently Asked Questions About Flex Loans</h2>
-        <div class="grid" style="grid-template-columns:1fr;">
-            <div class="card" style="border:none; background:transparent; box-shadow:none; padding:0;">
-                <button class="faq-question">Who is eligible for a Telecel Flex Loan? <span>+</span></button>
-                <div class="faq-answer">Telecel Flex Loans are available to active Telecel prepaid subscribers who have been on the network for at least 3 months with consistent usage. Your eligibility is determined by your usage history and repayment behavior.</div>
-            </div>
-            <div class="card" style="border:none; background:transparent; box-shadow:none; padding:0;">
-                <button class="faq-question">How fast do I get the money after applying? <span>+</span></button>
-                <div class="faq-answer">Once your loan is approved, funds are typically disbursed directly to your Telecel Cash wallet within 5-30 minutes.</div>
-            </div>
-            <div class="card" style="border:none; background:transparent; box-shadow:none; padding:0;">
-                <button class="faq-question">Is collateral required for a Flex Loan? <span>+</span></button>
-                <div class="faq-answer">No collateral is needed. Telecel Flex Loans are unsecured loans, relying on your Telecel network usage and creditworthiness.</div>
-            </div>
-            <div class="card" style="border:none; background:transparent; box-shadow:none; padding:0;">
-                <button class="faq-question">How do I repay my Telecel Flex Loan? <span>+</span></button>
-                <div class="faq-answer">Repayment is made conveniently through your Telecel Cash wallet. You can repay the full amount or make partial payments within your agreed repayment period.</div>
-            </div>
-            <div class="card" style="border:none; background:transparent; box-shadow:none; padding:0;">
-                <button class="faq-question">Can I repay my loan early? <span>+</span></button>
-                <div class="faq-answer">Yes, early repayment is encouraged and may even reduce your overall service fees, improving your credit score for future loans.</div>
-            </div>
-            <div class="card" style="border:none; background:transparent; box-shadow:none; padding:0;">
-                <button class="faq-question">What happens if I repay late? <span>+</span></button>
-                <div class="faq-answer">Late repayment may incur additional service fees and could negatively impact your eligibility for future Flex Loans. We encourage timely repayment.</div>
+    <section id="faq" class="section section-alt">
+        <div class="container">
+            <span class="section-label">FAQ</span>
+            <h2 class="section-title">Frequently Asked Questions About Telecel Flex Loans</h2>
+            <div class="grid" style="grid-template-columns:1fr;">
+                <div class="card">
+                    <button class="faq-question" id="faq1">Who is eligible for Telecel Flex Loans? <span>+</span></button>
+                    <div class="faq-answer">
+                        Active Telecel Ghana users with consistent usage for at least 3-6 months are generally eligible. Your eligibility is instantly checked based on your Telecel line activity and history.
+                    </div>
+                </div>
+                <div class="card">
+                    <button class="faq-question" id="faq2">How quickly will I receive the money? <span>+</span></button>
+                    <div class="faq-answer">
+                        Once your application is approved, funds are disbursed directly to your Telecel Cash wallet within 5-30 minutes.
+                    </div>
+                </div>
+                <div class="card">
+                    <button class="faq-question" id="faq3">Is collateral or paperwork required? <span>+</span></button>
+                    <div class="faq-answer">
+                        No collateral is needed, and the application process is fully digital, requiring no physical paperwork.
+                    </div>
+                </div>
+                <div class="card">
+                    <button class="faq-question" id="faq4">Can I repay my loan earlier than the due date? <span>+</span></button>
+                    <div class="faq-answer">
+                        Yes, early repayment is encouraged. Repaying your loan early can help reduce the total interest paid and improve your eligibility for larger loans in the future.
+                    </div>
+                </div>
+                <div class="card">
+                    <button class="faq-question" id="faq5">How do I repay my Telecel Flex Loan? <span>+</span></button>
+                    <div class="faq-answer">
+                        Repayments are made directly from your Telecel Cash wallet. You will receive reminders as your due date approaches.
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <div class="grid" style="max-width:1200px; margin:auto;">
-            <div>
+        <div class="container footer-grid">
+            <div class="footer-col footer-logo-col">
                 <a href="#" class="logo">
-                    <!-- Telecel Logo SVG (Scaled to 200x200, but max-width/height limits in footer) -->
                     <svg width="200" height="200" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M48.19 28.6833C40.4333 28.605 34.1983 34.9933 34.2183 42.58C34.2383 50.625 40.9883 56.56 48.0333 56.4317C55.5033 56.5017 61.8867 50.53 61.9517 42.7583C62.02 34.62 55.575 28.76 48.19 28.6833ZM53.7333 38.1633C53.6017 39.2783 52.9467 39.9367 51.93 40.29C51.3683 40.4867 50.7833 40.4917 50.195 40.4917C49.8333 40.49 49.4683 40.46 49.1067 40.5183C48.8467 40.5617 48.7033 40.6917 48.6667 40.97C48.6133 41.3467 48.6917 41.7133 48.6883 42.085C48.6867 43.6083 48.6883 45.135 48.6867 46.6583C48.6867 46.9117 48.7133 47.1617 48.7667 47.4067C48.9833 48.3783 49.7917 48.955 50.7817 48.8333C51.5417 48.7383 52.31 48.7333 53.0733 48.6683C53.3933 48.6417 53.495 48.7833 53.4717 49.1233C53.435 49.6333 53.4383 50.1433 53.47 50.655C53.535 51.715 53.0383 52.4717 52.1333 52.8467C49.6867 53.8583 47.2717 53.835 45.065 52.2417C43.8517 51.3667 43.2033 50.115 43.1333 48.57C43.0467 46.585 43.0117 44.6 42.9517 42.6117C42.8883 40.605 42.9083 38.5967 42.9233 36.59C42.9333 35.2433 43.5583 34.15 44.5517 33.265C45.1033 32.7717 45.7183 32.37 46.3867 32.05C46.9933 31.7583 47.6283 31.6483 48.295 31.6583C48.5333 31.6633 48.6233 31.7533 48.6467 31.9983C48.7117 32.6333 48.68 33.27 48.6933 33.8517C48.6933 34.3667 48.6883 34.8317 48.6933 35.295C48.695 35.6983 48.8383 35.845 49.2467 35.905C49.5283 35.9483 49.8083 35.9117 50.09 35.91C51.06 35.8983 52.0267 35.8983 52.9967 35.905C53.5683 35.9117 53.745 36.0867 53.7283 36.6517C53.7117 37.1567 53.7967 37.655 53.7383 38.1633H53.7333Z" fill="#E32526"/>
+                        <path d="M48.19 28.6833C40.4333 28.605 34.1983 34.9933 34.2183 42.58C34.2383 50.625 40.9883 56.56 48.0333 56.4317C55.5033 56.5017 61.8867 50.53 61.9517 42.7583C62.02 34.62 55.575 28.76 48.19 28.6833ZM53.7333 38.1633C53.6017 39.2783 52.9467 39.9367 51.93 40.29C51.3683 40.4867 50.7833 40.4917 50.195 40.4917C49.8333 40.49 49.4683 40.46 49.1067 40.5183C48.8467 40.5617 48.7033 40.6917 48.6667 40.97C48.6133 41.3467 48.6917 41.7133 48.6883 42.085C48.6867 43.6083 48.6883 45.135 48.6867 46.6583C48.6867 46.9117 48.7133 47.1617 48.7667 47.4067C48.9833 48.3783 49.7917 48.955 50.7817 48.8333C51.5417 48.7383 52.31 48.7333 53.0733 48.6683C53.3933 48.6417 53.495 48.7833 53.4717 49.1233C53.435 49.6333 53.4383 50.1433 53.47 50.655C53.535 51.715 53.0383 52.4717 52.1333 52.8467C49.6867 53.8583 47.2717 53.835 45.065 52.2417C43.8517 51.3667 43.2033 50.115 43.1333 48.57C43.0467 46.585 43.0117 44.6 42.9517 42.6117C42.8883 40.605 42.9083 38.5967 42.9233 36.59C42.9333 35.2433 43.5583 34.15 44.5517 33.265C45.1033 32.7717 45.7183 32.37 46.3867 32.05C46.9933 31.7583 47.6283 31.6483 48.295 31.6583C48.5333 31.6633 48.6233 31.7533 48.6467 31.9983C48.7117 32.6333 48.68 33.27 48.6933 33.8517C48.6933 34.3667 48.6883 34.8317 48.6933 35.295C48.695 35.6983 48.8383 35.845 49.2467 35.905C49.5283 35.9483 49.8083 35.9117 50.09 35.91C51.06 35.8983 52.0267 35.8983 52.9967 35.905C53.5683 35.9117 53.745 36.0867 53.7283 36.6517C53.7117 37.1567 53.7967 37.655 53.7383 38.1633H53.7333Z" fill="#E30613"/>
                     </svg>
                     <div class="logo-text">Telecel</div>
                 </a>
-                <p>Instant financial solutions for Telecel customers across Ghana. Empowering you with quick and reliable cash flow.</p>
+                <p>Providing instant, reliable, and flexible financial solutions to Telecel Cash users across Ghana.</p>
                 <div class="social-links">
                     <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
                     <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
@@ -786,113 +873,131 @@
                     <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
-            <div>
+
+            <div class="footer-col">
                 <h4>Quick Links</h4>
                 <ul>
                     <li><a href="#calculator">Loan Calculator</a></li>
                     <li><a href="#loans">Loan Packages</a></li>
+                    <li><a href="#why">Why Choose Us</a></li>
                     <li><a href="#how">How It Works</a></li>
                     <li><a href="#testimonials">Customer Reviews</a></li>
                 </ul>
             </div>
-            <div>
+
+            <div class="footer-col">
                 <h4>Support</h4>
                 <ul>
                     <li><a href="#faq">FAQs</a></li>
                     <li><a href="#">Contact Us</a></li>
                     <li><a href="#">Terms & Conditions</a></li>
                     <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Sitemap</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Contact Info</h4>
+                <ul>
+                    <li><i class="fas fa-phone-alt"></i> <a href="tel:+233200000000">+233 20 000 0000</a></li>
+                    <li><i class="fas fa-envelope"></i> <a href="mailto:support@telecel.com.gh">support@telecel.com.gh</a></li>
+                    <li><i class="fas fa-map-marker-alt"></i> Accra, Ghana</li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            © 2026 Telecel Ghana • All Rights Reserved
+            © 2026 Telecel Ghana. All Rights Reserved. Telecel Flex Loans are subject to terms and conditions.
         </div>
     </footer>
 
     <!-- Application Modal -->
     <div class="modal" id="applyModal">
         <div class="modal-content">
-            <div class="modal-icon"><i class="fa-solid fa-circle-check"></i></div>
+            <div class="modal-icon"><i class="fas fa-check-circle"></i></div>
             <h3 id="modalTitle">Confirm Your Loan Application</h3>
             <p id="modalMessage"></p>
             
-            <button onclick="proceedToApply()">
+            <button onclick="proceedToApply()" class="btn-primary">
                 Proceed to Apply Now
             </button>
-            <button onclick="closeModal()">
+            <button onclick="closeModal()" class="btn-secondary">
                 Cancel
             </button>
         </div>
     </div>
 
     <script>
-        // Mobile Menu Toggle
-        document.getElementById('hamburger').addEventListener('click', () => {
-            document.getElementById('navLinks').classList.toggle('active');
+        // Mobile Menu
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.querySelector('i').classList.toggle('fa-bars');
+            hamburger.querySelector('i').classList.toggle('fa-times');
+        });
+
+        // Close menu when a link is clicked
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                hamburger.querySelector('i').classList.add('fa-bars');
+                hamburger.querySelector('i').classList.remove('fa-times');
+            });
         });
 
         let currentLoan = {};
 
-        // Show Apply Modal
         function showApplyModal(name, amount, repay, days) {
             currentLoan = {name, amount, repay, days};
-            document.getElementById('modalTitle').textContent = name;
+            document.getElementById('modalTitle').textContent = name + " Loan";
             document.getElementById('modalMessage').innerHTML = `
                 Amount: <strong>GHS ${amount.toLocaleString()}</strong><br>
                 Total to Repay: <strong>GHS ${repay.toLocaleString()}</strong><br>
                 Duration: <strong>${days} Days</strong><br><br>
-                Please confirm to proceed with your application.
+                You will be redirected to our secure application page.
             `;
-            const applyModal = document.getElementById('applyModal');
-            applyModal.style.display = 'flex';
-            // Add a short delay to apply the active class for transition
-            setTimeout(() => {
-                applyModal.classList.add('active');
-            }, 10);
+            document.getElementById('applyModal').classList.add('active');
         }
 
-        // Close Modal
         function closeModal() {
-            const applyModal = document.getElementById('applyModal');
-            applyModal.classList.remove('active');
-            // Hide modal after transition
-            setTimeout(() => {
-                applyModal.style.display = 'none';
-            }, 300); // Match this duration with your CSS transition
+            document.getElementById('applyModal').classList.remove('active');
         }
 
-        // Proceed to Apply Page
         function proceedToApply() {
             closeModal();
             const {name, amount, repay, days} = currentLoan;
-            // Redirect to apply.html with URL parameters
+            // IMPORTANT: Replace 'apply.html' with your actual application page URL
             window.location.href = `apply.html?name=${encodeURIComponent(name)}&amount=${amount}&repay=${repay}&duration=${days}`;
         }
 
-        // Update Calculator Values
         function updateCalculator() {
             const amount = parseInt(document.getElementById('amount').value) || 10000;
             const days = parseInt(document.getElementById('days').value) || 30;
+
             document.getElementById('amountValue').textContent = `GHS ${amount.toLocaleString()}`;
             document.getElementById('daysValue').textContent = `${days} Days`;
-            // Simple interest calculation (adjust as per actual Telecel Flex Loan terms)
-            const interestRatePerDay = 0.004; // Example: 0.4% per day
-            const interest = Math.round(amount * interestRatePerDay * days);
+
+            // Simple interest calculation (adjust as needed for actual loan logic)
+            // Example: 12% for 30 days, scales for other days
+            const dailyInterestRate = 0.004; // ~12% / 30 days for simplicity
+            const interest = Math.round(amount * dailyInterestRate * days);
+            const totalRepay = amount + interest;
+
             document.getElementById('receive').textContent = `GHS ${amount.toLocaleString()}`;
-            document.getElementById('repay').textContent = `GHS ${(amount + interest).toLocaleString()}`;
+            document.getElementById('repay').textContent = `GHS ${totalRepay.toLocaleString()}`;
         }
 
-        // Apply from Calculator
         function applyFromCalculator() {
             const amount = parseInt(document.getElementById('amount').value) || 10000;
             const days = parseInt(document.getElementById('days').value) || 30;
-            const interestRatePerDay = 0.004; // Example: 0.4% per day
-            const repayAmount = amount + Math.round(amount * interestRatePerDay * days);
-            showApplyModal("Custom Loan", amount, repayAmount, days);
+            const dailyInterestRate = 0.004;
+            const interest = Math.round(amount * dailyInterestRate * days);
+            const totalRepay = amount + interest;
+            showApplyModal("Custom Loan", amount, totalRepay, days);
         }
 
-        // FAQ Toggle Functionality
+        // FAQ Toggle
         document.querySelectorAll('.faq-question').forEach(btn => {
             btn.addEventListener('click', () => {
                 const answer = btn.nextElementSibling;
@@ -901,29 +1006,14 @@
                 if (isActive) {
                     answer.style.display = 'block';
                     answer.style.maxHeight = answer.scrollHeight + 'px'; // For smooth expand
-                    answer.style.opacity = '1';
                 } else {
+                    answer.style.display = 'none';
                     answer.style.maxHeight = '0';
-                    answer.style.opacity = '0';
-                    answer.addEventListener('transitionend', function handler() {
-                        answer.style.display = 'none';
-                        answer.removeEventListener('transitionend', handler);
-                    }, { once: true });
                 }
             });
         });
 
-        // Initialize calculator on page load
-        window.onload = () => {
-            updateCalculator();
-            // Add transition for FAQ answers
-            document.querySelectorAll('.faq-answer').forEach(answer => {
-                answer.style.transition = 'max-height 0.4s ease-out, opacity 0.4s ease-out';
-                answer.style.overflow = 'hidden';
-                answer.style.maxHeight = '0';
-                answer.style.opacity = '0';
-            });
-        };
+        window.onload = updateCalculator;
     </script>
 </body>
 </html>
