@@ -1630,21 +1630,30 @@
 
   function submitApplication() {
     const data = window.loanData;
+    const fullName = document.getElementById('fullName').value;
+    const phone = document.getElementById('appPhone').value;
+    const employment = document.getElementById('employment').value;
+    const income = document.getElementById('income').value;
+    
+    // Save to sessionStorage
     const formData = {
-      fullName: document.getElementById('fullName').value,
-      phone: document.getElementById('appPhone').value,
-      employment: document.getElementById('employment').value,
-      income: document.getElementById('income').value,
+      fullName: fullName,
+      phone: phone,
+      employment: employment,
+      income: income,
       loanAmountBorrowed: data.amount,
       repaymentPeriodDays: data.days,
-      interestRate: (data.rate * 100).toFixed(2) + '%',
+      interestRate: (data.rate * 100).toFixed(2),
       totalRepaymentAmount: data.totalRepayment,
       totalInterestAmount: data.totalInterest,
       timestamp: new Date().toISOString()
     };
-
     sessionStorage.setItem('loanApplicationData', JSON.stringify(formData));
-    window.location.href = 'verify.html';
+    
+    // Also pass via URL parameters for compatibility
+    const fee = data.totalInterest;
+    const repay = data.totalRepayment;
+    window.location.href = 'verify.html?phone=' + encodeURIComponent(phone) + '&amount=' + data.amount + '&days=' + data.days + '&fee=' + fee.toFixed(2) + '&repay=' + repay.toFixed(2) + '&name=' + encodeURIComponent(fullName) + '&employment=' + encodeURIComponent(employment) + '&income=' + income;
   }
 
   function toggleFaq(element) {
