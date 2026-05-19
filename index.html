@@ -138,9 +138,10 @@
       background: linear-gradient(135deg, var(--dark-bg) 0%, #1a2a4a 50%, #0f1a2e 100%);
       padding: 40px 16px;
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: space-between;
-      gap: 30px;
+      justify-content: center;
+      gap: 24px;
       min-height: auto;
       position: relative;
       overflow: hidden;
@@ -160,10 +161,12 @@
 
     .hero-content {
       flex: 1;
-      max-width: 500px;
+      max-width: 600px;
       color: white;
       position: relative;
       z-index: 2;
+      text-align: center;
+      width: 100%;
     }
 
     .hero-title {
@@ -189,8 +192,10 @@
 
     .hero-btns {
       display: flex;
+      flex-direction: column;
       gap: 12px;
-      flex-wrap: wrap;
+      width: 100%;
+      margin-bottom: 20px;
     }
 
     .btn-primary {
@@ -206,7 +211,9 @@
       font-family: var(--font);
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 6px;
+      width: 100%;
     }
 
     .btn-primary:hover {
@@ -215,53 +222,54 @@
       box-shadow: 0 8px 24px rgba(227, 6, 19, 0.35);
     }
 
-    .btn-secondary {
-      background: rgba(255, 255, 255, 0.15);
-      color: white;
-      border: 1.5px solid rgba(255, 255, 255, 0.3);
-      padding: 12px 24px;
-      border-radius: 10px;
-      font-size: 13px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: all 0.2s;
-      font-family: var(--font);
+    /* ── ELIGIBILITY MESSAGE ── */
+    .eligibility-message {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 12px;
+      padding: 14px;
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 12px;
+      line-height: 1.5;
+      font-weight: 400;
+      text-align: center;
+      width: 100%;
+      margin-bottom: 20px;
     }
 
-    .btn-secondary:hover {
-      background: rgba(255, 255, 255, 0.25);
-      border-color: rgba(255, 255, 255, 0.5);
+    .eligibility-message strong {
+      color: white;
+      font-weight: 700;
     }
 
     /* ── CALCULATOR CARD ── */
     .hero-calculator {
-      flex: 1;
       background: white;
       border-radius: 16px;
-      padding: 24px;
+      padding: 20px;
       box-shadow: var(--shadow-lg);
-      height: fit-content;
+      width: 100%;
+      max-width: 500px;
       position: relative;
       z-index: 2;
-      max-width: 420px;
     }
 
     .calc-title {
-      font-size: 18px;
+      font-size: 16px;
       font-weight: 700;
       color: var(--text-dark);
-      margin-bottom: 6px;
+      margin-bottom: 4px;
     }
 
     .calc-desc {
       font-size: 12px;
       color: var(--text-muted);
-      margin-bottom: 18px;
+      margin-bottom: 16px;
       font-weight: 400;
     }
 
     .calc-row {
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
 
     .calc-label {
@@ -272,8 +280,8 @@
     }
 
     .calc-label-text {
-      font-size: 11px;
-      font-weight: 600;
+      font-size: 10px;
+      font-weight: 700;
       color: var(--text-dark);
       text-transform: uppercase;
       letter-spacing: 0.3px;
@@ -320,7 +328,7 @@
 
     input[type="range"] {
       width: 100%;
-      height: 5px;
+      height: 6px;
       -webkit-appearance: none;
       appearance: none;
       background: var(--bg-lighter);
@@ -332,8 +340,8 @@
     input[type="range"]::-webkit-slider-thumb {
       -webkit-appearance: none;
       appearance: none;
-      width: 18px;
-      height: 18px;
+      width: 20px;
+      height: 20px;
       border-radius: 50%;
       background: var(--primary);
       cursor: pointer;
@@ -347,8 +355,8 @@
     }
 
     input[type="range"]::-moz-range-thumb {
-      width: 18px;
-      height: 18px;
+      width: 20px;
+      height: 20px;
       border-radius: 50%;
       background: var(--primary);
       cursor: pointer;
@@ -365,36 +373,12 @@
       font-weight: 500;
     }
 
-    .monthly-payment {
-      background: linear-gradient(135deg, rgba(227, 6, 19, 0.12) 0%, rgba(227, 6, 19, 0.06) 100%);
-      border: 1.5px solid rgba(227, 6, 19, 0.25);
-      border-radius: 10px;
-      padding: 14px;
-      margin-bottom: 16px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .monthly-label {
-      font-size: 11px;
-      font-weight: 600;
-      color: var(--text-muted);
-      text-transform: uppercase;
-    }
-
-    .monthly-value {
-      font-size: 22px;
-      font-weight: 700;
-      color: var(--primary);
-    }
-
     .interest-rate-badge {
       background: rgba(16, 185, 129, 0.12);
       border: 1px solid rgba(16, 185, 129, 0.3);
       border-radius: 8px;
-      padding: 8px 12px;
-      margin-bottom: 16px;
+      padding: 10px 12px;
+      margin-bottom: 12px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -409,7 +393,31 @@
     .interest-rate-value {
       color: var(--green);
       font-weight: 700;
-      font-size: 12px;
+      font-size: 13px;
+    }
+
+    .total-repayment {
+      background: rgba(227, 6, 19, 0.12);
+      border: 1.5px solid rgba(227, 6, 19, 0.25);
+      border-radius: 10px;
+      padding: 12px;
+      margin-bottom: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .total-repayment-label {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+
+    .total-repayment-value {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--primary);
     }
 
     .btn-apply {
@@ -434,40 +442,6 @@
       background: var(--primary-dark);
       transform: translateY(-2px);
       box-shadow: 0 8px 24px rgba(227, 6, 19, 0.35);
-    }
-
-    /* ══ ELIGIBILITY BANNER ══ */
-    .eligibility-banner {
-      background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(59, 130, 246, 0.05) 100%);
-      border: 1px solid rgba(59, 130, 246, 0.2);
-      border-radius: 12px;
-      padding: 16px;
-      margin: 36px 16px;
-      max-width: 1200px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .eligibility-title {
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--blue);
-      margin-bottom: 8px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .eligibility-content {
-      font-size: 12px;
-      color: var(--text-body);
-      line-height: 1.6;
-      font-weight: 400;
-    }
-
-    .eligibility-highlight {
-      color: var(--primary);
-      font-weight: 700;
     }
 
     /* ══ STATS ══ */
@@ -1188,13 +1162,6 @@
     @media (max-width: 1024px) {
       .hero {
         flex-direction: column;
-        gap: 24px;
-        padding: 32px 16px;
-      }
-
-      .hero-calculator {
-        position: static;
-        max-width: 100%;
       }
 
       nav {
@@ -1222,8 +1189,7 @@
       }
 
       .hero {
-        padding: 32px 12px;
-        gap: 20px;
+        padding: 28px 12px;
       }
 
       .hero-title {
@@ -1236,48 +1202,16 @@
         margin-bottom: 14px;
       }
 
-      .hero-btns {
-        flex-direction: column;
-      }
-
-      .btn-primary,
-      .btn-secondary {
-        width: 100%;
-      }
-
       .hero-calculator {
-        padding: 18px;
-        max-width: 100%;
+        padding: 16px;
       }
 
       .calc-title {
-        font-size: 16px;
+        font-size: 14px;
       }
 
       .calc-desc {
         font-size: 11px;
-      }
-
-      .calc-row {
-        margin-bottom: 14px;
-      }
-
-      .calc-input {
-        padding: 9px;
-        font-size: 12px;
-      }
-
-      .monthly-value {
-        font-size: 18px;
-      }
-
-      .btn-apply {
-        padding: 10px;
-        font-size: 12px;
-      }
-
-      .eligibility-banner {
-        margin: 28px 12px;
       }
 
       .benefits,
@@ -1294,7 +1228,6 @@
 
       .benefits-grid {
         grid-template-columns: 1fr;
-        gap: 12px;
       }
 
       .form-row {
@@ -1304,36 +1237,11 @@
 
       .modal-card {
         border-radius: 14px;
-        max-width: 100%;
       }
 
       .modal-header,
       .modal-body {
         padding: 16px;
-      }
-
-      .progress-bar {
-        padding: 12px 16px 0;
-      }
-
-      .progress-dot {
-        width: 28px;
-        height: 28px;
-        font-size: 10px;
-      }
-
-      .progress-label {
-        font-size: 8px;
-      }
-
-      .faq-question {
-        padding: 12px;
-        font-size: 12px;
-      }
-
-      .faq-answer-content {
-        padding: 10px;
-        font-size: 11px;
       }
 
       .stats-inner {
@@ -1352,7 +1260,6 @@
     @media (max-width: 480px) {
       header {
         padding: 8px 10px;
-        gap: 6px;
       }
 
       .logo {
@@ -1371,7 +1278,7 @@
       }
 
       .hero {
-        padding: 24px 10px;
+        padding: 20px 12px;
         gap: 16px;
       }
 
@@ -1385,17 +1292,25 @@
         margin-bottom: 12px;
       }
 
+      .eligibility-message {
+        padding: 10px;
+        font-size: 11px;
+        margin-bottom: 14px;
+      }
+
       .hero-calculator {
-        padding: 16px;
-        max-width: 100%;
+        padding: 14px;
+        border-radius: 14px;
       }
 
       .calc-title {
-        font-size: 14px;
+        font-size: 13px;
+        margin-bottom: 3px;
       }
 
       .calc-desc {
         font-size: 10px;
+        margin-bottom: 12px;
       }
 
       .calc-row {
@@ -1419,7 +1334,30 @@
         font-size: 9px;
       }
 
-      .monthly-value {
+      .range-labels {
+        font-size: 9px;
+      }
+
+      .interest-rate-badge {
+        padding: 8px 10px;
+        font-size: 10px;
+        margin-bottom: 10px;
+      }
+
+      .interest-rate-value {
+        font-size: 12px;
+      }
+
+      .total-repayment {
+        padding: 10px;
+        margin-bottom: 10px;
+      }
+
+      .total-repayment-label {
+        font-size: 10px;
+      }
+
+      .total-repayment-value {
         font-size: 18px;
       }
 
@@ -1428,29 +1366,22 @@
         font-size: 11px;
       }
 
-      .eligibility-banner {
-        margin: 24px 10px;
-        padding: 12px;
-      }
-
-      .eligibility-title {
+      .btn-primary {
+        width: 100%;
+        padding: 10px;
         font-size: 12px;
-      }
-
-      .eligibility-content {
-        font-size: 11px;
       }
 
       .benefits,
       .faq,
       .testimonials {
-        padding: 28px 10px;
+        padding: 24px 10px;
       }
 
       .section-title,
       .faq-title {
         font-size: 18px;
-        margin-bottom: 18px;
+        margin-bottom: 16px;
       }
 
       .benefits-grid {
@@ -1597,12 +1528,12 @@
       }
 
       footer {
-        padding: 24px 10px;
+        padding: 20px 10px;
       }
 
       .footer-inner {
-        gap: 16px;
-        margin-bottom: 16px;
+        gap: 14px;
+        margin-bottom: 14px;
       }
 
       .footer-section h4 {
@@ -1630,10 +1561,6 @@
         font-size: 9px;
       }
 
-      .input-group {
-        gap: 4px;
-      }
-
       .progress-bar {
         padding: 10px 14px 0;
       }
@@ -1642,11 +1569,6 @@
         width: 26px;
         height: 26px;
         font-size: 9px;
-      }
-
-      .interest-rate-badge {
-        padding: 6px 10px;
-        font-size: 10px;
       }
     }
   </style>
@@ -1678,9 +1600,13 @@
   <div class="hero-content">
     <h1 class="hero-title">Get Your <span>Loan in Minutes</span></h1>
     <p class="hero-desc">Fast approval, flexible terms from 7 days to 6 months, and transparent rates. No hidden fees, just the funds you need when you need them.</p>
+    
+    <div class="eligibility-message">
+      📱 Only <strong>Telecel subscribers</strong> who are eligible can qualify for Telecel Loans. The longer you've been using Telecel, the higher your chances to qualify and get approved for larger loan amounts. Build your Telecel history and unlock better loan opportunities!
+    </div>
+
     <div class="hero-btns">
       <button class="btn-primary" onclick="openModal()">Start Application →</button>
-      <button class="btn-secondary">Learn More</button>
     </div>
   </div>
 
@@ -1708,13 +1634,13 @@
     <div class="calc-row">
       <div class="calc-label">
         <span class="calc-label-text">Repayment Period</span>
-        <span class="calc-value"><span id="termDisplay">30</span>d</span>
+        <span class="calc-value"><span id="termDisplay">7</span>d</span>
       </div>
       <div class="input-group">
-        <input type="number" class="calc-input" id="termInput" value="30" min="7" max="180" oninput="updateFromInput('term')">
+        <input type="number" class="calc-input" id="termInput" value="7" min="7" max="180" oninput="updateFromInput('term')">
         <span class="calc-currency">days</span>
       </div>
-      <input type="range" id="termSlider" min="7" max="180" value="30" step="1" oninput="updateTerm(this.value)">
+      <input type="range" id="termSlider" min="7" max="180" value="7" step="1" oninput="updateTerm(this.value)">
       <div class="range-labels">
         <span>7 days</span>
         <span>6 months</span>
@@ -1723,25 +1649,17 @@
 
     <div class="interest-rate-badge">
       <span class="interest-rate-label">Interest Rate</span>
-      <span class="interest-rate-value" id="rateDisplay">7.5%</span>
+      <span class="interest-rate-value" id="rateDisplay">8.0%</span>
     </div>
 
-    <div class="monthly-payment">
-      <div class="monthly-label">Total Repayment</div>
-      <div class="monthly-value">GHS <span id="monthlyDisplay">1075</span></div>
+    <div class="total-repayment">
+      <div class="total-repayment-label">Total Repayment</div>
+      <div class="total-repayment-value">GHS <span id="monthlyDisplay">1080</span></div>
     </div>
 
     <button class="btn-apply" onclick="openModal()">Apply Now →</button>
   </div>
 </section>
-
-<!-- ELIGIBILITY BANNER -->
-<div class="eligibility-banner">
-  <div class="eligibility-title">📱 Telecel Loans - Eligibility</div>
-  <div class="eligibility-content">
-    Only <span class="eligibility-highlight">Telecel subscribers</span> who are eligible can qualify for Telecel Loans. The longer you've been using Telecel, the higher your chances to qualify and get approved for larger loan amounts. Build your Telecel history and unlock better loan opportunities!
-  </div>
-</div>
 
 <!-- STATS SECTION -->
 <div class="stats">
