@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Telecel Loans - Fast & Secure Loans</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --primary: #E30613;
@@ -24,7 +24,7 @@
       --shadow: 0 4px 20px rgba(0,0,0,.1);
       --shadow-lg: 0 12px 48px rgba(0,0,0,.15);
       --radius: 14px;
-      --font: 'Inter', sans-serif;
+      --font: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
     }
 
     * {
@@ -43,6 +43,7 @@
       color: var(--text-body);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
     /* ══ HEADER ══ */
@@ -52,7 +53,7 @@
       z-index: 999;
       background: var(--white);
       border-bottom: 1px solid var(--border);
-      padding: 12px 16px;
+      padding: 14px 16px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -63,23 +64,27 @@
     .logo {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
       text-decoration: none;
       font-size: 18px;
-      font-weight: 800;
+      font-weight: 700;
       color: var(--text-dark);
       flex-shrink: 0;
     }
 
     .logo-svg {
-      width: 32px;
-      height: 32px;
+      width: 36px;
+      height: 36px;
       flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .logo-text {
       color: var(--primary);
-      letter-spacing: -0.5px;
+      letter-spacing: -0.3px;
+      font-weight: 700;
     }
 
     nav {
@@ -93,7 +98,7 @@
     nav a {
       color: var(--text-muted);
       text-decoration: none;
-      font-size: 12px;
+      font-size: 13px;
       font-weight: 500;
       padding: 6px 12px;
       border-radius: 6px;
@@ -117,9 +122,9 @@
       background: var(--primary);
       color: white;
       border: none;
-      padding: 9px 18px;
+      padding: 10px 20px;
       border-radius: 8px;
-      font-size: 12px;
+      font-size: 13px;
       font-weight: 700;
       cursor: pointer;
       transition: all 0.2s;
@@ -170,12 +175,12 @@
     }
 
     .hero-title {
-      font-size: clamp(24px, 5vw, 42px);
-      font-weight: 800;
+      font-size: clamp(26px, 5vw, 44px);
+      font-weight: 700;
       line-height: 1.2;
       color: white;
-      margin-bottom: 12px;
-      letter-spacing: -0.5px;
+      margin-bottom: 14px;
+      letter-spacing: -0.3px;
     }
 
     .hero-title span {
@@ -183,10 +188,10 @@
     }
 
     .hero-desc {
-      font-size: 14px;
+      font-size: 15px;
       color: rgba(255, 255, 255, 0.85);
       line-height: 1.6;
-      margin-bottom: 20px;
+      margin-bottom: 22px;
       font-weight: 400;
     }
 
@@ -202,9 +207,9 @@
       background: var(--primary);
       color: white;
       border: none;
-      padding: 12px 24px;
+      padding: 13px 24px;
       border-radius: 10px;
-      font-size: 13px;
+      font-size: 14px;
       font-weight: 700;
       cursor: pointer;
       transition: all 0.2s;
@@ -224,29 +229,32 @@
 
     /* ── ELIGIBILITY MESSAGE ── */
     .eligibility-message {
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.25);
       border-radius: 12px;
-      padding: 14px;
-      color: rgba(255, 255, 255, 0.9);
-      font-size: 12px;
-      line-height: 1.5;
+      padding: 16px;
+      color: rgba(255, 255, 255, 0.92);
+      font-size: 13px;
+      line-height: 1.6;
       font-weight: 400;
       text-align: center;
       width: 100%;
-      margin-bottom: 20px;
+      margin-bottom: 22px;
+      backdrop-filter: blur(10px);
     }
 
     .eligibility-message strong {
       color: white;
       font-weight: 700;
+      display: block;
+      margin-bottom: 4px;
     }
 
     /* ── CALCULATOR CARD ── */
     .hero-calculator {
       background: white;
       border-radius: 16px;
-      padding: 20px;
+      padding: 24px;
       box-shadow: var(--shadow-lg);
       width: 100%;
       max-width: 500px;
@@ -255,40 +263,40 @@
     }
 
     .calc-title {
-      font-size: 16px;
+      font-size: 17px;
       font-weight: 700;
       color: var(--text-dark);
-      margin-bottom: 4px;
+      margin-bottom: 6px;
     }
 
     .calc-desc {
-      font-size: 12px;
+      font-size: 13px;
       color: var(--text-muted);
-      margin-bottom: 16px;
+      margin-bottom: 18px;
       font-weight: 400;
     }
 
     .calc-row {
-      margin-bottom: 16px;
+      margin-bottom: 18px;
     }
 
     .calc-label {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 8px;
+      margin-bottom: 9px;
     }
 
     .calc-label-text {
-      font-size: 10px;
+      font-size: 11px;
       font-weight: 700;
       color: var(--text-dark);
       text-transform: uppercase;
-      letter-spacing: 0.3px;
+      letter-spacing: 0.4px;
     }
 
     .calc-value {
-      font-size: 16px;
+      font-size: 17px;
       font-weight: 700;
       color: var(--primary);
     }
@@ -296,8 +304,8 @@
     .input-group {
       display: flex;
       align-items: center;
-      gap: 6px;
-      margin-bottom: 10px;
+      gap: 8px;
+      margin-bottom: 11px;
     }
 
     .calc-input {
@@ -305,8 +313,8 @@
       background: var(--bg-light);
       border: 1.5px solid var(--border);
       border-radius: 8px;
-      padding: 10px 12px;
-      font-size: 13px;
+      padding: 11px 13px;
+      font-size: 14px;
       font-weight: 600;
       color: var(--text-dark);
       font-family: var(--font);
@@ -320,19 +328,19 @@
     }
 
     .calc-currency {
-      font-size: 11px;
+      font-size: 12px;
       font-weight: 600;
       color: var(--text-muted);
-      min-width: 32px;
+      min-width: 36px;
     }
 
     input[type="range"] {
       width: 100%;
-      height: 6px;
+      height: 7px;
       -webkit-appearance: none;
       appearance: none;
       background: var(--bg-lighter);
-      border-radius: 3px;
+      border-radius: 4px;
       cursor: pointer;
       outline: none;
     }
@@ -340,8 +348,8 @@
     input[type="range"]::-webkit-slider-thumb {
       -webkit-appearance: none;
       appearance: none;
-      width: 20px;
-      height: 20px;
+      width: 22px;
+      height: 22px;
       border-radius: 50%;
       background: var(--primary);
       cursor: pointer;
@@ -355,8 +363,8 @@
     }
 
     input[type="range"]::-moz-range-thumb {
-      width: 20px;
-      height: 20px;
+      width: 22px;
+      height: 22px;
       border-radius: 50%;
       background: var(--primary);
       cursor: pointer;
@@ -367,22 +375,22 @@
     .range-labels {
       display: flex;
       justify-content: space-between;
-      font-size: 10px;
+      font-size: 11px;
       color: var(--text-muted);
-      margin-top: 6px;
+      margin-top: 7px;
       font-weight: 500;
     }
 
     .interest-rate-badge {
       background: rgba(16, 185, 129, 0.12);
       border: 1px solid rgba(16, 185, 129, 0.3);
-      border-radius: 8px;
-      padding: 10px 12px;
-      margin-bottom: 12px;
+      border-radius: 9px;
+      padding: 11px 13px;
+      margin-bottom: 13px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 11px;
+      font-size: 12px;
     }
 
     .interest-rate-label {
@@ -393,29 +401,29 @@
     .interest-rate-value {
       color: var(--green);
       font-weight: 700;
-      font-size: 13px;
+      font-size: 14px;
     }
 
     .total-repayment {
       background: rgba(227, 6, 19, 0.12);
       border: 1.5px solid rgba(227, 6, 19, 0.25);
       border-radius: 10px;
-      padding: 12px;
-      margin-bottom: 14px;
+      padding: 13px;
+      margin-bottom: 16px;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
 
     .total-repayment-label {
-      font-size: 11px;
+      font-size: 12px;
       font-weight: 600;
       color: var(--text-muted);
       text-transform: uppercase;
     }
 
     .total-repayment-value {
-      font-size: 20px;
+      font-size: 21px;
       font-weight: 700;
       color: var(--primary);
     }
@@ -425,9 +433,9 @@
       background: var(--primary);
       color: white;
       border: none;
-      padding: 12px;
+      padding: 13px;
       border-radius: 10px;
-      font-size: 13px;
+      font-size: 14px;
       font-weight: 700;
       cursor: pointer;
       transition: all 0.2s;
@@ -446,7 +454,7 @@
 
     /* ══ STATS ══ */
     .stats {
-      padding: 36px 16px;
+      padding: 40px 16px;
       background: white;
     }
 
@@ -455,7 +463,7 @@
       margin: 0 auto;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 16px;
+      gap: 18px;
       text-align: center;
     }
 
@@ -466,14 +474,14 @@
     }
 
     .stat-number {
-      font-size: 28px;
-      font-weight: 800;
+      font-size: 30px;
+      font-weight: 700;
       color: var(--primary);
-      margin-bottom: 4px;
+      margin-bottom: 5px;
     }
 
     .stat-label {
-      font-size: 11px;
+      font-size: 12px;
       color: var(--text-muted);
       font-weight: 500;
     }
@@ -481,7 +489,7 @@
     /* ══ BENEFITS SECTION ══ */
     .benefits {
       background: var(--bg-light);
-      padding: 48px 16px;
+      padding: 50px 16px;
     }
 
     .benefits-inner {
@@ -490,23 +498,23 @@
     }
 
     .section-title {
-      font-size: clamp(22px, 5vw, 32px);
+      font-size: clamp(24px, 5vw, 34px);
       font-weight: 700;
       color: var(--text-dark);
-      margin-bottom: 28px;
+      margin-bottom: 32px;
       text-align: center;
-      letter-spacing: -0.3px;
+      letter-spacing: -0.2px;
     }
 
     .benefits-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 16px;
+      gap: 18px;
     }
 
     .benefit-card {
       background: white;
-      padding: 20px;
+      padding: 22px;
       border-radius: 12px;
       border: 1px solid var(--border);
       transition: all 0.3s;
@@ -518,19 +526,19 @@
     }
 
     .benefit-icon {
-      font-size: 32px;
-      margin-bottom: 10px;
+      font-size: 34px;
+      margin-bottom: 12px;
     }
 
     .benefit-title {
-      font-size: 15px;
+      font-size: 16px;
       font-weight: 700;
       color: var(--text-dark);
       margin-bottom: 8px;
     }
 
     .benefit-desc {
-      font-size: 12px;
+      font-size: 13px;
       color: var(--text-muted);
       line-height: 1.5;
       font-weight: 400;
@@ -538,7 +546,7 @@
 
     /* ══ FAQ SECTION ══ */
     .faq {
-      padding: 48px 16px;
+      padding: 50px 16px;
       background: white;
     }
 
@@ -548,16 +556,16 @@
     }
 
     .faq-title {
-      font-size: clamp(22px, 5vw, 32px);
+      font-size: clamp(24px, 5vw, 34px);
       font-weight: 700;
       color: var(--text-dark);
-      margin-bottom: 28px;
+      margin-bottom: 32px;
       text-align: center;
-      letter-spacing: -0.3px;
+      letter-spacing: -0.2px;
     }
 
     .faq-item {
-      margin-bottom: 12px;
+      margin-bottom: 13px;
       border: 1px solid var(--border);
       border-radius: 10px;
       overflow: hidden;
@@ -572,14 +580,14 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 14px;
+      padding: 15px;
       background: var(--bg-light);
       cursor: pointer;
       transition: all 0.2s;
       font-weight: 600;
       color: var(--text-dark);
       user-select: none;
-      font-size: 13px;
+      font-size: 14px;
     }
 
     .faq-question:hover {
@@ -610,17 +618,17 @@
     }
 
     .faq-answer-content {
-      padding: 14px;
+      padding: 15px;
       color: var(--text-muted);
       line-height: 1.6;
       font-weight: 400;
-      font-size: 12px;
+      font-size: 13px;
     }
 
     /* ══ TESTIMONIALS ══ */
     .testimonials {
       background: var(--bg-light);
-      padding: 48px 16px;
+      padding: 50px 16px;
     }
 
     .testimonials-inner {
@@ -629,7 +637,7 @@
     }
 
     .testimonials-header {
-      margin-bottom: 28px;
+      margin-bottom: 32px;
       cursor: pointer;
       user-select: none;
       transition: all 0.2s;
@@ -640,14 +648,14 @@
     }
 
     .testimonials-header h2 {
-      font-size: clamp(22px, 5vw, 32px);
+      font-size: clamp(24px, 5vw, 34px);
       font-weight: 700;
       color: var(--text-dark);
       display: flex;
       align-items: center;
       gap: 10px;
       justify-content: center;
-      letter-spacing: -0.3px;
+      letter-spacing: -0.2px;
     }
 
     .testimonials-toggle-icon {
@@ -659,7 +667,7 @@
     .testimonials-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 16px;
+      gap: 18px;
       max-height: 0;
       overflow: hidden;
       transition: max-height 0.4s ease;
@@ -671,35 +679,35 @@
 
     .testimonial-card {
       background: white;
-      padding: 20px;
+      padding: 22px;
       border-radius: 12px;
       border: 1px solid var(--border);
     }
 
     .testimonial-stars {
       color: #FFB800;
-      font-size: 12px;
-      margin-bottom: 8px;
+      font-size: 13px;
+      margin-bottom: 9px;
     }
 
     .testimonial-text {
-      font-size: 12px;
+      font-size: 13px;
       color: var(--text-body);
       line-height: 1.5;
-      margin-bottom: 10px;
+      margin-bottom: 11px;
       font-weight: 400;
     }
 
     .testimonial-author {
-      font-size: 11px;
+      font-size: 12px;
       font-weight: 700;
       color: var(--text-dark);
     }
 
     .testimonial-role {
-      font-size: 10px;
+      font-size: 11px;
       color: var(--text-muted);
-      margin-top: 2px;
+      margin-top: 3px;
     }
 
     /* ══ APPLY MODAL ══ */
@@ -744,7 +752,7 @@
 
     .modal-header {
       background: linear-gradient(135deg, var(--dark-bg) 0%, #1a2a4a 100%);
-      padding: 24px;
+      padding: 26px;
       border-bottom: none;
       position: relative;
       color: white;
@@ -761,8 +769,8 @@
       color: white;
       cursor: pointer;
       transition: 0.2s;
-      width: 32px;
-      height: 32px;
+      width: 34px;
+      height: 34px;
       border-radius: 8px;
       display: flex;
       align-items: center;
@@ -774,22 +782,22 @@
     }
 
     .modal-header h2 {
-      font-size: 20px;
+      font-size: 21px;
       font-weight: 700;
       color: white;
-      margin-bottom: 4px;
+      margin-bottom: 5px;
       padding-right: 36px;
     }
 
     .modal-subtitle {
-      font-size: 12px;
+      font-size: 13px;
       color: rgba(255, 255, 255, 0.85);
       font-weight: 400;
     }
 
     /* ── PROGRESS ── */
     .progress-bar {
-      padding: 18px 24px 0;
+      padding: 20px 26px 0;
       display: flex;
       align-items: center;
       gap: 0;
@@ -804,15 +812,15 @@
     }
 
     .progress-dot {
-      width: 32px;
-      height: 32px;
+      width: 34px;
+      height: 34px;
       border-radius: 50%;
       background: var(--bg-lighter);
       border: 2px solid var(--border);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 12px;
+      font-size: 13px;
       font-weight: 700;
       color: var(--text-muted);
       transition: all 0.3s;
@@ -834,11 +842,11 @@
     }
 
     .progress-label {
-      font-size: 9px;
+      font-size: 10px;
       font-weight: 600;
       color: var(--text-muted);
       text-transform: uppercase;
-      margin-top: 5px;
+      margin-top: 6px;
       transition: color 0.3s;
     }
 
@@ -855,7 +863,7 @@
       height: 2px;
       background: var(--bg-lighter);
       margin: 0 -2px;
-      margin-bottom: 18px;
+      margin-bottom: 20px;
       transition: background 0.3s;
       position: relative;
       z-index: 0;
@@ -867,7 +875,7 @@
 
     /* ── FORM ── */
     .modal-body {
-      padding: 24px;
+      padding: 26px;
     }
 
     .step-panel {
@@ -891,17 +899,17 @@
     }
 
     .form-group {
-      margin-bottom: 16px;
+      margin-bottom: 17px;
     }
 
     .form-label {
       display: block;
-      font-size: 11px;
+      font-size: 12px;
       font-weight: 700;
       color: var(--text-muted);
       text-transform: uppercase;
-      letter-spacing: 0.3px;
-      margin-bottom: 6px;
+      letter-spacing: 0.4px;
+      margin-bottom: 7px;
     }
 
     .form-control {
@@ -909,8 +917,8 @@
       background: var(--bg-light);
       border: 1.5px solid var(--border);
       border-radius: 8px;
-      padding: 11px 12px;
-      font-size: 13px;
+      padding: 12px 13px;
+      font-size: 14px;
       font-weight: 500;
       color: var(--text-dark);
       font-family: var(--font);
@@ -930,15 +938,15 @@
     .form-row {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 10px;
+      gap: 11px;
     }
 
     .loan-info {
       background: linear-gradient(135deg, rgba(227, 6, 19, 0.12) 0%, rgba(227, 6, 19, 0.06) 100%);
       border: 1.5px solid rgba(227, 6, 19, 0.25);
       border-radius: 10px;
-      padding: 14px;
-      margin-bottom: 16px;
+      padding: 15px;
+      margin-bottom: 17px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -947,18 +955,18 @@
     .loan-info-left {
       display: flex;
       flex-direction: column;
-      gap: 2px;
+      gap: 3px;
     }
 
     .loan-info-label {
-      font-size: 10px;
+      font-size: 11px;
       font-weight: 700;
       color: var(--primary);
       text-transform: uppercase;
     }
 
     .loan-info-value {
-      font-size: 20px;
+      font-size: 21px;
       font-weight: 700;
       color: var(--text-dark);
     }
@@ -967,18 +975,18 @@
       text-align: right;
       display: flex;
       flex-direction: column;
-      gap: 2px;
+      gap: 3px;
     }
 
     .loan-info-right-label {
-      font-size: 10px;
+      font-size: 11px;
       font-weight: 600;
       color: var(--text-muted);
       text-transform: uppercase;
     }
 
     .loan-info-right-value {
-      font-size: 16px;
+      font-size: 17px;
       font-weight: 700;
       color: var(--green);
     }
@@ -989,15 +997,15 @@
       border: 1px solid var(--border);
       border-radius: 8px;
       overflow: hidden;
-      margin-bottom: 12px;
+      margin-bottom: 13px;
     }
 
     .review-title {
-      font-size: 10px;
+      font-size: 11px;
       font-weight: 700;
       color: var(--text-muted);
       text-transform: uppercase;
-      padding: 10px 12px 6px;
+      padding: 11px 13px 7px;
       border-bottom: 1px solid var(--border);
     }
 
@@ -1005,9 +1013,9 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 8px 12px;
+      padding: 9px 13px;
       border-bottom: 1px solid rgba(0, 0, 0, 0.03);
-      font-size: 12px;
+      font-size: 13px;
     }
 
     .review-row:last-child {
@@ -1032,7 +1040,7 @@
     .modal-buttons {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 11px;
     }
 
     .btn-modal-primary {
@@ -1040,9 +1048,9 @@
       background: var(--primary);
       color: white;
       border: none;
-      padding: 12px;
+      padding: 13px;
       border-radius: 8px;
-      font-size: 13px;
+      font-size: 14px;
       font-weight: 700;
       cursor: pointer;
       transition: all 0.2s;
@@ -1061,9 +1069,9 @@
       background: var(--bg-light);
       color: var(--text-muted);
       border: 1.5px solid var(--border);
-      padding: 12px;
+      padding: 13px;
       border-radius: 8px;
-      font-size: 13px;
+      font-size: 14px;
       font-weight: 700;
       cursor: pointer;
       transition: all 0.2s;
@@ -1078,25 +1086,25 @@
     }
 
     .success-icon {
-      font-size: 44px;
+      font-size: 48px;
       text-align: center;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
     }
 
     .success-title {
-      font-size: 18px;
+      font-size: 19px;
       font-weight: 700;
       color: var(--text-dark);
       text-align: center;
-      margin-bottom: 6px;
+      margin-bottom: 7px;
     }
 
     .success-desc {
-      font-size: 12px;
+      font-size: 13px;
       color: var(--text-muted);
       text-align: center;
       line-height: 1.5;
-      margin-bottom: 18px;
+      margin-bottom: 20px;
       font-weight: 400;
     }
 
@@ -1104,10 +1112,10 @@
       background: linear-gradient(135deg, rgba(227, 6, 19, 0.12) 0%, rgba(227, 6, 19, 0.06) 100%);
       border: 1px solid rgba(227, 6, 19, 0.2);
       border-radius: 8px;
-      padding: 10px;
-      margin-bottom: 12px;
+      padding: 11px;
+      margin-bottom: 13px;
       text-align: center;
-      font-size: 11px;
+      font-size: 12px;
       font-weight: 700;
       color: var(--primary);
     }
@@ -1116,7 +1124,7 @@
     footer {
       background: var(--text-dark);
       color: white;
-      padding: 36px 16px;
+      padding: 40px 16px;
     }
 
     .footer-inner {
@@ -1124,24 +1132,42 @@
       margin: 0 auto;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 24px;
-      margin-bottom: 24px;
+      gap: 28px;
+      margin-bottom: 28px;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .footer-logo-svg {
+      width: 32px;
+      height: 32px;
+    }
+
+    .footer-logo-text {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--primary);
     }
 
     .footer-section h4 {
-      font-size: 11px;
+      font-size: 12px;
       font-weight: 700;
-      margin-bottom: 10px;
+      margin-bottom: 11px;
       text-transform: uppercase;
-      letter-spacing: 0.3px;
+      letter-spacing: 0.4px;
     }
 
     .footer-section a {
       display: block;
-      font-size: 11px;
+      font-size: 12px;
       color: rgba(255, 255, 255, 0.7);
       text-decoration: none;
-      margin-bottom: 5px;
+      margin-bottom: 6px;
       transition: color 0.2s;
       font-weight: 400;
     }
@@ -1152,9 +1178,9 @@
 
     .footer-bottom {
       border-top: 1px solid rgba(255, 255, 255, 0.1);
-      padding-top: 16px;
+      padding-top: 18px;
       text-align: center;
-      font-size: 11px;
+      font-size: 12px;
       color: rgba(255, 255, 255, 0.6);
     }
 
@@ -1171,59 +1197,66 @@
 
     @media (max-width: 768px) {
       header {
-        padding: 10px 12px;
+        padding: 11px 12px;
       }
 
       .logo {
-        font-size: 14px;
+        font-size: 15px;
+        gap: 8px;
       }
 
       .logo-svg {
-        width: 28px;
-        height: 28px;
+        width: 32px;
+        height: 32px;
       }
 
       .btn-apply-header {
-        padding: 7px 12px;
-        font-size: 10px;
+        padding: 8px 16px;
+        font-size: 11px;
       }
 
       .hero {
-        padding: 28px 12px;
+        padding: 30px 12px;
       }
 
       .hero-title {
-        font-size: 22px;
-        margin-bottom: 10px;
+        font-size: 24px;
+        margin-bottom: 11px;
       }
 
       .hero-desc {
-        font-size: 13px;
-        margin-bottom: 14px;
+        font-size: 14px;
+        margin-bottom: 16px;
+      }
+
+      .eligibility-message {
+        padding: 13px;
+        font-size: 12px;
+        margin-bottom: 18px;
       }
 
       .hero-calculator {
-        padding: 16px;
+        padding: 18px;
       }
 
       .calc-title {
-        font-size: 14px;
+        font-size: 15px;
       }
 
       .calc-desc {
-        font-size: 11px;
+        font-size: 12px;
       }
 
       .benefits,
       .faq,
       .testimonials {
-        padding: 36px 12px;
+        padding: 40px 12px;
       }
 
       .section-title,
       .faq-title {
-        font-size: 20px;
-        margin-bottom: 20px;
+        font-size: 22px;
+        margin-bottom: 24px;
       }
 
       .benefits-grid {
@@ -1232,7 +1265,7 @@
 
       .form-row {
         grid-template-columns: 1fr;
-        gap: 8px;
+        gap: 9px;
       }
 
       .modal-card {
@@ -1241,177 +1274,181 @@
 
       .modal-header,
       .modal-body {
-        padding: 16px;
+        padding: 18px;
       }
 
       .stats-inner {
-        gap: 12px;
+        gap: 14px;
       }
 
       .stat-number {
-        font-size: 24px;
+        font-size: 26px;
       }
 
       .stat-label {
-        font-size: 10px;
+        font-size: 11px;
       }
     }
 
     @media (max-width: 480px) {
       header {
-        padding: 8px 10px;
+        padding: 9px 10px;
       }
 
       .logo {
-        font-size: 13px;
-        gap: 6px;
+        font-size: 14px;
+        gap: 7px;
       }
 
       .logo-svg {
-        width: 24px;
-        height: 24px;
+        width: 28px;
+        height: 28px;
       }
 
       .btn-apply-header {
-        padding: 6px 10px;
-        font-size: 9px;
+        padding: 7px 14px;
+        font-size: 10px;
       }
 
       .hero {
-        padding: 20px 12px;
-        gap: 16px;
+        padding: 22px 12px;
+        gap: 18px;
       }
 
       .hero-title {
-        font-size: 20px;
-        margin-bottom: 8px;
+        font-size: 22px;
+        margin-bottom: 9px;
       }
 
       .hero-desc {
-        font-size: 12px;
-        margin-bottom: 12px;
-      }
-
-      .eligibility-message {
-        padding: 10px;
-        font-size: 11px;
+        font-size: 13px;
         margin-bottom: 14px;
       }
 
+      .eligibility-message {
+        padding: 11px;
+        font-size: 11px;
+        margin-bottom: 16px;
+      }
+
+      .eligibility-message strong {
+        font-size: 11px;
+      }
+
       .hero-calculator {
-        padding: 14px;
+        padding: 16px;
         border-radius: 14px;
       }
 
       .calc-title {
-        font-size: 13px;
-        margin-bottom: 3px;
+        font-size: 14px;
+        margin-bottom: 4px;
       }
 
       .calc-desc {
-        font-size: 10px;
-        margin-bottom: 12px;
+        font-size: 11px;
+        margin-bottom: 14px;
       }
 
       .calc-row {
-        margin-bottom: 12px;
+        margin-bottom: 14px;
       }
 
       .calc-label-text {
-        font-size: 9px;
+        font-size: 10px;
       }
 
       .calc-value {
-        font-size: 14px;
+        font-size: 15px;
       }
 
       .calc-input {
-        padding: 8px;
-        font-size: 11px;
-      }
-
-      .calc-currency {
-        font-size: 9px;
-      }
-
-      .range-labels {
-        font-size: 9px;
-      }
-
-      .interest-rate-badge {
-        padding: 8px 10px;
-        font-size: 10px;
-        margin-bottom: 10px;
-      }
-
-      .interest-rate-value {
+        padding: 9px;
         font-size: 12px;
       }
 
-      .total-repayment {
-        padding: 10px;
-        margin-bottom: 10px;
+      .calc-currency {
+        font-size: 11px;
       }
 
-      .total-repayment-label {
+      .range-labels {
         font-size: 10px;
       }
 
+      .interest-rate-badge {
+        padding: 9px 11px;
+        font-size: 11px;
+        margin-bottom: 11px;
+      }
+
+      .interest-rate-value {
+        font-size: 13px;
+      }
+
+      .total-repayment {
+        padding: 11px;
+        margin-bottom: 12px;
+      }
+
+      .total-repayment-label {
+        font-size: 11px;
+      }
+
       .total-repayment-value {
-        font-size: 18px;
+        font-size: 19px;
       }
 
       .btn-apply {
-        padding: 10px;
-        font-size: 11px;
+        padding: 11px;
+        font-size: 12px;
       }
 
       .btn-primary {
         width: 100%;
-        padding: 10px;
-        font-size: 12px;
+        padding: 11px;
+        font-size: 13px;
       }
 
       .benefits,
       .faq,
       .testimonials {
-        padding: 24px 10px;
+        padding: 28px 10px;
       }
 
       .section-title,
       .faq-title {
-        font-size: 18px;
-        margin-bottom: 16px;
+        font-size: 20px;
+        margin-bottom: 18px;
       }
 
       .benefits-grid {
         grid-template-columns: 1fr;
-        gap: 10px;
+        gap: 11px;
       }
 
       .benefit-card {
-        padding: 14px;
+        padding: 16px;
       }
 
       .benefit-icon {
-        font-size: 28px;
+        font-size: 30px;
       }
 
       .benefit-title {
-        font-size: 13px;
+        font-size: 14px;
       }
 
       .benefit-desc {
-        font-size: 11px;
+        font-size: 12px;
       }
 
       .faq-item {
-        margin-bottom: 10px;
+        margin-bottom: 11px;
       }
 
       .faq-question {
-        padding: 10px;
-        font-size: 11px;
+        padding: 11px;
+        font-size: 12px;
       }
 
       .faq-toggle {
@@ -1419,12 +1456,12 @@
       }
 
       .faq-answer-content {
-        padding: 8px;
-        font-size: 10px;
+        padding: 9px;
+        font-size: 11px;
       }
 
       .testimonials-header h2 {
-        font-size: 18px;
+        font-size: 20px;
         gap: 6px;
       }
 
@@ -1434,19 +1471,19 @@
 
       .testimonials-grid {
         grid-template-columns: 1fr;
-        gap: 10px;
+        gap: 11px;
       }
 
       .testimonial-card {
-        padding: 14px;
+        padding: 16px;
       }
 
       .testimonial-text {
-        font-size: 11px;
+        font-size: 12px;
       }
 
       .testimonial-author {
-        font-size: 10px;
+        font-size: 11px;
       }
 
       .modal-card {
@@ -1454,120 +1491,124 @@
       }
 
       .modal-header {
-        padding: 14px;
+        padding: 16px;
       }
 
       .modal-header h2 {
-        font-size: 16px;
+        font-size: 17px;
       }
 
       .modal-subtitle {
-        font-size: 11px;
+        font-size: 12px;
       }
 
       .modal-body {
-        padding: 14px;
+        padding: 16px;
       }
 
       .form-label {
-        font-size: 9px;
+        font-size: 10px;
       }
 
       .form-control {
-        padding: 9px;
-        font-size: 11px;
+        padding: 10px;
+        font-size: 12px;
       }
 
       .loan-info {
-        padding: 10px;
+        padding: 11px;
       }
 
       .loan-info-label {
-        font-size: 8px;
+        font-size: 10px;
       }
 
       .loan-info-value {
-        font-size: 16px;
+        font-size: 18px;
       }
 
       .loan-info-right-value {
-        font-size: 14px;
+        font-size: 15px;
       }
 
       .review-title {
-        padding: 7px 10px 4px;
-        font-size: 8px;
+        padding: 8px 11px 5px;
+        font-size: 9px;
       }
 
       .review-row {
-        padding: 5px 10px;
-        font-size: 10px;
+        padding: 6px 11px;
+        font-size: 11px;
       }
 
       .btn-modal-primary,
       .btn-modal-secondary {
-        padding: 10px;
-        font-size: 11px;
+        padding: 11px;
+        font-size: 12px;
       }
 
       .success-icon {
-        font-size: 36px;
+        font-size: 40px;
       }
 
       .success-title {
-        font-size: 14px;
+        font-size: 16px;
       }
 
       .success-desc {
-        font-size: 11px;
+        font-size: 12px;
       }
 
       .telecel-badge {
-        font-size: 10px;
-        padding: 8px;
+        font-size: 11px;
+        padding: 9px;
       }
 
       footer {
-        padding: 20px 10px;
+        padding: 24px 10px;
       }
 
       .footer-inner {
-        gap: 14px;
-        margin-bottom: 14px;
+        gap: 16px;
+        margin-bottom: 16px;
       }
 
       .footer-section h4 {
-        font-size: 9px;
+        font-size: 10px;
       }
 
       .footer-section a {
-        font-size: 9px;
+        font-size: 10px;
       }
 
       .footer-bottom {
-        font-size: 9px;
+        font-size: 10px;
       }
 
       .stats-inner {
         grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
+        gap: 11px;
       }
 
       .stat-number {
-        font-size: 20px;
+        font-size: 22px;
       }
 
       .stat-label {
-        font-size: 9px;
+        font-size: 10px;
       }
 
       .progress-bar {
-        padding: 10px 14px 0;
+        padding: 14px 16px 0;
       }
 
       .progress-dot {
-        width: 26px;
-        height: 26px;
+        width: 30px;
+        height: 30px;
+        font-size: 11px;
+      }
+
+      .progress-label {
         font-size: 9px;
       }
     }
@@ -1579,10 +1620,16 @@
 <header>
   <a href="#" class="logo">
     <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-      <rect width="100" height="100" fill="#E30613" rx="20"/>
-      <text x="50" y="65" font-size="60" font-weight="bold" fill="white" text-anchor="middle" font-family="Arial">T</text>
+      <defs>
+        <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#E30613;stop-opacity:1" />
+          <stop offset="100%" style="stop-color:#B8040F;stop-opacity:1" />
+        </linearGradient>
+      </defs>
+      <rect width="100" height="100" fill="url(#logoGrad)" rx="20"/>
+      <text x="50" y="68" font-size="65" font-weight="bold" fill="white" text-anchor="middle" font-family="Arial, sans-serif">T</text>
     </svg>
-    <span class="logo-text">Loans</span>
+    <span class="logo-text">Telecel Loans</span>
   </a>
   <nav>
     <a href="#home">Home</a>
@@ -1602,7 +1649,8 @@
     <p class="hero-desc">Fast approval, flexible terms from 7 days to 6 months, and transparent rates. No hidden fees, just the funds you need when you need them.</p>
     
     <div class="eligibility-message">
-      📱 Only <strong>Telecel subscribers</strong> who are eligible can qualify for Telecel Loans. The longer you've been using Telecel, the higher your chances to qualify and get approved for larger loan amounts. Build your Telecel history and unlock better loan opportunities!
+      <strong>📱 Telecel Subscribers Only</strong>
+      Only Telecel subscribers who are eligible can qualify for Telecel Loans. The longer you've been using Telecel, the higher your chances to qualify and get approved for larger loan amounts. Build your Telecel history and unlock better loan opportunities!
     </div>
 
     <div class="hero-btns">
@@ -1649,12 +1697,12 @@
 
     <div class="interest-rate-badge">
       <span class="interest-rate-label">Interest Rate</span>
-      <span class="interest-rate-value" id="rateDisplay">8.0%</span>
+      <span class="interest-rate-value" id="rateDisplay">11.5%</span>
     </div>
 
     <div class="total-repayment">
       <div class="total-repayment-label">Total Repayment</div>
-      <div class="total-repayment-value">GHS <span id="monthlyDisplay">1080</span></div>
+      <div class="total-repayment-value">GHS <span id="monthlyDisplay">1115</span></div>
     </div>
 
     <button class="btn-apply" onclick="openModal()">Apply Now →</button>
@@ -1770,7 +1818,7 @@
       </div>
       <div class="faq-answer">
         <div class="faq-answer-content">
-          Our interest rates are tiered based on your repayment period: 8% for 7 days, scaling down to competitive rates for longer terms up to 6 months. All rates are transparent with no hidden fees. You'll see the exact amount you'll pay before confirming your application.
+          Our interest rates are tiered based on your repayment period: 11.5% for 7 days, scaling down to competitive rates for longer terms up to 6 months. All rates are transparent with no hidden fees. You'll see the exact amount you'll pay before confirming your application.
         </div>
       </div>
     </div>
@@ -1875,7 +1923,7 @@
           </div>
           <div class="loan-info-right">
             <div class="loan-info-right-label">Total Repay</div>
-            <div class="loan-info-right-value">GHS <span id="modalRepay">1080</span></div>
+            <div class="loan-info-right-value">GHS <span id="modalRepay">1115</span></div>
           </div>
         </div>
 
@@ -1972,19 +2020,19 @@
 
         <div class="review-section">
           <div class="review-title">Next Steps</div>
-          <div style="padding: 10px;">
-            <div style="display: flex; gap: 8px; margin-bottom: 8px;">
-              <div style="font-size: 16px; flex-shrink: 0;">📱</div>
+          <div style="padding: 11px;">
+            <div style="display: flex; gap: 9px; margin-bottom: 9px;">
+              <div style="font-size: 18px; flex-shrink: 0;">📱</div>
               <div>
-                <p style="font-size: 10px; font-weight: 700; color: var(--text-dark);">Enter Telecel PIN</p>
-                <p style="font-size: 10px; color: var(--text-muted); margin-top: 1px;">Verify with your Telecel number</p>
+                <p style="font-size: 11px; font-weight: 700; color: var(--text-dark);">Enter Telecel PIN</p>
+                <p style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Verify with your Telecel number</p>
               </div>
             </div>
-            <div style="display: flex; gap: 8px;">
-              <div style="font-size: 16px; flex-shrink: 0;">✓</div>
+            <div style="display: flex; gap: 9px;">
+              <div style="font-size: 18px; flex-shrink: 0;">✓</div>
               <div>
-                <p style="font-size: 10px; font-weight: 700; color: var(--text-dark);">Authorize Loan</p>
-                <p style="font-size: 10px; color: var(--text-muted); margin-top: 1px;">Approve your loan request</p>
+                <p style="font-size: 11px; font-weight: 700; color: var(--text-dark);">Authorize Loan</p>
+                <p style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Approve your loan request</p>
               </div>
             </div>
           </div>
@@ -2001,6 +2049,22 @@
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner">
+    <div class="footer-section">
+      <div class="footer-logo">
+        <svg class="footer-logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="footerLogoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#E30613;stop-opacity:1" />
+              <stop offset="100%" style="stop-color:#B8040F;stop-opacity:1" />
+            </linearGradient>
+          </defs>
+          <rect width="100" height="100" fill="url(#footerLogoGrad)" rx="20"/>
+          <text x="50" y="68" font-size="65" font-weight="bold" fill="white" text-anchor="middle" font-family="Arial, sans-serif">T</text>
+        </svg>
+        <span class="footer-logo-text">Telecel Loans</span>
+      </div>
+      <p style="font-size: 12px; color: rgba(255, 255, 255, 0.7); margin-top: 8px; line-height: 1.5;">Fast, secure, and transparent loans for Telecel subscribers.</p>
+    </div>
     <div class="footer-section">
       <h4>Product</h4>
       <a href="#home">Home</a>
@@ -2019,26 +2083,21 @@
       <a href="#privacy">Privacy Policy</a>
       <a href="#agreement">Loan Agreement</a>
     </div>
-    <div class="footer-section">
-      <h4>Connect</h4>
-      <a href="#facebook">Facebook</a>
-      <a href="#twitter">Twitter</a>
-      <a href="#instagram">Instagram</a>
-    </div>
   </div>
   <div class="footer-bottom">
-    © 2026 Telecel Loans. All rights reserved.
+    © 2026 Telecel Loans. All rights reserved. | Powered by Telecel
   </div>
 </footer>
 
 <script>
-  // ── TIERED INTEREST RATES ──
+  // ── TIERED INTEREST RATES (7 days = 11.5%) ──
   function getInterestRate(days) {
-    if (days <= 7) return 0.08;      // 8% for 7 days
-    if (days <= 14) return 0.075;    // 7.5% for 14 days
-    if (days <= 30) return 0.07;     // 7% for 30 days
-    if (days <= 60) return 0.065;    // 6.5% for 60 days
-    if (days <= 90) return 0.06;     // 6% for 90 days
+    if (days <= 7) return 0.115;     // 11.5% for 7 days
+    if (days <= 14) return 0.11;     // 11% for 14 days
+    if (days <= 30) return 0.10;     // 10% for 30 days
+    if (days <= 60) return 0.085;    // 8.5% for 60 days
+    if (days <= 90) return 0.075;    // 7.5% for 90 days
+    if (days <= 120) return 0.065;   // 6.5% for 120 days
     return 0.055;                     // 5.5% for 6 months
   }
 
@@ -2075,12 +2134,13 @@
   function calculatePayment() {
     const amount = parseInt(document.getElementById('amountSlider').value);
     const days = parseInt(document.getElementById('termSlider').value);
-    const dailyRate = getInterestRate(days) / 30; // Convert to daily rate
+    const interestRate = getInterestRate(days);
+    const dailyRate = interestRate / 365;
 
     // Calculate total repayment: P * (1 + r*t)
     const totalRepayment = Math.round(amount * (1 + (dailyRate * days)));
     const totalInterest = totalRepayment - amount;
-    const interestPercent = ((totalInterest / amount) * 100).toFixed(1);
+    const interestPercent = (interestRate * 100).toFixed(1);
 
     document.getElementById('monthlyDisplay').textContent = totalRepayment.toLocaleString();
     document.getElementById('modalRepay').textContent = totalRepayment.toLocaleString();
@@ -2092,7 +2152,7 @@
       days: days,
       totalRepayment: totalRepayment,
       totalInterest: totalInterest,
-      interestRate: (getInterestRate(days) * 100).toFixed(1) + '%',
+      interestRate: interestPercent + '%',
       dailyRate: dailyRate
     };
   }
