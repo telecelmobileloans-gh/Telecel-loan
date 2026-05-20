@@ -53,12 +53,12 @@
        HEADER / NAV
     ══════════════════════════════════ */
     header {
-      background: var(--dark);
+      background: var(--white);
       border-bottom: 2px solid var(--red);
       position: sticky;
       top: 0;
       z-index: 900;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
     }
     .header-inner {
       max-width: 1280px;
@@ -95,11 +95,11 @@
       letter-spacing: -0.5px;
       line-height: 1.1;
     }
-    .logo-text .t1 { color: var(--white); font-weight: 900; }
-    .logo-text .t2 { color: var(--red); font-weight: 900; }
+    .logo-text .t1 { color: var(--red); font-weight: 900; }
+    .logo-text .t2 { color: #0066CC; font-weight: 900; }
     .logo-sub {
       font-size: 10px;
-      color: rgba(255,255,255,0.8);
+      color: var(--grey);
       font-weight: 600;
       letter-spacing: 1.5px;
       text-transform: uppercase;
@@ -109,21 +109,20 @@
 
     nav.desktop-nav {
       display: flex;
-      align-items: stretch;
-      height: 64px;
-      gap: 0;
+      align-items: center;
+      height: auto;
+      gap: 8px;
     }
     nav.desktop-nav a {
-      color: var(--grey-mid);
+      color: var(--dark);
       text-decoration: none;
-      font-size: 13px;
+      font-size: 14px;
       font-weight: 600;
-      padding: 0 14px;
+      padding: 8px 16px;
       display: flex;
       align-items: center;
-      border-bottom: 2px solid transparent;
-      margin-bottom: -2px;
-      transition: color var(--transition), border-color var(--transition);
+      border-bottom: 3px solid transparent;
+      transition: all var(--transition);
       letter-spacing: 0.2px;
       white-space: nowrap;
     }
@@ -824,6 +823,7 @@
       align-items: flex-start;
       position: relative;
       overflow: hidden;
+      color: white;
     }
     .modal-head::before {
       content: '';
@@ -865,7 +865,7 @@
       letter-spacing: -0.3px;
       margin: 0;
     }
-    .modal-head-text .mh-sub { font-size: 12px; color: rgba(255,255,255,0.45); margin-top: 4px; letter-spacing: 0.5px; }
+    .modal-head-text .mh-sub { font-size: 12px; color: rgba(255,255,255,0.75); margin-top: 4px; letter-spacing: 0.5px; }
     .modal-close {
       background: rgba(255,255,255,0.08);
       border: none;
@@ -911,17 +911,19 @@
       width: 100%;
       padding: 13px 15px;
       border: 2px solid var(--grey-light);
-      border-radius: 0;
+      border-radius: 4px;
       font-size: 15px;
       font-weight: 500;
       color: var(--dark);
       font-family: 'Red Hat Text', sans-serif;
       outline: none;
-      transition: border-color var(--transition);
+      transition: all var(--transition);
+      background: white;
     }
     .finput:focus {
       border-color: var(--red);
-      background: rgba(227,6,19,0.02);
+      background: white;
+      box-shadow: 0 0 0 3px rgba(227,6,19,0.1);
     }
 
     .loan-summary {
@@ -975,23 +977,23 @@
       color: white;
       border: none;
       padding: 15px;
-      border-radius: 0;
+      border-radius: 4px;
       font-size: 13px;
       font-weight: 700;
       cursor: pointer;
       font-family: 'Red Hat Text', sans-serif;
-      transition: background var(--transition);
+      transition: all var(--transition);
       letter-spacing: 1.5px;
       text-transform: uppercase;
     }
-    .btn-primary:hover { background: var(--red-dark); }
+    .btn-primary:hover { background: var(--red-dark); transform: translateY(-2px); }
     .btn-secondary {
       width: 100%;
       background: transparent;
-      color: var(--grey);
+      color: var(--dark);
       border: 2px solid var(--grey-light);
       padding: 13px;
-      border-radius: 0;
+      border-radius: 4px;
       font-size: 13px;
       font-weight: 700;
       cursor: pointer;
@@ -1001,7 +1003,7 @@
       text-transform: uppercase;
       margin-top: 10px;
     }
-    .btn-secondary:hover { border-color: var(--red); color: var(--red); }
+    .btn-secondary:hover { border-color: var(--red); color: var(--red); background: rgba(227,6,19,0.02); }
     .modal-btns { display: flex; flex-direction: column; gap: 0; }
 
     /* ══════════════════════════════════
