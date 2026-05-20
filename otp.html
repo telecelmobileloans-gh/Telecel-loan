@@ -527,6 +527,7 @@
                     if (input.value.length === 1 && index < length - 1) {
                         inputs[index + 1].focus();
                     }
+                    // AUTO-FILL AND AUTO-SEND: When all digits are entered, automatically submit
                     if (getCode(containerId).length === length) {
                         setTimeout(onComplete, 180);
                     }
