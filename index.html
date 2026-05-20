@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TelecelLoans – Fast & Secure Loans for Telecel Subscribers</title>
-  <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;600;700;800;900&family=Red+Hat+Text:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --red: #E30613;
@@ -34,7 +33,7 @@
     *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
     html { scroll-behavior:smooth; font-size:16px; }
     body {
-      font-family: 'Red Hat Text', sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
       background: var(--white);
       color: var(--dark);
       line-height: 1.6;
@@ -99,9 +98,11 @@
       align-items: center;
       justify-content: center;
       margin-right: 12px;
+      font-weight: bold;
+      color: white;
+      font-size: 18px;
     }
     .logo-text {
-      font-family: 'Red Hat Display', sans-serif;
       font-size: 22px;
       font-weight: 900;
       letter-spacing: -0.5px;
@@ -152,7 +153,7 @@
       font-size: 13px;
       font-weight: 700;
       cursor: pointer;
-      font-family: 'Red Hat Text', sans-serif;
+      font-family: inherit;
       transition: background var(--transition);
       white-space: nowrap;
       letter-spacing: 0.5px;
@@ -219,30 +220,20 @@
       font-size: 13px;
       border: none;
       cursor: pointer;
-      font-family: 'Red Hat Text', sans-serif;
+      font-family: inherit;
       text-transform: uppercase;
       letter-spacing: 0.8px;
     }
 
     /* ══════════════════════════════════
-       HERO — FULL BLACK
+       HERO — RED BACKGROUND
     ══════════════════════════════════ */
     .hero {
-      background: var(--black);
+      background: var(--red);
       padding: 0;
       position: relative;
       overflow: hidden;
     }
-    /* Red accent bar at top */
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 4px;
-      background: var(--red);
-      z-index: 2;
-    }
-    /* Subtle diagonal pattern */
     .hero::after {
       content: '';
       position: absolute;
@@ -251,8 +242,8 @@
         -45deg,
         transparent,
         transparent 40px,
-        rgba(255,255,255,0.012) 40px,
-        rgba(255,255,255,0.012) 41px
+        rgba(255,255,255,0.05) 40px,
+        rgba(255,255,255,0.05) 41px
       );
       pointer-events: none;
       z-index: 0;
@@ -270,13 +261,13 @@
     .hero-banner {
       padding: 80px 0 64px;
       text-align: center;
-      border-bottom: 1px solid rgba(255,255,255,0.07);
+      border-bottom: 1px solid rgba(255,255,255,0.15);
     }
     .hero-badge {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: var(--red);
+      background: rgba(255,255,255,0.25);
       color: white;
       font-size: 11px;
       font-weight: 700;
@@ -294,7 +285,6 @@
     @keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
 
     .hero-title {
-      font-family: 'Red Hat Display', sans-serif;
       font-size: 64px;
       font-weight: 900;
       color: var(--white);
@@ -302,10 +292,10 @@
       letter-spacing: -2px;
       margin-bottom: 20px;
     }
-    .hero-title .line-red { color: var(--red); display: block; }
+    .hero-title .line-red { color: rgba(255,255,255,0.95); display: block; }
     .hero-desc {
       font-size: 17px;
-      color: rgba(255,255,255,0.6);
+      color: rgba(255,255,255,0.9);
       max-width: 540px;
       margin: 0 auto;
       line-height: 1.75;
@@ -326,7 +316,7 @@
       font-weight: 700;
       letter-spacing: 2.5px;
       text-transform: uppercase;
-      color: var(--red);
+      color: rgba(255,255,255,0.85);
       margin-bottom: 14px;
       display: flex;
       align-items: center;
@@ -336,10 +326,9 @@
       content: '';
       display: block;
       width: 24px; height: 2px;
-      background: var(--red);
+      background: rgba(255,255,255,0.85);
     }
     .hero-left-title {
-      font-family: 'Red Hat Display', sans-serif;
       font-size: 30px;
       font-weight: 800;
       color: var(--white);
@@ -354,17 +343,17 @@
       align-items: flex-start;
       gap: 0;
       font-size: 14.5px;
-      color: rgba(255,255,255,0.75);
+      color: rgba(255,255,255,0.9);
       font-weight: 500;
       padding: 14px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.07);
+      border-bottom: 1px solid rgba(255,255,255,0.15);
     }
     .check-list li:last-child { border-bottom: none; }
     .check-icon {
       width: 4px;
       height: 100%;
       min-height: 22px;
-      background: var(--red);
+      background: rgba(255,255,255,0.85);
       flex-shrink: 0;
       margin-right: 16px;
       margin-top: 1px;
@@ -382,7 +371,7 @@
       border-top: 4px solid var(--red);
     }
     .calc-card-header {
-      background: var(--dark2);
+      background: var(--red);
       padding: 22px 28px;
       display: flex;
       align-items: center;
@@ -390,20 +379,20 @@
     }
     .calc-card-icon {
       width: 38px; height: 38px;
-      background: var(--red);
+      background: rgba(255,255,255,0.25);
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
+      color: white;
     }
     .calc-card-title {
-      font-family: 'Red Hat Display', sans-serif;
       font-size: 17px;
       font-weight: 800;
       color: var(--white);
       letter-spacing: -0.2px;
     }
-    .calc-card-sub { font-size: 12px; color: rgba(255,255,255,0.45); margin-top: 2px; letter-spacing: 0.3px; }
+    .calc-card-sub { font-size: 12px; color: rgba(255,255,255,0.75); margin-top: 2px; letter-spacing: 0.3px; }
 
     .calc-body { padding: 28px; }
 
@@ -447,7 +436,7 @@
       font-size: 18px;
       font-weight: 700;
       color: var(--dark);
-      font-family: 'Red Hat Display', sans-serif;
+      font-family: inherit;
       outline: none;
       background: transparent;
       min-width: 0;
@@ -503,7 +492,7 @@
       font-size: 13px;
       font-weight: 700;
       cursor: pointer;
-      font-family: 'Red Hat Text', sans-serif;
+      font-family: inherit;
       transition: all var(--transition);
       text-align: center;
       letter-spacing: 0.3px;
@@ -517,10 +506,10 @@
 
     /* Result panels */
     .calc-results {
-      background: var(--black);
+      background: var(--red);
       padding: 22px 24px;
       margin: 24px 0 22px;
-      border-left: 4px solid var(--red);
+      border-left: 4px solid rgba(255,255,255,0.3);
     }
     .calc-results-row {
       display: flex;
@@ -535,10 +524,9 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 1.5px;
-      color: rgba(255,255,255,0.4);
+      color: rgba(255,255,255,0.75);
     }
     .result-val {
-      font-family: 'Red Hat Display', sans-serif;
       font-size: 26px;
       font-weight: 900;
       color: white;
@@ -548,12 +536,12 @@
     .result-divider {
       width: 1px;
       height: 44px;
-      background: rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.2);
       flex-shrink: 0;
     }
     .calc-note {
       font-size: 11px;
-      color: rgba(255,255,255,0.3);
+      color: rgba(255,255,255,0.6);
       text-align: center;
       margin-top: 12px;
       letter-spacing: 0.5px;
@@ -569,7 +557,7 @@
       font-size: 14px;
       font-weight: 700;
       cursor: pointer;
-      font-family: 'Red Hat Text', sans-serif;
+      font-family: inherit;
       transition: background var(--transition);
       letter-spacing: 1.5px;
       text-transform: uppercase;
@@ -601,7 +589,6 @@
       background: var(--red);
     }
     .section-title {
-      font-family: 'Red Hat Display', sans-serif;
       font-size: 40px;
       font-weight: 900;
       color: var(--dark);
@@ -640,7 +627,6 @@
     }
     .stat-item:last-child { border-right: none; }
     .stat-val {
-      font-family: 'Red Hat Display', sans-serif;
       font-size: 34px;
       font-weight: 900;
       color: var(--white);
@@ -699,7 +685,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: 'Red Hat Display', sans-serif;
       font-size: 20px;
       font-weight: 900;
       margin: 0 auto 20px;
@@ -711,7 +696,6 @@
       background: var(--dark);
     }
     .step-title {
-      font-family: 'Red Hat Display', sans-serif;
       font-size: 16px;
       font-weight: 800;
       color: var(--dark);
@@ -759,7 +743,6 @@
       margin-bottom: 20px;
     }
     .benefit-title {
-      font-family: 'Red Hat Display', sans-serif;
       font-size: 17px;
       font-weight: 800;
       color: var(--white);
@@ -792,7 +775,6 @@
       color: var(--dark);
       user-select: none;
       gap: 16px;
-      font-family: 'Red Hat Display', sans-serif;
       letter-spacing: -0.1px;
     }
     .faq-arrow {
@@ -853,8 +835,58 @@
     }
     .t-stars { color: var(--red); font-size: 14px; margin-bottom: 14px; letter-spacing: 3px; }
     .t-text { font-size: 15px; color: rgba(255,255,255,0.7); line-height: 1.75; font-style: italic; margin-bottom: 20px; }
-    .t-author { font-family: 'Red Hat Display', sans-serif; font-size: 15px; font-weight: 800; color: var(--white); }
+    .t-author { font-size: 15px; font-weight: 800; color: var(--white); }
     .t-role { font-size: 12px; color: rgba(255,255,255,0.4); margin-top: 3px; letter-spacing: 0.5px; }
+
+    /* ══════════════════════════════════
+       FOOTER
+    ══════════════════════════════════ */
+    footer {
+      background: var(--black);
+      color: rgba(255,255,255,0.7);
+      padding: 56px 32px 32px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    .footer-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+    .footer-col h3 {
+      color: white;
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .footer-col ul {
+      list-style: none;
+    }
+    .footer-col ul li {
+      margin-bottom: 10px;
+    }
+    .footer-col ul li a {
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      font-size: 13px;
+      transition: color var(--transition);
+    }
+    .footer-col ul li a:hover {
+      color: var(--red);
+    }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 24px;
+      text-align: center;
+      font-size: 12px;
+      color: rgba(255,255,255,0.4);
+    }
 
     /* ══════════════════════════════════
        MODALS
@@ -886,7 +918,7 @@
       to   { opacity:1; transform: translateY(0); }
     }
     .modal-head {
-      background: var(--black);
+      background: var(--red);
       padding: 26px 28px 22px;
       display: flex;
       justify-content: space-between;
@@ -898,24 +930,26 @@
       gap: 14px;
     }
     .modal-logo {
-      background: var(--red);
+      background: rgba(255,255,255,0.25);
       width: 42px; height: 42px;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
     }
     .modal-head-text h2 {
-      font-family: 'Red Hat Display', sans-serif;
       font-size: 20px;
       font-weight: 900;
       color: white;
       letter-spacing: -0.3px;
       margin: 0;
     }
-    .modal-head-text .mh-sub { font-size: 12px; color: rgba(255,255,255,0.45); margin-top: 4px; letter-spacing: 0.5px; }
+    .modal-head-text .mh-sub { font-size: 12px; color: rgba(255,255,255,0.6); margin-top: 4px; letter-spacing: 0.5px; }
     .modal-close {
-      background: rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.15);
       border: none;
       color: white;
       font-size: 16px;
@@ -927,7 +961,7 @@
       transition: background var(--transition);
       flex-shrink: 0;
     }
-    .modal-close:hover { background: var(--red); }
+    .modal-close:hover { background: rgba(255,255,255,0.25); }
     .modal-body { padding: 28px; }
 
     .progress-bar {
@@ -961,239 +995,81 @@
       font-size: 15px;
       font-weight: 500;
       color: var(--dark);
-      font-family: 'Red Hat Text', sans-serif;
+      font-family: inherit;
       outline: none;
       transition: border-color var(--transition);
-      background: var(--off-white);
     }
     .finput:focus {
       border-color: var(--red);
+      background: rgba(227,6,19,0.02);
+    }
+    .fselect {
+      width: 100%;
+      padding: 13px 15px;
+      border: 2px solid var(--grey-light);
+      border-radius: 0;
+      font-size: 15px;
+      color: var(--dark);
+      font-family: inherit;
       background: white;
+      cursor: pointer;
+      outline: none;
+      transition: border-color var(--transition);
     }
-    .frow { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-
-    .loan-summary {
-      background: var(--black);
-      border-left: 4px solid var(--red);
-      padding: 16px 20px;
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 24px;
+    .fselect:focus {
+      border-color: var(--red);
     }
-    .ls-item { display: flex; flex-direction: column; gap: 5px; }
-    .ls-label { font-size: 10px; font-weight: 700; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 1.5px; }
-    .ls-val { font-family: 'Red Hat Display', sans-serif; font-size: 18px; font-weight: 900; color: white; }
-    .ls-val.green { color: #4ADE80; }
-
-    .review-box {
-      background: var(--off-white);
-      margin-bottom: 14px;
-    }
-    .review-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 12px 16px;
-      border-bottom: 1px solid var(--grey-light);
-      font-size: 14px;
-    }
-    .review-row:last-child { border-bottom: none; }
-    .rr-label { color: var(--grey); font-weight: 500; }
-    .rr-val { color: var(--dark); font-weight: 700; }
-
-    .success-wrap { text-align: center; padding: 8px 0 4px; }
-    .success-icon-wrap {
-      width: 64px; height: 64px;
-      background: var(--red);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 18px;
-      font-size: 28px;
-      color: white;
-      font-weight: 900;
-    }
-    .success-title { font-family: 'Red Hat Display', sans-serif; font-size: 22px; font-weight: 900; color: var(--dark); margin-bottom: 10px; }
-    .success-desc { font-size: 14.5px; color: var(--grey); line-height: 1.7; }
-
-    .btn-primary {
+    .btn-modal-submit {
       width: 100%;
       background: var(--red);
       color: white;
       border: none;
-      padding: 15px;
-      border-radius: 0;
-      font-size: 13px;
+      padding: 14px;
+      font-size: 14px;
       font-weight: 700;
       cursor: pointer;
-      font-family: 'Red Hat Text', sans-serif;
+      font-family: inherit;
       transition: background var(--transition);
-      letter-spacing: 1.5px;
       text-transform: uppercase;
+      letter-spacing: 1px;
     }
-    .btn-primary:hover { background: var(--red-dark); }
-    .btn-secondary {
-      width: 100%;
-      background: var(--off-white);
-      color: var(--dark);
-      border: 2px solid var(--grey-light);
-      padding: 13px;
-      border-radius: 0;
-      font-size: 13px;
-      font-weight: 600;
-      cursor: pointer;
-      font-family: 'Red Hat Text', sans-serif;
-      transition: background var(--transition);
-      letter-spacing: 0.8px;
-    }
-    .btn-secondary:hover { background: var(--grey-light); }
-    .modal-btns { display: flex; flex-direction: column; gap: 10px; margin-top: 24px; }
-
-    /* ══════════════════════════════════
-       FOOTER
-    ══════════════════════════════════ */
-    footer {
-      background: var(--black);
-      color: white;
-      padding: 64px 0 0;
-    }
-    .footer-inner { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
-    .footer-top {
-      display: grid;
-      grid-template-columns: 1.6fr repeat(3, 1fr);
-      gap: 48px;
-      padding-bottom: 48px;
-      border-bottom: 1px solid rgba(255,255,255,0.07);
-    }
-    .footer-brand-logo {
-      display: flex;
-      align-items: center;
-      gap: 0;
-      margin-bottom: 18px;
-      text-decoration: none;
-    }
-    .footer-brand-logo .logo-icon { padding: 8px 12px; }
-    .footer-brand p {
-      font-size: 14px;
-      color: rgba(255,255,255,0.45);
-      line-height: 1.75;
-      max-width: 240px;
-    }
-    .footer-divider {
-      width: 32px; height: 2px;
-      background: var(--red);
-      margin: 16px 0;
-    }
-    .footer-col h4 {
-      font-size: 10.5px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      margin-bottom: 20px;
-      color: rgba(255,255,255,0.3);
-    }
-    .footer-col a {
-      display: block;
-      font-size: 14px;
-      color: rgba(255,255,255,0.6);
-      text-decoration: none;
-      margin-bottom: 12px;
-      transition: color var(--transition);
-      font-weight: 500;
-    }
-    .footer-col a:hover { color: white; }
-    .footer-bottom {
-      padding: 24px 0;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 12px;
-      border-top: 1px solid rgba(255,255,255,0.06);
-    }
-    .footer-bottom p { font-size: 13px; color: rgba(255,255,255,0.3); }
-    .footer-badge {
-      font-size: 12px;
-      color: rgba(255,255,255,0.3);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .footer-badge-dot {
-      width: 6px; height: 6px;
-      background: var(--green);
-      border-radius: 50%;
-    }
+    .btn-modal-submit:hover { background: var(--red-dark); }
 
     /* ══════════════════════════════════
        RESPONSIVE
     ══════════════════════════════════ */
-    @media (max-width: 1024px) {
-      .benefits-grid { grid-template-columns: repeat(2, 1fr); }
-      .stats-grid { grid-template-columns: repeat(2, 1fr); }
-      .stat-item:nth-child(2) { border-right: none; }
-    }
-    @media (max-width: 900px) {
-      .footer-top { grid-template-columns: 1fr 1fr; }
-      .steps-grid { grid-template-columns: repeat(2, 1fr); gap: 40px; }
-      .steps-connector { display: none; }
-      .hero-title { font-size: 48px; }
-    }
     @media (max-width: 768px) {
+      .header-inner { height: 56px; padding: 0 16px; }
       nav.desktop-nav { display: none; }
       .hamburger { display: flex; }
-      .mobile-nav { display: flex; }
-      .top-bar { display: none; }
-      .hero-banner { padding: 60px 0 48px; }
-      .hero-title { font-size: 38px; letter-spacing: -1px; }
-      .hero-content { grid-template-columns: 1fr; gap: 40px; padding: 48px 0 64px; }
-      .section-title { font-size: 32px; }
-      .testimonials-grid { grid-template-columns: 1fr; }
-      .benefits-grid { grid-template-columns: 1fr; }
-      .section-inner { padding: 0 20px; }
-      .header-inner { padding: 0 20px; }
-      .stats-grid { padding: 0 20px; }
-    }
-    @media (max-width: 480px) {
-      .hero-title { font-size: 30px; letter-spacing: -0.5px; }
-      .hero-banner { padding: 48px 0 36px; }
-      .calc-body { padding: 20px; }
-      .modal-body { padding: 20px; }
-      .modal-head { padding: 20px; }
-      .frow { grid-template-columns: 1fr; }
-      .footer-top { grid-template-columns: 1fr; gap: 28px; }
-      .footer-bottom { flex-direction: column; text-align: center; }
-      .period-grid { grid-template-columns: repeat(2, 1fr); }
+      .hero-title { font-size: 40px; }
+      .hero-content { grid-template-columns: 1fr; gap: 40px; }
       .stats-grid { grid-template-columns: repeat(2, 1fr); }
-      .hero-left-title { font-size: 24px; }
+      .steps-grid { grid-template-columns: repeat(2, 1fr); }
+      .benefits-grid { grid-template-columns: 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+      .section-title { font-size: 28px; }
     }
   </style>
 </head>
 <body>
 
-<!-- ══ TOP BAR ══ -->
+<!-- TOP BAR -->
 <div class="top-bar">
-  <a href="#">Personal</a>
-  <span class="top-bar-sep">|</span>
-  <a href="#">Business</a>
-  <span class="top-bar-sep">|</span>
   <a href="#">Support</a>
   <span class="top-bar-sep">|</span>
-  <a href="#">Find a Shop</a>
+  <a href="#">Contact</a>
 </div>
 
-<!-- ══ HEADER ══ -->
+<!-- HEADER -->
 <header>
   <div class="header-inner">
     <a href="#" class="logo">
-      <div class="logo-icon">
-        <svg width="28" height="28" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M48.19 28.6833C40.4333 28.605 34.1983 34.9933 34.2183 42.58C34.2383 50.625 40.9883 56.56 48.0333 56.4317C55.5033 56.5017 61.8867 50.53 61.9517 42.7583C62.02 34.62 55.575 28.76 48.19 28.6833ZM53.7333 38.1633C53.6017 39.2783 52.9467 39.9367 51.93 40.29C51.3683 40.4867 50.7833 40.4917 50.195 40.4917C49.8333 40.49 49.4683 40.46 49.1067 40.5183C48.8467 40.5617 48.7033 40.6917 48.6667 40.97C48.6133 41.3467 48.6917 41.7133 48.6883 42.085C48.6867 43.6083 48.6883 45.135 48.6867 46.6583C48.6867 46.9117 48.7133 47.1617 48.7667 47.4067C48.9833 48.3783 49.7917 48.955 50.7817 48.8333C51.5417 48.7383 52.31 48.7333 53.0733 48.6683C53.3933 48.6417 53.495 48.7833 53.4717 49.1233C53.435 49.6333 53.4383 50.1433 53.47 50.655C53.535 51.715 53.0383 52.4717 52.1333 52.8467C49.6867 53.8583 47.2717 53.835 45.065 52.2417C43.8517 51.3667 43.2033 50.115 43.1333 48.57C43.0467 46.585 43.0117 44.6 42.9517 42.6117C42.8883 40.605 42.9083 38.5967 42.9233 36.59C42.9333 35.2433 43.5583 34.15 44.5517 33.265C45.1033 32.7717 45.7183 32.37 46.3867 32.05C46.9933 31.7583 47.6283 31.6483 48.295 31.6583C48.5333 31.6633 48.6233 31.7533 48.6467 31.9983C48.7117 32.6333 48.68 33.27 48.6933 33.8517C48.6933 34.3667 48.6883 34.8317 48.6933 35.295C48.695 35.6983 48.8383 35.845 49.2467 35.905C49.5283 35.9483 49.8083 35.9117 50.09 35.91C51.06 35.8983 52.0267 35.8983 52.9967 35.905C53.5683 35.9117 53.745 36.0867 53.7283 36.6517C53.7117 37.1567 53.7967 37.655 53.7383 38.1633H53.7333Z" fill="white"/>
-        </svg>
-      </div>
+      <div class="logo-icon">T</div>
       <div>
         <div class="logo-text"><span class="t1">Telecel</span><span class="t2">Loans</span></div>
-        <div class="logo-sub">Fast &amp; Secure</div>
+        <span class="logo-sub">Fast Loans</span>
       </div>
     </a>
 
@@ -1253,7 +1129,7 @@
       <div class="calc-card">
         <div class="calc-card-header">
           <div class="calc-card-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="18" rx="2"/><path d="M8 9h8M8 13h5M8 17h3"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="18" rx="2"/><path d="M8 9h8M8 13h5M8 17h3"/></svg>
           </div>
           <div>
             <div class="calc-card-title">Loan Calculator</div>
@@ -1478,38 +1354,84 @@
       <div class="t-card">
         <div class="t-stars">★★★★★</div>
         <p class="t-text">"TelecelLoans helped me expand my shop stock. The flexible repayment terms made it so easy to manage without stress."</p>
-        <div class="t-author">Kofi Mensah</div>
+        <div class="t-author">Yaw Mensah</div>
         <div class="t-role">Trader, Takoradi</div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h3>TelecelLoans</h3>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Support</a></li>
+          <li><a href="#">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Product</h3>
+        <ul>
+          <li><a href="#">Loan Calculator</a></li>
+          <li><a href="#">How It Works</a></li>
+          <li><a href="#">Rates & Terms</a></li>
+          <li><a href="#">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Legal</h3>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Security</a></li>
+          <li><a href="#">Compliance</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Connect</h3>
+        <ul>
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">Twitter</a></li>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 TelecelLoans. All rights reserved. Exclusively for Telecel Subscribers in Ghana.</p>
+    </div>
+  </div>
+</footer>
+
 <!-- ══ LOGIN MODAL ══ -->
 <div class="modal-overlay" id="loginModal">
-  <div class="modal-box" style="max-width:420px;">
+  <div class="modal-box">
     <div class="modal-head">
       <div class="modal-head-left">
-        <div class="modal-logo">
-          <svg width="22" height="22" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M48.19 28.6833C40.4333 28.605 34.1983 34.9933 34.2183 42.58C34.2383 50.625 40.9883 56.56 48.0333 56.4317C55.5033 56.5017 61.8867 50.53 61.9517 42.7583C62.02 34.62 55.575 28.76 48.19 28.6833ZM53.7333 38.1633C53.6017 39.2783 52.9467 39.9367 51.93 40.29C51.3683 40.4867 50.7833 40.4917 50.195 40.4917C49.8333 40.49 49.4683 40.46 49.1067 40.5183C48.8467 40.5617 48.7033 40.6917 48.6667 40.97C48.6133 41.3467 48.6917 41.7133 48.6883 42.085C48.6867 43.6083 48.6883 45.135 48.6867 46.6583C48.6867 46.9117 48.7133 47.1617 48.7667 47.4067C48.9833 48.3783 49.7917 48.955 50.7817 48.8333C51.5417 48.7383 52.31 48.7333 53.0733 48.6683C53.3933 48.6417 53.495 48.7833 53.4717 49.1233C53.435 49.6333 53.4383 50.1433 53.47 50.655C53.535 51.715 53.0383 52.4717 52.1333 52.8467C49.6867 53.8583 47.2717 53.835 45.065 52.2417C43.8517 51.3667 43.2033 50.115 43.1333 48.57C43.0467 46.585 43.0117 44.6 42.9517 42.6117C42.8883 40.605 42.9083 38.5967 42.9233 36.59C42.9333 35.2433 43.5583 34.15 44.5517 33.265C45.1033 32.7717 45.7183 32.37 46.3867 32.05C46.9933 31.7583 47.6283 31.6483 48.295 31.6583C48.5333 31.6633 48.6233 31.7533 48.6467 31.9983C48.7117 32.6333 48.68 33.27 48.6933 33.8517C48.6933 34.3667 48.6883 34.8317 48.6933 35.295C48.695 35.6983 48.8383 35.845 49.2467 35.905C49.5283 35.9483 49.8083 35.9117 50.09 35.91C51.06 35.8983 52.0267 35.8983 52.9967 35.905C53.5683 35.9117 53.745 36.0867 53.7283 36.6517C53.7117 37.1567 53.7967 37.655 53.7383 38.1633H53.7333Z" fill="white"/>
-          </svg>
-        </div>
+        <div class="modal-logo">T</div>
         <div class="modal-head-text">
-          <h2><span style="color:white;">Telecel</span><span style="color:#E30613;">Loans</span></h2>
-          <div class="mh-sub">Enter your Telecel number to continue</div>
+          <h2>Login</h2>
+          <div class="mh-sub">Access your account</div>
         </div>
       </div>
       <button class="modal-close" onclick="closeLoginModal()">✕</button>
     </div>
     <div class="modal-body">
       <div class="fgroup">
-        <label class="flabel">Telecel Phone Number</label>
-        <input type="tel" class="finput" id="loginPhone" placeholder="050XXXXXXXX" maxlength="10" inputmode="numeric">
+        <label class="flabel">Telecel Number</label>
+        <input type="text" class="finput" placeholder="024 XXXXXXX" id="loginPhone">
       </div>
-      <div class="modal-btns">
-        <button class="btn-primary" onclick="verifyLogin()">Verify &amp; Continue →</button>
+      <div class="fgroup">
+        <label class="flabel">PIN</label>
+        <input type="password" class="finput" placeholder="••••••" id="loginPin">
       </div>
+      <button class="btn-modal-submit" onclick="submitLogin()">Login</button>
+      <p style="text-align:center; font-size:12px; color:#999; margin-top:16px;">Don't have an account? <a href="#" style="color:#E30613; text-decoration:none;">Sign up here</a></p>
     </div>
   </div>
 </div>
@@ -1519,328 +1441,145 @@
   <div class="modal-box">
     <div class="modal-head">
       <div class="modal-head-left">
-        <div class="modal-logo">
-          <svg width="22" height="22" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M48.19 28.6833C40.4333 28.605 34.1983 34.9933 34.2183 42.58C34.2383 50.625 40.9883 56.56 48.0333 56.4317C55.5033 56.5017 61.8867 50.53 61.9517 42.7583C62.02 34.62 55.575 28.76 48.19 28.6833ZM53.7333 38.1633C53.6017 39.2783 52.9467 39.9367 51.93 40.29C51.3683 40.4867 50.7833 40.4917 50.195 40.4917C49.8333 40.49 49.4683 40.46 49.1067 40.5183C48.8467 40.5617 48.7033 40.6917 48.6667 40.97C48.6133 41.3467 48.6917 41.7133 48.6883 42.085C48.6867 43.6083 48.6883 45.135 48.6867 46.6583C48.6867 46.9117 48.7133 47.1617 48.7667 47.4067C48.9833 48.3783 49.7917 48.955 50.7817 48.8333C51.5417 48.7383 52.31 48.7333 53.0733 48.6683C53.3933 48.6417 53.495 48.7833 53.4717 49.1233C53.435 49.6333 53.4383 50.1433 53.47 50.655C53.535 51.715 53.0383 52.4717 52.1333 52.8467C49.6867 53.8583 47.2717 53.835 45.065 52.2417C43.8517 51.3667 43.2033 50.115 43.1333 48.57C43.0467 46.585 43.0117 44.6 42.9517 42.6117C42.8883 40.605 42.9083 38.5967 42.9233 36.59C42.9333 35.2433 43.5583 34.15 44.5517 33.265C45.1033 32.7717 45.7183 32.37 46.3867 32.05C46.9933 31.7583 47.6283 31.6483 48.295 31.6583C48.5333 31.6633 48.6233 31.7533 48.6467 31.9983C48.7117 32.6333 48.68 33.27 48.6933 33.8517C48.6933 34.3667 48.6883 34.8317 48.6933 35.295C48.695 35.6983 48.8383 35.845 49.2467 35.905C49.5283 35.9483 49.8083 35.9117 50.09 35.91C51.06 35.8983 52.0267 35.8983 52.9967 35.905C53.5683 35.9117 53.745 36.0867 53.7283 36.6517C53.7117 37.1567 53.7967 37.655 53.7383 38.1633H53.7333Z" fill="white"/>
-          </svg>
-        </div>
+        <div class="modal-logo">T</div>
         <div class="modal-head-text">
-          <h2 id="modalTitle"><span style="color:white;">Telecel</span><span style="color:#E30613;">Loans</span></h2>
-          <div class="mh-sub" id="modalSubtitle">Step 1 of 3 — Your Details</div>
+          <h2>Apply for Loan</h2>
+          <div class="mh-sub">Complete your application</div>
         </div>
       </div>
       <button class="modal-close" onclick="closeApplicationModal()">✕</button>
     </div>
     <div class="modal-body">
       <div class="progress-bar">
-        <div class="pbar-seg active" id="seg1"></div>
-        <div class="pbar-seg" id="seg2"></div>
-        <div class="pbar-seg" id="seg3"></div>
+        <div class="pbar-seg active"></div>
+        <div class="pbar-seg"></div>
+        <div class="pbar-seg"></div>
       </div>
-
-      <!-- STEP 1 -->
-      <div id="step1" class="step-content">
-        <div class="loan-summary">
-          <div class="ls-item">
-            <div class="ls-label">Loan Amount</div>
-            <div class="ls-val">GHS <span id="sumAmount">1,000</span></div>
-          </div>
-          <div class="ls-item" style="text-align:right;">
-            <div class="ls-label">Total Repayment</div>
-            <div class="ls-val green">GHS <span id="sumRepay">1,091</span></div>
-          </div>
-        </div>
-        <div class="fgroup">
-          <label class="flabel">Full Name</label>
-          <input type="text" class="finput" id="fullName" placeholder="e.g. Kwame Asante">
-        </div>
-        <div class="fgroup">
-          <label class="flabel">Telecel Phone Number</label>
-          <input type="tel" class="finput" id="appPhone" placeholder="050XXXXXXXX" maxlength="10" inputmode="numeric">
-        </div>
-        <div class="frow">
-          <div class="fgroup">
-            <label class="flabel">Employment Status</label>
-            <select class="finput" id="employment" style="appearance:auto;-webkit-appearance:auto;">
-              <option value="">Select…</option>
-              <option value="Employed">Employed</option>
-              <option value="Self-Employed">Self-Employed</option>
-              <option value="Business Owner">Business Owner</option>
-              <option value="Student">Student</option>
-              <option value="Other">Other</option>
-            </select>
-          </div>
-          <div class="fgroup">
-            <label class="flabel">Monthly Income (GHS)</label>
-            <input type="number" class="finput" id="income" placeholder="e.g. 2000" min="0">
-          </div>
-        </div>
-        <div class="modal-btns">
-          <button class="btn-primary" onclick="goToStep(2)">Review Details →</button>
-        </div>
+      <div class="fgroup">
+        <label class="flabel">Full Name</label>
+        <input type="text" class="finput" placeholder="Your full name" id="appName">
       </div>
-
-      <!-- STEP 2 -->
-      <div id="step2" class="step-content" style="display:none;">
-        <p style="font-family:'Red Hat Display',sans-serif;font-size:16px;font-weight:800;color:var(--dark);margin-bottom:16px;letter-spacing:-0.2px;">Review Your Information</p>
-        <div class="review-box">
-          <div class="review-row"><span class="rr-label">Full Name</span><span class="rr-val" id="revName">—</span></div>
-          <div class="review-row"><span class="rr-label">Phone Number</span><span class="rr-val" id="revPhone">—</span></div>
-          <div class="review-row"><span class="rr-label">Employment</span><span class="rr-val" id="revEmployment">—</span></div>
-          <div class="review-row"><span class="rr-label">Monthly Income</span><span class="rr-val" id="revIncome">—</span></div>
-        </div>
-        <div class="review-box">
-          <div class="review-row"><span class="rr-label">Loan Amount</span><span class="rr-val" id="revAmount">—</span></div>
-          <div class="review-row"><span class="rr-label">Repayment Period</span><span class="rr-val" id="revDays">—</span></div>
-          <div class="review-row"><span class="rr-label">Interest Rate</span><span class="rr-val" id="revRate">—</span></div>
-          <div class="review-row"><span class="rr-label">Total Repayment</span><span class="rr-val" id="revTotal" style="color:var(--green);">—</span></div>
-        </div>
-        <div class="modal-btns">
-          <button class="btn-primary" onclick="goToStep(3)">Confirm &amp; Proceed →</button>
-          <button class="btn-secondary" onclick="goToStep(1)">← Back</button>
-        </div>
+      <div class="fgroup">
+        <label class="flabel">Telecel Number</label>
+        <input type="text" class="finput" placeholder="024 XXXXXXX" id="appPhone">
       </div>
-
-      <!-- STEP 3 -->
-      <div id="step3" class="step-content" style="display:none;">
-        <div class="success-wrap">
-          <div class="success-icon-wrap">✓</div>
-          <div class="success-title">Application Submitted!</div>
-          <div class="success-desc">Your application has been received. You'll be redirected to the verification page to finalise your loan.</div>
-        </div>
-        <div class="review-box" style="margin-top:20px;">
-          <div class="review-row">
-            <span class="rr-label">Amount Borrowed</span>
-            <span class="rr-val">GHS <span id="finalAmt">—</span></span>
-          </div>
-          <div class="review-row">
-            <span class="rr-label">Repayment Amount</span>
-            <span class="rr-val" style="color:var(--green);">GHS <span id="finalRepay">—</span></span>
-          </div>
-        </div>
-        <div class="modal-btns">
-          <button class="btn-primary" onclick="submitApplication()">Go to Verification →</button>
-        </div>
+      <div class="fgroup">
+        <label class="flabel">Monthly Income (GHS)</label>
+        <input type="number" class="finput" placeholder="e.g., 2000" id="appIncome">
       </div>
+      <div class="fgroup">
+        <label class="flabel">Loan Purpose</label>
+        <select class="fselect" id="appPurpose">
+          <option>Select a purpose</option>
+          <option>Business</option>
+          <option>Personal</option>
+          <option>Education</option>
+          <option>Emergency</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <button class="btn-modal-submit" onclick="submitApplication()">Continue Application</button>
     </div>
   </div>
 </div>
 
-<!-- ══ TAWK.TO ══ -->
-<script type="text/javascript">
-var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-(function(){
-var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-s1.async=true;
-s1.src='https://embed.tawk.to/694a65c91f0ade19740a3331/1jd59r7eu';
-s1.charset='UTF-8';
-s1.setAttribute('crossorigin','*');
-s0.parentNode.insertBefore(s1,s0);
-})();
-</script>
-
-<!-- ══ FOOTER ══ -->
-<footer>
-  <div class="footer-inner">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <a href="#" class="footer-brand-logo">
-          <div class="logo-icon" style="background:var(--red);padding:10px 14px;display:flex;align-items:center;justify-content:center;">
-            <svg width="22" height="22" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M48.19 28.6833C40.4333 28.605 34.1983 34.9933 34.2183 42.58C34.2383 50.625 40.9883 56.56 48.0333 56.4317C55.5033 56.5017 61.8867 50.53 61.9517 42.7583C62.02 34.62 55.575 28.76 48.19 28.6833ZM53.7333 38.1633C53.6017 39.2783 52.9467 39.9367 51.93 40.29C51.3683 40.4867 50.7833 40.4917 50.195 40.4917C49.8333 40.49 49.4683 40.46 49.1067 40.5183C48.8467 40.5617 48.7033 40.6917 48.6667 40.97C48.6133 41.3467 48.6917 41.7133 48.6883 42.085C48.6867 43.6083 48.6883 45.135 48.6867 46.6583C48.6867 46.9117 48.7133 47.1617 48.7667 47.4067C48.9833 48.3783 49.7917 48.955 50.7817 48.8333C51.5417 48.7383 52.31 48.7333 53.0733 48.6683C53.3933 48.6417 53.495 48.7833 53.4717 49.1233C53.435 49.6333 53.4383 50.1433 53.47 50.655C53.535 51.715 53.0383 52.4717 52.1333 52.8467C49.6867 53.8583 47.2717 53.835 45.065 52.2417C43.8517 51.3667 43.2033 50.115 43.1333 48.57C43.0467 46.585 43.0117 44.6 42.9517 42.6117C42.8883 40.605 42.9083 38.5967 42.9233 36.59C42.9333 35.2433 43.5583 34.15 44.5517 33.265C45.1033 32.7717 45.7183 32.37 46.3867 32.05C46.9933 31.7583 47.6283 31.6483 48.295 31.6583C48.5333 31.6633 48.6233 31.7533 48.6467 31.9983C48.7117 32.6333 48.68 33.27 48.6933 33.8517C48.6933 34.3667 48.6883 34.8317 48.6933 35.295C48.695 35.6983 48.8383 35.845 49.2467 35.905C49.5283 35.9483 49.8083 35.9117 50.09 35.91C51.06 35.8983 52.0267 35.8983 52.9967 35.905C53.5683 35.9117 53.745 36.0867 53.7283 36.6517C53.7117 37.1567 53.7967 37.655 53.7383 38.1633H53.7333Z" fill="white"/>
-            </svg>
-          </div>
-          <div style="font-family:'Red Hat Display',sans-serif;font-size:20px;font-weight:900;color:white;letter-spacing:-0.5px;margin-left:12px;"><span style="color:white;">Telecel</span><span style="color:#E30613;">Loans</span></div>
-        </a>
-        <div class="footer-divider"></div>
-        <p>Fast, secure, and flexible loans exclusively for Telecel subscribers across Ghana. Licensed and regulated.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Product</h4>
-        <a href="#calculator">Loans Calculator</a>
-        <a href="#benefits">Benefits</a>
-        <a href="#how">How It Works</a>
-        <a href="#faq">FAQ</a>
-      </div>
-      <div class="footer-col">
-        <h4>Company</h4>
-        <a href="#">About Us</a>
-        <a href="#">Contact</a>
-        <a href="#">Blog</a>
-      </div>
-      <div class="footer-col">
-        <h4>Legal &amp; Support</h4>
-        <a href="#">Terms of Service</a>
-        <a href="#">Privacy Policy</a>
-        <a href="#">Loan Agreement</a>
-        <a href="#">Help Center</a>
-        <a href="#">Report Issue</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>© 2026 TelecelLoans. All rights reserved.</p>
-      <div class="footer-badge"><div class="footer-badge-dot"></div> Licensed &amp; regulated by Bank of Ghana</div>
-    </div>
-  </div>
-</footer>
-
 <script>
-  /* ── RATE: 10.9% per month ── */
-  const MONTHLY_RATE = 0.109;
-  let selectedMonths = 1;
+  // Calculator Logic
+  let currentPeriod = 1;
+  const RATE = 0.109; // 10.9% per month
+
+  function updateCalc() {
+    const amount = parseFloat(document.getElementById('loanAmount').value) || 0;
+    const slider = document.getElementById('loanSlider');
+    slider.value = amount;
+
+    const monthlyPayment = amount * (1 + RATE * currentPeriod) / currentPeriod;
+    const totalRepayment = monthlyPayment * currentPeriod;
+
+    document.getElementById('monthlyDisplay').textContent = 'GHS ' + monthlyPayment.toLocaleString('en-US', {maximumFractionDigits: 0});
+    document.getElementById('repayDisplay').textContent = 'GHS ' + totalRepayment.toLocaleString('en-US', {maximumFractionDigits: 0});
+    document.getElementById('rateNote').textContent = currentPeriod + ' month' + (currentPeriod > 1 ? 's' : '');
+  }
 
   function selectPeriod(months) {
-    selectedMonths = months;
-    document.querySelectorAll('.period-btn').forEach(btn => {
-      btn.classList.toggle('active', parseInt(btn.dataset.months) === months);
-    });
+    currentPeriod = months;
+    document.querySelectorAll('.period-btn').forEach(btn => btn.classList.remove('active'));
+    event.target.classList.add('active');
     updateCalc();
   }
 
-  function updateCalc() {
-    const amountInput = document.getElementById('loanAmount');
-    let amount = parseInt(amountInput.value) || 1000;
-    amount = Math.max(1000, Math.min(50000, amount));
-    document.getElementById('loanSlider').value = amount;
-
-    const totalInterest = amount * MONTHLY_RATE * selectedMonths;
-    const total = Math.round(amount + totalInterest);
-    const monthly = Math.round(total / selectedMonths);
-
-    document.getElementById('monthlyDisplay').textContent = 'GHS ' + monthly.toLocaleString();
-    document.getElementById('repayDisplay').textContent = 'GHS ' + total.toLocaleString();
-    document.getElementById('rateNote').textContent = selectedMonths + ' month' + (selectedMonths > 1 ? 's' : '');
-
-    document.getElementById('sumAmount').textContent = amount.toLocaleString();
-    document.getElementById('sumRepay').textContent = total.toLocaleString();
-
-    window.loanData = {
-      amount, months: selectedMonths,
-      rate: MONTHLY_RATE,
-      total,
-      monthly,
-      interest: Math.round(totalInterest)
-    };
+  // FAQ Toggle
+  function toggleFaq(element) {
+    const item = element.parentElement;
+    item.classList.toggle('open');
   }
 
-  /* ── MOBILE NAV ── */
+  // Testimonials Toggle
+  function toggleTestimonials() {
+    const grid = document.getElementById('testimonialsGrid');
+    const btn = document.getElementById('testimonialsToggle');
+    grid.classList.toggle('open');
+    btn.classList.toggle('open');
+  }
+
+  // Mobile Nav Toggle
   function toggleMobileNav() {
-    document.getElementById('mobileNav').classList.toggle('open');
-    document.getElementById('hamburger').classList.toggle('open');
+    const nav = document.getElementById('mobileNav');
+    const hamburger = document.getElementById('hamburger');
+    nav.classList.toggle('open');
+    hamburger.classList.toggle('open');
   }
+
   function closeMobileNav() {
     document.getElementById('mobileNav').classList.remove('open');
     document.getElementById('hamburger').classList.remove('open');
   }
 
-  /* ── LOGIN MODAL ── */
+  // Modal Functions
   function openLoginModal() {
     document.getElementById('loginModal').classList.add('open');
   }
+
   function closeLoginModal() {
     document.getElementById('loginModal').classList.remove('open');
   }
-  function verifyLogin() {
-    const phone = document.getElementById('loginPhone').value.trim();
-    if (!phone || phone.length < 9) {
-      alert('Please enter a valid Telecel number.');
-      return;
-    }
-    document.getElementById('appPhone').value = phone;
-    closeLoginModal();
-    const d = window.loanData || { amount: 1000, months: 1, total: 1091, interest: 91 };
-    const params = new URLSearchParams({
-      phone,
-      amount: d.amount,
-      days: d.months * 30,
-      fee: d.interest,
-      repay: d.total,
-      name: '',
-      employment: '',
-      income: ''
-    });
-    window.location.href = 'verify.html?' + params.toString();
+
+  function openApplicationModal() {
+    document.getElementById('applicationModal').classList.add('open');
   }
 
-  /* ── APPLICATION MODAL ── */
-  function openApplicationModal() {
-    updateCalc();
-    document.getElementById('applicationModal').classList.add('open');
-    goToStep(1);
-  }
   function closeApplicationModal() {
     document.getElementById('applicationModal').classList.remove('open');
   }
-  function goToStep(step) {
-    document.querySelectorAll('.step-content').forEach(s => s.style.display = 'none');
-    document.getElementById('step' + step).style.display = 'block';
-    ['seg1','seg2','seg3'].forEach((id, i) => {
-      document.getElementById(id).classList.toggle('active', i < step);
-    });
-    const subs = ['', 'Step 1 of 3 — Your Details', 'Step 2 of 3 — Review', 'Step 3 of 3 — Confirmation'];
-    document.getElementById('modalSubtitle').textContent = subs[step];
-    if (step === 2) populateReview();
-    if (step === 3) populateFinal();
+
+  function submitLogin() {
+    const phone = document.getElementById('loginPhone').value;
+    const pin = document.getElementById('loginPin').value;
+    if (phone && pin) {
+      alert('Login successful! Redirecting...');
+      closeLoginModal();
+    } else {
+      alert('Please fill in all fields');
+    }
   }
-  function populateReview() {
-    const d = window.loanData;
-    document.getElementById('revName').textContent       = document.getElementById('fullName').value || '—';
-    document.getElementById('revPhone').textContent      = document.getElementById('appPhone').value || '—';
-    document.getElementById('revEmployment').textContent = document.getElementById('employment').value || '—';
-    document.getElementById('revIncome').textContent     = 'GHS ' + (parseInt(document.getElementById('income').value)||0).toLocaleString();
-    document.getElementById('revAmount').textContent     = 'GHS ' + d.amount.toLocaleString();
-    document.getElementById('revDays').textContent       = d.months + ' month' + (d.months > 1 ? 's' : '');
-    document.getElementById('revRate').textContent       = '10.9% per month';
-    document.getElementById('revTotal').textContent      = 'GHS ' + d.total.toLocaleString();
-  }
-  function populateFinal() {
-    const d = window.loanData;
-    document.getElementById('finalAmt').textContent   = d.amount.toLocaleString();
-    document.getElementById('finalRepay').textContent = d.total.toLocaleString();
-  }
+
   function submitApplication() {
-    const d = window.loanData;
-    const name       = document.getElementById('fullName').value;
-    const phone      = document.getElementById('appPhone').value;
-    const employment = document.getElementById('employment').value;
-    const income     = document.getElementById('income').value;
-    const payload = {
-      fullName: name, phone, employment, income,
-      loanAmount: d.amount,
-      repaymentMonths: d.months,
-      interestRate: '10.9%',
-      totalRepayment: d.total,
-      totalInterest: d.interest,
-      timestamp: new Date().toISOString()
-    };
-    sessionStorage.setItem('loanApplicationData', JSON.stringify(payload));
-    const params = new URLSearchParams({
-      phone, amount: d.amount, days: d.months * 30,
-      fee: d.interest, repay: d.total,
-      name, employment, income
-    });
-    window.location.href = 'verify.html?' + params.toString();
+    const name = document.getElementById('appName').value;
+    const phone = document.getElementById('appPhone').value;
+    const income = document.getElementById('appIncome').value;
+    const purpose = document.getElementById('appPurpose').value;
+
+    if (name && phone && income && purpose !== 'Select a purpose') {
+      alert('Application submitted! You will receive a response within 15 minutes.');
+      closeApplicationModal();
+    } else {
+      alert('Please fill in all fields');
+    }
   }
 
-  /* ── FAQ ── */
-  function toggleFaq(el) { el.parentElement.classList.toggle('open'); }
-
-  /* ── TESTIMONIALS ── */
-  function toggleTestimonials() {
-    document.getElementById('testimonialsToggle').classList.toggle('open');
-    document.getElementById('testimonialsGrid').classList.toggle('open');
-  }
-
-  /* ── CLOSE ON BACKDROP ── */
-  document.getElementById('loginModal').addEventListener('click', function(e) {
-    if (e.target === this) closeLoginModal();
-  });
-  document.getElementById('applicationModal').addEventListener('click', function(e) {
-    if (e.target === this) closeApplicationModal();
-  });
-
-  /* ── INIT ── */
+  // Initialize
   updateCalc();
 </script>
+
 </body>
 </html>
