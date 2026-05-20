@@ -225,7 +225,7 @@
     }
 
     /* ══════════════════════════════════
-       HERO — RED BACKGROUND (TELECEL STYLE)
+       HERO — RED BACKGROUND
     ══════════════════════════════════ */
     .hero {
       background: var(--red);
@@ -233,16 +233,6 @@
       position: relative;
       overflow: hidden;
     }
-    /* Subtle top accent */
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 2px;
-      background: rgba(255,255,255,0.2);
-      z-index: 2;
-    }
-    /* Subtle diagonal pattern */
     .hero::after {
       content: '';
       position: absolute;
@@ -266,17 +256,16 @@
       z-index: 1;
     }
 
-    /* Hero top banner */
     .hero-banner {
       padding: 80px 0 64px;
       text-align: center;
-      border-bottom: 1px solid rgba(255,255,255,0.07);
+      border-bottom: 1px solid rgba(255,255,255,0.15);
     }
     .hero-badge {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: var(--red);
+      background: rgba(255,255,255,0.25);
       color: white;
       font-size: 11px;
       font-weight: 700;
@@ -302,72 +291,22 @@
       letter-spacing: -2px;
       margin-bottom: 20px;
     }
-    .hero-title .line-red { color: var(--red); display: block; }
+    .hero-title .line-red { color: rgba(255,255,255,0.95); display: block; }
     .hero-desc {
       font-size: 17px;
-      color: rgba(255,255,255,0.6);
+      color: rgba(255,255,255,0.9);
       max-width: 540px;
       margin: 0 auto;
       line-height: 1.75;
       font-weight: 400;
     }
 
-    /* Hero two-col content */
     .hero-content {
       display: grid;
-      grid-template-columns: 1fr 1.1fr;
+      grid-template-columns: 1fr;
       gap: 64px;
       align-items: start;
       padding: 64px 0 80px;
-    }
-    .hero-left {}
-    .hero-left-eyebrow {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 2.5px;
-      text-transform: uppercase;
-      color: var(--red);
-      margin-bottom: 14px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .hero-left-eyebrow::before {
-      content: '';
-      display: block;
-      width: 24px; height: 2px;
-      background: var(--red);
-    }
-    .hero-left-title {
-      font-family: 'Red Hat Display', sans-serif;
-      font-size: 30px;
-      font-weight: 800;
-      color: var(--white);
-      letter-spacing: -0.5px;
-      margin-bottom: 32px;
-      line-height: 1.25;
-    }
-
-    .check-list { list-style: none; display: flex; flex-direction: column; gap: 0; }
-    .check-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 0;
-      font-size: 14.5px;
-      color: rgba(255,255,255,0.75);
-      font-weight: 500;
-      padding: 14px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.07);
-    }
-    .check-list li:last-child { border-bottom: none; }
-    .check-icon {
-      width: 4px;
-      height: 100%;
-      min-height: 22px;
-      background: var(--red);
-      flex-shrink: 0;
-      margin-right: 16px;
-      margin-top: 1px;
     }
 
     /* ══════════════════════════════════
@@ -380,6 +319,7 @@
       box-shadow: 0 20px 80px rgba(0,0,0,0.5);
       overflow: hidden;
       border-top: 4px solid var(--red);
+      max-width: 100%;
     }
     .calc-card-header {
       background: var(--red);
@@ -403,7 +343,7 @@
       color: var(--white);
       letter-spacing: -0.2px;
     }
-    .calc-card-sub { font-size: 12px; color: rgba(255,255,255,0.45); margin-top: 2px; letter-spacing: 0.3px; }
+    .calc-card-sub { font-size: 12px; color: rgba(255,255,255,0.75); margin-top: 2px; letter-spacing: 0.3px; }
 
     .calc-body { padding: 28px; }
 
@@ -488,7 +428,6 @@
       letter-spacing:0.3px;
     }
 
-    /* Period selector */
     .period-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -515,7 +454,6 @@
       color: white;
     }
 
-    /* Result panels */
     .calc-results {
       background: var(--red);
       padding: 22px 24px;
@@ -721,7 +659,7 @@
     .step-desc { font-size: 14px; color: var(--grey); line-height: 1.7; }
 
     /* ══════════════════════════════════
-       PRODUCT CARDS — Dark style
+       BENEFITS — DARK CARDS
     ══════════════════════════════════ */
     .benefits { background: var(--white); padding: 88px 0; }
     .benefits-grid {
@@ -964,38 +902,37 @@
       font-family: 'Red Hat Text', sans-serif;
       outline: none;
       transition: border-color var(--transition);
-      background: var(--off-white);
     }
     .finput:focus {
       border-color: var(--red);
-      background: white;
+      background: rgba(227,6,19,0.02);
     }
-    .frow { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 
     .loan-summary {
-      background: var(--black);
-      border-left: 4px solid var(--red);
-      padding: 16px 20px;
       display: flex;
       justify-content: space-between;
-      margin-bottom: 24px;
+      gap: 16px;
+      background: var(--off-white);
+      padding: 16px;
+      margin-bottom: 20px;
     }
-    .ls-item { display: flex; flex-direction: column; gap: 5px; }
-    .ls-label { font-size: 10px; font-weight: 700; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 1.5px; }
-    .ls-val { font-family: 'Red Hat Display', sans-serif; font-size: 18px; font-weight: 900; color: white; }
-    .ls-val.green { color: #4ADE80; }
+    .ls-item { display: flex; flex-direction: column; gap: 4px; }
+    .ls-label { font-size: 11px; font-weight: 700; color: var(--grey); text-transform: uppercase; letter-spacing: 0.5px; }
+    .ls-val { font-family: 'Red Hat Display', sans-serif; font-size: 20px; font-weight: 900; color: var(--dark); }
+    .ls-val.green { color: var(--green); }
+
+    .frow { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 
     .review-box {
       background: var(--off-white);
-      margin-bottom: 14px;
+      padding: 16px;
+      margin-bottom: 20px;
     }
     .review-row {
       display: flex;
       justify-content: space-between;
-      align-items: center;
-      padding: 12px 16px;
-      border-bottom: 1px solid var(--grey-light);
-      font-size: 14px;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
     }
     .review-row:last-child { border-bottom: none; }
     .rr-label { color: var(--grey); font-weight: 500; }
@@ -1165,7 +1102,6 @@
       .footer-bottom { flex-direction: column; text-align: center; }
       .period-grid { grid-template-columns: repeat(2, 1fr); }
       .stats-grid { grid-template-columns: repeat(2, 1fr); }
-      .hero-left-title { font-size: 24px; }
     }
   </style>
 </head>
@@ -1227,29 +1163,13 @@
 <!-- ══ HERO ══ -->
 <section class="hero" id="home">
   <div class="hero-inner">
-    <!-- Hero banner -->
     <div class="hero-banner">
       <div class="hero-badge"><span class="dot"></span> Telecel Subscribers Only</div>
       <h1 class="hero-title">Get Your Loan in<span class="line-red">15 Minutes.</span></h1>
       <p class="hero-desc">Fast approval, flexible terms from 1 to 6 months, and transparent rates. No hidden fees — just the funds you need, when you need them.</p>
     </div>
 
-    <!-- Hero two-col -->
     <div class="hero-content" id="calculator">
-      <div class="hero-left">
-        <div class="hero-left-eyebrow">Why TelecelLoans</div>
-        <h2 class="hero-left-title">Built for Telecel subscribers across Ghana</h2>
-        <ul class="check-list">
-          <li><div class="check-icon"></div>Instant approval in 15 minutes</li>
-          <li><div class="check-icon"></div>Borrow GHS 1,000 – GHS 50,000</li>
-          <li><div class="check-icon"></div>Flexible repayment terms (1–6 months)</li>
-          <li><div class="check-icon"></div>Transparent interest at 10.9% — zero hidden fees</li>
-          <li><div class="check-icon"></div>Secured &amp; encrypted transfers</li>
-          <li><div class="check-icon"></div>Exclusive to Telecel subscribers</li>
-        </ul>
-      </div>
-
-      <!-- CALCULATOR -->
       <div class="calc-card">
         <div class="calc-card-header">
           <div class="calc-card-icon">
@@ -1262,7 +1182,6 @@
         </div>
 
         <div class="calc-body">
-          <!-- Amount -->
           <div class="calc-field">
             <label class="calc-label">Loan Amount</label>
             <div class="calc-input-wrap">
@@ -1276,7 +1195,6 @@
             </div>
           </div>
 
-          <!-- Period -->
           <div class="calc-field">
             <label class="calc-label">Repayment Period</label>
             <div class="period-grid" id="periodGrid">
@@ -1289,7 +1207,6 @@
             </div>
           </div>
 
-          <!-- Results -->
           <div class="calc-results">
             <div class="calc-results-row">
               <div class="result-item">
@@ -1478,7 +1395,7 @@
       <div class="t-card">
         <div class="t-stars">★★★★★</div>
         <p class="t-text">"TelecelLoans helped me expand my shop stock. The flexible repayment terms made it so easy to manage without stress."</p>
-        <div class="t-author">Kofi Mensah</div>
+        <div class="t-author">Yaw Mensah</div>
         <div class="t-role">Trader, Takoradi</div>
       </div>
     </div>
@@ -1487,7 +1404,7 @@
 
 <!-- ══ LOGIN MODAL ══ -->
 <div class="modal-overlay" id="loginModal">
-  <div class="modal-box" style="max-width:420px;">
+  <div class="modal-box">
     <div class="modal-head">
       <div class="modal-head-left">
         <div class="modal-logo">
@@ -1496,8 +1413,8 @@
           </svg>
         </div>
         <div class="modal-head-text">
-          <h2><span style="color:white;">Telecel</span><span style="color:#E30613;">Loans</span></h2>
-          <div class="mh-sub">Enter your Telecel number to continue</div>
+          <h2>Login</h2>
+          <div class="mh-sub">Access your account</div>
         </div>
       </div>
       <button class="modal-close" onclick="closeLoginModal()">✕</button>
@@ -1525,7 +1442,7 @@
           </svg>
         </div>
         <div class="modal-head-text">
-          <h2 id="modalTitle"><span style="color:white;">Telecel</span><span style="color:#E30613;">Loans</span></h2>
+          <h2><span style="color:white;">Telecel</span><span style="color:#E30613;">Loans</span></h2>
           <div class="mh-sub" id="modalSubtitle">Step 1 of 3 — Your Details</div>
         </div>
       </div>
@@ -1777,8 +1694,8 @@ s0.parentNode.insertBefore(s1,s0);
     ['seg1','seg2','seg3'].forEach((id, i) => {
       document.getElementById(id).classList.toggle('active', i < step);
     });
-    const subs = ['', 'Step 1 of 3 — Your Details', 'Step 2 of 3 — Review', 'Step 3 of 3 — Confirmation'];
-    document.getElementById('modalSubtitle').textContent = subs[step];
+    const subs = ['Step 1 of 3 — Your Details', 'Step 2 of 3 — Review Information', 'Step 3 of 3 — Confirmation'];
+    document.getElementById('modalSubtitle').textContent = subs[step - 1];
     if (step === 2) populateReview();
     if (step === 3) populateFinal();
   }
